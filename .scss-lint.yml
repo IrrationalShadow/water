@@ -1,0 +1,141 @@
+# Water SCSS lint config
+
+linters:
+
+  # Continue to build // Layout and // Appearance blocks
+  DeclarationOrder:
+    enabled: false
+
+  EmptyLineBetweenBlocks:
+    enabled: true
+    ignore_single_line_blocks: false
+
+  ImportantRule:
+    enabled: false
+
+  Indentation:
+    enabled: true
+    allow_non_nested_indentation: true
+    character: space # or 'tab'
+    width: 4
+
+  LeadingZero:
+    enabled: true
+    style: include_zero # or 'exclude_zero'
+
+  NameFormat:
+    enabled: false
+    convention: hyphenated_lowercase # or 'BEM', or a regex pattern
+
+  NestingDepth:
+    enabled: true
+    max_depth: 3
+
+  PropertyCount:
+    enabled: false
+
+  PropertySortOrder:
+    enabled: true
+    order:
+      - display
+      - position
+      - top
+      - right
+      - bottom
+      - left
+      - z-index
+      - float
+      - clear
+      - overflow
+      - width
+      - min-width
+      - max-width
+      - height
+      - min-height
+      - max-height
+      - margin
+      - margin-top
+      - margin-right
+      - margin-bottom
+      - margin-left
+      - padding
+      - padding-top
+      - padding-right
+      - padding-bottom
+      - padding-left
+      -
+      - opacity
+      - visibility
+      - vertical-align
+      - content
+      - quotes
+      - font
+      - font-family
+      - font-size
+      - font-weight
+      - font-smoothing
+      - font-style
+      - list-style
+      - text-align
+      - text-indent
+      - text-transform
+      - text-decoration
+      - text-rendering
+      - text-shadow
+      - text-overflow
+      - line-height
+      - word-spacing
+      - letter-spacing
+      - white-space
+      - color
+      - background
+      - background-color
+      - background-image
+      - background-repeat
+      - background-position
+      - background-size
+      - border
+      - border-top
+      - border-right
+      - border-bottom
+      - border-left
+      - border-width
+      - border-top-width
+      - border-right-width
+      - border-bottom-width
+      - border-left-width
+      - border-style
+      - border-top-style
+      - border-right-style
+      - border-bottom-style
+      - border-left-style
+      - border-color
+      - border-top-color
+      - border-right-color
+      - border-bottom-color
+      - border-left-color
+      - border-radius
+      - border-top-left-radius
+      - border-top-right-radius
+      - border-bottom-left-radius
+      - border-bottom-right-radius
+      - box-shadow
+      -
+      - transform
+      - transition
+      - animation
+
+    ignore_unspecified: true
+    separate_groups: true
+
+  SelectorDepth:
+    enabled: true
+    max_depth: 3
+
+  SelectorFormat:
+    enabled: true
+    convention: ^[a-z][a-z0-9]*([A-Z0-9][a-z0-9]*)*((\.is-|-+)[a-z0-9][a-z0-9]*([A-Z0-9][a-z0-9]*)*)*$
+
+  StringQuotes:
+    enabled: true
+    style: double_quotes # or single_quotes

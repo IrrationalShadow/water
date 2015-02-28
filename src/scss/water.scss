@@ -1,0 +1,79 @@
+// =============================================================================
+// WATER SCSS
+// =============================================================================
+//
+// Be water, my friend.
+// A set of tools and methodologies for constructing your HTML & CSS that
+// adapts and flows into any project.
+//
+// -----------------------------------------------------------------------------
+
+
+// BOWER
+// -----------------------------------------------------------------------------
+//
+// Import 3rd party files. Let's not completely re-invent the wheel...
+// Learn and adopt what others have done and use it to your advantage.
+// Make use of as many pieces of awesome code as possible.
+//
+// -----------------------------------------------------------------------------
+
+@import "vendor/normalize.css/normalize.css";
+
+
+// TOOLS
+// -----------------------------------------------------------------------------
+//
+// Let's get a bunch of very handy tools together.
+// Variables, Mixins and Maps.
+//
+// -----------------------------------------------------------------------------
+
+// @import "tools/imports";
+
+
+// UTILITIES
+// -----------------------------------------------------------------------------
+//
+// Throw in a utility belt fitted with OOCSS methodology from Nicole Sullivan.
+// OOCSS re-usable classes, inspired by Nicholas Gallagher.
+// Very helpful when prototying, or when employing a strict use of OOCSS.
+//
+// -----------------------------------------------------------------------------
+
+// @import "utilities/imports";
+
+
+// COMPONENTS
+// -----------------------------------------------------------------------------
+//
+// The core components, ready to assemble any project.
+// Variables, Mixins and Classes.
+//
+// -----------------------------------------------------------------------------
+
+// @import "components/imports";
+
+
+// PATTERNS
+// -----------------------------------------------------------------------------
+//
+// Complex, larger components, or grouped components.
+// Patterns will be constructed by you, on your projects level.
+// Built by combining any of the above tools, utilities or components.
+//
+// -----------------------------------------------------------------------------
+
+// @import "patterns/imports";
+
+
+// LAYOUTS
+// -----------------------------------------------------------------------------
+//
+// Construct your page layouts nicely, and separately from the rest of your
+// website or app. This is strictly for constructing page layouts. It should not
+// contain any code related to components or patterns.
+//
+// -----------------------------------------------------------------------------
+
+// @import "patterns/imports";
