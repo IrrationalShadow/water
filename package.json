@@ -1,0 +1,19 @@
+{
+  "name": "water",
+  "version": "1.0.0",
+  "description": "Empty your mind, be formless, shapeless - like water.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indominus/water.git"
+  },
+  "author": "Chris Roper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/indominus/water/issues"
+  },
+  "homepage": "https://github.com/indominus/water#readme"
+}
