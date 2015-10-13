@@ -1,10 +1,15 @@
 var gulp         = require('gulp');
+var rename       = require('gulp-rename');
 var cache        = require('gulp-cached');
-var runSequence  = require('run-sequence');
-var browserSync  = require('browser-sync');
+var filesize     = require('gulp-filesize');
 var scss         = require('gulp-sass');
 var scssLint     = require('gulp-scss-lint');
 var cssOptimise  = require('gulp-csso');
+var bump         = require('gulp-bump');
+var git          = require('gulp-git');
+var runSequence  = require('run-sequence');
+var browserSync  = require('browser-sync');
+var gutil        = require('gulp-util');
 var del          = require('del');
 
 /**
@@ -55,7 +60,11 @@ gulp.task('css:clean', function () {
 gulp.task('css:optimise', function () {
     return gulp.src('build/css/*.css')
         .pipe(cssOptimise())
+        .pipe(rename(function (path) {
+            path.basename += ".min";
+        }))
         .pipe(gulp.dest('dist/css'))
+        .pipe(filesize())
 });
 
 /**
@@ -98,11 +107,30 @@ gulp.task('water', function (callback) {
 });
 
 // Deploy the css and html
-gulp.task('deploy', function (callback) {
+gulp.task('deploy:water', function (callback) {
     runSequence(
         'build',
         'css:clean',
         'css:optimise',
         callback
     );
+});
+
+// Bump versions of package files in semver
+gulp.task('bump', function(){
+    gulp.src('./package.json')
+        .pipe(bump())
+        .pipe(gulp.dest('./'));
+});
+
+gulp.task('tag', function () {
+    var pkg = require('./package.json');
+    var v = 'v' + pkg.version;
+    var message = 'Tagged and released version ' + v;
+
+    return gulp.src('./')
+        .pipe(git.commit(message))
+        .pipe(git.tag(v, message))
+        .pipe(git.push('origin', 'master', '--tags'))
+        .pipe(gulp.dest('./'));
 });
