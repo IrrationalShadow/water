@@ -1,0 +1,16 @@
+// =============================================================================
+// DISPLAY UTILITIES (Output)
+// =============================================================================
+
+
+.is-visible {
+    @include display("block", !important);
+}
+
+.is-hidden {
+    @include hidden("fully", !important);
+}
+
+.is-hiddenVisually {
+    @include hidden("visually", !important);
+}

@@ -1,0 +1,61 @@
+# Water SCSS lint config
+
+linters:
+
+  ColorVariable:
+    enabled: false
+
+  DeclarationOrder:
+    enabled: false
+
+  ElsePlacement:
+    style: new_line
+
+  EmptyLineBetweenBlocks:
+    enabled: true
+    ignore_single_line_blocks: false
+
+  ImportantRule:
+    enabled: false
+
+  Indentation:
+    enabled: true
+    allow_non_nested_indentation: true
+    character: space # or 'tab'
+    width: 4
+
+  LeadingZero:
+    enabled: true
+    style: include_zero # or 'exclude_zero'
+
+  NameFormat:
+    enabled: false
+    convention: hyphenated_lowercase # or 'BEM', or a regex pattern
+
+  NestingDepth:
+    enabled: true
+    max_depth: 4
+
+  MergeableSelector:
+    force_nesting: false
+
+  PropertyCount:
+    enabled: false
+
+  PropertySortOrder:
+    enabled: false
+
+    ignore_unspecified: true
+    separate_groups: true
+
+  SelectorDepth:
+    enabled: true
+    max_depth: 3
+
+  SelectorFormat:
+    enabled: true
+    convention: ^[a-z][a-z0-9]*([A-Z0-9][a-z0-9]*)*((\.is-|-+)[a-z0-9][a-z0-9]*([A-Z0-9][a-z0-9]*)*)*$
+
+  StringQuotes:
+    enabled: true
+    style: double_quotes # or single_quotes

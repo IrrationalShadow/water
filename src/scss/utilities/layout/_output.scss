@@ -1,0 +1,33 @@
+// =============================================================================
+// LAYOUT UTILITIES (Output)
+// =============================================================================
+
+
+// Width Utilities
+// -----------------------------------------------------------------------------
+
+.u-layoutWidth {
+    // Layout
+    width: layout("width") !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+
+.u-layoutWidth--full {
+    // Layout
+    width: 100% !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    // Appearance
+    border-right: 0 !important;
+    border-left: 0 !important;
+}
+
+.u-layoutWidth--max {
+    // Layout
+    width: layout("width") !important;
+    max-width: layout("width", "max") !important;
+    margin: auto !important;
+}

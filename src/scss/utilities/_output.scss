@@ -1,0 +1,55 @@
+// =============================================================================
+// UTILITY (Output)
+// =============================================================================
+//
+// Include the output classes and styles from each utility.
+// Control which classes get outputted via the config file's variables,
+// leaving this file completely untouched.
+//
+// -----------------------------------------------------------------------------
+
+
+// Animations
+@if $output--animations {
+    @import "animations/output";
+}
+
+// Colors
+@if $output--colors {
+    @import "colors/output";
+}
+
+// Display
+@if $output--display {
+    @import "display/output";
+}
+
+// Float
+@if $output--float {
+    @import "float/output";
+}
+
+// Layout
+@if $output--layout {
+    @import "layout/output";
+}
+
+// Lists
+@if $output--lists {
+    @import "lists/output";
+}
+
+// Position
+@if $output--position {
+    @import "position/output";
+}
+
+// Typography
+@if $output--text {
+    @import "text/output";
+}
+
+// Vertical alignment
+@if $output--valign {
+    @import "valign/output";
+}

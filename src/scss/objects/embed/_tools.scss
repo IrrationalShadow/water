@@ -1,0 +1,46 @@
+// =============================================================================
+// EMBED (Tools)
+// =============================================================================
+
+
+@mixin embed($ratio: "all", $marginBottom: $embedMedia--marginBottom) {
+    // Layout
+    display: block;
+    position: relative;
+    height: 0;
+    padding: 0;
+    margin-bottom: $marginBottom;
+    overflow: hidden;
+
+
+    // Embed modifiers
+    // -------------------------------------------------------------------------
+
+    @if $ratio == "16x9" or $ratio == "all" {
+        &--16x9 {
+            padding-bottom: $embedMedia--16x9--paddingBottom;
+        }
+    }
+
+    @if $ratio == "4x3" or $ratio == "all" {
+        &--4x3 {
+            padding-bottom: $embedMedia--4x3--paddingBottom;
+        }
+    }
+
+
+    // Embed item (video, object, etc.)
+    // -------------------------------------------------------------------------
+
+    &-item {
+        // Layout
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // Appearance
+        border: 0;
+    }
+}

@@ -1,0 +1,162 @@
+// =============================================================================
+// TYPOGRAPHY (Config)
+// =============================================================================
+
+
+// Body <body>
+// -----------------------------------------------------------------------------
+
+$body--fontFamily:              fontFamily("sans");
+$body--fontWeight:              null;
+$body--lineHeight:              $lineHeight--base;
+$body--textKerning:             true;
+
+
+// Text selection
+// -----------------------------------------------------------------------------
+
+$selection--color:              material("pink", 500);
+$selection--background:         material("purple", 500);
+
+// Anchors <a>
+// -----------------------------------------------------------------------------
+
+$anchor--color:                 material("blue");
+$anchor--colorHover:            material("blue", 700);
+$anchor--colorActive:           material("blue", 900);
+$anchor--textDecoration:        none;
+$anchor--textDecorationHover:   null;
+$anchor--textDecorationActive:  null;
+
+
+// Styles <em> <strong> <small>
+// -----------------------------------------------------------------------------
+
+$text--emphasis:                italic;
+$text--strong:                  fontWeight("semibold");
+$text--small:                   fontSize("tiny");
+
+
+// Headings <h1> to <h6>
+// -----------------------------------------------------------------------------
+//
+// 1) If all of your headings use the same font-family, declare it here and set
+//    the individual heading level font-family vars to null.
+//
+// -----------------------------------------------------------------------------
+
+$heading--marginTop:            spacing("double");
+$heading--marginBottom:         spacing("single");
+$heading--fontFamily:           fontFamily("sans"); // 1
+$heading--fontWeight:           fontWeight("semibold"); // 1
+
+$h1--fontFamily:                null;
+$h1--fontSize:                  fontSize("largest");
+$h1--fontWeight:                null;
+$h1--lineHeight:                44px;
+$h1--textTransform:             null;
+
+$h2--fontFamily:                null;
+$h2--fontSize:                  fontSize("larger");
+$h2--fontWeight:                null;
+$h2--lineHeight:                33px;
+$h2--textTransform:             null;
+
+$h3--fontFamily:                null;
+$h3--fontSize:                  fontSize("large");
+$h3--fontWeight:                null;
+$h3--lineHeight:                33px;
+$h3--textTransform:             null;
+
+$h4--fontFamily:                null;
+$h4--fontSize:                  fontSize("small");
+$h4--fontWeight:                null;
+$h4--lineHeight:                22px;
+$h4--textTransform:             null;
+
+$h5--fontFamily:                null;
+$h5--fontSize:                  fontSize("base");
+$h5--fontWeight:                null;
+$h5--lineHeight:                22px;
+$h5--textTransform:             null;
+
+$h6--fontFamily:                null;
+$h6--fontSize:                  fontSize("base");
+$h6--fontWeight:                null;
+$h6--lineHeight:                22px;
+$h6--textTransform:             null;
+
+
+// Paragraphs <p>
+// -----------------------------------------------------------------------------
+
+$paragraph--marginBottom:       spacing("single");
+$paragraph--letterSpacing:      0.01em;
+
+
+// Lists <ul> <ol> <dl>
+// -----------------------------------------------------------------------------
+
+$list--marginBottom:            spacing("single");
+$list--marginLeft:              spacing("single");
+$list--nestedMarginBottom:      null;
+
+$list--dt--fontWeight:          fontWeight("bold");
+$list--dt-dd--marginBottom:     spacing("half");
+
+
+// Blockquote <blockquote>
+// -----------------------------------------------------------------------------
+
+$blockquote--marginBottom:      spacing("single");
+$blockquote--padding:           6px spacing("single") 5px;
+$blockquote--color:             material("grey", 700);
+$blockquote--border:            spacing("eighth") solid material("grey", 700);
+$blockquote--cite--fontSize:    fontSize("smallest");
+$blockquote--cite--color:       material("grey", 300);
+
+
+// Horizontal rule <hr>
+// -----------------------------------------------------------------------------
+
+$hr--borderWidth:               1px;
+$hr--borderStyle:               solid material("grey", 300);
+$hr--marginTop:                 spacing("single");
+$hr--marginBottom:              spacing("single") - remCalc($hr--borderWidth);
+
+
+// Abbreviations <abbr> & <acronym>
+// -----------------------------------------------------------------------------
+
+$acronym--fontSize:             fontSize("smallest");
+$acronym--borderBottom:         1px dotted material("grey", 300);
+$acronym--color:                material("grey", 700);
+$acronym--cursor:               help;
+$acronym--textTransform:        uppercase;
+
+
+// Code blocks <code>
+// -----------------------------------------------------------------------------
+
+$code--padding:                 spacing("single");
+$code--fontFamily:              fontFamily("mono");
+$code--fontSize:                1rem;
+$code--fontWeight:              null;
+$code--color:                   material("grey", 500);
+$code--backgroundColor:         material("grey", 100);
+$code--border:                  1px solid material("grey", A100);
+
+
+// Mark <mark>
+// -----------------------------------------------------------------------------
+
+$mark--background:              #ff0;
+$mark--color:                   #000;
+
+
+// Text adjustments <sub> & <sup>
+// -----------------------------------------------------------------------------
+
+$subSup--fontSize:              fontSize("tiny");
+$sup--top:                      -0.5em;
+$sub--bottom:                   -0.25em;

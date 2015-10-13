@@ -1,0 +1,80 @@
+// =============================================================================
+// GRID (Output)
+// =============================================================================
+
+
+// Grid container
+// -----------------------------------------------------------------------------
+//
+// The containing class for your grid columns.
+//
+// -----------------------------------------------------------------------------
+
+.o-grid {
+    @include o-grid(
+        $wrap: "wrap"
+    );
+}
+
+
+// Grid columns
+// -----------------------------------------------------------------------------
+//
+// Columns must sit inside a .o-grid container.
+//
+// 1) This class must be used alongside one of the modifier classes below.
+//    It sets the structure for the column.
+//
+// -----------------------------------------------------------------------------
+
+.o-grid-block { // 1
+    @include o-grid-block;
+}
+
+.o-grid-block--12 {
+    width: grid("12/12");
+}
+
+.o-grid-block--11 {
+    width: grid("11/12");
+}
+
+.o-grid-block--10 {
+    width: grid("10/12");
+}
+
+.o-grid-block--9 {
+    width: grid("9/12");
+}
+
+.o-grid-block--8 {
+    width: grid("8/12");
+}
+
+.o-grid-block--7 {
+    width: grid("7/12");
+}
+
+.o-grid-block--6 {
+    width: grid("6/12");
+}
+
+.o-grid-block--5 {
+    width: grid("5/12");
+}
+
+.o-grid-block--4 {
+    width: grid("4/12");
+}
+
+.o-grid-block--3 {
+    width: grid("3/12");
+}
+
+.o-grid-block--2 {
+    width: grid("2/12");
+}
+
+.o-grid-block--1 {
+    width: grid("1/12");
+}

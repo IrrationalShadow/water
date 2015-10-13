@@ -1,0 +1,20 @@
+// =============================================================================
+// LIST UTILITIES (Output)
+// =============================================================================
+
+
+.u-listNoBullets {
+    @include listBullets("none", !important);
+}
+
+.u-listDiscBullets {
+    @include listBullets("disc", !important);
+}
+
+.u-listCircleBullets {
+    @include listBullets("circle", !important);
+}
+
+.u-listSquareBullets {
+    @include listBullets("square", !important);
+}

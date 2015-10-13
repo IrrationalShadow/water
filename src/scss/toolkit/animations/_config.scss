@@ -1,0 +1,21 @@
+// =============================================================================
+// ANIMATIONS (Config)
+// =============================================================================
+
+
+// Animation speed scale
+// -----------------------------------------------------------------------------
+
+$animationSpeed--fastest:       0.2s !default;
+$animationSpeed--faster:        0.3s !default;
+$animationSpeed--fast:          0.5s !default;
+$animationSpeed--slow:          0.75s !default;
+$animationSpeed--slower:        1s !default;
+$animationSpeed--slowest:       1.5s !default;
+
+
+// Animation curves
+// -----------------------------------------------------------------------------
+
+$animation--swiftOut:           cubic-bezier(0.55, 0, 0.1, 1) !default; // Material ease
+$animation--ease:               cubic-bezier(0.215, 0.61, 0.355, 1) !default;

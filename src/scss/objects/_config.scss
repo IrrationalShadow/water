@@ -1,0 +1,18 @@
+// =============================================================================
+// OBJECTS (Config)
+// =============================================================================
+
+
+// Object output
+// -----------------------------------------------------------------------------
+//
+// Control which objects have their classes compiled by changing the variable
+// to true/false.
+//
+// -----------------------------------------------------------------------------
+
+$output--dropdown:                  true !default;
+$output--embed:                     true !default;
+$output--grid:                      true !default;
+$output--list:                      true !default;
+$output--media:                     true !default;

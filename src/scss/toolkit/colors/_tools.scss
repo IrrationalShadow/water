@@ -1,0 +1,106 @@
+// =============================================================================
+// COLORS (Tools)
+// =============================================================================
+
+
+// Color Map
+// -----------------------------------------------------------------------------
+
+$colorMap: (
+
+    // Brand colors
+
+    primary: (
+        base:                   $color--primary,
+        dark:                   $color--primaryDark,
+        light:                  $color--primaryLight
+    ),
+
+    secondary: (
+        base:                   $color--secondary,
+        dark:                   $color--secondaryDark,
+        light:                  $color--secondaryLight
+    ),
+
+    tertiary: (
+        base:                   $color--tertiary,
+        dark:                   $color--tertiaryDark,
+        light:                  $color--tertiaryLight
+    ),
+
+
+    // Base colors
+
+    blacks: (
+        base:                   $color--black
+    ),
+
+    whites: (
+        base:                   $color--white
+    ),
+
+    greys: (
+        base:                   $color--grey,
+        darkest:                $color--greyDarkest,
+        darker:                 $color--greyDarker,
+        dark:                   $color--greyDark,
+        light:                  $color--greyLight,
+        lighter:                $color--greyLighter,
+        lightest:               $color--greyLightest
+    ),
+
+
+    // State colors
+
+    success: (
+        base:                   $color--success,
+        dark:                   $color--successDark,
+        light:                  $color--successLight
+    ),
+
+    alert: (
+        base:                   $color--alert,
+        dark:                   $color--alertDark,
+        light:                  $color--alertLight
+    ),
+
+    warning: (
+        base:                   $color--warning,
+        dark:                   $color--warningDark,
+        light:                  $color--warningLight
+    )
+);
+
+
+// Color map function
+// -----------------------------------------------------------------------------
+
+@function color($color, $variant: "base") {
+    @return map-get(map-get($colorMap, $color), $variant);
+
+    @warn "Unknown color `#{$color}` in $colorMap.";
+    @return null
+}
+
+
+// Color string renaming
+// -----------------------------------------------------------------------------
+//
+// 1. Take the keys from the color map, and convert them into camelCased strings
+//    to build automated utility classes.
+//
+// -----------------------------------------------------------------------------
+
+@function colorClassName($color, $variant) { // 1
+    $colorFirstLetter: to-upper-case(str-slice($color, 0, 1));
+    $variantFirstLetter: to-upper-case(str-slice($variant, 0, 1));
+    $colorStr: $colorFirstLetter + str-slice($color, 2);
+    $variantStr: "";
+
+    @if $variant != "base" {
+        $variantStr: $variantFirstLetter + str-slice($variant, 2);
+    }
+
+    $className: $colorStr + $variantStr;
+    @return $className;
+}

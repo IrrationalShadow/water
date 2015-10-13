@@ -1,0 +1,55 @@
+// =============================================================================
+// LISTS (Tools)
+// =============================================================================
+
+
+// List mixins
+// -----------------------------------------------------------------------------
+
+@mixin listBullets($style, $important: null) {
+
+    @if $style == "none" {
+        // Layout
+        margin-left: 0 $important;
+        // Appearance
+        list-style: none $important;
+
+        ul,
+        ol {
+            // Layout
+            margin-bottom: 0 $important;
+            // Appearance
+            list-style: none $important;
+        }
+    }
+
+    @if $style == "disc" {
+        // Appearance
+        list-style-type: disc $important;
+
+        ul {
+            // Appearance
+            list-style: inherit $important;
+        }
+    }
+
+    @if $style == "circle" {
+        // Appearance
+        list-style-type: circle $important;
+
+        ul {
+            // Appearance
+            list-style: inherit $important;
+        }
+    }
+
+    @if $style == "square" {
+        // Appearance
+        list-style-type: square $important;
+
+        ul {
+            // Appearance
+            list-style: inherit $important;
+        }
+    }
+}

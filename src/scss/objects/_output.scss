@@ -1,0 +1,59 @@
+// =============================================================================
+// OBJECTS (Output)
+// =============================================================================
+//
+// Include the output classes and styles from each object.
+// Control which classes get outputted via the config file's variables, leaving
+// this file completely untouched.
+//
+// -----------------------------------------------------------------------------
+
+
+// Dropdown
+// -----------------------------------------------------------------------------
+
+@import "dropdown/config";
+@import "dropdown/tools";
+@if $output--dropdown {
+    @import "dropdown/output";
+}
+
+
+// Embed
+// -----------------------------------------------------------------------------
+
+@import "embed/config";
+@import "embed/tools";
+@if $output--embed {
+    @import "embed/output";
+}
+
+
+// Grid
+// -----------------------------------------------------------------------------
+
+@import "grid/config";
+@import "grid/tools";
+@if $output--grid {
+    @import "grid/output";
+}
+
+
+// List
+// -----------------------------------------------------------------------------
+
+@import "list/config";
+@import "list/tools";
+@if $output--list {
+    @import "list/output";
+}
+
+
+// Media
+// -----------------------------------------------------------------------------
+
+@import "media/config";
+@import "media/tools";
+@if $output--media {
+    @import "media/output";
+}

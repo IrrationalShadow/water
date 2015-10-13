@@ -1,0 +1,282 @@
+// =============================================================================
+// TYPOGRAPHY (Output)
+// =============================================================================
+
+
+// <html> & <body>
+// -----------------------------------------------------------------------------
+
+html {
+    font-size: $fontSize--root;
+
+    @include viewport("small") {
+        font-size: $fontSize--rootSmall;
+    }
+
+    @include viewport("large") {
+        font-size: $fontSize--rootMedium;
+    }
+
+    @include viewport("largest") {
+        font-size: $fontSize--rootLarge;
+    }
+
+    @if $body--textKerning {
+        @include textKern;
+    }
+}
+
+body {
+    // Appearance
+    font: 1rem/#{$body--lineHeight} $body--fontFamily;
+    font-weight: $body--fontWeight;
+}
+
+
+// Text selection
+// -----------------------------------------------------------------------------
+
+::selection {
+    text-shadow: none;
+    color: $selection--color;
+    background: $selection--background;
+}
+
+
+// Links <a>
+// -----------------------------------------------------------------------------
+
+a {
+    // Appearance
+    text-decoration: $anchor--textDecoration;
+    color: $anchor--color;
+
+    &:hover {
+        text-decoration: $anchor--textDecorationHover;
+        color: $anchor--colorHover;
+    }
+
+    &:active {
+        text-decoration: $anchor--textDecorationActive;
+        color: $anchor--colorActive;
+    }
+}
+
+
+// Emphasis <em>, Strong <strong> & Small <small>
+// -----------------------------------------------------------------------------
+
+em,
+i {
+    font-style: $text--emphasis;
+}
+
+strong,
+b {
+    font-weight: $text--strong;
+}
+
+small {
+    font-size: $text--small;
+}
+
+
+// Headings <h1> to <h6>
+// -----------------------------------------------------------------------------
+
+%heading {
+    @include heading($baseStyles: true);
+}
+
+p + %heading--marginTop,
+ul + %heading--marginTop,
+ol + %heading--marginTop,
+dl + %heading--marginTop,
+figure + %heading--marginTop {
+    margin-top: $heading--marginTop;
+}
+
+h1 {
+    @extend %heading;
+    @include heading($levelStyles: "h1");
+}
+
+h2 {
+    @extend %heading;
+    @extend %heading--marginTop;
+    @include heading($levelStyles: "h2");
+}
+
+h3 {
+    @extend %heading;
+    @extend %heading--marginTop;
+    @include heading($levelStyles: "h3");
+}
+
+h4 {
+    @extend %heading;
+    @extend %heading--marginTop;
+    @include heading($levelStyles: "h4");
+}
+
+h5 {
+    @extend %heading;
+    @extend %heading--marginTop;
+    @include heading($levelStyles: "h5");
+}
+
+h6 {
+    @extend %heading;
+    @extend %heading--marginTop;
+    @include heading($levelStyles: "h6");
+}
+
+
+// Paragraph <p>
+// -----------------------------------------------------------------------------
+
+p {
+    // Layout
+    margin: 0 0 $paragraph--marginBottom;
+    // Appearance
+    letter-spacing: $paragraph--letterSpacing;
+}
+
+
+// Lists <ul>, <ol> & <dl>
+// -----------------------------------------------------------------------------
+
+ul,
+ol,
+dl {
+    margin: 0 0 $list--marginBottom;
+}
+
+ul,
+ol {
+    margin-left: $list--marginLeft;
+
+    ul,
+    ol {
+        margin-bottom: $list--nestedMarginBottom;
+    }
+}
+
+dt {
+    // Layout
+    margin-bottom: $list--dt-dd--marginBottom;
+    // Appearance
+    font-weight: $list--dt--fontWeight;
+}
+
+dd {
+    margin-bottom: $list--dt-dd--marginBottom;
+}
+
+
+// Blockquote <blockquote>
+// -----------------------------------------------------------------------------
+
+blockquote {
+    // Layout
+    margin: 0 0 $blockquote--marginBottom;
+    padding: $blockquote--padding;
+    // Appearance
+    color: $blockquote--color;
+    border-left: $blockquote--border;
+
+    + %heading--marginTop {
+        margin-top: $heading--marginTop;
+    }
+
+    cite {
+        // Layout
+        display: block;
+        // Appearance
+        font-size: $blockquote--cite--fontSize;
+        color: $blockquote--cite--color;
+    }
+}
+
+
+// Horizontal rule <hr>
+// -----------------------------------------------------------------------------
+
+hr {
+    // Layout
+    clear: both;
+    height: 0;
+    margin-top: $hr--marginTop;
+    margin-bottom: $hr--marginBottom;
+    // Appearance
+    border: $hr--borderWidth $hr--borderStyle;
+}
+
+
+// Code <code> blocks
+// -----------------------------------------------------------------------------
+
+code,
+kbd,
+pre,
+samp {
+    // Layout
+    padding: $code--padding;
+    // Appearance
+    font-family: $code--fontFamily;
+    font-size: $code--fontSize;
+    font-weight: $code--fontWeight;
+    color: $code--color;
+    background-color: $code--backgroundColor;
+    border: $code--border;
+}
+
+
+// Abbreviations <abbr> & <acronym>
+// -----------------------------------------------------------------------------
+
+abbr,
+acronym {
+    // Appearance
+    cursor: $acronym--cursor;
+    font-size: $acronym--fontSize;
+    text-transform: $acronym--textTransform;
+    color: $acronym--color;
+    border-bottom: $acronym--borderBottom;
+}
+
+abbr {
+    text-transform: none;
+}
+
+
+// Mark <mark>
+// -----------------------------------------------------------------------------
+
+mark {
+    // Appearance
+    color: $mark--color;
+    background: $mark--background;
+}
+
+
+// Sub & Sup <sub> <sup>
+// -----------------------------------------------------------------------------
+
+sub,
+sup {
+    // Layout
+    position: relative;
+    // Appearance
+    vertical-align: baseline;
+    font-size: $subSup--fontSize;
+    line-height: 0;
+}
+
+sup {
+    top: $sup--top;
+}
+
+sub {
+    bottom: $sub--bottom;
+}

@@ -1,0 +1,37 @@
+// =============================================================================
+// SHAPES (Tools)
+// =============================================================================
+
+
+// Triangle
+// -----------------------------------------------------------------------------
+
+@mixin triangle($triangle-size, $triangle-color, $triangle-direction) {
+    // Layout
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    // Appearance
+    border: inset $triangle-size;
+
+    @if ($triangle-direction == "top") {
+        border-top-style: solid;
+        border-color: $triangle-color transparent transparent;
+    }
+
+    @if ($triangle-direction == "bottom") {
+        border-bottom-style: solid;
+        border-color: transparent transparent $triangle-color;
+    }
+
+    @if ($triangle-direction == "left") {
+        border-left-style: solid;
+        border-color: transparent transparent transparent $triangle-color;
+    }
+
+    @if ($triangle-direction == "right") {
+        border-right-style: solid;
+        border-color: transparent $triangle-color transparent transparent;
+    }
+}

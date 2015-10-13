@@ -1,0 +1,41 @@
+// =============================================================================
+// CALCULATIONS (Tools)
+// =============================================================================
+
+
+// Rem Calculations
+// -----------------------------------------------------------------------------
+
+// scss-lint:disable ZeroUnit
+
+@function stripUnit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@function convertToRem($value, $base-value: 1rem) {
+    $value: stripUnit($value) / stripUnit($base-value) * 1rem;
+
+    @if ($value == 0rem) {
+        $value: 0;
+    }
+
+    @return $value;
+}
+
+@function remCalc($values, $base-value: $fontSize--root) {
+    $max: length($values);
+
+    @if $max == "1" {
+        @return convertToRem(nth($values, 1), $base-value);
+    }
+
+    $remValues: ();
+
+    @for $i from 1 through $max {
+        $remValues: append($remValues, convertToRem(nth($values, $i), $base-value));
+    }
+
+    @return $remValues;
+}
+
+// scss-lint:enable ZeroUnit

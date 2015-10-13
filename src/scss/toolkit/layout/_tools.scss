@@ -1,0 +1,22 @@
+// =============================================================================
+// LAYOUT (Tools)
+// =============================================================================
+
+
+// Layout map & function
+// -----------------------------------------------------------------------------
+
+$layoutMap: (
+    width: (
+        base:                   100%,
+        fixed:                  $layoutWidth--fixed,
+        max:                    $layoutWidth--max
+    )
+);
+
+@function layout($layout, $variant: "base") {
+    @return map-get(map-get($layoutMap, $layout), $variant);
+
+    @warn "Unknown layout `#{$layout}` in $layoutMap.";
+    @return null
+}

@@ -1,0 +1,22 @@
+// =============================================================================
+// UTILITY (Config)
+// =============================================================================
+
+
+// Utility output
+// -----------------------------------------------------------------------------
+//
+// Control which utilities have their classes compiled by changing the variable
+// to true/false.
+//
+// -----------------------------------------------------------------------------
+
+$output--animations:                true !default;
+$output--colors:                    true !default;
+$output--display:                   true !default;
+$output--float:                     true !default;
+$output--layout:                    true !default;
+$output--lists:                     true !default;
+$output--position:                  true !default;
+$output--text:                      true !default;
+$output--valign:                    true !default;

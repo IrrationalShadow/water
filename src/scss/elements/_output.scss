@@ -1,0 +1,20 @@
+// =============================================================================
+// COMPONENTS (Output)
+// =============================================================================
+//
+// Include the output classes and styles from each component.
+// Control which classes get outputted via the config file's variables,
+// leaving this file completely untouched.
+//
+// -----------------------------------------------------------------------------
+
+
+@if $output--buttons {
+    @import "buttons/structure";
+    @import "buttons/theme";
+}
+
+@if $output--tables {
+    @import "tables/structure";
+    @import "tables/theme";
+}

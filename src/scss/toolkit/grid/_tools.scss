@@ -1,0 +1,57 @@
+// =============================================================================
+// GRID (Tools)
+// =============================================================================
+
+
+// Spacing rhythm map & function
+// -----------------------------------------------------------------------------
+
+$spacingMap: (
+    quad:                       $spacingRhythm * 4,
+    triple:                     $spacingRhythm * 3,
+    double:                     $spacingRhythm * 2,
+    single:                     $spacingRhythm,
+    half:                       $spacingRhythm / 2,
+    third:                      $spacingRhythm / 3,
+    quarter:                    $spacingRhythm / 4,
+    fifth:                      $spacingRhythm / 5,
+    eighth:                     $spacingRhythm / 8
+);
+
+@function spacing($key) {
+
+    @if map-has-key($spacingMap, $key) {
+        @return map-get($spacingMap, $key);
+    }
+
+    @warn "Unknown spacing rhythm `#{$key}` in $spacingMap.";
+    @return null;
+}
+
+
+// Grid map & function
+// -----------------------------------------------------------------------------
+
+$gridMap: (
+    "12/12":                    100%,
+    "11/12":                    91.66667%,
+    "10/12":                    83.33334%,
+    "9/12":                     75%,
+    "8/12":                     66.66667%,
+    "7/12":                     58.33334%,
+    "6/12":                     50%,
+    "5/12":                     41.66667%,
+    "4/12":                     33.33334%,
+    "3/12":                     25%,
+    "2/12":                     16.66667%,
+    "1/12":                     8.33334%
+);
+
+@function grid($key) {
+    @if map-has-key($gridMap, $key) {
+        @return map-get($gridMap, $key);
+    }
+
+    @warn "Unknown grid size `#{$key}` in $grid.";
+    @return null;
+}
