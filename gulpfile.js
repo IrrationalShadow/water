@@ -128,9 +128,9 @@ gulp.task('tag', function () {
     var v = 'v' + pkg.version;
     var message = 'Tagged and released version ' + v;
 
-    return gulp.src('./')
+    return gulp.src('./package.json')
+        .pipe(git.add())
         .pipe(git.commit(message))
         .pipe(git.tag(v, message))
-        .pipe(git.push('origin', 'master', '--tags'))
-        .pipe(gulp.dest('./'));
+        .pipe(git.push('origin', 'master', {args: " --tags"}));
 });
