@@ -1,6 +1,6 @@
 {
   "name": "water",
-  "version": "0.0.11",
+  "version": "3.0.0",
   "description": "Empty your mind, be formless, shapeless - like water.",
   "main": "gulpfile.js",
   "scripts": {
@@ -25,10 +25,12 @@
     "gulp-csso": "^1.0.0",
     "gulp-filesize": "0.0.6",
     "gulp-git": "^1.5.0",
+    "gulp-if": "^2.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.4",
     "gulp-scss-lint": "^0.3.6",
     "gulp-util": "^3.0.6",
+    "minimist": "^1.2.0",
     "run-sequence": "^1.1.4"
   }
 }
