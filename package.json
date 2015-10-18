@@ -1,10 +1,11 @@
 {
   "name": "water",
-  "version": "3.5.0",
+  "version": "3.6.0",
   "description": "Empty your mind, be formless, shapeless - like water.",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp run",
+    "deploy": "gulp deploy"
   },
   "repository": {
     "type": "git",
@@ -33,9 +34,5 @@
     "gulp-util": "^3.0.6",
     "minimist": "^1.2.0",
     "run-sequence": "^1.1.4"
-  },
-  "scripts": {
-    "dev": "gulp run",
-    "deploy": "gulp deploy"
   }
 }
