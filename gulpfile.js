@@ -23,17 +23,6 @@ var colorError = gutil.colors.red.bold,
     colorSuccess = gutil.colors.green;
 
 
-// Bump versions of package files in semver
-gulp.task('bump', function(){
-    gulp.src('./package.json')
-        .pipe(gulpif(major, bump({type: 'major'})))
-        .pipe(gulpif(minor, bump({type: 'minor'})))
-        .pipe(gulpif(patch, bump({type: 'patch'})))
-        .pipe(gulp.dest('./'));
-});
-
-
-
 /**
  * Build the HTML
  */
@@ -111,6 +100,15 @@ function getPackageJsonVersion () {
 
 var version = 'v' + getPackageJsonVersion();
 
+// Bump versions of package files in semver
+gulp.task('bump', function(){
+    gulp.src('./package.json')
+        .pipe(gulpif(major, bump({type: 'major'})))
+        .pipe(gulpif(minor, bump({type: 'minor'})))
+        .pipe(gulpif(patch, bump({type: 'patch'})))
+        .pipe(gulp.dest('./'));
+});
+
 gulp.task('commit', function () {
     return gulp.src('./package.json')
         .pipe(git.add())
@@ -173,7 +171,6 @@ gulp.task('deploy', function (callback) {
 gulp.task('release', function (callback) {
     runSequence(
         'deploy',
-        'bump',
         'commit',
         'push',
         'tag',
@@ -181,7 +178,7 @@ gulp.task('release', function (callback) {
             if (error) {
                 gutil.log(colorError('✘ ' + error.message));
             } else {
-                gutil.log(colorSuccess('✔ ' + 'Released version ' + version + ' successfully.'));
+                gutil.log(colorSuccess('✔ ' + 'Released ' + version + ' successfully.'));
             }
             callback(error);
         }

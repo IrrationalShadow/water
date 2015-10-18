@@ -1,11 +1,12 @@
 {
   "name": "water",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Empty your mind, be formless, shapeless - like water.",
   "main": "gulpfile.js",
   "scripts": {
     "dev": "gulp run",
-    "deploy": "gulp deploy"
+    "version": "gulp deploy && git add -A dist",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
