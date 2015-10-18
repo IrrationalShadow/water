@@ -9,7 +9,7 @@ var gulp = require('gulp'),
     lint = require('gulp-scss-lint'),
     optimise  = require('gulp-csso'),
     rename = require('gulp-rename'),
-    filesize  require('gulp-filesize');
+    filesize = require('gulp-filesize');
 
 
 // Compile the SCSS
