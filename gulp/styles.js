@@ -21,7 +21,7 @@ var gulp = require('gulp'),
 // -----------------------------------------------------------------------------
 
 gulp.task('scss', ['scss:lint'], function () {
-    return gulp.src('src/scss/*.scss')
+    return gulp.src('./src/scss/*.scss')
         .pipe(scss({
             includePaths: ['scss'],
             outputStyle: 'expanded',
@@ -40,7 +40,7 @@ gulp.task('scss', ['scss:lint'], function () {
 // -----------------------------------------------------------------------------
 
 gulp.task('scss:lint', function () {
-    return gulp.src('src/scss/*.scss')
+    return gulp.src('./src/scss/*.scss')
         .pipe(cache('linting')) // 1
         .pipe(lint())
         .pipe(lint.failReporter('E')) // 2

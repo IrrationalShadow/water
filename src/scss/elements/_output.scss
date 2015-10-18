@@ -18,3 +18,8 @@
     @import "tables/structure";
     @import "tables/theme";
 }
+
+@if $output--images {
+    @import "images/structure";
+    @import "images/theme";
+}

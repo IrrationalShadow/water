@@ -6,11 +6,11 @@
 // Figure
 // -----------------------------------------------------------------------------
 
-figure {
+.figure {
     margin: 0 0 spacing("single");
 }
 
-figcaption {
+.figcaption {
     color: color("primary");
     font-size: fontSize("smaller");
 }

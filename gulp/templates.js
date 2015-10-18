@@ -15,7 +15,7 @@ var gulp = require('gulp'),
 // -----------------------------------------------------------------------------
 
 gulp.task('html', function () {
-    return gulp.src('src/html/*.html')
-        .pipe(gulp.dest('build/')) // 1
+    return gulp.src('./src/html/*.html')
+        .pipe(gulp.dest('./build/')) // 1
         .pipe(browserSync.reload({stream:true})) // 2
 });
