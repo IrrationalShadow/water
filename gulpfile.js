@@ -11,6 +11,28 @@ var runSequence  = require('run-sequence');
 var browserSync  = require('browser-sync');
 var gutil        = require('gulp-util');
 var del          = require('del');
+var fs           = require('fs');
+var gulpif       = require('gulp-if');
+
+var flags        = require('minimist')(process.argv.slice(2));
+var major        = flags.major || false;
+var minor        = flags.minor || false;
+var patch        = flags.patch || false;
+
+var colorError = gutil.colors.red.bold,
+    colorSuccess = gutil.colors.green;
+
+
+// Bump versions of package files in semver
+gulp.task('bump', function(){
+    gulp.src('./package.json')
+        .pipe(gulpif(major, bump({type: 'major'})))
+        .pipe(gulpif(minor, bump({type: 'minor'})))
+        .pipe(gulpif(patch, bump({type: 'patch'})))
+        .pipe(gulp.dest('./'));
+});
+
+
 
 /**
  * Build the HTML
@@ -93,12 +115,36 @@ gulp.task('watch', function () {
     gulp.watch('src/html/**/*.html', ['html']);
 });
 
-/**
- * Default task, running just `gulp` will compile the sass,
- * compile the jekyll site, launch BrowserSync & watch files.
- */
+gulp.task('commit', function () {
+    return gulp.src('./package.json')
+        .pipe(git.add())
+        .pipe(git.commit('Bumped package version'))
+        .on('error', function () {
+            gutil.log(colorError('✘ ' + 'No file committed. Remember to enter a semver type: gulp release [--major, --minor, --patch].'));
+        });
+});
 
-gulp.task('water', function (callback) {
+gulp.task('push', function(){
+    git.push('origin', 'master');
+});
+
+function getPackageJsonVersion () {
+    // We parse the json file instead of using require because require caches
+    // multiple calls so the version number won't be updated
+    return JSON.parse(fs.readFileSync('./package.json', 'utf8')).version;
+};
+
+// Tag the repo with a version
+gulp.task('tag', function(){
+    var version = 'v' + getPackageJsonVersion();
+    var message = 'Creating tag for version: ' + version;
+
+    git.tag(version, message, function () {
+        git.push('origin', 'master', {args: '--tags'});
+    });
+});
+
+gulp.task('run', function (callback) {
     runSequence(
         'build',
         ['watch', 'browserSync'],
@@ -107,7 +153,7 @@ gulp.task('water', function (callback) {
 });
 
 // Deploy the css and html
-gulp.task('deploy:water', function (callback) {
+gulp.task('deploy', function (callback) {
     runSequence(
         'build',
         'css:clean',
@@ -116,21 +162,22 @@ gulp.task('deploy:water', function (callback) {
     );
 });
 
-// Bump versions of package files in semver
-gulp.task('bump', function(){
-    gulp.src('./package.json')
-        .pipe(bump())
-        .pipe(gulp.dest('./'));
-});
+// Tag and push a release
+gulp.task('release', function (callback) {
+    var version = 'v' + getPackageJsonVersion();
 
-gulp.task('tag', function () {
-    var pkg = require('./package.json');
-    var v = 'v' + pkg.version;
-    var message = 'Tagged and released version ' + v;
-
-    return gulp.src('./package.json')
-        .pipe(git.add())
-        .pipe(git.commit(message))
-        .pipe(git.tag(v, message))
-        .pipe(git.push('origin', 'master', {args: " --tags"}));
+    runSequence(
+        'bump',
+        'commit',
+        'push',
+        'tag',
+        function (error) {
+            if (error) {
+                gutil.log(colorError('✘ ' + error.message));
+            } else {
+                gutil.log(colorSuccess('✔ ' + 'Released version ' + version + ' successfully.'));
+            }
+            callback(error);
+        }
+    );
 });
