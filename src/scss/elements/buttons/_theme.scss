@@ -7,36 +7,31 @@
 // -----------------------------------------------------------------------------
 
 $button-borderRadius: 2px;
-$button-borderWidth: 1px;
 
 
 // Button
 // -----------------------------------------------------------------------------
 
 .button {
-    background-color: material("blue", 500);
+    background-color: material("lightGreen", 500);
     border-radius: $button-borderRadius;
-    border: $button-borderWidth solid material("blue", 500);
-    color: material("blue", 500);
+    border: none;
+    color: color("whites");
     font-family: fontFamily("text");
     font-size: fontSize("base");
     line-height: fontSize("base");
-    padding: (spacing("third") - remCalc($button-borderWidth)) (1rem - remCalc($button-borderWidth));
+    padding: spacing("half");
     text-transform: uppercase;
     transition: background-color duration("faster") timing("swiftOut");
 
     &:hover,
     &:focus {
-        background-color: material("blue", 500);
-        border-color: material("blue", 500);
-        color: material("blue", 500);
+        background-color: material("blue", 700);
     }
 
     &:active,
     &.is-active {
-        background-color: material("blue", 500);
-        border-color: material("blue", 500);
-        color: material("blue", 500);
+        background-color: material("blue", 900);
     }
 }
 
