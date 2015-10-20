@@ -50,6 +50,22 @@ $fontWeightMap: (
 // Font-size map
 // -----------------------------------------------------------------------------
 
+$fontSizeRootMap: (
+    small:                  $fontSize--rootSmall,
+    medium:                 $fontSize--rootMedium,
+    large:                  $fontSize--rootLarge
+);
+
+@function fontSizeRoot($key) {
+    @if map-has-key($fontSizeRootMap, $key) {
+        @return map-get($fontSizeRootMap, $key);
+    }
+
+    @warn "Unknown font-size `#{$key}` in $fontSizeRootMap.";
+    @return null;
+}
+
+
 $fontSizeMap: (
     base:                   1rem,
     hero:                   $fontSize--hero,

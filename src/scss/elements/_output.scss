@@ -14,12 +14,17 @@
     @import "buttons/theme";
 }
 
+@if $output--images {
+    @import "images/structure";
+    @import "images/theme";
+}
+
 @if $output--tables {
     @import "tables/structure";
     @import "tables/theme";
 }
 
-@if $output--images {
-    @import "images/structure";
-    @import "images/theme";
+@if $output--text {
+    @import "text/structure";
+    @import "text/theme";
 }

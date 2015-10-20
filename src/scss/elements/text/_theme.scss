@@ -1,0 +1,234 @@
+// =============================================================================
+// TYPOGRAPHY (Theme)
+// =============================================================================
+
+
+// Text variables
+// -----------------------------------------------------------------------------
+
+$text-spacing: spacing("single");
+
+
+// Document
+// -----------------------------------------------------------------------------
+
+html {
+    @include textKern;
+    font-size: fontSizeRoot("small");
+
+    @include viewport("large") {
+        font-size: fontSizeRoot("medium");
+    }
+
+    @include viewport("largest") {
+        font-size: fontSizeRoot("large");
+    }
+}
+
+body {
+    font: 1rem/1.5 fontFamily("text");
+}
+
+
+// Text selection
+// -----------------------------------------------------------------------------
+
+::selection {
+    text-shadow: none;
+    color: color("whites");
+    background: material("pink", 500);
+}
+
+
+// Links
+// -----------------------------------------------------------------------------
+
+a {
+    color: material("blue");
+    text-decoration: underline;
+
+    &:hover {
+        color: material("blue", 700);
+    }
+
+    &:active {
+        color: material("blue", 900);
+    }
+}
+
+
+// Headings
+// -----------------------------------------------------------------------------
+
+%heading {
+    font-family: fontFamily("heading");
+    font-weight: fontWeight("semibold");
+    margin: 0 0 $text-spacing;
+}
+
+h1,
+%h1 {
+    @extend %heading;
+    font-size: fontSize("largest");
+}
+
+h2,
+%h2 {
+    @extend %heading;
+    font-size: fontSize("larger");
+}
+
+h3,
+%h3 {
+    @extend %heading;
+    font-size: fontSize("large");
+}
+
+h4,
+%h4 {
+    @extend %heading;
+    font-size: fontSize("small");
+}
+
+h5,
+%h5 {
+    @extend %heading;
+    font-size: fontSize("smaller");
+}
+
+h6,
+%h6 {
+    @extend %heading;
+    font-size: fontSize("smallest");
+}
+
+
+// Paragraphs
+// -----------------------------------------------------------------------------
+
+p {
+    margin: 0 0 $text-spacing;
+}
+
+
+// Lists
+// -----------------------------------------------------------------------------
+
+ul,
+ol,
+dl {
+    margin: 0 0 $text-spacing;
+}
+
+ul,
+ol {
+    margin-left: $text-spacing;
+
+    ul,
+    ol {
+        margin-bottom: 0;
+    }
+}
+
+dt {
+    margin-bottom: $text-spacing / 2;
+    font-weight: fontWeight("bold");
+}
+
+dd {
+    margin-bottom: $text-spacing / 2;
+}
+
+
+// Blockquote
+// -----------------------------------------------------------------------------
+
+blockquote {
+    border-left: spacing("eighth") solid material("lime", 500);
+    color: material("lime", 500);
+    margin: 0 0 $text-spacing;
+    padding: spacing("single");
+
+    cite {
+        color: material("lime", 500);
+        display: block;
+        font-size: fontSize("smallest");
+    }
+}
+
+
+// Text elements
+// -----------------------------------------------------------------------------
+
+abbr,
+acronym {
+    border-bottom: 1px dotted material("pink", 500);
+    color: material("pink", 700);
+    cursor: help;
+    font-size: fontSize("smallest");
+}
+
+acronym {
+    text-transform: uppercase;
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+mark {
+    background: material("pink", 500);
+    color: color("whites");
+}
+
+small {
+    font-size: fontSize("tiny");
+}
+
+strong,
+b {
+    font-weight: fontWeight("semibold");
+}
+
+sub,
+sup {
+    font-size: fontSize("tiny");
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+
+// Code blocks
+// -----------------------------------------------------------------------------
+
+code,
+kbd,
+pre,
+samp {
+    background-color: material("deepPurple", 500);
+    border: 1px solid material("deepPurple", 700);
+    color: color("whites");
+    font-family: fontFamily("code");
+    font-size: 1rem;
+    padding: spacing("single");
+}
+
+
+// Horizontal rule
+// -----------------------------------------------------------------------------
+
+hr {
+    // Local variables
+    $borderWidth: 1px;
+
+    border: $borderWidth solid material("amber", 500);
+    clear: both;
+    margin: $text-spacing 0 ($text-spacing - (remCalc($borderWidth)));
+}
