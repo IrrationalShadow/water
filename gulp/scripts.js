@@ -1,30 +1,23 @@
 // =============================================================================
-// GULP BUILD
+// GULP SCRIPTS
 // =============================================================================
 
 var gulp = require('gulp'),
     browserSync = require('browser-sync'),
-    runSequence  = require('run-sequence'),
-    del = require('del');
+    cache = require('gulp-cached');
 
 
-// Build
+// Build the JS
+// -----------------------------------------------------------------------------
+//
+// 1. Place the compiled JS into the ./build/js directory.
+// 2. Reload the page whenever the JS is updated.
+//
 // -----------------------------------------------------------------------------
 
-gulp.task('build', function (callback) {
-    runSequence(
-        'build:clean',
-        ['html', 'scss', 'js'],
-        callback
-    );
-});
-
-
-// Clean build
-// -----------------------------------------------------------------------------
-
-gulp.task('build:clean', function () {
-    return del([
-        './build'
-    ]);
+gulp.task('js', function () {
+    return gulp.src('./src/js/**/*.js')
+        .pipe(cache('scripts'))
+        .pipe(gulp.dest('./build/assets/js')) // 1
+        .pipe(browserSync.reload({stream:true})) // 2
 });

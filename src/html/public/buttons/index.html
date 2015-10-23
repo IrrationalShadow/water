@@ -1,6 +1,8 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/css/water.css">
+        <title>Water Docs</title>
+        
+        <link rel="stylesheet" type="text/css" href="/assets/css/water.css">
     </head>
     <body>
         
@@ -11,9 +13,21 @@
 
 <p>Another paragraph&hellip;</p>
 
-<pre><code>&lt;button class=&quot;button&quot;&gt;Base button&lt;/button&gt;
+<pre><code class="language-html">&lt;form class=&quot;form&quot;&gt;
+    &lt;legend class=&quot;form-legend&quot;&gt;Form legend&lt;/legend&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Range slider&lt;/label&gt;
+            &lt;input class=&quot;form-range&quot; type=&quot;range&quot; id=&quot;test5&quot; min=&quot;0&quot; max=&quot;100&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;button&quot;&gt;Button&lt;/button&gt;
+&lt;/form&gt;
 </code></pre>
 
+
+        
+        <script src="/assets/js/prism.js"></script>
     <script data-no-instant>document.write('<script src="http://'
         + (location.host || 'localhost').split(':')[0]
 		+ ':1313/livereload.js?mindelay=10"></'

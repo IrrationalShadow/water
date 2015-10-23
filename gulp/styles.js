@@ -26,7 +26,7 @@ gulp.task('scss', ['scss:lint'], function () {
             includePaths: ['scss'],
             outputStyle: 'expanded',
         }).on('error', scss.logError))
-        .pipe(gulp.dest('build/css')) // 1
+        .pipe(gulp.dest('build/assets/css')) // 1
         .pipe(browserSync.reload({stream:true})) // 2
 });
 
