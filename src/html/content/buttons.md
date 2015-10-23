@@ -9,6 +9,7 @@ Buttons are gonna populate this page
 
 Another paragraph...
 
+
 ```
 <button class="button">Base button</button>
 ```
