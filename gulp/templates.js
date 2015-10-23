@@ -3,19 +3,23 @@
 // =============================================================================
 
 var gulp = require('gulp'),
-    browserSync = require('browser-sync');
+    browserSync = require('browser-sync'),
+    cache = require('gulp-cached');
 
 
-// Compile the SCSS
+// Build the HTML
 // -----------------------------------------------------------------------------
 //
-// 1. Place the compiled HTML into the ./build directory.
-// 2. Reload the page whenever SCSS recompiles.
+// 1. Watch the Hugo built HTML files. Remember to run [hugo server --watch] in
+//    terminal, while also running [npm start] to ensure all changes are built.
+// 2. Place the compiled HTML into the ./build directory.
+// 3. Reload the page whenever SCSS recompiles.
 //
 // -----------------------------------------------------------------------------
 
 gulp.task('html', function () {
-    return gulp.src('./src/html/*.html')
-        .pipe(gulp.dest('./build/')) // 1
-        .pipe(browserSync.reload({stream:true})) // 2
+    return gulp.src('./src/html/public/**/*.html') // 1
+        .pipe(cache('templates')) // 1
+        .pipe(gulp.dest('./build/')) // 2
+        .pipe(browserSync.reload({stream:true})) // 3
 });

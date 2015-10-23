@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Oct 2015 22:06:47 +1100</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>buttons</title>
+      <link>http://localhost:1313/buttons/</link>
+      <pubDate>Wed, 21 Oct 2015 22:06:47 +1100</pubDate>
+      
+      <guid>http://localhost:1313/buttons/</guid>
+      <description>
+
+&lt;h1 id=&#34;buttons:3179e7c8f45824e0815f254569203fc8&#34;&gt;Buttons&lt;/h1&gt;
+
+&lt;p&gt;Buttons are gonna populate this page&lt;/p&gt;
+
+&lt;p&gt;Another paragraph&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;button class=&amp;quot;button&amp;quot;&amp;gt;Base button&amp;lt;/button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

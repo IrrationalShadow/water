@@ -208,16 +208,13 @@ sub {
 // Code blocks
 // -----------------------------------------------------------------------------
 
-code,
-kbd,
-pre,
-samp {
+pre {
     background-color: material("deepPurple", 500);
     border: 1px solid material("deepPurple", 700);
     color: color("whites");
     font-family: fontFamily("code");
     font-size: 1rem;
-    padding: spacing("single");
+    padding: spacing("half");
 }
 
 
