@@ -6,26 +6,50 @@
         <link rel="stylesheet" type="text/css" href="/assets/css/syntax-highlighting.css">
     </head>
     <body>
-        
 
-<h1 id="buttons:3179e7c8f45824e0815f254569203fc8">Buttons</h1>
+        <aside class="sidebar">
 
-<p>Buttons are gonna populate this page</p>
+        </aside>
 
-<p>Another paragraph goes here&hellip;</p>
+        <main class="content">
+            <div class="example">
+    <button class="button">Button</button>
+</div>
 
-<pre><code class="language-html">&lt;form class=&quot;form&quot;&gt;
-    &lt;legend class=&quot;form-legend&quot;&gt;Form legend&lt;/legend&gt;
-    &lt;div class=&quot;form-group&quot;&gt;
-        &lt;div class=&quot;form-field&quot;&gt;
-            &lt;label class=&quot;form-label&quot;&gt;Range slider&lt;/label&gt;
-            &lt;input class=&quot;form-range&quot; type=&quot;range&quot; id=&quot;test5&quot; min=&quot;0&quot; max=&quot;100&quot; /&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;button class=&quot;button&quot;&gt;Button&lt;/button&gt;
-&lt;/form&gt;
+<pre><code class="language-html">&lt;button class=&quot;button&quot;&gt;Button&lt;/button&gt;
 </code></pre>
 
+<div class="example">
+    <button class="button">Button</button>
+    <button class="button button--primary">Button</button>
+    <button class="button" disabled>Button</button>
+</div>
+
+<pre><code class="language-html">&lt;!-- Base button --&gt;
+&lt;button class=&quot;button&quot;&gt;Button&lt;/button&gt;
+
+&lt;!-- Primary button --&gt;
+&lt;button class=&quot;button button--primary&quot;&gt;Button&lt;/button&gt;
+
+&lt;!-- Disabled button --&gt;
+&lt;button class=&quot;button&quot; disabled&gt;Button&lt;/button&gt;
+</code></pre>
+
+<pre><code class="language-css">.button {
+    background-color: material(&quot;lightGreen&quot;, 500);
+    border-radius: $button-borderRadius;
+    border: 0;
+    color: color(&quot;whites&quot;);
+    font-family: fontFamily(&quot;text&quot;);
+    font-size: fontSize(&quot;base&quot;);
+    line-height: fontSize(&quot;base&quot;);
+    padding: spacing(&quot;half&quot;);
+    text-transform: uppercase;
+    transition: background-color duration(&quot;faster&quot;) timing(&quot;swiftOut&quot;);
+}
+</code></pre>
+
+        </main>
 
         
         <script src="/assets/js/syntax-highlighting.js"></script>

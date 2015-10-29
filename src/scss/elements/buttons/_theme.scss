@@ -13,15 +13,14 @@ $button-borderRadius: 2px;
 // -----------------------------------------------------------------------------
 
 .button {
-    background-color: material("lightGreen", 500);
+    background-color: color("whites");
     border-radius: $button-borderRadius;
-    border: none;
-    color: color("whites");
+    border: 1px solid material("grey", 300);
+    color: material("grey", 700);
     font-family: fontFamily("text");
     font-size: fontSize("base");
     line-height: fontSize("base");
     padding: spacing("half");
-    text-transform: uppercase;
     transition: background-color duration("faster") timing("swiftOut");
 
     &:hover,
@@ -40,9 +39,9 @@ $button-borderRadius: 2px;
 // -----------------------------------------------------------------------------
 
 .button--primary {
-    background-color: material("blue", 500);
-    border-color: material("blue", 500);
-    color: material("blue", 500);
+    background-color: material("grey", 900);
+    border-color: material("grey", 900);
+    color: color("whites");
 
     &:hover,
     &:focus {
@@ -60,21 +59,23 @@ $button-borderRadius: 2px;
 }
 
 .button[disabled] {
-    background-color: material("blue", 500);
-    border-color: material("blue", 500);
-    color: material("blue", 500);
+    background-color: material("grey", 400);
+    border-color: material("grey", 400);
+    color: material("grey", 50);
 }
 
 
 // Button sizes
 // -----------------------------------------------------------------------------
 
-.button--large {
+.button--large,
+%button--large {
     font-size: fontSize("small");
     padding: spacing("half") spacing("single");
 }
 
-.button--small {
+.button--small,
+%button--small {
     font-size: fontSize("smaller");
     padding: spacing("quarter") spacing("half");
 }
@@ -113,14 +114,14 @@ $button-borderRadius: 2px;
 .buttonGroup--large {
 
     > .button {
-        @extend .button--large;
+        @extend %button--large;
     }
 }
 
 .buttonGroup--small {
 
     > .button {
-        @extend .button--small;
+        @extend %button--small;
     }
 }
 

@@ -12,8 +12,7 @@
 // -----------------------------------------------------------------------------
 
 html {
-    -ms-text-size-adjust: 100%; // 1
-    -webkit-text-size-adjust: 100%; // 1
+    text-size-adjust: 100%; // 1
 }
 
 
@@ -45,9 +44,11 @@ a:hover {
 //
 // -----------------------------------------------------------------------------
 
+// scss-lint:disable QualifyingElement
 abbr[title] {
     border-bottom: 1px dotted; // 1
 }
+// scss-lint:enable QualifyingElement
 
 dfn {
     font-style: italic; // 2
@@ -73,7 +74,6 @@ sup {
 // -----------------------------------------------------------------------------
 
 hr {
-    -moz-box-sizing: content-box;
     box-sizing: content-box;
     height: 0;
 }

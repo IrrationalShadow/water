@@ -1,79 +1,83 @@
 // =============================================================================
 // SYNTAX HIGHLIGHTING
 // =============================================================================
+
+
+// Toolkit
+// -----------------------------------------------------------------------------
 //
-// Built specifically for styling the documentation.
+// Let's bring all of our very handy tools together.
+// Variables, maps, mixins, and functions. (No outputted code here!)
+// This is where you'll want to modify the $variables to your projects liking.
 //
 // -----------------------------------------------------------------------------
 
+@import "toolkit/tools";
+
+html {
+    font-size: 12px;
+}
+
+body {
+    background-color: material("grey", 100);
+    margin: 3rem 3rem 0 300px;
+}
+
+.example {
+    background: color("whites");
+    border: 1px solid material("grey", 200);
+    padding: spacing("single");
+
+    + pre[class*="language-"] {
+        margin-top: -1px;
+    }
+}
+
+
+// Code block
+// -----------------------------------------------------------------------------
+
+pre[class*="language-"] {
+    background: color("whites");
+    border: 1px solid material("grey", 200);
+    margin: 0 0 spacing("single");
+    overflow: auto;
+    padding: spacing("single");
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
-    color: #f8f8f2;
-    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    color: material("grey", 500);
     direction: ltr;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    hyphens: none;
+    line-height: 1.5;
+    tab-size: 4;
     text-align: left;
     white-space: pre;
-    word-spacing: normal;
     word-break: normal;
+    word-spacing: normal;
     word-wrap: normal;
-    line-height: 1.5;
-
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
-
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
 }
 
-/* Code blocks */
-pre[class*="language-"] {
-    padding: 1em;
-    margin: .5em 0;
-    overflow: auto;
-    border-radius: 0.3em;
-}
 
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-    background: #272822;
-}
-
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-    padding: .1em;
-    border-radius: .3em;
-}
+// Code colors
+// -----------------------------------------------------------------------------
 
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-    color: slategray;
+    color: material("grey", 400);
 }
 
-.token.punctuation {
-    color: #f8f8f2;
-}
-
-.namespace {
-    opacity: .7;
-}
-
+.token.punctuation,
 .token.property,
 .token.tag,
 .token.constant,
 .token.symbol,
 .token.deleted {
-    color: #f92672;
-}
-
-.token.boolean,
-.token.number {
-    color: #ae81ff;
+    color: material("grey", 700);
 }
 
 .token.selector,
@@ -82,7 +86,13 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-    color: #a6e22e;
+    color: material("grey", 500);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function {
+    color: material("grey", 900);
 }
 
 .token.operator,
@@ -91,13 +101,16 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string,
 .token.variable {
-    color: #f8f8f2;
+    color: material("grey", 500);
 }
 
-.token.atrule,
-.token.attr-value,
-.token.function {
-    color: #e6db74;
+.namespace {
+    opacity: 0.7;
+}
+
+.token.boolean,
+.token.number {
+    color: #ae81ff;
 }
 
 .token.keyword {
@@ -121,6 +134,10 @@ pre[class*="language-"] {
     cursor: help;
 }
 
+
+// Line numbers
+// -----------------------------------------------------------------------------
+
 pre.line-numbers {
     position: relative;
     padding-left: 3.8em;
@@ -137,27 +154,23 @@ pre.line-numbers > code {
     top: 0;
     font-size: 100%;
     left: -3.8em;
-    width: 3em; /* works for line-numbers below 1000 lines */
+    width: 3em; // works for line-numbers below 1000 lines
     letter-spacing: -1px;
     border-right: 1px solid #999;
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 
 }
 
-    .line-numbers-rows > span {
-        pointer-events: none;
-        display: block;
-        counter-increment: linenumber;
-    }
+.line-numbers-rows > span {
+    pointer-events: none;
+    display: block;
+    counter-increment: linenumber;
+}
 
-        .line-numbers-rows > span:before {
-            content: counter(linenumber);
-            color: #999;
-            display: block;
-            padding-right: 0.8em;
-            text-align: right;
-        }
+.line-numbers-rows > span:before {
+    content: counter(linenumber);
+    color: #999;
+    display: block;
+    padding-right: 0.8em;
+    text-align: right;
+}
