@@ -1,72 +1,39 @@
 // =============================================================================
 // WATER SCSS
 // =============================================================================
-//
 // Be water, my friend. - Bruce Lee
+// A starting point for any project, big or small. Shape it to your needs.
 // Crafted with obsession and profession by Chris Roper - (github.com/indominus)
-//
-// A set of tools and components for constructing your HTML & CSS that adapt to
-// any project, thus allowing you to build whatever the hell you want.
-//
 // -----------------------------------------------------------------------------
 
 
 // Toolkit
 // -----------------------------------------------------------------------------
-//
-// Let's bring all of our very handy tools together.
+// Let's bring some very handy tools together.
 // Variables, maps, mixins, and functions. (No outputted code here!)
-// This is where you'll want to modify the $variables to your projects liking.
-//
+// This is where you'll modify the $variables to your liking.
 // -----------------------------------------------------------------------------
 
-@import "toolkit/tools";
-
-
-// Elements
-// -----------------------------------------------------------------------------
-//
-// The core elements, never leave home without these.
-// Variables, mixins and outputted classes.
-//
-// -----------------------------------------------------------------------------
-
-@import "elements/config";
-@import "elements/output";
+@import "toolkit/settings/settings";
+@import "toolkit/tools/tools";
 
 
 // Objects
 // -----------------------------------------------------------------------------
-//
-// Abstracted, re-usable chunks of CSS.
+// Abstracted, re-usable objects.
 // Can be used via outputted class abstrations, or via mixin's to construct
 // your own components.
-//
 // -----------------------------------------------------------------------------
 
 // @import "objects/config";
 // @import "objects/output";
 
 
-// Utilities
-// -----------------------------------------------------------------------------
-//
-// We'll throw in a utility belt for fast prototyping.
-// Try not to let them head into production, unless that's really what you want.
-//
-// -----------------------------------------------------------------------------
-
-// @import "utilities/config";
-// @import "utilities/output";
-
-
 // Components
 // -----------------------------------------------------------------------------
-//
 // Simple and complex components.
-// Built by combining any of the above tools, objects and elements.
-//
+// The building blocks of your websites and applications.
 // -----------------------------------------------------------------------------
 
-// @import "components/imports";
+// @import "components/config";
 // @import "components/output";

@@ -11,15 +11,15 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/forms/</loc>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/typography/</loc>
   </url>
   
   <url>
     <loc>http://localhost:1313/tables/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/forms/</loc>
   </url>
   
 </urlset>

@@ -79,7 +79,7 @@ $colorMap: (
     @return map-get(map-get($colorMap, $color), $variant);
 
     @warn "Unknown color `#{$color}` in $colorMap.";
-    @return null
+    @return null;
 }
 
 
