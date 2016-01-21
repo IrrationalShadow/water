@@ -9,46 +9,36 @@
 @mixin listBullets($style, $important: null) {
 
     @if $style == "none" {
-        // Layout
-        margin-left: 0 $important;
-        // Appearance
         list-style: none $important;
+        margin-left: 0 $important;
 
         ul,
         ol {
-            // Layout
-            margin-bottom: 0 $important;
-            // Appearance
             list-style: none $important;
+            margin-bottom: 0 $important;
         }
     }
 
     @if $style == "disc" {
-        // Appearance
         list-style-type: disc $important;
 
         ul {
-            // Appearance
             list-style: inherit $important;
         }
     }
 
     @if $style == "circle" {
-        // Appearance
         list-style-type: circle $important;
 
         ul {
-            // Appearance
             list-style: inherit $important;
         }
     }
 
     @if $style == "square" {
-        // Appearance
         list-style-type: square $important;
 
         ul {
-            // Appearance
             list-style: inherit $important;
         }
     }

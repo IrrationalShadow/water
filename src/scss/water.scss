@@ -1,28 +1,27 @@
 // =============================================================================
 // WATER SCSS
 // =============================================================================
-// Be water, my friend. - Bruce Lee
-// A starting point for any project, big or small. Shape it to your needs.
-// Crafted with obsession and profession by Chris Roper - (github.com/indominus)
+// "Be water, my friend." - Bruce Lee
+// The building blocks for any project, big or small. Shape it to your needs.
+// Crafted with obsession and profession by Chris Roper
 // -----------------------------------------------------------------------------
 
 
 // Toolkit
 // -----------------------------------------------------------------------------
 // Let's bring some very handy tools together.
-// Variables, maps, mixins, and functions. (No outputted code here!)
-// This is where you'll modify the $variables to your liking.
+// Variables, maps, mixins, and functions (no outputted code here).
+// Define the settings for your project in toolkit/settings.
 // -----------------------------------------------------------------------------
 
-@import "toolkit/settings/settings";
-@import "toolkit/tools/tools";
+@import "toolkit/toolkit";
 
 
 // Objects
 // -----------------------------------------------------------------------------
-// Abstracted, re-usable objects.
+// Abstracted, re-usable layout objects.
 // Can be used via outputted class abstrations, or via mixin's to construct
-// your own components.
+// your own uniquely named components.
 // -----------------------------------------------------------------------------
 
 // @import "objects/config";

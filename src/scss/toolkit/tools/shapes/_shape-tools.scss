@@ -7,17 +7,15 @@
 // -----------------------------------------------------------------------------
 
 @mixin triangle($triangle-size, $triangle-color, $triangle-direction) {
-    // Layout
-    display: block;
-    content: "";
-    width: 0;
-    height: 0;
-    // Appearance
     border: inset $triangle-size;
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
 
     @if ($triangle-direction == "top") {
-        border-top-style: solid;
         border-color: $triangle-color transparent transparent;
+        border-top-style: solid;
     }
 
     @if ($triangle-direction == "bottom") {
@@ -26,12 +24,12 @@
     }
 
     @if ($triangle-direction == "left") {
-        border-left-style: solid;
         border-color: transparent transparent transparent $triangle-color;
+        border-left-style: solid;
     }
 
     @if ($triangle-direction == "right") {
-        border-right-style: solid;
         border-color: transparent $triangle-color transparent transparent;
+        border-right-style: solid;
     }
 }

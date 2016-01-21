@@ -3,33 +3,7 @@
 // =============================================================================
 
 
-// Spacing rhythm map & function
-// -----------------------------------------------------------------------------
-
-$spacingMap: (
-    quad:                       $spacingRhythm * 4,
-    triple:                     $spacingRhythm * 3,
-    double:                     $spacingRhythm * 2,
-    single:                     $spacingRhythm,
-    half:                       $spacingRhythm / 2,
-    third:                      $spacingRhythm / 3,
-    quarter:                    $spacingRhythm / 4,
-    fifth:                      $spacingRhythm / 5,
-    eighth:                     $spacingRhythm / 8
-);
-
-@function spacing($key) {
-
-    @if map-has-key($spacingMap, $key) {
-        @return map-get($spacingMap, $key);
-    }
-
-    @warn "Unknown spacing rhythm `#{$key}` in $spacingMap.";
-    @return null;
-}
-
-
-// Grid map & function
+// Grid map
 // -----------------------------------------------------------------------------
 
 $gridMap: (
@@ -46,6 +20,12 @@ $gridMap: (
     "2/12":                     16.66667%,
     "1/12":                     8.33334%
 );
+
+
+
+
+// Grid function
+// -----------------------------------------------------------------------------
 
 @function grid($key) {
     @if map-has-key($gridMap, $key) {

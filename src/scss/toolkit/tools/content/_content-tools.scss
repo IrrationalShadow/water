@@ -7,7 +7,6 @@
 // -----------------------------------------------------------------------------
 
 @mixin generateContent($content: "") {
-    // Layout
-    display: block;
     content: $content;
+    display: block;
 }
