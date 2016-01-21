@@ -4,8 +4,8 @@
 // The spacing unit and following spacing map is integral to your projects
 // aesthetics and flow.
 // Every margin, padding, line height and other spaces in your design should be
-// using the spacing unit, or a fraction/multiple of the spacing unit.
-// Define your spacing unit and mapped options for spacing below.
+// calling the spacing function, which references the map.
+// Define your spacing unit and mapped options for spacing.
 //
 // Rules:
 // -> Use these values exclusively for all spacing.

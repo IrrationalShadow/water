@@ -1,48 +1,39 @@
 // =============================================================================
 // VIEWPORT (Tools)
 // =============================================================================
-//
-// Use the viewport mixin within your selectors to add responsive code directly
-// to the selector you're working on.
-//
-// -----------------------------------------------------------------------------
 
 
 // Viewport map
 // -----------------------------------------------------------------------------
 
 $viewportMap: (
-    largest:                    $viewport--largest,
-    larger:                     $viewport--larger,
-    large:                      $viewport--large,
-    small:                      $viewport--small,
-    smaller:                    $viewport--smaller,
-    smallest:                   $viewport--smallest
+    largest:                    1681px,
+    larger:                     1441px,
+    large:                      1281px,
+    small:                      1025px,
+    smaller:                    769px,
+    smallest:                   481px
 );
-
-
-// Viewport function
-// -----------------------------------------------------------------------------
-
-@function viewport($size) {
-    @if map-has-key($viewportMap, $size) {
-        @return map-get($viewportMap, $size);
-    }
-
-    @warn "Unknown viewport `#{$size}` in $viewportMap.";
-    @return null;
-}
 
 
 // Viewport mixin
 // -----------------------------------------------------------------------------
+// Use the viewport mixin within your selectors to add responsive code directly
+// to the selector you're working on.
 //
 // 1. Media queries are typically min-width, scaling up with mobile first.
 //    When there is a need for a max-width media query, the viewport size must
 //    be reduced by 1px to ensure the correct viewport is targeted.
-//
 //    For example: (max-width: 1024px) opposed to (max-width: 1025px)
 //
+// Example use:
+//    @include viewport("small") {
+//        property: styles;
+//    }
+//
+//    @include viewport("large", "max-width") {
+//        property: styles;
+//    }
 // -----------------------------------------------------------------------------
 
 @mixin viewport($size, $maxWidth: null) {
