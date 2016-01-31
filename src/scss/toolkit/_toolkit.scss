@@ -3,42 +3,11 @@
 // =============================================================================
 
 
-// The important parts
-// -----------------------------------------------------------------------------
-// Imported first as some variables are depended on by other tools.
+// Tools
 // -----------------------------------------------------------------------------
 
 // Calculations
 @import "tools/calculations/calculation-tools";
-
-// Typography
-@import "settings/type/type-settings";
-
-// Spacing`
-@import "settings/spacing/spacing-settings";
-
-// Viewport
-@import "settings/viewport/viewport-settings";
-
-// Layout`
-@import "settings/layouts/layout-settings";
-
-
-// Settings
-// -----------------------------------------------------------------------------
-// 1) Google's Material Design palette available to you because it's awesome.
-// -----------------------------------------------------------------------------
-
-// Animations
-@import "settings/animations/animation-settings";
-
-// Color
-@import "settings/colors/material-settings"; // 1
-@import "settings/colors/color-settings";
-
-
-// Tools
-// -----------------------------------------------------------------------------
 
 // Content
 @import "tools/content/content-tools";
@@ -57,3 +26,28 @@
 
 // Shapes
 @import "tools/shapes/shape-tools";
+
+
+// Settings
+// -----------------------------------------------------------------------------
+// 1) Google's Material Design palette available to you because it's awesome.
+// -----------------------------------------------------------------------------
+
+// Typography
+@import "settings/type/type-settings";
+
+// Spacing`
+@import "settings/spacing/spacing-settings";
+
+// Viewport
+@import "settings/viewport/viewport-settings";
+
+// Layout`
+@import "settings/layouts/layout-settings";
+
+// Animations
+@import "settings/animations/animation-settings";
+
+// Color
+@import "settings/colors/material-settings"; // 1
+@import "settings/colors/color-settings";

@@ -9,29 +9,29 @@
 //
 // Rules:
 // -> Use these values exclusively for all spacing.
-// -> The only exceptions to this rule are unitless values or '1rem'.
+// -> The only exception to this rule are unitless values or '1rem' if needed.
 // -----------------------------------------------------------------------------
 
 
 // Spacing unit
 // -----------------------------------------------------------------------------
 
-$spacingUnit: 1rem * $lineHeight--base;
+$spacingUnit: 1rem * lineHeight("base");
 
 
 // Spacing map
 // -----------------------------------------------------------------------------
 
 $spacingMap: (
-    quad:    $spacingUnit * 4,
-    triple:  $spacingUnit * 3,
-    double:  $spacingUnit * 2,
-    single:  $spacingUnit,
-    half:    $spacingUnit / 2,
-    third:   $spacingUnit / 3,
-    quarter: $spacingUnit / 4,
-    fifth:   $spacingUnit / 5,
-    eighth:  $spacingUnit / 8
+    "quad":    $spacingUnit * 4,
+    "triple":  $spacingUnit * 3,
+    "double":  $spacingUnit * 2,
+    "single":  $spacingUnit,
+    "half":    $spacingUnit / 2,
+    "third":   $spacingUnit / 3,
+    "quarter": $spacingUnit / 4,
+    "fifth":   $spacingUnit / 5,
+    "eighth":  $spacingUnit / 8
 );
 
 

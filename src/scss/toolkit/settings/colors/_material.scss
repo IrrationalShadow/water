@@ -1,10 +1,8 @@
 // =============================================================================
 // MATERIAL COLOR PALETTE
 // =============================================================================
-//
 // The color palette of Google's Material Design.
 // See: http://www.google.com/design/spec/style/color.html
-//
 // -----------------------------------------------------------------------------
 
 
@@ -343,16 +341,15 @@ $materialMap: (
         700:                    #455a64,
         800:                    #37474f,
         900:                    #263238
-    ),
-
-    "blacks":                      #000,
-    "whites":                      #fff
+    )
 );
 
 // scss-lint:enable ColorKeyword,ColorVariable
 
 
-// Material color map function
+
+
+// Material color function
 // -----------------------------------------------------------------------------
 
 @function material($color, $variant: "base") {

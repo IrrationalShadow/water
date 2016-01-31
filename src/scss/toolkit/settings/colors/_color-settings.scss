@@ -1,0 +1,72 @@
+// =============================================================================
+// COLORS (Settings)
+// =============================================================================
+
+$colorMap: (
+    // Branding
+    "primary": (
+        "base": #ffcdd2,
+        "dark": #d32f2f,
+        "light": #ffebee
+    ),
+    "accent": (
+        "base": #202021,
+        "dark": #090909,
+        "light": #252526
+    ),
+
+    // Type
+    "text": (
+        "base": #222,
+        "secondary": #888,
+        "inverse": #fff
+    ),
+    "link": (
+        "base": #f00,
+        "hover": #0f0,
+        "active": #00f,
+        "inverse": #fff
+    ),
+
+    // Highlight
+    "background": (
+        "base": #fff,
+        "dark": #222,
+        "light": #eee
+    ),
+    "border": (
+        "base": #ddd,
+        "dark": #222,
+        "light": #eee
+    ),
+
+    // State
+    "success": (
+        "base": #5cb85c,
+        "dark": #5cb85c,
+        "light": #5cb85c
+    ),
+    "alert": (
+        "base": #d9534f,
+        "dark": #d9534f,
+        "light": #d9534f
+    ),
+    "warning": (
+        "base": #f46e38,
+        "dark": #f46e38,
+        "light": #f46e38
+    )
+);
+
+
+
+
+// Color function
+// -----------------------------------------------------------------------------
+
+@function color($color, $variant: "base") {
+    @return map-get(map-get($colorMap, $color), $variant);
+
+    @warn "Unknown color `#{$color}` in $colorMap.";
+    @return null;
+}

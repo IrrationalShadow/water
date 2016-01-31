@@ -3,16 +3,22 @@
 // =============================================================================
 
 
-// Layout map & function
+// Layout map
 // -----------------------------------------------------------------------------
 
 $layoutMap: (
-    width: (
-        base:                   100%,
-        fixed:                  $layoutWidth--fixed,
-        max:                    $layoutWidth--max
+    "width": (
+        "base":  100%,
+        "fixed": 90%,
+        "max":   100rem
     )
 );
+
+
+
+
+// Layout function
+// -----------------------------------------------------------------------------
 
 @function layout($layout, $variant: "base") {
     @return map-get(map-get($layoutMap, $layout), $variant);
