@@ -1,0 +1,146 @@
+// =============================================================================
+// TYPOGRAPHY (Settings)
+// =============================================================================
+
+
+// Font-size map
+// -----------------------------------------------------------------------------
+
+$fontSizeMap: (
+    // Scale keys
+    "root": (
+        "small": 16px,
+        "large": 18px
+    ),
+    "base": 1rem,
+
+    // Headings and small print
+    "hero": 2.5rem,
+    "h1": 42px,
+    "h2": 28px,
+    "h3": 22px,
+    "h4": 16px,
+    "tiny": 12px
+);
+
+
+// Line-height map
+// -----------------------------------------------------------------------------
+
+$lineHeightMap: (
+    "base": 1.5
+);
+
+
+// Font-family map
+// -----------------------------------------------------------------------------
+// Example use:
+// .class {font-family: fontFamily("heading");}
+// -----------------------------------------------------------------------------
+
+$fontFamilyMap: (
+    "heading": ("freight-text-pro", "Times New Roman", serif),
+    "text": ("source-sans-pro", "Helvetica Neue", sans-serif),
+    "hero": brandon-grotesque,
+    "numeric": brandon-grotesque,
+    "code": (inconsolata, Monaco, monospace)
+);
+
+
+// Font-weight map
+// -----------------------------------------------------------------------------
+// Example use:
+// .class {font-weight: fontWeight("bold");}
+// -----------------------------------------------------------------------------
+
+$fontWeightMap: (
+    "thin": 300,
+    "normal": 400,
+    "semibold": 500,
+    "bold": 700,
+    "black": 900
+);
+
+
+
+
+// Text Kerning
+// -----------------------------------------------------------------------------
+// 1. Chrome (not Windows), Firefox, Safari 6+, iOS, Android
+// 2. Chrome (not Windows), Firefox, IE 10+
+// 3. Safari 7 and future browsers
+// -----------------------------------------------------------------------------
+
+@mixin textKern($important: null) {
+    font-feature-settings: "kern" 1 $important; // 2
+    font-kerning: normal $important; // 3
+    text-rendering: optimizeLegibility $important; // 1
+}
+
+
+// Text Truncate
+// -----------------------------------------------------------------------------
+// 1. Ensure that the node has a maximum width after which truncation
+//    can occur.
+// 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor
+//    nodes.
+// -----------------------------------------------------------------------------
+
+@mixin textTruncate($important: null) {
+    max-width: 100% $important; // 1
+    overflow: hidden $important;
+    text-overflow: ellipsis $important;
+    white-space: nowrap $important;
+    word-wrap: normal $important; // 2
+}
+
+
+
+
+// Font functions
+// -----------------------------------------------------------------------------
+
+@function fontSize($key) {
+    @if map-has-key($fontSizeMap, $key) {
+        @return map-get($fontSizeMap, $key);
+    }
+
+    @warn "Unknown font-size `#{$key}` in $fontSizeMap.";
+    @return null;
+}
+
+@function fontSizeRoot($key) {
+    @if map-has-key($fontSizeRootMap, $key) {
+        @return map-get($fontSizeRootMap, $key);
+    }
+
+    @warn "Unknown font-size `#{$key}` in $fontSizeRootMap.";
+    @return null;
+}
+
+@function lineHeight($key) {
+    @if map-has-key($lineHeightMap, $key) {
+        @return map-get($lineHeightMap, $key);
+    }
+
+    @warn "Unknown line-height `#{$key}` in $lineHeightMap.";
+    @return null;
+}
+
+@function fontFamily($key) {
+    @if map-has-key($fontFamilyMap, $key) {
+        @return map-get($fontFamilyMap, $key);
+    }
+
+    @warn "Unknown font-family `#{$key}` in $fontFamilyMap.";
+    @return null;
+}
+
+@function fontWeight($key) {
+    @if map-has-key($fontWeightMap, $key) {
+        @return map-get($fontWeightMap, $key);
+    }
+
+    @warn "Unknown font-weight `#{$key}` in $fontWeightMap.";
+    @return null;
+}

@@ -18,29 +18,32 @@ $colorMap: (
     // Type
     "text": (
         "base": #222,
-        "secondary": #888,
-        "inverse": #fff
+        "secondary": #888
     ),
     "link": (
         "base": #f00,
         "hover": #0f0,
-        "active": #00f,
-        "inverse": #fff
+        "active": #00f
     ),
 
-    // Highlight
-    "background": (
-        "base": #fff,
-        "dark": #222,
-        "light": #eee
+    // Outlines
+    "divider": (
+        "base": #ddd
     ),
     "border": (
+        "base": #eee,
+        "hover": #ddd,
+        "active": #222
+    ),
+
+    // Backgrounds
+    "background": (
         "base": #ddd,
-        "dark": #222,
+        "dark": #bbb,
         "light": #eee
     ),
 
-    // State
+    // States
     "success": (
         "base": #5cb85c,
         "dark": #5cb85c,
