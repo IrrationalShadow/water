@@ -1,6 +1,9 @@
 // =============================================================================
 // COLORS (Settings)
 // =============================================================================
+// Example use:
+// .class {background-color: color("primary", "light");}
+// -----------------------------------------------------------------------------
 
 $colorMap: (
     // Branding
@@ -69,7 +72,6 @@ $colorMap: (
 
 @function color($color, $variant: "base") {
     @return map-get(map-get($colorMap, $color), $variant);
-
-    @warn "Unknown color `#{$color}` in $colorMap.";
+    @warn "Unknown color '#{$color}' used in color function.";
     @return null;
 }

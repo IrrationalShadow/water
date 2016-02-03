@@ -35,7 +35,7 @@ body {
 
 ::selection {
     text-shadow: none;
-    color: color("whites");
+    color: #fff;
     background: material("grey", 900);
 }
 
@@ -179,7 +179,7 @@ i {
 
 mark {
     background: material("pink", 500);
-    color: color("whites");
+    color: #fff;
 }
 
 small {

@@ -13,7 +13,7 @@ $button-borderRadius: 2px;
 // -----------------------------------------------------------------------------
 
 .button {
-    background-color: color("whites");
+    background-color: #fff;
     border-radius: $button-borderRadius;
     border: 1px solid material("grey", 300);
     color: material("grey", 700);
@@ -41,7 +41,7 @@ $button-borderRadius: 2px;
 .button--primary {
     background-color: material("grey", 900);
     border-color: material("grey", 900);
-    color: color("whites");
+    color: #fff;
 
     &:hover,
     &:focus {

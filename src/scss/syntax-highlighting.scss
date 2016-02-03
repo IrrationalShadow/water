@@ -15,7 +15,11 @@
 @import "toolkit/toolkit";
 
 html {
-    font-size: 12px;
+    font-size: fontSize("mobile", "root");
+
+    @include viewport("larger") {
+        font-size: fontSize("desktop", "root");
+    }
 }
 
 body {
@@ -24,7 +28,7 @@ body {
 }
 
 .example {
-    background: color("whites");
+    background: #fff;
     border: 1px solid material("grey", 200);
     padding: spacing("single");
 
@@ -38,7 +42,7 @@ body {
 // -----------------------------------------------------------------------------
 
 pre[class*="language-"] {
-    background: color("whites");
+    background: #fff;
     border: 1px solid material("grey", 200);
     margin: 0 0 spacing("single");
     overflow: auto;
@@ -51,7 +55,7 @@ pre[class*="language-"] {
     direction: ltr;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     hyphens: none;
-    line-height: 1.5;
+    line-height: lineHeight("global");
     tab-size: 4;
     text-align: left;
     white-space: pre;

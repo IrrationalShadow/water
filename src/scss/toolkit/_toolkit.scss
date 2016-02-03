@@ -33,14 +33,14 @@
 // 1) Google's Material Design palette available to you because it's awesome.
 // -----------------------------------------------------------------------------
 
+// Viewport
+@import "settings/viewport/viewport-settings";
+
 // Typography
 @import "settings/type/type-settings";
 
 // Spacing`
 @import "settings/spacing/spacing-settings";
-
-// Viewport
-@import "settings/viewport/viewport-settings";
 
 // Layout`
 @import "settings/layouts/layout-settings";

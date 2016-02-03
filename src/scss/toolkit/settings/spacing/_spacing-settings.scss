@@ -16,7 +16,7 @@
 // Spacing unit
 // -----------------------------------------------------------------------------
 
-$spacingUnit: 1rem * lineHeight("base");
+$spacingUnit: 1rem * lineHeight("global");
 
 
 // Spacing map
@@ -40,12 +40,10 @@ $spacingMap: (
 // Spacing function
 // -----------------------------------------------------------------------------
 
-@function spacing($key) {
-
-    @if map-has-key($spacingMap, $key) {
-        @return map-get($spacingMap, $key);
+@function spacing($spacing) {
+    @if map-has-key($spacingMap, $spacing) {
+        @return map-get($spacingMap, $spacing);
     }
-
-    @warn "Unknown spacing rhythm `#{$key}` in $spacingMap.";
+    @warn "Unknown spacing rhythm '#{$spacing}' used in spacing function.";
     @return null;
 }

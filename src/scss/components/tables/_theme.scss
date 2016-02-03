@@ -30,7 +30,7 @@
 .table-header {
 
     > .table-row {
-        background-color: color("greys", "light");
+        background-color: color("background", "light");
     }
 
     th {
@@ -50,22 +50,22 @@
     }
 
     > .table-row:nth-of-type(odd) {
-        background-color: color("greys", "lighter");
+        background-color: color("background", "light");
     }
 
     > .table-row:hover {
-        background-color: color("greys", "lightest");
+        background-color: color("background", "dark");
     }
 
     > .table-row.is-active {
-        background-color: color("greys", "light");
+        background-color: color("background", "light");
     }
 
     > .table-row + .table-row {
 
         th,
         td {
-            border-top: 1px solid color("greys", "dark");
+            border-top: 1px solid color("background", "dark");
         }
     }
 
@@ -206,8 +206,8 @@
 
         .table-row,
         .table-row:nth-of-type(odd) {
-            background-color: color("whites");
-            border: solid color("greys", "dark");
+            background-color: #fff;
+            border: solid color("background", "dark");
 
             th,
             td {
@@ -216,7 +216,7 @@
         }
 
         .table-row:hover {
-            background-color: color("whites");
+            background-color: #fff;
         }
 
         .table-row + .table-row {

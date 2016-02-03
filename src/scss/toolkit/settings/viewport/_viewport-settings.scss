@@ -10,10 +10,24 @@ $viewportMap: (
     largest: 1681px,
     larger: 1441px,
     large: 1281px,
-    small: 1025px,
-    smaller: 769px,
-    smallest: 481px
+    small: 961px,
+    smaller: 841px,
+    smallest: 601px
 );
+
+
+
+
+// Viewport function
+// -----------------------------------------------------------------------------
+
+@function viewport($viewport) {
+    @if map-has-key($viewportMap, $viewport) {
+        @return map-get($viewportMap, $viewport);
+    }
+    @warn "Unknown viewport '#{$viewport}' specified in the viewport function.";
+    @return null;
+}
 
 
 // Viewport mixin
@@ -24,7 +38,7 @@ $viewportMap: (
 // 1. Media queries are typically min-width, scaling up with mobile first.
 //    When there is a need for a max-width media query, the viewport size must
 //    be reduced by 1px to ensure the correct viewport is targeted.
-//    For example: (max-width: 1024px) opposed to (max-width: 1025px)
+//    For example: (max-width: 1024px) opposed to (max-width: 1025px).
 //
 // Example use:
 //    @include viewport("small") {

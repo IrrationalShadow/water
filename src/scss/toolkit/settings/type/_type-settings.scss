@@ -3,22 +3,37 @@
 // =============================================================================
 
 
+// Font-size desktop viewportMap
+// -----------------------------------------------------------------------------
+// 1. This variable is the key to shifting from your "mobile" scale to your
+//    "desktop" scale (when calling the fontSize mixin - found below).
+//
+//    Choose any value from the viewport function (found in viewport-settings).
+//    For example: viewport("larger"), which will bump the font size and
+//    line height of your text when the viewport is wide enough.
+// -----------------------------------------------------------------------------
+
+$fontSizeDesktopViewport: viewport("larger"); // 1
+
+
 // Font-size map
+// -----------------------------------------------------------------------------
+// There are 2 font size scales built into Water. As screen sizes vary quite
+// significantly, having only 1 set of font sizes or line heights for all
+// viewports isn't a good idea. Below you'll be able to set sizes for mobile and
+// desktop viewports separately to improve readability.
+//
+// Note: "root" font sizes are the default pixel or percentage based font size,
+// which set the standards for your relative units to follow.
+//
+// Example use:
+// .class {font-size: fontSize("h1");}
 // -----------------------------------------------------------------------------
 
 $fontSizeMap: (
     // Global
-    "base": 1rem,
-
-    // Desktop scale: Major Third
-    "desktop": (
-        "root": 18px,
-        "hero": 3.052rem,
-        "h1": 2.441rem,
-        "h2": 1.953rem,
-        "h3": 1.563rem,
-        "h4": 1.25rem,
-        "tiny": 0.8rem
+    "global": (
+        "base": 1rem
     ),
 
     // Mobile scale: Minor Third
@@ -30,28 +45,39 @@ $fontSizeMap: (
         "h3": 1.44rem,
         "h4": 1.2rem,
         "tiny": 0.833rem
+    ),
+
+    // Desktop scale: Major Third
+    "desktop": (
+        "root": 18px,
+        "hero": 3.052rem,
+        "h1": 2.441rem,
+        "h2": 1.953rem,
+        "h3": 1.563rem,
+        "h4": 1.25rem,
+        "tiny": 0.8rem
     )
 );
 
 
 // Line-height map
 // -----------------------------------------------------------------------------
+// Similarly to the font size scales for mobile and desktop, you'll find the
+// matching line height scales below.
+//
+// Note: The desktop and mobile line heights are set to a consistent vertical
+// rhythm, which should be maintained throughout the project.
+//
+// Line height of 1.5625 = 16px/25px & 18px/28.125px (font-size/line-height).
+// -----------------------------------------------------------------------------
 
 $lineHeightMap: (
     // Global
-    "base": 1.5
+    "global": (
+        "base": 1.5625
+    ),
 
-    // Desktop scale: Major Third
-    "desktop": (
-        "hero": 1.2,
-        "h1": 1.23,
-        "h2": 1.2875,
-        "h3": 1.29,
-        "h4": 1.4,
-        "tiny": 1.65
-    )
-
-    // Mobile scale: Minor Third
+    // Mobile scale: Minor Third, with 5px Vertical Rhythm.
     "mobile": (
         "hero": 1.2,
         "h1": 1.275,
@@ -59,6 +85,16 @@ $lineHeightMap: (
         "h3": 1.305,
         "h4": 1.425,
         "tiny": 1.646
+    ),
+
+    // Desktop scale: Major Third, with 7px Vertical Rhythm.
+    "desktop": (
+        "hero": 1.2,
+        "h1": 1.23,
+        "h2": 1.2875,
+        "h3": 1.29,
+        "h4": 1.4,
+        "tiny": 1.65
     )
 );
 
@@ -95,65 +131,48 @@ $fontWeightMap: (
 // Font functions
 // -----------------------------------------------------------------------------
 
-@function fontSize($key) {
-    @if map-has-key($fontSizeMap, $key) {
-        @return map-get($fontSizeMap, $key);
-    }
-
-    @warn "Unknown font-size `#{$key}` in $fontSizeMap.";
+@function fontSize($scale, $size: "base") {
+    @return map-get(map-get($fontSizeMap, $scale), $size);
+    @warn "Unknown font-size '#{$scale}' used in fontSize function.";
     @return null;
 }
 
-@function fontSizeRoot($key) {
-    @if map-has-key($fontSizeRootMap, $key) {
-        @return map-get($fontSizeRootMap, $key);
-    }
-
-    @warn "Unknown font-size `#{$key}` in $fontSizeRootMap.";
+@function lineHeight($scale, $lineHeight: "base") {
+    @return map-get(map-get($lineHeightMap, $scale), $lineHeight);
+    @warn "Unknown line-height '#{$scale}' used in lineHeight function.";
     @return null;
 }
 
-@function lineHeight($key) {
-    @if map-has-key($lineHeightMap, $key) {
-        @return map-get($lineHeightMap, $key);
+@function fontFamily($fontFamily) {
+    @if map-has-key($fontFamilyMap, $fontFamily) {
+        @return map-get($fontFamilyMap, $fontFamily);
     }
-
-    @warn "Unknown line-height `#{$key}` in $lineHeightMap.";
+    @warn "Unknown font-family '#{$fontFamily}' used in fontFamily function.";
     @return null;
 }
 
-@function fontFamily($key) {
-    @if map-has-key($fontFamilyMap, $key) {
-        @return map-get($fontFamilyMap, $key);
+@function fontWeight($fontWeight) {
+    @if map-has-key($fontWeightMap, $fontWeight) {
+        @return map-get($fontWeightMap, $fontWeight);
     }
-
-    @warn "Unknown font-family `#{$key}` in $fontFamilyMap.";
-    @return null;
-}
-
-@function fontWeight($key) {
-    @if map-has-key($fontWeightMap, $key) {
-        @return map-get($fontWeightMap, $key);
-    }
-
-    @warn "Unknown font-weight `#{$key}` in $fontWeightMap.";
+    @warn "Unknown font-weight '#{$fontWeight}' used in fontWeight function.";
     @return null;
 }
 
 
 
 
-// Text Kerning
-// -----------------------------------------------------------------------------
-// 1. Chrome (not Windows), Firefox, IE 10+.
-// 2. Safari 7 and future browsers.
-// 3. Chrome (not Windows), Firefox, Safari 6+, iOS, Android.
+// Font Size
 // -----------------------------------------------------------------------------
 
-@mixin textKern($important: null) {
-    font-feature-settings: "kern" 1 $important; // 1
-    font-kerning: normal $important; // 2
-    text-rendering: optimizeLegibility $important; // 3
+@mixin fontSize($value, $desktopViewport: $fontSizeDesktopViewport) {
+    font-size: fontSize("mobile", $value);
+    line-height: lineHeight("mobile", $value);
+
+    @include viewport($desktopViewport) {
+        font-size: fontSize("desktop", $value);
+        line-height: lineHeight("desktop", $value);
+    }
 }
 
 
@@ -169,4 +188,18 @@ $fontWeightMap: (
     text-overflow: ellipsis $important;
     white-space: nowrap $important;
     word-wrap: normal $important; // 2
+}
+
+
+// Text Kerning
+// -----------------------------------------------------------------------------
+// 1. Chrome (not Windows), Firefox, IE 10+.
+// 2. Safari 7 and future browsers.
+// 3. Chrome (not Windows), Firefox, Safari 6+, iOS, Android.
+// -----------------------------------------------------------------------------
+
+@mixin textKern($important: null) {
+    font-feature-settings: "kern" 1 $important; // 1
+    font-kerning: normal $important; // 2
+    text-rendering: optimizeLegibility $important; // 3
 }
