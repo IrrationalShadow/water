@@ -1,31 +1,27 @@
 // =============================================================================
-// SYNTAX HIGHLIGHTING
+// DOCUMENTATION
 // =============================================================================
 
 
-// Toolkit
-// -----------------------------------------------------------------------------
-//
-// Let's bring all of our very handy tools together.
-// Variables, maps, mixins, and functions. (No outputted code here!)
-// This is where you'll want to modify the $variables to your projects liking.
-//
+// Import the Water toolkit for use
 // -----------------------------------------------------------------------------
 
 @import "toolkit/toolkit";
 
-html {
-    font-size: fontSize("mobile", "root");
 
-    @include viewport("larger") {
-        font-size: fontSize("desktop", "root");
-    }
+// Documentation CSS
+// -----------------------------------------------------------------------------
+
+html {
+    @include fontSize("root");
 }
 
 body {
     background-color: material("grey", 100);
+    font: 1rem/#{lineHeight("global")} fontFamily("text");
     margin: 3rem 3rem 0 300px;
 }
+
 
 .example {
     background: #fff;

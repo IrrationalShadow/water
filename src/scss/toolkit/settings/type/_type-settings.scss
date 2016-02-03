@@ -9,11 +9,11 @@
 //    "desktop" scale (when calling the fontSize mixin - found below).
 //
 //    Choose any value from the viewport function (found in viewport-settings).
-//    For example: viewport("larger"), which will bump the font size and
+//    For example: "large", which will bump the font size and
 //    line height of your text when the viewport is wide enough.
 // -----------------------------------------------------------------------------
 
-$fontSizeDesktopViewport: viewport("larger"); // 1
+$fontSizeDesktopViewport: "large"; // 1
 
 
 // Font-size map
