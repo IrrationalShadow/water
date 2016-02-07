@@ -3,19 +3,6 @@
 // =============================================================================
 
 
-// Font-size desktop viewportMap
-// -----------------------------------------------------------------------------
-// 1. This variable is the key to shifting from your "mobile" scale to your
-//    "desktop" scale (when calling the fontSize mixin - found below).
-//
-//    Choose any value from the viewport function (found in viewport-settings).
-//    For example: "large", which will bump the font size and
-//    line height of your text when the viewport is wide enough.
-// -----------------------------------------------------------------------------
-
-$fontSizeDesktopViewport: "large"; // 1
-
-
 // Font-size map
 // -----------------------------------------------------------------------------
 // There are 2 font size scales built into Water. As screen sizes vary quite
@@ -23,11 +10,12 @@ $fontSizeDesktopViewport: "large"; // 1
 // viewports isn't a good idea. Below you'll be able to set sizes for mobile and
 // desktop viewports separately to improve readability.
 //
-// Note: "root" font sizes are the default pixel or percentage based font size,
-// which set the standards for your relative units to follow.
+// NOTE: The "mobile" scale will change to the "desktop" scale based on the
+// value of the $desktopViewport variable found in _viewport-settings.scss
+// Please set that value to your desired viewport.
 //
-// Example use:
-// .class {font-size: fontSize("h1");}
+// NOTE: "root" font sizes are the default pixel or percentage based font size,
+// which set the standards for your relative units to follow.
 // -----------------------------------------------------------------------------
 
 $fontSizeMap: (
@@ -65,7 +53,11 @@ $fontSizeMap: (
 // Similarly to the font size scales for mobile and desktop, you'll find the
 // matching line height scales below.
 //
-// Note: The desktop and mobile line heights are set to a consistent vertical
+// NOTE: The "mobile" scale will change to the "desktop" scale based on the
+// value of the $desktopViewport variable found in _viewport-settings.scss
+// Please set that value to your desired viewport.
+//
+// NOTE: The desktop and mobile line heights are set to a consistent vertical
 // rhythm, which should be maintained throughout the project.
 //
 // Line height of 1.5625 = 16px/25px & 18px/28.125px (font-size/line-height).
@@ -126,6 +118,55 @@ $fontWeightMap: (
 );
 
 
+// Font Size mixin
+// -----------------------------------------------------------------------------
+// This is the mixin you will be using to define your font-size in all of your
+// components, patterns or layouts files.
+//
+// Using this mixin ties the font-size to your line-height scale, for consistent
+// typography throughout your project. It is also the key to automatically
+// adjusting your font-size/line-height scale between mobile and desktop the
+// viewport specified in _viewport-settings.scss
+// -----------------------------------------------------------------------------
+
+@mixin fontSize($value, $viewport: $desktopViewport) {
+    font-size: fontSize("mobile", $value);
+    line-height: lineHeight("mobile", $value);
+
+    @include viewport($viewport) {
+        font-size: fontSize("desktop", $value);
+        line-height: lineHeight("desktop", $value);
+    }
+}
+
+
+// Text Truncate
+// -----------------------------------------------------------------------------
+// 1. Ensure that the node has a maximum width after which truncation can occur.
+// 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor nodes.
+// -----------------------------------------------------------------------------
+
+@mixin textTruncate() {
+    max-width: 100%; // 1
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal; // 2
+}
+
+
+// Text Kerning
+// -----------------------------------------------------------------------------
+// 1. Chrome (not Windows), Firefox, IE 10+.
+// 2. Safari 7 and future browsers.
+// 3. Chrome (not Windows), Firefox, Safari 6+, iOS, Android.
+// -----------------------------------------------------------------------------
+
+@mixin textKern() {
+    font-feature-settings: "kern" 1; // 1
+    font-kerning: normal; // 2
+    text-rendering: optimizeLegibility; // 3
+}
 
 
 // Font functions
@@ -157,49 +198,4 @@ $fontWeightMap: (
     }
     @warn "Unknown font-weight '#{$fontWeight}' used in fontWeight function.";
     @return null;
-}
-
-
-
-
-// Font Size
-// -----------------------------------------------------------------------------
-
-@mixin fontSize($value, $desktopViewport: $fontSizeDesktopViewport) {
-    font-size: fontSize("mobile", $value);
-    line-height: lineHeight("mobile", $value);
-
-    @include viewport($desktopViewport) {
-        font-size: fontSize("desktop", $value);
-        line-height: lineHeight("desktop", $value);
-    }
-}
-
-
-// Text Truncate
-// -----------------------------------------------------------------------------
-// 1. Ensure that the node has a maximum width after which truncation can occur.
-// 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor nodes.
-// -----------------------------------------------------------------------------
-
-@mixin textTruncate($important: null) {
-    max-width: 100% $important; // 1
-    overflow: hidden $important;
-    text-overflow: ellipsis $important;
-    white-space: nowrap $important;
-    word-wrap: normal $important; // 2
-}
-
-
-// Text Kerning
-// -----------------------------------------------------------------------------
-// 1. Chrome (not Windows), Firefox, IE 10+.
-// 2. Safari 7 and future browsers.
-// 3. Chrome (not Windows), Firefox, Safari 6+, iOS, Android.
-// -----------------------------------------------------------------------------
-
-@mixin textKern($important: null) {
-    font-feature-settings: "kern" 1 $important; // 1
-    font-kerning: normal $important; // 2
-    text-rendering: optimizeLegibility $important; // 3
 }

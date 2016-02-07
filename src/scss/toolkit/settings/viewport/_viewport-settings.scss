@@ -1,5 +1,5 @@
 // =============================================================================
-// VIEWPORT (Tools)
+// VIEWPORT (Settings)
 // =============================================================================
 
 
@@ -16,18 +16,23 @@ $viewportMap: (
 );
 
 
-
-
-// Viewport function
+// Desktop viewport
+// -----------------------------------------------------------------------------
+// 1. This variable defines the viewport where you wish to change scales within
+//    your settings. For example: _type-settings.scss contains a mixin called
+//    @mixin fontSize, which bumps the font-size and line-height values from
+//    the mobile scale to the desktop scale specified within that file.
+//    You can re-use this variable for other areas, such as changing your
+//    spacing settings or any other settings you wish to modify on larger
+//    screens.
+//
+//    Choose any viewport name from the $viewportMap above.
+//    For example: "large".
 // -----------------------------------------------------------------------------
 
-@function viewport($viewport) {
-    @if map-has-key($viewportMap, $viewport) {
-        @return map-get($viewportMap, $viewport);
-    }
-    @warn "Unknown viewport '#{$viewport}' specified in the viewport function.";
-    @return null;
-}
+$desktopViewport: "large"; // 1
+
+
 
 
 // Viewport mixin
@@ -61,4 +66,18 @@ $viewportMap: (
             @content;
         }
     }
+}
+
+
+
+
+// Viewport function
+// -----------------------------------------------------------------------------
+
+@function viewport($viewport) {
+    @if map-has-key($viewportMap, $viewport) {
+        @return map-get($viewportMap, $viewport);
+    }
+    @warn "Unknown viewport '#{$viewport}' specified in the viewport function.";
+    @return null;
 }

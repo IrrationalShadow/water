@@ -1,12 +1,8 @@
 // =============================================================================
-// GRID (Tools)
+// COLUMNS (Tools)
 // =============================================================================
 
-
-// Grid map
-// -----------------------------------------------------------------------------
-
-$gridMap: (
+$columnsMap: (
     "12/12":                    100%,
     "11/12":                    91.66667%,
     "10/12":                    83.33334%,
@@ -22,16 +18,13 @@ $gridMap: (
 );
 
 
-
-
-// Grid function
+// Columns function
 // -----------------------------------------------------------------------------
 
-@function grid($key) {
-    @if map-has-key($gridMap, $key) {
-        @return map-get($gridMap, $key);
+@function columns($columns) {
+    @if map-has-key($columnsMap, $columns) {
+        @return map-get($columnsMap, $columns);
     }
-
-    @warn "Unknown grid size `#{$key}` in $grid.";
+    @warn "Unknown column size `#{$columns}` used in columns function.";
     @return null;
 }

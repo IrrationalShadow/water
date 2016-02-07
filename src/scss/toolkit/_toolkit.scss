@@ -1,5 +1,5 @@
 // =============================================================================
-// TOOLS
+// TOOLKIT
 // =============================================================================
 
 
@@ -8,6 +8,9 @@
 
 // Calculations
 @import "tools/calculations/calculation-tools";
+
+// Columns
+@import "tools/columns/column-tools";
 
 // Content
 @import "tools/content/content-tools";
@@ -30,24 +33,25 @@
 
 // Settings
 // -----------------------------------------------------------------------------
-// 1) Google's Material Design palette available to you because it's awesome.
+// 1) These imports need to be defined in this specific order:
+//    Viewport > Typography > Spacing.
+//    Everything after 'Layout' is imported in the typical alphabetical order.
+//
+// 2) Google's Material Design palette available to you because it's awesome.
 // -----------------------------------------------------------------------------
 
 // Viewport
-@import "settings/viewport/viewport-settings";
+@import "settings/viewport/viewport-settings"; // 1
 
 // Typography
-@import "settings/type/type-settings";
+@import "settings/type/type-settings"; // 1
 
-// Spacing`
-@import "settings/spacing/spacing-settings";
-
-// Layout`
-@import "settings/layouts/layout-settings";
+// Spacing
+@import "settings/spacing/spacing-settings"; // 1
 
 // Animations
 @import "settings/animations/animation-settings";
 
 // Color
-@import "settings/colors/material-settings"; // 1
+@import "settings/colors/material-settings"; // 2
 @import "settings/colors/color-settings";

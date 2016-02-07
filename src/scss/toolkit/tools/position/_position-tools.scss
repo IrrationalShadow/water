@@ -9,19 +9,18 @@
 //    performance reasons.
 // -----------------------------------------------------------------------------
 
-@mixin position($variant, $important: null) {
-
+@mixin position($variant) {
     @if $variant == "absoluteCenter" { // 1
-        bottom: 0 $important;
-        left: 0 $important;
-        margin: auto $important;
-        position: absolute $important;
-        right: 0 $important;
-        top: 0 $important;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
 
     }
     @else if $variant == "fixed" {
-        backface-visibility: hidden $important; // 2
-        position: fixed $important;
+        backface-visibility: hidden; // 2
+        position: fixed;
     }
 }

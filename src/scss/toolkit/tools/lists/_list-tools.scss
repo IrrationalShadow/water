@@ -2,44 +2,22 @@
 // LISTS (Tools)
 // =============================================================================
 
-
-// List mixins
-// -----------------------------------------------------------------------------
-
-@mixin listBullets($style, $important: null) {
-
+@mixin listBullets($style) {
     @if $style == "none" {
-        list-style: none $important;
-        margin-left: 0 $important;
+        list-style: none;
+        margin-left: 0;
 
         ul,
         ol {
-            list-style: none $important;
-            margin-bottom: 0 $important;
+            list-style: none;
+            margin-bottom: 0;
         }
     }
-
-    @if $style == "disc" {
-        list-style-type: disc $important;
-
-        ul {
-            list-style: inherit $important;
-        }
-    }
-
-    @if $style == "circle" {
-        list-style-type: circle $important;
+    @else {
+        list-style-type: $style;
 
         ul {
-            list-style: inherit $important;
-        }
-    }
-
-    @if $style == "square" {
-        list-style-type: square $important;
-
-        ul {
-            list-style: inherit $important;
+            list-style: inherit;
         }
     }
 }

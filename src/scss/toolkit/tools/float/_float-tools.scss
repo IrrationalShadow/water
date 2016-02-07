@@ -1,23 +1,18 @@
 // =============================================================================
 // FLOAT (Tools)
 // =============================================================================
-
-
-// Float mixins
-// -----------------------------------------------------------------------------
 // 1. The use of `table` rather than `block` is only necessary if using
 //    ':before' to contain the top-margins of child elements.
 // -----------------------------------------------------------------------------
 
-@mixin clearFloats($important: null) {
-
+@mixin clearFloats() {
     &:before,
     &:after {
-        content: "" $important;
-        display: table $important; // 1
+        content: "";
+        display: table; // 1
     }
 
     &:after {
-        clear: both $important;
+        clear: both;
     }
 }

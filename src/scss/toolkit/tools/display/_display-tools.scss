@@ -5,45 +5,32 @@
 
 // Display mixins
 // -----------------------------------------------------------------------------
-// 1. Fix for Firefox bug: an image styled `max-width:100%` within an
+// 1. Fix for Firefox bug: an image styled 'max-width: 100%' within an
 //    inline-block will display at its default size, and not limit its width to
 //    100% of an ancestral container.
 // -----------------------------------------------------------------------------
 
-@mixin display($variant, $important: null) {
-    @if $variant == "none" {
-        display: none $important;
-    }
-    @else if $variant == "block" {
-        display: block $important;
-    }
-    @else if $variant == "inlineBlock" {
-        display: inline-block $important;
-        max-width: 100% $important; // 1
-    }
+@mixin hidden() {
+    border: 0;
+    clip: rect(1px 1px 1px 1px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 
-@mixin hidden($variant, $important: null) {
-    @if $variant == "hidden" {
-        display: none $important;
-    }
-    @else if $variant == "screenReader" {
-        border: 0 $important;
-        clip: rect(1px 1px 1px 1px) $important;
-        height: 1px $important;
-        margin: -1px $important;
-        overflow: hidden $important;
-        padding: 0 $important;
-        position: absolute $important;
-        width: 1px $important;
-    }
+@mixin visible() {
+    clip: auto;
+    height: auto;
+    margin: inherit;
+    overflow: auto;
+    position: inherit;
+    width: auto;
 }
 
-@mixin visible($important: null) {
-    clip: auto $important;
-    height: auto $important;
-    margin: inherit $important;
-    overflow: auto $important;
-    position: inherit $important;
-    width: auto $important;
+@mixin displayInline() {
+    display: inline-block;
+    max-width: 100%; // 1
 }
