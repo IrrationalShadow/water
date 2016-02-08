@@ -19,7 +19,7 @@ html {
 body {
     background-color: material("grey", 100);
     font: 1rem/#{lineHeight("global")} fontFamily("text");
-    margin: 3rem 3rem 0 300px;
+    margin: spacing("double") spacing("double") 0 remCalc(300px);
 }
 
 

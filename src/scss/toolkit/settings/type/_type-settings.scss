@@ -53,6 +53,10 @@ $fontSizeMap: (
 // Similarly to the font size scales for mobile and desktop, you'll find the
 // matching line height scales below.
 //
+// NOTE: Global line-height should be unitless. All following font-size specific
+// line-heights can be measured in rem units for simplicity, or unitless if you
+// you like math enough, despite knowing the outcome isn't any better.
+//
 // NOTE: The "mobile" scale will change to the "desktop" scale based on the
 // value of the $desktopViewport variable found in _viewport-settings.scss
 // Please set that value to your desired viewport.
@@ -71,22 +75,22 @@ $lineHeightMap: (
 
     // Mobile scale: Minor Third, with 5px Vertical Rhythm.
     "mobile": (
-        "hero": 1.2,
-        "h1": 1.275,
-        "h2": 1.305,
-        "h3": 1.305,
-        "h4": 1.425,
-        "tiny": 1.646
+        "hero": 2.8125rem,
+        "h1": 2.5rem,
+        "h2": 2.1875rem,
+        "h3": 1.875rem,
+        "h4": 1.5625rem,
+        "tiny": 1.25rem
     ),
 
     // Desktop scale: Major Third, with 7px Vertical Rhythm.
     "desktop": (
-        "hero": 1.2,
-        "h1": 1.23,
-        "h2": 1.2875,
-        "h3": 1.29,
-        "h4": 1.4,
-        "tiny": 1.65
+        "hero": 3.1111rem,
+        "h1": 2.7222rem,
+        "h2": 2.3334rem,
+        "h3": 1.9444rem,
+        "h4": 1.5556rem,
+        "tiny": 1.1667rem
     )
 );
 
