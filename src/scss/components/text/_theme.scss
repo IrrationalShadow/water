@@ -131,10 +131,10 @@ ol {
 }
 
 dt {
-    margin-bottom: $text-spacing / 2;
     font-weight: fontWeight("bold");
 }
 
+dt,
 dd {
     margin-bottom: $text-spacing / 2;
 }

@@ -1,18 +1,11 @@
 // =============================================================================
 // OBJECTS (Config)
 // =============================================================================
-
-
-// Object output
-// -----------------------------------------------------------------------------
-//
-// Control which objects have their classes compiled by changing the variable
-// to true/false.
-//
+// Easily control which objects have their classes compiled into CSS by changing the variable values below between true and false.
 // -----------------------------------------------------------------------------
 
-$output--dropdown:                  true !default;
-$output--embed:                     true !default;
-$output--grid:                      true !default;
-$output--list:                      true !default;
-$output--media:                     true !default;
+$output--dropdown: false;
+$output--embed: false;
+$output--grid: false;
+$output--list: false;
+$output--media: true;

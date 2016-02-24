@@ -8,27 +8,25 @@
 
 // Material color map
 // -----------------------------------------------------------------------------
-
-// // scss-lint:disable ColorKeyword,ColorVariable
+// scss-lint:disable ColorKeyword,ColorVariable
 
 $materialMap: (
-
     "red": (
         base:                   #f44336,
         50:                     #ffebee,
         100:                    #ffcdd2,
-        200:                    #f44336,
-        300:                    #d32f2f,
-        400:                    #ffcdd2,
+        200:                    #ef9a9a,
+        300:                    #e57373,
+        400:                    #ef5350,
         500:                    #f44336,
-        600:                    #d32f2f,
-        700:                    #ffcdd2,
-        800:                    #f44336,
-        900:                    #d32f2f,
+        600:                    #e53935,
+        700:                    #d32f2f,
+        800:                    #c62828,
+        900:                    #b71c1c,
         A100:                   #ff8a80,
         A200:                   #ff5252,
-        A300:                   #ff1744,
-        A400:                   #d50000
+        A400:                   #ff1744,
+        A700:                   #d50000
     ),
 
     "pink": (
@@ -330,7 +328,7 @@ $materialMap: (
     ),
 
     "blueGrey": (
-        base:                    #607d8b,
+        base:                   #607d8b,
         50:                     #eceff1,
         100:                    #cfd8dc,
         200:                    #b0bec5,

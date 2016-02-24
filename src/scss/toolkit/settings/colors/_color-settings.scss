@@ -8,9 +8,9 @@
 $colorMap: (
     // Branding
     "primary": (
-        "base": #ffcdd2,
-        "dark": #d32f2f,
-        "light": #ffebee
+        "base": material("red"),
+        "dark": material("red", 700),
+        "light": material("red", 300)
     ),
     "accent": (
         "base": #202021,
@@ -48,19 +48,19 @@ $colorMap: (
 
     // States
     "success": (
-        "base": #5cb85c,
-        "dark": #5cb85c,
-        "light": #5cb85c
+        "base": material("green"),
+        "dark": material("green", 700),
+        "light": material("green", 100)
     ),
     "alert": (
-        "base": #d9534f,
-        "dark": #d9534f,
-        "light": #d9534f
+        "base": material("red"),
+        "dark": material("red", 700),
+        "light": material("red", 100)
     ),
     "warning": (
-        "base": #f46e38,
-        "dark": #f46e38,
-        "light": #f46e38
+        "base": material("amber"),
+        "dark": material("amber", 700),
+        "light": material("amber", 100)
     )
 );
 

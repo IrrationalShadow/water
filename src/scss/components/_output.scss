@@ -6,9 +6,25 @@
 // leaving this file completely untouched.
 // -----------------------------------------------------------------------------
 
+
+// Element-based components
+// -----------------------------------------------------------------------------
+// 1. The text component should come first.
+// -----------------------------------------------------------------------------
+
+@if $output--text { // 1
+    @import "text/structure";
+    @import "text/theme";
+}
+
 @if $output--buttons {
     @import "buttons/structure";
     @import "buttons/theme";
+}
+
+@if $output--forms {
+    @import "forms/structure";
+    @import "forms/theme";
 }
 
 @if $output--images {
@@ -21,7 +37,6 @@
     @import "tables/theme";
 }
 
-@if $output--text {
-    @import "text/structure";
-    @import "text/theme";
-}
+
+// Custom components
+// -----------------------------------------------------------------------------

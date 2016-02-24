@@ -6,10 +6,11 @@
 // Element-based components
 // -----------------------------------------------------------------------------
 
-$output--buttons: true !default;
-$output--images: true !default;
-$output--tables: true !default;
-$output--text: true !default;
+$output--text: false;
+$output--buttons: false;
+$output--forms: false;
+$output--images: false;
+$output--tables: false;
 
 
 // Components

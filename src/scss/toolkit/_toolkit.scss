@@ -9,6 +9,9 @@
 // Calculations
 @import "tools/calculations/calculation-tools";
 
+// Colors (Material Design)
+@import "tools/colors/materialColor-tools";
+
 // Columns
 @import "tools/columns/column-tools";
 
@@ -36,8 +39,6 @@
 // 1) These imports need to be defined in this specific order:
 //    Viewport > Typography > Spacing.
 //    Everything after 'Layout' is imported in the typical alphabetical order.
-//
-// 2) Google's Material Design palette available to you because it's awesome.
 // -----------------------------------------------------------------------------
 
 // Viewport
@@ -53,5 +54,7 @@
 @import "settings/animations/animation-settings";
 
 // Color
-@import "settings/colors/material-settings"; // 2
 @import "settings/colors/color-settings";
+
+// Z-index
+@import "settings/zIndex/zIndex-settings";

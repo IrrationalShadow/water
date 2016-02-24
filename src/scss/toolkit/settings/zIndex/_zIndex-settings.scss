@@ -1,0 +1,43 @@
+// =============================================================================
+// Z-INDEX (Settings)
+// =============================================================================
+// Keep track of all your z-index values in one central location.
+// Never add another 9 or 0 again to try to beat some random number somewhere in
+// your code, those days are numbered... Get it? Did you get it...?
+// -----------------------------------------------------------------------------
+
+
+// Z-index map
+// -----------------------------------------------------------------------------
+
+$zIndexMap: (
+    1: 10,
+    2: 20,
+    3: 30,
+    4: 40,
+    5: 50,
+    6: 60,
+    7: 70,
+    8: 80,
+    9: 90
+);
+
+
+// Z-index applications
+// -----------------------------------------------------------------------------
+
+$zIndex-9--tooltip: zIndex("9");
+
+
+
+
+// Z-index function
+// -----------------------------------------------------------------------------
+
+@function zIndex($zIndex) {
+    @if map-has-key($zIndexMap, $zIndex) {
+        @return map-get($zIndexMap, $zIndex);
+    }
+    @warn "Unknown z-index '#{$zIndex}' used in zIndex function.";
+    @return null;
+}

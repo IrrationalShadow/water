@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    background-color: material("grey", 100);
+    background-color: color("primary");
     font: 1rem/#{lineHeight("global")} fontFamily("text");
     margin: spacing("double") spacing("double") 0 remCalc(300px);
 }
