@@ -14,7 +14,7 @@
 // Define the settings for your project in toolkit/settings.
 // -----------------------------------------------------------------------------
 
-@import "toolkit/toolkit";
+@import "toolkit/imports";
 
 
 // Objects
@@ -25,7 +25,7 @@
 // -----------------------------------------------------------------------------
 
 @import "objects/config";
-@import "objects/output";
+@import "objects/imports";
 
 
 // Components
@@ -35,4 +35,4 @@
 // -----------------------------------------------------------------------------
 
 @import "components/config";
-@import "components/output";
+@import "components/imports";
