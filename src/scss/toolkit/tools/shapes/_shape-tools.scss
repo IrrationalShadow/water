@@ -6,7 +6,7 @@
 // Triangle
 // -----------------------------------------------------------------------------
 
-@mixin triangle($triangle-size, $triangle-color, $triangle-direction) {
+@mixin triangle($triangle-direction, $triangle-size, $triangle-color) {
     border: inset $triangle-size;
     content: "";
     display: block;

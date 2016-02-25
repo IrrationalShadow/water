@@ -2,9 +2,19 @@
 // CALCULATIONS (Tools)
 // =============================================================================
 
+// Strip unit
+// -----------------------------------------------------------------------------
+
 @function stripUnit($num) {
     @return $num / ($num * 0 + 1);
 }
+
+
+// Convert to rem
+// -----------------------------------------------------------------------------
+// This function is used to convert a value, which has been run through the
+// strip unit function, from its unitless value to a rem value.
+// -----------------------------------------------------------------------------
 
 @function convertToRem($value, $base-value: 1rem) {
     $value: stripUnit($value) / stripUnit($base-value) * 1rem;
@@ -14,6 +24,16 @@
     }
     @return $value;
 }
+
+
+// Rem Calculation
+// -----------------------------------------------------------------------------
+// Calculates a rem value based on your 'base-value' pixel value.
+// For example, your base value is 16px, and you pass in 32px to the remCalc
+// function. The returned value will be 2rem.
+//
+// The $base-value should correspond to a root value from your $fontSizeMap.
+// -----------------------------------------------------------------------------
 
 @function remCalc($values, $base-value: "mobile") {
     $max: length($values);
