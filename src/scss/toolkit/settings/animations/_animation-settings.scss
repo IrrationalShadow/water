@@ -31,11 +31,9 @@ $animationTimingFunctionMap: (
 // -----------------------------------------------------------------------------
 
 @function duration($duration) {
-
     @if map-has-key($animationDurationMap, $duration) {
         @return map-get($animationDurationMap, $duration);
     }
-
     @warn "Unknown duration '#{$duration}' in $animationDurationMap.";
     @return null;
 }
@@ -45,11 +43,9 @@ $animationTimingFunctionMap: (
 // -----------------------------------------------------------------------------
 
 @function timing($timingFunction) {
-
     @if map-has-key($animationTimingFunctionMap, $timingFunction) {
         @return map-get($animationTimingFunctionMap, $timingFunction);
     }
-
     @warn "Unknown timing function '#{$animation}' in $animationTimingFunctionMap.";
     @return null;
 }
@@ -59,11 +55,9 @@ $animationTimingFunctionMap: (
 // -----------------------------------------------------------------------------
 
 @function delay($delay, $value) {
-
     @if map-has-key($animation--speedMap, $delay) {
         @return map-get(map-get($animationDurationMap, $delay), $value);
     }
-
     @warn "Unknown delay '#{$delay}' in $animationDurationMap.";
     @return null;
 }

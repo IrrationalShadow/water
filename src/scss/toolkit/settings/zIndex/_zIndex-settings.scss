@@ -25,8 +25,13 @@ $zIndexMap: (
 
 // Z-index applications
 // -----------------------------------------------------------------------------
+// Variables for all of your z-index uses. This allows us to see all layers from
+// one central location. Prefix your z-index variable with '$zIndex-'.
+//
+// Example: $zIndex-tooltip: zIndex(9);
+// -----------------------------------------------------------------------------
 
-$zIndex-9--tooltip: zIndex("9");
+
 
 
 
