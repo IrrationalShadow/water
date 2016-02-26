@@ -1,0 +1,45 @@
+// =============================================================================
+// EMBED (Tools)
+// =============================================================================
+// 1. By setting the ratio to "all", modifier classes will be created for all
+//    supported embed sizes.
+// 2. The $embedClass variable lets you control what the outputted descendant
+//    class will be. It can be left as the default class for consistency.
+// -----------------------------------------------------------------------------
+
+@mixin embed($ratio: "all", $embedClass: "item") {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+
+    @if $ratio == "16x9" {
+        padding: 0 0 56.25%;
+    }
+    @else if $ratio == "4x3" {
+        padding: 0 0 75%;
+    }
+    @else {
+        padding: 0;
+    }
+
+    @if $ratio == "all" { // 1
+        &--16x9 {
+            padding-bottom: 56.25%;
+        }
+
+        &--4x3 {
+            padding-bottom: 75%;
+        }
+    }
+
+    &-#{$embedClass} { // 2
+        border: 0;
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}

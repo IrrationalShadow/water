@@ -1,51 +1,38 @@
 // =============================================================================
 // OBJECTS (Output)
 // =============================================================================
+// Include each objects classes and styling.
 //
-// Include the output classes and styles from each object.
-// Control which classes get outputted via the config file's variables, leaving
-// this file completely untouched.
-//
+// NOTE: Don't touch the contents of this file. Turn on/off objects CSS in the
+//       _config.scss file.
 // -----------------------------------------------------------------------------
-
-
-// Dropdown
-// -----------------------------------------------------------------------------
-
-@import "dropdown/config";
-@import "dropdown/tools";
-@if $output--dropdown {
-    @import "dropdown/output";
-}
 
 
 // Embed
 // -----------------------------------------------------------------------------
 
-@import "embed/config";
-@import "embed/tools";
+@import "embed/embed-tools";
 @if $output--embed {
-    @import "embed/output";
+    @import "embed/embed-object";
 }
 
 
 // Grid
 // -----------------------------------------------------------------------------
 
-@import "grid/config";
-@import "grid/tools";
+@import "grid/grid-tools";
 @if $output--grid {
-    @import "grid/output";
+    @import "grid/grid-object";
 }
 
 
 // List
 // -----------------------------------------------------------------------------
 
-@import "list/config";
-@import "list/tools";
-@if $output--list {
-    @import "list/output";
+@import "nav/config";
+@import "nav/tools";
+@if $output--nav {
+    @import "nav/output";
 }
 
 

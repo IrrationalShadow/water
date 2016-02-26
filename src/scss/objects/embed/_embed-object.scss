@@ -1,8 +1,7 @@
 // =============================================================================
-// EMBED (Config)
+// EMBED (Object)
 // =============================================================================
 
-
-$embedMedia--marginBottom:          spacing("single");
-$embedMedia--16x9--paddingBottom:   56.25%;
-$embedMedia--4x3--paddingBottom:    75%;
+.o-embed {
+    @include embed;
+}
