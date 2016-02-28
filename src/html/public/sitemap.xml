@@ -15,11 +15,15 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/forms/</loc>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/tables/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/forms/</loc>
+    <loc>http://localhost:1313/media/</loc>
   </url>
   
   <url>

@@ -28,6 +28,10 @@ svg:not(:root) {
 // Figure <figure>
 // -----------------------------------------------------------------------------
 
+figure {
+    margin: 0;
+}
+
 figure > img {
     display: block;
 }

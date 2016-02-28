@@ -1,0 +1,60 @@
+// =============================================================================
+// MEDIA (Theme)
+// =============================================================================
+
+$media-spacing: spacing("single");
+$media-spacing-compact: spacing("half");
+
+
+// Media
+// -----------------------------------------------------------------------------
+
+.media {
+    margin-bottom: $media-spacing;
+}
+
+.media--alignTop {
+    align-items: flex-start;
+}
+
+.media--alignMiddle {
+    align-items: center;
+}
+
+
+// Media figure
+// -----------------------------------------------------------------------------
+// 1. Set dimensions for maintaining vertical rhythm.
+// -----------------------------------------------------------------------------
+
+%media-figure {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.media-figureLeft {
+    @extend %media-figure;
+    margin-right: $media-spacing;
+}
+
+.media-figureRight {
+    @extend %media-figure;
+    margin-left: $media-spacing;
+}
+
+.media:not(.media--alignMiddle) > .media-figureLeft > img,
+.media:not(.media--alignMiddle) > .media-figureRight > img {
+    margin-top: remCalc(2px); // 1
+}
+
+
+// Media content
+// -----------------------------------------------------------------------------
+
+.media-content > :first-child {
+    margin-top: 0;
+}
+
+.media-content > :last-child {
+    margin-bottom: 0;
+}

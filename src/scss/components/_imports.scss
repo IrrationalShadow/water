@@ -18,8 +18,8 @@
 // -----------------------------------------------------------------------------
 
 @if $output--typography { // 1
-    @import "typography/structure";
-    @import "typography/theme";
+    @import "typography/typography-structure";
+    @import "typography/typography-theme";
 }
 
 // @if $output--icons { // 2
@@ -28,6 +28,11 @@
 // }
 
 @if $output--images { // 3
-    @import "images/structure";
-    @import "images/theme";
+    @import "images/images-structure";
+    @import "images/images-theme";
+}
+
+@if $output--media {
+    @import "media/media-structure";
+    @import "media/media-theme";
 }

@@ -5,30 +5,37 @@
 
 // Figure
 // -----------------------------------------------------------------------------
+// 1. We're using a class instead of the element because the margin is only
+// required on figures used in a generic container, such as page content. Any
+// other use of a figure will likely not need this treatment.
+//
 // 1. Set dimensions for maintaining vertical rhythm.
 // -----------------------------------------------------------------------------
 
+.figure { // 1
+    margin: remCalc(26px) 0; // 2
+}
+
 figure {
-    margin: remCalc(26px) 0; // 1
 
     h4 + & {
-        margin-top: remCalc(27px); // 1
+        margin-top: remCalc(27px); // 2
     }
 
     + h2 {
-        margin-top: remCalc(42px); // 1
+        margin-top: remCalc(42px); // 2
     }
 
     + h3 {
-        margin-top: remCalc(46px); // 1
+        margin-top: remCalc(46px); // 2
     }
 
     + h4 {
-        margin-top: remCalc(46px); // 1
+        margin-top: remCalc(46px); // 2
     }
 }
 
 figcaption {
     color: color("text", "secondary");
-    margin: remCalc(6px) 0 remCalc(-10px) // 1
+    margin: remCalc(6px) 0 remCalc(-10px) // 2
 }

@@ -38,10 +38,11 @@ a:hover {
 // 4. Prevent `sub` and `sup` affecting `line-height` in all browsers.
 // -----------------------------------------------------------------------------
 
+// scss-lint:disable QualifyingElement
 abbr[title] {
-    // scss-lint:disable QualifyingElement
     border-bottom: 1px dotted; // 1
 }
+// scss-lint:enable QualifyingElement
 
 dfn {
     font-style: italic; // 2
