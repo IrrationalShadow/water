@@ -8,9 +8,9 @@
 $colorMap: (
     // Branding
     "primary": (
-        "base": material("red"),
-        "dark": material("red", 700),
-        "light": material("red", 300)
+        "base": material("blue"),
+        "dark": material("blue", 700),
+        "light": material("blue", 300)
     ),
     "accent": (
         "base": #202021,
@@ -21,12 +21,12 @@ $colorMap: (
     // Type
     "text": (
         "base": #222,
-        "secondary": #888
+        "secondary": #999
     ),
     "link": (
-        "base": #f00,
-        "hover": #0f0,
-        "active": #00f
+        "base": material("blue"),
+        "hover": material("blue", 300),
+        "active": material("blue", 700)
     ),
 
     // Outlines
@@ -61,6 +61,12 @@ $colorMap: (
         "base": material("amber"),
         "dark": material("amber", 700),
         "light": material("amber", 100)
+    ),
+
+    // Basics
+    "basics": (
+        "black": #000,
+        "white": #fff
     )
 );
 

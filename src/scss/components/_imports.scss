@@ -1,42 +1,33 @@
 // =============================================================================
-// COMPONENTS (Output)
+// COMPONENTS (Imports)
 // =============================================================================
-// Include the output classes and styles from each component.
-// Control which classes get outputted via the config file's variables,
-// leaving this file completely untouched.
+// Include the CSS classes and styles for components.
+//
+// 1. Import the typography component first.
+// 2. Import the icon component second.
+// 3. Import the images component third.
+//
+// NOTE: Don't touch the contents of this file. If you wish to turn off an
+//       object, simply update the variables in the _config.scss file.
+//
+// NOTE: Why are the first 3 components imported before everything else?
+//       Easy. CSS does that whole "cascading" thing, and we want to take
+//       advantage of that. These 3 components are special compared to all of
+//       the others. They can, and will show up inside other component structure
+//       or theme files. They bend the rules a little. They're rebels.
 // -----------------------------------------------------------------------------
 
-
-// Element-based components
-// -----------------------------------------------------------------------------
-// 1. The text component should come first.
-// -----------------------------------------------------------------------------
-
-@if $output--text { // 1
-    @import "text/structure";
-    @import "text/theme";
+@if $output--typography { // 1
+    @import "typography/structure";
+    @import "typography/theme";
 }
 
-@if $output--buttons {
-    @import "buttons/structure";
-    @import "buttons/theme";
-}
+// @if $output--icons { // 2
+//     @import "icons/structure";
+//     @import "icons/theme";
+// }
 
-@if $output--forms {
-    @import "forms/structure";
-    @import "forms/theme";
-}
-
-@if $output--images {
+@if $output--images { // 3
     @import "images/structure";
     @import "images/theme";
 }
-
-@if $output--tables {
-    @import "tables/structure";
-    @import "tables/theme";
-}
-
-
-// Custom components
-// -----------------------------------------------------------------------------

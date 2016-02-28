@@ -2,10 +2,6 @@
 // TYPOGRAPHY (Theme)
 // =============================================================================
 
-
-// Text variables
-// -----------------------------------------------------------------------------
-
 $text-spacing: spacing("single");
 
 
@@ -13,20 +9,12 @@ $text-spacing: spacing("single");
 // -----------------------------------------------------------------------------
 
 html {
+    @include fontSize("root");
     @include textKern;
-    font-size: fontSizeRoot("small");
-
-    @include viewport("large") {
-        font-size: fontSizeRoot("medium");
-    }
-
-    @include viewport("largest") {
-        font-size: fontSizeRoot("large");
-    }
 }
 
 body {
-    font: 1rem/1.5 fontFamily("text");
+    font: 1rem/#{lineHeight("global")} fontFamily("text");
 }
 
 
@@ -35,8 +23,8 @@ body {
 
 ::selection {
     text-shadow: none;
-    color: #fff;
-    background: material("grey", 900);
+    color: color("basics", "white");
+    background: color("primary");
 }
 
 
@@ -44,15 +32,16 @@ body {
 // -----------------------------------------------------------------------------
 
 a {
-    color: material("blue");
+    color: color("link");
     text-decoration: underline;
+    transition: color duration("fastest") ease;
 
     &:hover {
-        color: material("blue", 700);
+        color: color("link", "hover");
     }
 
     &:active {
-        color: material("blue", 900);
+        color: color("link", "active");
     }
 }
 
@@ -62,44 +51,34 @@ a {
 
 %heading {
     font-family: fontFamily("heading");
-    font-weight: fontWeight("semibold");
-    margin: 0 0 $text-spacing;
+    font-weight: fontWeight("bold");
 }
 
-h1,
-%h1 {
-    @extend %heading;
-    font-size: fontSize("largest");
+%subheading {
+    margin-top: $text-spacing + spacing("half");
 }
 
-h2,
-%h2 {
+h1 {
     @extend %heading;
-    font-size: fontSize("larger");
+    @include fontSize("h1"); // 33.184px
 }
 
-h3,
-%h3 {
+h2 {
     @extend %heading;
-    font-size: fontSize("large");
+    @extend %subheading;
+    @include fontSize("h2");
 }
 
-h4,
-%h4 {
+h3 {
     @extend %heading;
-    font-size: fontSize("small");
+    @extend %subheading;
+    @include fontSize("h3");
 }
 
-h5,
-%h5 {
+h4 {
     @extend %heading;
-    font-size: fontSize("smaller");
-}
-
-h6,
-%h6 {
-    @extend %heading;
-    font-size: fontSize("smallest");
+    @extend %subheading;
+    @include fontSize("h4");
 }
 
 
@@ -136,7 +115,7 @@ dt {
 
 dt,
 dd {
-    margin-bottom: $text-spacing / 2;
+    margin-bottom: spacing("half");
 }
 
 
@@ -144,15 +123,17 @@ dd {
 // -----------------------------------------------------------------------------
 
 blockquote {
-    border-left: spacing("eighth") solid material("lime", 500);
-    color: material("lime", 500);
+    @include fontSize($fontSize: "h4", $lineHeight: "h3");
+    border-left: 3px solid color("divider");
     margin: 0 0 $text-spacing;
-    padding: spacing("single");
+    padding: spacing("half") spacing("single");
 
     cite {
-        color: material("lime", 500);
+        color: color("text", "secondary");
         display: block;
-        font-size: fontSize("smallest");
+        font-size: 1rem;
+        line-height: lineHeight("global");
+        margin-top: spacing("quarter");
     }
 }
 
@@ -162,38 +143,30 @@ blockquote {
 
 abbr,
 acronym {
-    border-bottom: 1px dotted material("pink", 500);
-    color: material("pink", 700);
+    border-bottom: 1px dotted color("divider");
+    color: color("text", "secondary");
     cursor: help;
-    font-size: fontSize("smallest");
 }
 
 acronym {
     text-transform: uppercase;
 }
 
-em,
-i {
+em {
     font-style: italic;
 }
 
-mark {
-    background: material("pink", 500);
-    color: #fff;
-}
-
 small {
-    font-size: fontSize("tiny");
+    @include fontSize("tiny");
 }
 
-strong,
-b {
-    font-weight: fontWeight("semibold");
+strong {
+    font-weight: fontWeight("bold");
 }
 
 sub,
 sup {
-    font-size: fontSize("tiny");
+    @include fontSize("tiny");
 }
 
 sup {
@@ -207,24 +180,15 @@ sub {
 
 // Horizontal rule
 // -----------------------------------------------------------------------------
-
-hr {
-    // Local variables
-    $borderWidth: 1px;
-
-    border: $borderWidth solid material("amber", 500);
-    clear: both;
-    margin: $text-spacing 0 ($text-spacing - (remCalc($borderWidth)));
-}
-
-
-// Code blocks
+// 1. Local variable
 // -----------------------------------------------------------------------------
 
-code,
-kbd,
-pre,
-samp {
-    font-family: fontFamily("code");
-    font-size: 1rem;
+hr {
+    $height: 1px; // 1
+
+    background: color("divider");
+    border: 0;
+    clear: both;
+    height: $height;
+    margin: -$height 0 $text-spacing;
 }

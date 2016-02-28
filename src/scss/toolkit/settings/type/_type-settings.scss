@@ -64,7 +64,7 @@ $fontSizeMap: (
 // NOTE: The desktop and mobile line heights are set to a consistent vertical
 // rhythm, which should be maintained throughout the project.
 //
-// Line height of 1.5625 = 16px/25px & 18px/28.125px (font-size/line-height).
+// Line height of 1.5625 = 16px/25px & 18px/28px (font-size/line-height).
 // -----------------------------------------------------------------------------
 
 $lineHeightMap: (
@@ -102,8 +102,8 @@ $lineHeightMap: (
 // -----------------------------------------------------------------------------
 
 $fontFamilyMap: (
-    "text": ("source-sans-pro", "Helvetica Neue", sans-serif),
-    "heading": ("freight-text-pro", "Times New Roman", serif)
+    "text": ("Source Sans Pro", "Helvetica Neue", sans-serif),
+    "heading": ("Source Sans Pro", "Times New Roman", serif)
 );
 
 
@@ -131,13 +131,13 @@ $fontWeightMap: (
 // viewport specified in _viewport-settings.scss
 // -----------------------------------------------------------------------------
 
-@mixin fontSize($value, $viewport: $desktopViewport) {
-    font-size: fontSize("mobile", $value);
-    line-height: lineHeight("mobile", $value);
+@mixin fontSize($fontSize, $lineHeight: $fontSize, $viewport: $desktopViewport) {
+    font-size: fontSize("mobile", $fontSize);
+    line-height: lineHeight("mobile", $lineHeight);
 
     @include viewport($viewport) {
-        font-size: fontSize("desktop", $value);
-        line-height: lineHeight("desktop", $value);
+        font-size: fontSize("desktop", $fontSize);
+        line-height: lineHeight("desktop", $lineHeight);
     }
 }
 

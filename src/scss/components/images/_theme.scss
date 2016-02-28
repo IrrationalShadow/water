@@ -11,6 +11,6 @@ figure {
 }
 
 figcaption {
-    color: color("primary");
-    font-size: fontSize("smaller");
+    color: color("text", "secondary");
+    margin-top: spacing("half");
 }

@@ -12,16 +12,14 @@
 // Documentation CSS
 // -----------------------------------------------------------------------------
 
-html {
-    @include fontSize("root");
+.content {
+    margin: auto;
+    max-width: 32rem;
 }
 
-body {
-    background-color: color("primary");
-    font: 1rem/#{lineHeight("global")} fontFamily("text");
-    margin: spacing("double") spacing("double") 0 remCalc(300px);
-}
 
+// Example block
+// -----------------------------------------------------------------------------
 
 .example {
     background: #fff;

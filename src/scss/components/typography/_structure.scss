@@ -5,10 +5,8 @@
 
 // Document
 // -----------------------------------------------------------------------------
-//
 // 1. Prevent iOS text size adjust after orientation change, without disabling
 //    user zoom.
-//
 // -----------------------------------------------------------------------------
 
 html {
@@ -18,10 +16,8 @@ html {
 
 // Links
 // -----------------------------------------------------------------------------
-//
 // 1. Remove the gray background color from active links in IE 10.
 // 2. Improve readability when focused and also mouse hovered in all browsers.
-//
 // -----------------------------------------------------------------------------
 
 a {
@@ -36,19 +32,16 @@ a:hover {
 
 // Text-level semantics
 // -----------------------------------------------------------------------------
-//
 // 1. Styling not present in IE 8/9/10/11, Safari, and Chrome.
 // 2. Styling not present in Safari and Chrome.
 // 3. Contain overflow in all browsers.
 // 4. Prevent `sub` and `sup` affecting `line-height` in all browsers.
-//
 // -----------------------------------------------------------------------------
 
-// scss-lint:disable QualifyingElement
 abbr[title] {
+    // scss-lint:disable QualifyingElement
     border-bottom: 1px dotted; // 1
 }
-// scss-lint:enable QualifyingElement
 
 dfn {
     font-style: italic; // 2
@@ -68,9 +61,7 @@ sup {
 
 // Horizontal rule
 // -----------------------------------------------------------------------------
-//
 // 1. Address differences between Firefox and other browsers.
-//
 // -----------------------------------------------------------------------------
 
 hr {

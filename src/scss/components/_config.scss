@@ -2,18 +2,25 @@
 // COMPONENTS (Config)
 // =============================================================================
 
-
-// Element-based components
-// -----------------------------------------------------------------------------
-
-$output--text: false;
+$output--accordion: false;
+$output--badges: false;
 $output--buttons: false;
+$output--cards: false;
+$output--carousel: false;
+$output--chips: false;
+$output--dialogs: false;
+$output--embed: false;
+$output--feedback: false;
 $output--forms: false;
-$output--images: false;
+$output--grid: false;
+$output--icons: false;
+$output--images: true;
+$output--lists: false;
+$output--media: false;
+$output--menus: false;
+$output--progress: false;
 $output--tables: false;
-
-
-// Components
-// -----------------------------------------------------------------------------
-
-// $output--accordion: true !default;
+$output--tabs: false;
+$output--timeline: false;
+$output--tooltips: false;
+$output--typography: true;

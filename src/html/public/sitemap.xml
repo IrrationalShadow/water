@@ -7,15 +7,19 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/folders/</loc>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/buttons/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/typography/</loc>
+    <loc>http://localhost:1313/tables/</loc>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tables/</loc>
+    <loc>http://localhost:1313/typography/</loc>
   </url>
   
   <url>

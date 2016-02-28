@@ -1,21 +1,13 @@
 <html>
     <head>
         <title>Water Docs</title>
-        <!-- Styles -->
-        <link rel="stylesheet" type="text/css" href="/assets/css/water.css">
-        <link rel="stylesheet" type="text/css" href="/assets/css/syntax-highlighting.css">
+        <link href="/assets/css/syntax-highlighting.css" rel="stylesheet" type="text/css">
+        <link href="/assets/css/water.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,600italic' rel='stylesheet' type='text/css'>
     </head>
     <body>
+        <main class="content">{{ .Content }}</main>
 
-        <aside class="sidebar">
-
-        </aside>
-
-        <main class="content">
-            {{ .Content }}
-        </main>
-
-        <!-- Scripts -->
         <script src="/assets/js/syntax-highlighting.js"></script>
     </body>
 </html>

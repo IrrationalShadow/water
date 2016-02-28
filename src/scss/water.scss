@@ -1,31 +1,18 @@
 // =============================================================================
 // WATER SCSS
 // =============================================================================
-// "Be water, my friend." - Bruce Lee
-// The building blocks for any project, big or small. Shape it to your needs.
-// Crafted with obsession and profession by Chris Roper
+// "Be water, my friend." - Bruce Lee.
+// Crafted with obsession and profession by Chris Roper.
 // -----------------------------------------------------------------------------
 
 
 // Toolkit
 // -----------------------------------------------------------------------------
-// Let's bring some very handy tools together.
-// Variables, maps, mixins, and functions (no outputted code here).
-// Define the settings for your project in toolkit/settings.
+// Let's bring some handy variables, maps, mixins, and functions together.
+// Define your projects global settings in toolkit/settings.
 // -----------------------------------------------------------------------------
 
 @import "toolkit/imports";
-
-
-// Objects
-// -----------------------------------------------------------------------------
-// Abstracted, re-usable layout objects.
-// Can be used via outputted class abstrations, or via mixin's to construct
-// your own uniquely named components.
-// -----------------------------------------------------------------------------
-
-@import "objects/config";
-@import "objects/imports";
 
 
 // Components
@@ -36,3 +23,33 @@
 
 @import "components/config";
 @import "components/imports";
+
+
+// Utilities
+// -----------------------------------------------------------------------------
+// Immutible utility classes.
+// Responsive classes and hidden state classes for your pattern building.
+// -----------------------------------------------------------------------------
+
+// @import "utilities/config";
+// @import "utilities/imports";
+
+
+// Patterns
+// -----------------------------------------------------------------------------
+// Combinations of a component(s) and utility classes.
+// Build your complex UI patterns.
+// -----------------------------------------------------------------------------
+
+// @import "patterns/config";
+// @import "patterns/imports";
+
+
+// Layouts
+// -----------------------------------------------------------------------------
+// Page layout structures.
+// The final piece of the puzzle, constructing your page design.
+// -----------------------------------------------------------------------------
+
+// @import "layouts/config";
+// @import "layouts/imports";
