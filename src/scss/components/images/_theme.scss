@@ -5,12 +5,30 @@
 
 // Figure
 // -----------------------------------------------------------------------------
+// 1. Set dimensions for maintaining vertical rhythm.
+// -----------------------------------------------------------------------------
 
 figure {
-    margin: 0 0 spacing("single");
+    margin: remCalc(26px) 0; // 1
+
+    h4 + & {
+        margin-top: remCalc(27px); // 1
+    }
+
+    + h2 {
+        margin-top: remCalc(42px); // 1
+    }
+
+    + h3 {
+        margin-top: remCalc(46px); // 1
+    }
+
+    + h4 {
+        margin-top: remCalc(46px); // 1
+    }
 }
 
 figcaption {
     color: color("text", "secondary");
-    margin-top: spacing("half");
+    margin: remCalc(6px) 0 remCalc(-10px) // 1
 }

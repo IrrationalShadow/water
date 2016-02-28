@@ -3,34 +3,27 @@
 // =============================================================================
 // The spacing unit and following spacing map is integral to your projects
 // aesthetics and flow.
-// Every margin, padding, line height and other spaces in your design should be
-// calling the spacing function, which references the map.
-// Define your spacing unit and mapped options for spacing.
 //
-// Rules:
-// -> Use these values exclusively for all spacing.
-// -> The only exception to this rule are unitless values or '1rem' if needed.
+// Every margin, padding, and other spacing in your design should be calling the
+// spacing function, referencing a mapped value.
+//
+// NOTE: Use these values exclusively for all spacing.
+//       The only exceptions to this are unitless values or '1rem' if needed.
 // -----------------------------------------------------------------------------
 
-
-// Spacing unit
-// -----------------------------------------------------------------------------
-
-$spacingUnit: 1rem * lineHeight("global");
+$spacingUnit: 1rem;
 
 
 // Spacing map
 // -----------------------------------------------------------------------------
 
-$spacingMap: (
+$verticalRhythmMap: (
     "quad":    $spacingUnit * 4,
     "triple":  $spacingUnit * 3,
     "double":  $spacingUnit * 2,
     "single":  $spacingUnit,
     "half":    $spacingUnit / 2,
-    "third":   $spacingUnit / 3,
     "quarter": $spacingUnit / 4,
-    "fifth":   $spacingUnit / 5,
     "eighth":  $spacingUnit / 8
 );
 
@@ -41,9 +34,9 @@ $spacingMap: (
 // -----------------------------------------------------------------------------
 
 @function spacing($spacing) {
-    @if map-has-key($spacingMap, $spacing) {
-        @return map-get($spacingMap, $spacing);
+    @if map-has-key($verticalRhythmMap, $spacing) {
+        @return map-get($verticalRhythmMap, $spacing);
     }
-    @warn "Unknown spacing rhythm '#{$spacing}' used in spacing function.";
+    @warn "Unknown vertical rhythm '#{$spacing}' used in spacing function.";
     @return null;
 }

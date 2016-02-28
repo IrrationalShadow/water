@@ -5,93 +5,43 @@
 
 // Font-size map
 // -----------------------------------------------------------------------------
-// There are 2 font size scales built into Water. As screen sizes vary quite
-// significantly, having only 1 set of font sizes or line heights for all
-// viewports isn't a good idea. Below you'll be able to set sizes for mobile and
-// desktop viewports separately to improve readability.
-//
-// NOTE: The "mobile" scale will change to the "desktop" scale based on the
-// value of the $desktopViewport variable found in _viewport-settings.scss
-// Please set that value to your desired viewport.
-//
-// NOTE: "root" font sizes are the default pixel or percentage based font size,
-// which set the standards for your relative units to follow.
+// NOTE: The root font size sets the scale for your stack. Please use pixels or
+//       a percentage unit for the value. Base font size should always be 1rem.
 // -----------------------------------------------------------------------------
 
 $fontSizeMap: (
-    // Global
-    "global": (
-        "base": 1rem
-    ),
+    "root": 16px,
+    "base": 1rem,
 
-    // Mobile scale: Minor Third
-    "mobile": (
-        "root": 16px,
-        "hero": 2.489rem,
-        "h1": 2.074rem,
-        "h2": 1.728rem,
-        "h3": 1.44rem,
-        "h4": 1.2rem,
-        "tiny": 0.833rem
-    ),
-
-    // Desktop scale: Major Third
-    "desktop": (
-        "root": 18px,
-        "hero": 3.052rem,
-        "h1": 2.441rem,
-        "h2": 1.953rem,
-        "h3": 1.563rem,
-        "h4": 1.25rem,
-        "tiny": 0.8rem
-    )
+    "display": 2.489rem,
+    "h1": 2.125rem,
+    "h2": 1.75rem,
+    "h3": 1.4375rem,
+    "h4": 1.1875rem,
+    "small": 0.875rem
 );
 
 
 // Line-height map
 // -----------------------------------------------------------------------------
-// Similarly to the font size scales for mobile and desktop, you'll find the
-// matching line height scales below.
+// Similarly, you'll find the matching line height scale below.
 //
 // NOTE: Global line-height should be unitless. All following font-size specific
-// line-heights can be measured in rem units for simplicity, or unitless if you
-// you like math enough, despite knowing the outcome isn't any better.
+//       line-heights can be measured in rem units for simplicity, or unitless.
 //
-// NOTE: The "mobile" scale will change to the "desktop" scale based on the
-// value of the $desktopViewport variable found in _viewport-settings.scss
-// Please set that value to your desired viewport.
-//
-// NOTE: The desktop and mobile line heights are set to a consistent vertical
-// rhythm, which should be maintained throughout the project.
-//
-// Line height of 1.5625 = 16px/25px & 18px/28px (font-size/line-height).
+// NOTE: Lline heights are set to a consistent vertical rhythm, which should be
+//       maintained throughout the project.
 // -----------------------------------------------------------------------------
 
 $lineHeightMap: (
-    // Global
-    "global": (
-        "base": 1.5625
-    ),
+    "base": 1.5,
 
-    // Mobile scale: Minor Third, with 5px Vertical Rhythm.
-    "mobile": (
-        "hero": 2.8125rem,
-        "h1": 2.5rem,
-        "h2": 2.1875rem,
-        "h3": 1.875rem,
-        "h4": 1.5625rem,
-        "tiny": 1.25rem
-    ),
-
-    // Desktop scale: Major Third, with 7px Vertical Rhythm.
-    "desktop": (
-        "hero": 3.1111rem,
-        "h1": 2.7222rem,
-        "h2": 2.3334rem,
-        "h3": 1.9444rem,
-        "h4": 1.5556rem,
-        "tiny": 1.1667rem
-    )
+    "display": 2.8125rem,
+    "h1": 2.5rem,
+    "h2": 2rem,
+    "h3": 1.75rem,
+    "h4": 1.5rem,
+    "small": 1.25rem
 );
 
 
@@ -126,19 +76,12 @@ $fontWeightMap: (
 // components, patterns or layouts files.
 //
 // Using this mixin ties the font-size to your line-height scale, for consistent
-// typography throughout your project. It is also the key to automatically
-// adjusting your font-size/line-height scale between mobile and desktop the
-// viewport specified in _viewport-settings.scss
+// typography throughout your project.
 // -----------------------------------------------------------------------------
 
-@mixin fontSize($fontSize, $lineHeight: $fontSize, $viewport: $desktopViewport) {
-    font-size: fontSize("mobile", $fontSize);
-    line-height: lineHeight("mobile", $lineHeight);
-
-    @include viewport($viewport) {
-        font-size: fontSize("desktop", $fontSize);
-        line-height: lineHeight("desktop", $lineHeight);
-    }
+@mixin fontSize($fontSize, $lineHeight: $fontSize) {
+    font-size: fontSize($fontSize);
+    line-height: lineHeight($lineHeight);
 }
 
 
@@ -148,7 +91,7 @@ $fontWeightMap: (
 // 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor nodes.
 // -----------------------------------------------------------------------------
 
-@mixin textTruncate() {
+@mixin textTruncate {
     max-width: 100%; // 1
     overflow: hidden;
     text-overflow: ellipsis;
@@ -164,7 +107,7 @@ $fontWeightMap: (
 // 3. Chrome (not Windows), Firefox, Safari 6+, iOS, Android.
 // -----------------------------------------------------------------------------
 
-@mixin textKern() {
+@mixin textKerning {
     font-feature-settings: "kern" 1; // 1
     font-kerning: normal; // 2
     text-rendering: optimizeLegibility; // 3
@@ -174,15 +117,19 @@ $fontWeightMap: (
 // Font functions
 // -----------------------------------------------------------------------------
 
-@function fontSize($scale, $size: "base") {
-    @return map-get(map-get($fontSizeMap, $scale), $size);
-    @warn "Unknown font-size '#{$scale}' used in fontSize function.";
+@function fontSize($fontSize) {
+    @if map-has-key($fontSizeMap, $fontSize) {
+        @return map-get($fontSizeMap, $fontSize);
+    }
+    @warn "Unknown font-size '#{$fontSize}' used in fontSize function.";
     @return null;
 }
 
-@function lineHeight($scale, $lineHeight: "base") {
-    @return map-get(map-get($lineHeightMap, $scale), $lineHeight);
-    @warn "Unknown line-height '#{$scale}' used in lineHeight function.";
+@function lineHeight($lineHeight) {
+    @if map-has-key($lineHeightMap, $lineHeight) {
+        @return map-get($lineHeightMap, $lineHeight);
+    }
+    @warn "Unknown line-height '#{$lineHeight}' used in lineHeight function.";
     @return null;
 }
 

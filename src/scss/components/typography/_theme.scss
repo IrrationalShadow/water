@@ -1,6 +1,10 @@
 // =============================================================================
 // TYPOGRAPHY (Theme)
 // =============================================================================
+// NOTE: Vertical rhythm is set to 4px by default.
+//       You'll note that the margins/paddings of elements here may seem odd,
+//       however this is to ensure consistent vertical rhythm throughout.
+// -----------------------------------------------------------------------------
 
 $text-spacing: spacing("single");
 
@@ -9,12 +13,12 @@ $text-spacing: spacing("single");
 // -----------------------------------------------------------------------------
 
 html {
-    @include fontSize("root");
-    @include textKern;
+    @include textKerning;
+    font-size: fontSize("root");
 }
 
 body {
-    font: 1rem/#{lineHeight("global")} fontFamily("text");
+    font: 1rem/#{lineHeight("base")} fontFamily("text");
 }
 
 
@@ -48,37 +52,48 @@ a {
 
 // Headings
 // -----------------------------------------------------------------------------
+// 1. Set dimensions for maintaining vertical rhythm.
+// -----------------------------------------------------------------------------
 
 %heading {
     font-family: fontFamily("heading");
     font-weight: fontWeight("bold");
 }
 
-%subheading {
-    margin-top: $text-spacing + spacing("half");
-}
-
 h1 {
     @extend %heading;
-    @include fontSize("h1"); // 33.184px
+    @include fontSize("h1"); // 34px
+    margin: 0 0 (spacing("single") - spacing("eighth"));
 }
 
 h2 {
     @extend %heading;
-    @extend %subheading;
-    @include fontSize("h2");
+    @include fontSize("h2"); // 28px
+    margin: spacing("double") 0 spacing("single");
 }
 
 h3 {
     @extend %heading;
-    @extend %subheading;
-    @include fontSize("h3");
+    @include fontSize("h3"); // 23px
+    margin: (spacing("double") + spacing("quarter")) 0 spacing("single");
 }
 
 h4 {
     @extend %heading;
-    @extend %subheading;
-    @include fontSize("h4");
+    @include fontSize("h4"); // 19px
+    margin: remCalc(31px) 0 remCalc(13px); // 1
+}
+
+h1 + h2 {
+    margin-top: remCalc(14px); // 1
+}
+
+h2 + h3 {
+    margin-top: spacing("single");
+}
+
+h3 + h4 {
+    margin-top: remCalc(-1px); // 1
 }
 
 
@@ -119,25 +134,6 @@ dd {
 }
 
 
-// Blockquote
-// -----------------------------------------------------------------------------
-
-blockquote {
-    @include fontSize($fontSize: "h4", $lineHeight: "h3");
-    border-left: 3px solid color("divider");
-    margin: 0 0 $text-spacing;
-    padding: spacing("half") spacing("single");
-
-    cite {
-        color: color("text", "secondary");
-        display: block;
-        font-size: 1rem;
-        line-height: lineHeight("global");
-        margin-top: spacing("quarter");
-    }
-}
-
-
 // Text elements
 // -----------------------------------------------------------------------------
 
@@ -157,7 +153,7 @@ em {
 }
 
 small {
-    @include fontSize("tiny");
+    @include fontSize("small");
 }
 
 strong {
@@ -166,7 +162,7 @@ strong {
 
 sub,
 sup {
-    @include fontSize("tiny");
+    @include fontSize("small");
 }
 
 sup {
@@ -178,17 +174,65 @@ sub {
 }
 
 
+// Blockquote
+// -----------------------------------------------------------------------------
+// 1. Set dimensions for maintaining vertical rhythm.
+// -----------------------------------------------------------------------------
+
+blockquote {
+    @include fontSize($fontSize: "h4", $lineHeight: "h3");
+    border-left: 4px solid color("divider");
+    margin: remCalc(26px) 0 remCalc(22px); // 1
+    padding: remCalc(3px) (spacing("single") + spacing("quarter")) remCalc(5px); // 1
+
+    cite {
+        color: color("text", "secondary");
+        display: block;
+        font-size: 1rem;
+        line-height: lineHeight("base");
+        margin: remCalc(3px) 0 remCalc(1px); // 1
+    }
+
+    h4 + & {
+        margin-top: remCalc(27px); // 1
+    }
+
+    + h2 {
+        margin-top: remCalc(38px); // 1
+    }
+
+    + h3 {
+        margin-top: remCalc(42px); // 1
+    }
+
+    + h4 {
+        margin-top: remCalc(37px); // 1
+    }
+}
+
+
 // Horizontal rule
 // -----------------------------------------------------------------------------
-// 1. Local variable
+// 1. Set dimensions for maintaining vertical rhythm.
 // -----------------------------------------------------------------------------
 
 hr {
-    $height: 1px; // 1
-
-    background: color("divider");
+    background-color: color("divider");
     border: 0;
     clear: both;
-    height: $height;
-    margin: -$height 0 $text-spacing;
+    height: 1px;
+    margin: remCalc(25px) 0 remCalc(22px); // 1
+
+    h4 + & {
+        margin-top: remCalc(26px); // 1
+    }
+
+    + h2,
+    + h3 {
+        margin-top: 0; // 1
+    }
+
+    + h4 {
+        margin-top: remCalc(-1px); // 1
+    }
 }
