@@ -19,11 +19,15 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/tables/</loc>
+    <loc>http://localhost:1313/embed/</loc>
   </url>
   
   <url>
     <loc>http://localhost:1313/media/</loc>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tables/</loc>
   </url>
   
   <url>

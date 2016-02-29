@@ -32,6 +32,11 @@
     @import "images/images-theme";
 }
 
+@if $output--embed {
+    @import "embed/embed-structure";
+    @import "embed/embed-theme";
+}
+
 @if $output--media {
     @import "media/media-structure";
     @import "media/media-theme";

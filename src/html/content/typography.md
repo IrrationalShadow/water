@@ -9,7 +9,7 @@ title: "Typography"
 
 <p>Empty your mind. Be formless. Shapeless. Like water. You put water into a bottle, it becomes the bottle. You put it into a teapot, it becomes the teapot. Now water can flow, or it can crash. Be water, my friend.</p>
 
-<figure>
+<figure class="figure">
     <img src="http://placehold.it/512x160.png">
     <figcaption>This grey image is pretty amazing.</figcaption>
 </figure>

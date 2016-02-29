@@ -3,17 +3,24 @@
 // =============================================================================
 
 $media-spacing: spacing("single");
-$media-spacing-compact: spacing("half");
 
 
 // Media
 // -----------------------------------------------------------------------------
+// 1. When aligning the content to the top of the image (see comment 1, under
+//    Media content), the VR between two sibling media blocks is reduced. This
+//    margin-top corrects that.
+// -----------------------------------------------------------------------------
 
 .media {
     margin-bottom: $media-spacing;
+
+    + .media:not(.media--alignMiddle) {
+        margin-top: $media-spacing + spacing("quarter"); // 1
+    }
 }
 
-.media--alignTop {
+.media--stretch {
     align-items: flex-start;
 }
 
@@ -50,6 +57,15 @@ $media-spacing-compact: spacing("half");
 
 // Media content
 // -----------------------------------------------------------------------------
+// 1. Align the content to the top of the image.
+// -----------------------------------------------------------------------------
+
+.media-content {
+
+    .media:not(.media--alignMiddle) & {
+        margin-top: -(spacing("quarter")); // 1
+    }
+}
 
 .media-content > :first-child {
     margin-top: 0;
