@@ -9,6 +9,6 @@ var gulp = require('gulp');
 // -----------------------------------------------------------------------------
 
 gulp.task('watch', function () {
-    gulp.watch('./src/scss/**/*.scss', ['scss']);
-    gulp.watch('./src/html/**/*.html', ['html']);
+    gulp.watch(['./src/**/*.scss', './docs/assets/css/**/*.scss'], ['scss']);
+    gulp.watch('./docs/**/*.html', ['html']);
 });

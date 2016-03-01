@@ -8,10 +8,8 @@ var gulp = require('gulp'),
 
 // Compile the SCSS
 // -----------------------------------------------------------------------------
-//
 // 1. Load the server from the ./build directory.
 // 2. Hide the browserSync growl notification (in browser).
-//
 // -----------------------------------------------------------------------------
 
 gulp.task('server', function () {

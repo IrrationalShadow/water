@@ -1,0 +1,224 @@
+<html>
+    <head>
+        <title>Water Docs</title>
+        <link href="/static/css/water.css" rel="stylesheet" type="text/css">
+        <link href="/static/css/syntax-highlighting.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,600italic' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <main class="content">
+
+<h1 id="forms:8b4b5012a7347719ec08b969976201f3">Forms</h1>
+
+<pre><code class="language-html">&lt;form class=&quot;form&quot;&gt;
+
+    &lt;legend class=&quot;form-legend&quot;&gt;Form legend&lt;/legend&gt;
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Range slider&lt;/label&gt;
+            &lt;input class=&quot;form-range&quot; type=&quot;range&quot; id=&quot;test5&quot; min=&quot;0&quot; max=&quot;100&quot; /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form field &lt;small&gt;Some help text can go here...&lt;/small&gt;&lt;/label&gt;
+            &lt;input class=&quot;form-input&quot; type=&quot;text&quot; placeholder=&quot;Placeholder...&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form field&lt;/label&gt;
+            &lt;input class=&quot;form-input&quot; type=&quot;text&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form field&lt;/label&gt;
+            &lt;input class=&quot;form-input&quot; type=&quot;text&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form field&lt;/label&gt;
+            &lt;input class=&quot;form-input&quot; type=&quot;text&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form field&lt;/label&gt;
+            &lt;div class=&quot;form-field-group&quot;&gt;
+                &lt;span class=&quot;form-affix-label&quot;&gt;Prepend&lt;/span&gt;
+                &lt;input class=&quot;form-input&quot; type=&quot;text&quot;&gt;
+                &lt;span class=&quot;form-affix-label&quot;&gt;Append&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form field&lt;/label&gt;
+            &lt;div class=&quot;form-field-group&quot;&gt;
+                &lt;button class=&quot;form-affix-button button&quot;&gt;Prefix&lt;/button&gt;
+                &lt;input class=&quot;form-input&quot; type=&quot;text&quot;&gt;
+                &lt;button class=&quot;form-affix-button button&quot;&gt;Filter&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field has-validation form-field--success&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form field&lt;/label&gt;
+            &lt;div class=&quot;form-field-group&quot;&gt;
+                &lt;span class=&quot;form-inset-label&quot;&gt;Inset Label&lt;/span&gt;
+                &lt;input class=&quot;form-input has-inset-label has-inset-icon&quot; type=&quot;text&quot;&gt;
+            &lt;/div&gt;
+            &lt;label class=&quot;form-feedback&quot;&gt;This is an inline error message. Fix your shit.&lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form field&lt;/label&gt;
+            &lt;div class=&quot;form-field-group&quot;&gt;
+                &lt;input class=&quot;form-input has-inset-button&quot; type=&quot;text&quot;&gt;
+                &lt;button class=&quot;form-inset-button&quot;&gt;&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form textarea&lt;/label&gt;
+            &lt;textarea class=&quot;form-textarea&quot; rows=&quot;3&quot;&gt;&lt;/textarea&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form select&lt;/label&gt;
+            &lt;select class=&quot;form-select&quot;&gt;
+                &lt;option&gt;Option 1&lt;/option&gt;
+                &lt;option&gt;Option 2&lt;/option&gt;
+                &lt;option&gt;Option 3&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Radio buttons&lt;/label&gt;
+            &lt;div class=&quot;form-toggleGroup&quot;&gt;
+                &lt;input class=&quot;form-radio&quot; type=&quot;radio&quot; name=&quot;pokemons&quot; value=&quot;Gold&quot; id=&quot;pokemonGold&quot;&gt;
+                &lt;label class=&quot;form-label&quot; for=&quot;pokemonGold&quot;&gt;Pokemon Gold&lt;/label&gt;
+                &lt;input class=&quot;form-radio&quot; type=&quot;radio&quot; name=&quot;pokemons&quot; value=&quot;Silver&quot; id=&quot;pokemonSilver&quot;&gt;
+                &lt;label class=&quot;form-label&quot; for=&quot;pokemonSilver&quot;&gt;Pokemon Silver&lt;/label&gt;
+                &lt;input class=&quot;form-radio&quot; type=&quot;radio&quot; name=&quot;pokemons&quot; value=&quot;Crystal&quot; id=&quot;pokemonCrystal&quot;&gt;
+                &lt;label class=&quot;form-label&quot; for=&quot;pokemonCrystal&quot;&gt;Pokemon Crystal&lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Radio blocks&lt;/label&gt;
+            &lt;div class=&quot;form-toggleGroup&quot;&gt;
+                &lt;input class=&quot;form-radio&quot; type=&quot;radio&quot; name=&quot;ge-event&quot; value=&quot;Release&quot; id=&quot;release&quot;&gt;
+                &lt;label class=&quot;form-labelBox&quot; for=&quot;release&quot;&gt;Release&lt;/label&gt;
+                &lt;input class=&quot;form-radio&quot; type=&quot;radio&quot; name=&quot;ge-event&quot; value=&quot;Event&quot; id=&quot;event&quot;&gt;
+                &lt;label class=&quot;form-labelBox&quot; for=&quot;event&quot;&gt;Event&lt;/label&gt;
+                &lt;input class=&quot;form-radio&quot; type=&quot;radio&quot; name=&quot;ge-event&quot; value=&quot;Competition&quot; id=&quot;competition&quot;&gt;
+                &lt;label class=&quot;form-labelBox&quot; for=&quot;competition&quot;&gt;Competition&lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Checkboxes&lt;/label&gt;
+            &lt;div class=&quot;form-toggleGroup&quot;&gt;
+                &lt;input class=&quot;form-checkbox&quot; type=&quot;checkbox&quot; name=&quot;pokemon&quot; value=&quot;Red&quot; id=&quot;pokemonRed&quot;&gt;
+                &lt;label class=&quot;form-label&quot; for=&quot;pokemonRed&quot;&gt;Pokemon Red&lt;/label&gt;
+                &lt;input class=&quot;form-checkbox&quot; type=&quot;checkbox&quot; name=&quot;pokemon&quot; value=&quot;Blue&quot; id=&quot;pokemonBlue&quot;&gt;
+                &lt;label class=&quot;form-label&quot; for=&quot;pokemonBlue&quot;&gt;Pokemon Blue&lt;/label&gt;
+                &lt;input class=&quot;form-checkbox&quot; type=&quot;checkbox&quot; name=&quot;pokemon&quot; value=&quot;Yellow&quot; id=&quot;pokemonYellow&quot;&gt;
+                &lt;label class=&quot;form-label&quot; for=&quot;pokemonYellow&quot;&gt;Pokemon Yellow&lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/form&gt;
+
+&lt;form class=&quot;form form--inline&quot;&gt;
+    &lt;legend class=&quot;form-legend&quot;&gt;Inline form&lt;/legend&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Username&lt;/label&gt;
+            &lt;input class=&quot;form-input&quot; type=&quot;text&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Password&lt;/label&gt;
+            &lt;input class=&quot;form-input&quot; type=&quot;password&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;form-actions&quot;&gt;
+            &lt;button class=&quot;button&quot;&gt;Login&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;form class=&quot;form form--horizontal&quot;&gt;
+    &lt;legend class=&quot;form-legend&quot;&gt;Horizontal form&lt;/legend&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form field &lt;small&gt;Some help text can go here...&lt;/small&gt;&lt;/label&gt;
+            &lt;input class=&quot;form-input&quot; type=&quot;text&quot; placeholder=&quot;Placeholder...&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Username&lt;/label&gt;
+            &lt;input class=&quot;form-input&quot; type=&quot;text&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Password&lt;/label&gt;
+            &lt;input class=&quot;form-input&quot; type=&quot;password&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form field&lt;/label&gt;
+            &lt;div class=&quot;form-field-group&quot;&gt;
+                &lt;button class=&quot;form-affix-label&quot;&gt;Prefix&lt;/button&gt;
+                &lt;input class=&quot;form-input&quot; type=&quot;text&quot;&gt;
+                &lt;button class=&quot;form-affix-button button&quot;&gt;Filter&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form select&lt;/label&gt;
+            &lt;select class=&quot;form-select&quot;&gt;
+                &lt;option&gt;Option 1&lt;/option&gt;
+                &lt;option&gt;Option 2&lt;/option&gt;
+                &lt;option&gt;Option 3&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;form-field has-validation form-field--success&quot;&gt;
+            &lt;label class=&quot;form-label&quot;&gt;Form field&lt;/label&gt;
+            &lt;div class=&quot;form-field-group&quot;&gt;
+                &lt;span class=&quot;form-inset-label&quot;&gt;Inset Label&lt;/span&gt;
+                &lt;input class=&quot;form-input has-inset-label has-inset-icon&quot; type=&quot;text&quot;&gt;
+            &lt;/div&gt;
+            &lt;label class=&quot;form-feedback&quot;&gt;This is an inline error message. Fix your shit.&lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+</main>
+
+        <script src="/assets/js/syntax-highlighting.js"></script>
+    </body>
+</html>

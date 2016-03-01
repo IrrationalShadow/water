@@ -1,0 +1,8 @@
+---
+baseurl: "http://bewater.io"
+languageCode: "en-us"
+title: "Water Documentation"
+disableLiveReload: true
+disableRSS: true
+disableSitemap: true
+---

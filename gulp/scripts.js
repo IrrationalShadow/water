@@ -9,15 +9,13 @@ var gulp = require('gulp'),
 
 // Build the JS
 // -----------------------------------------------------------------------------
-//
 // 1. Place the compiled JS into the ./build/js directory.
 // 2. Reload the page whenever the JS is updated.
-//
 // -----------------------------------------------------------------------------
 
 gulp.task('js', function () {
-    return gulp.src('./src/js/**/*.js')
+    return gulp.src('./docs/assets/js/**/*.js')
         .pipe(cache('scripts'))
-        .pipe(gulp.dest('./build/assets/js')) // 1
+        .pipe(gulp.dest('./build/static/js')) // 1
         .pipe(browserSync.reload({stream:true})) // 2
 });
