@@ -37,6 +37,11 @@
     @import "embed/embed-theme";
 }
 
+@if $output--grid {
+    @import "grid/grid-structure";
+    @import "grid/grid-theme";
+}
+
 @if $output--media {
     @import "media/media-structure";
     @import "media/media-theme";

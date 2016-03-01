@@ -7,32 +7,11 @@
 // -----------------------------------------------------------------------------
 
 $viewportMap: (
-    largest: 1681px,
-    larger: 1441px,
+    xlarge: 1681px,
     large: 1281px,
-    small: 1025px,
-    smaller: 841px,
-    smallest: 601px
+    medium: 961px,
+    small: 601px
 );
-
-
-// Desktop viewport
-// -----------------------------------------------------------------------------
-// 1. This variable defines the viewport where you wish to change scales within
-//    your settings. For example: _type-settings.scss contains a mixin called
-//    @mixin fontSize, which bumps the font-size and line-height values from
-//    the mobile scale to the desktop scale specified within that file.
-//    You can re-use this variable for other areas, such as changing your
-//    spacing settings or any other settings you wish to modify on larger
-//    screens.
-//
-//    Choose any viewport name from the $viewportMap above.
-//    For example: "large".
-// -----------------------------------------------------------------------------
-
-$desktopViewport: "large"; // 1
-
-
 
 
 // Viewport mixin

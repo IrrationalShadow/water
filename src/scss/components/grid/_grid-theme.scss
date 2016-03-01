@@ -1,0 +1,86 @@
+// =============================================================================
+// GRID (Theme)
+// =============================================================================
+
+$grid-gutter: spacing("half");
+
+
+// Grid
+// -----------------------------------------------------------------------------
+// 1. Allows grid columns to wrap to a new line if there's insufficient space.
+// 2. Removes gutters from grid columns.
+// 3. Pushes grid columns to the right side of the grid.
+// 4. Centres the grid columns.
+// 5. Pushes grid columns to the left and right edges and works towards center.
+// 6. Vertically aligns grid columns to the top of the grid.
+// 7. Vertically aligns grid columns to the middle of the grid (yay).
+// 8. Vertically aligns grid columns to the bottom of the grid.
+// -----------------------------------------------------------------------------
+
+.grid {
+    margin-left: -($grid-gutter);
+    margin-right: -($grid-gutter);
+}
+
+.grid--wrap {
+    flex-wrap: wrap; // 1
+}
+
+.grid--collapseGutter { // 2
+    margin-left: 0;
+    margin-right: 0;
+
+    .grid-col {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.grid--alignRight {
+    justify-content: flex-end; // 3
+}
+
+.grid--alignCenter {
+    justify-content: center; // 4
+}
+
+.grid--alignJustify {
+    justify-content: space-between; // 5
+}
+
+.grid--alignTop {
+    align-items: flex-start; // 6
+}
+
+.grid--alignMiddle {
+    align-items: center; // 7
+}
+
+.grid--alignBottom {
+    align-items: flex-end; // 8
+}
+
+
+// Grid columns
+// -----------------------------------------------------------------------------
+// 1. Vertically aligns grid column to the top of the grid.
+// 2. Vertically aligns grid column to the middle of the grid (yay).
+// 3. Vertically aligns grid column to the bottom of the grid.
+// -----------------------------------------------------------------------------
+
+.grid-col {
+    padding-left: $grid-gutter;
+    padding-right: $grid-gutter;
+}
+
+.grid-col--alignTop {
+    align-self: flex-start; // 1
+}
+
+.grid-col--alignMiddle {
+    align-self: center; // 2
+}
+
+.grid-col--alignBottom {
+    align-self: flex-end; // 3
+}
