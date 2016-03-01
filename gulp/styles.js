@@ -51,11 +51,11 @@ gulp.task('scss:lint', function () {
 // -----------------------------------------------------------------------------
 
 gulp.task('dist:css', function () {
-    return gulp.src('./build/css/*.css')
+    return gulp.src('./build/static/css/water.css')
         .pipe(optimise()) // 1
         .pipe(rename(function (path) {
             path.basename += ".min"; // 2
         }))
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./dist/'))
         .pipe(filesize()) // 3
 });
