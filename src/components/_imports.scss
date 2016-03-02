@@ -32,6 +32,11 @@
     @import "images/images-theme";
 }
 
+@if $output--badges {
+    @import "badges/badges-structure";
+    @import "badges/badges-theme";
+}
+
 @if $output--embed {
     @import "embed/embed-structure";
     @import "embed/embed-theme";

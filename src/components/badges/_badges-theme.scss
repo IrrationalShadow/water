@@ -1,0 +1,68 @@
+// =============================================================================
+// BADGES (Theme)
+// =============================================================================
+
+.badge {
+    line-height: lineHeight("small");
+}
+
+
+// Badge types
+// -----------------------------------------------------------------------------
+// 1. For use with .badge--label only.
+// -----------------------------------------------------------------------------
+
+.badge--label {
+    background-color: color("background", "light");
+    border-radius: 2px;
+    font-size: fontSize("small");
+    padding: 0 (spacing("quarter") + spacing("eighth"));
+    text-transform: uppercase;
+}
+
+.badge--count {
+    border-radius: 50%;
+    font-size: fontSize("small");
+    text-align: center;
+    text-indent: 0.1em;
+    width: lineHeight("small");
+}
+
+.badge--large { // 1
+    font-size: fontSize("base");
+    line-height: 1;
+    padding: spacing("eighth") spacing("half") spacing("quarter");
+}
+
+.badge--outline {
+    border: 1px solid color("divider");
+    line-height: 1;
+    padding: (spacing("eighth") + (spacing("eighth") / 2)) (spacing("quarter") + (spacing("eighth") - (spacing("eighth") / 2)));
+}
+
+
+// Badge skins
+// -----------------------------------------------------------------------------
+
+.badge--primary {
+    background-color: color("primary");
+    color: color("basics", "white");
+}
+
+
+// Class collision fixes.
+// -----------------------------------------------------------------------------
+
+.badge--outline.badge--label {
+    background: none;
+}
+
+.badge--outline.badge--primary {
+    background: none;
+    border-color: color("primary");
+    color: inherit;
+}
+
+.badge--outline.badge--large {
+    padding: (spacing("eighth") / 2) (spacing("quarter") + spacing("eighth") + (spacing("eighth") / 2)) (spacing("eighth") + (spacing("eighth") / 2));
+}

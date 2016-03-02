@@ -14,7 +14,7 @@ var gulp = require('gulp'),
 gulp.task('build', function (callback) {
     runSequence(
         'build:clean',
-        ['html', 'scss', 'js'],
+        ['html', 'scss', 'js', 'images'],
         callback
     );
 });

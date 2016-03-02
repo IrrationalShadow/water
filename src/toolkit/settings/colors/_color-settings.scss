@@ -8,7 +8,7 @@
 $colorMap: (
     // Branding
     "primary": (
-        "base": material("blue"),
+        "base": #00c483,
         "dark": material("blue", 700),
         "light": material("blue", 300)
     ),
@@ -43,7 +43,7 @@ $colorMap: (
     "background": (
         "base": #ddd,
         "dark": #bbb,
-        "light": #eee
+        "light": #f2f2f3
     ),
 
     // States
