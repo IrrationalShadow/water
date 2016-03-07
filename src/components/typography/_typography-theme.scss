@@ -18,6 +18,7 @@ html {
 }
 
 body {
+    color: color("text");
     font: 1rem/#{lineHeight("base")} fontFamily("text");
 }
 
@@ -52,47 +53,61 @@ a {
 
 // Headings
 // -----------------------------------------------------------------------------
-// 1. Set dimensions for maintaining vertical rhythm.
+// 1. Maintain VR.
 // -----------------------------------------------------------------------------
 
 %heading {
+    color: color("text", "dark");
     font-family: fontFamily("heading");
     font-weight: fontWeight("bold");
+    position: relative; // 1
+    top: -(spacing("eighth")); // 1
 }
 
-h1 {
+h1,
+%h1 {
     @extend %heading;
-    @include fontSize("h1"); // 34px
-    margin: 0 0 (spacing("single") - spacing("eighth"));
+    @include fontSize("h1");
+    margin: 0 0 (spacing("single") - spacing("quarter"));
 }
 
-h2 {
+h2,
+%h2 {
     @extend %heading;
-    @include fontSize("h2"); // 28px
-    margin: spacing("double") 0 spacing("single");
+    @include fontSize("h2");
+    margin: spacing("double") 0 (spacing("half") + spacing("quarter"));
 }
 
-h3 {
+h3,
+%h3 {
     @extend %heading;
-    @include fontSize("h3"); // 23px
-    margin: (spacing("double") + spacing("quarter")) 0 spacing("single");
+    @include fontSize("h3");
+    margin: spacing("double") 0 (spacing("half") + spacing("quarter"));
 }
 
-h4 {
+h4,
+%h4 {
     @extend %heading;
-    @include fontSize("h4"); // 19px
-    margin: remCalc(31px) 0 remCalc(13px); // 1
+    @include fontSize("h4");
+    margin: remCalc(35px) 0 remCalc(13px); // 1
 }
 
-h1 + h2 {
-    margin-top: remCalc(14px); // 1
+h1:not(:first-child) {
+    margin-top: spacing("double"); // 1
 }
 
-h2 + h3 {
+h1 + h2,
+%h1 + %h2 {
+    margin-top: spacing("single"); // 1
+}
+
+h2 + h3,
+%h2 + %h3 {
     margin-top: spacing("single");
 }
 
-h3 + h4 {
+h3 + h4,
+%h3 + %h4 {
     margin-top: remCalc(-1px); // 1
 }
 
@@ -140,7 +155,7 @@ dd {
 abbr,
 acronym {
     border-bottom: 1px dotted color("divider");
-    color: color("text", "secondary");
+    color: color("text", "light");
     cursor: help;
 }
 
@@ -176,44 +191,48 @@ sub {
 
 // Blockquote
 // -----------------------------------------------------------------------------
-// 1. Set dimensions for maintaining vertical rhythm.
+// 1. Maintain VR.
 // -----------------------------------------------------------------------------
 
 blockquote {
-    @include fontSize($fontSize: "h4", $lineHeight: "h3");
+    @include fontSize($fontSize: "h4");
     border-left: 4px solid color("divider");
     margin: remCalc(26px) 0 remCalc(22px); // 1
-    padding: remCalc(3px) (spacing("single") + spacing("quarter")) remCalc(5px); // 1
+    padding: remCalc(7px) spacing("single") remCalc(9px); // 1
 
     cite {
-        color: color("text", "secondary");
+        color: color("text", "light");
         display: block;
         font-size: 1rem;
         line-height: lineHeight("base");
-        margin: remCalc(3px) 0 remCalc(1px); // 1
+        margin-top: remCalc(3px); // 1
     }
 
-    h4 + & {
+    h4 + &,
+    %h4 + & {
         margin-top: remCalc(27px); // 1
     }
 
-    + h2 {
-        margin-top: remCalc(38px); // 1
+    + h2,
+    + %h2 {
+        margin-top: remCalc(39px); // 1
     }
 
-    + h3 {
+    + h3,
+    + %h3 {
+        margin-top: remCalc(43px); // 1
+    }
+
+    + h4,
+    + %h4 {
         margin-top: remCalc(42px); // 1
-    }
-
-    + h4 {
-        margin-top: remCalc(37px); // 1
     }
 }
 
 
 // Horizontal rule
 // -----------------------------------------------------------------------------
-// 1. Set dimensions for maintaining vertical rhythm.
+// 1. Maintain VR.
 // -----------------------------------------------------------------------------
 
 hr {
@@ -221,18 +240,45 @@ hr {
     border: 0;
     clear: both;
     height: 1px;
-    margin: remCalc(25px) 0 remCalc(22px); // 1
+    margin: (spacing("single") + spacing("half")) 0 remCalc(23px); // 1
 
-    h4 + & {
+    h4 + &,
+    %h4 + & {
         margin-top: remCalc(26px); // 1
     }
 
     + h2,
-    + h3 {
-        margin-top: 0; // 1
+    + %h2,
+    + h3,
+    + %h3 {
+        margin-top: (spacing("single") + spacing("quarter")); // 1
     }
 
-    + h4 {
-        margin-top: remCalc(-1px); // 1
+    + h4,
+    + %h4 {
+        margin-top: remCalc(26px); // 1
     }
+}
+
+
+// Class-based font styles
+// -----------------------------------------------------------------------------
+// Classes that replicate h1-h4 styling. For use when you visually want to add
+// emphasis or size, but semantically use the correct element.
+// -----------------------------------------------------------------------------
+
+.text-display {
+    @extend %h1;
+}
+
+.text-headline {
+    @extend %h2;
+}
+
+.text-heading {
+    @extend %h3;
+}
+
+.text-subheading {
+    @extend %h4;
 }

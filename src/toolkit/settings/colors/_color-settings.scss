@@ -9,8 +9,8 @@ $colorMap: (
     // Branding
     "primary": (
         "base": #00c483,
-        "dark": material("blue", 700),
-        "light": material("blue", 300)
+        "dark": darken(#00c483, 5%),
+        "light": lighten(#00c483, 5%)
     ),
     "accent": (
         "base": #202021,
@@ -20,13 +20,14 @@ $colorMap: (
 
     // Type
     "text": (
-        "base": #222,
-        "secondary": #999
+        "base": #363637,
+        "dark": #262627,
+        "light": #969697
     ),
     "link": (
-        "base": material("blue"),
-        "hover": material("blue", 300),
-        "active": material("blue", 700)
+        "base": #00c483,
+        "hover": darken(#00c483, 5%),
+        "active": lighten(#00c483, 5%)
     ),
 
     // Outlines
@@ -34,16 +35,16 @@ $colorMap: (
         "base": #ddd
     ),
     "border": (
-        "base": #eee,
-        "hover": #ddd,
-        "active": #222
+        "base": #ddd,
+        "hover": #bbb,
+        "active": #888
     ),
 
     // Backgrounds
     "background": (
         "base": #ddd,
         "dark": #bbb,
-        "light": #f2f2f3
+        "light": #fafafa
     ),
 
     // States

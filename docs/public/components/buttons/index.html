@@ -3,45 +3,51 @@
         <title>Water Docs</title>
         <link href="/static/css/water.css" rel="stylesheet" type="text/css">
         <link href="/static/css/docs.css" rel="stylesheet" type="text/css">
-        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,600italic' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,500italic,400italic,300" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <main class="content"><div class="example">
-    <button class="button">Button</button>
-</div>
+        <main class="content">
 
-<pre><code class="language-html">&lt;button class=&quot;button&quot;&gt;Button&lt;/button&gt;
-</code></pre>
+<h1 id="buttons:3179e7c8f45824e0815f254569203fc8">Buttons</h1>
 
-<div class="example">
+<p>Empty your mind. Be formless. Shapeless. Like water. You put water into a bottle, it becomes the bottle. You put it into a teapot, it becomes the teapot. Now water can flow, or it can crash. Be water, my friend.</p>
+
+<div style="padding: 1.5rem; margin: 1.5rem 0; background: rgba(0,0,0,0.2);">
     <button class="button">Button</button>
     <button class="button button--primary">Button</button>
+    <button class="button button--flat">Button</button>
     <button class="button" disabled>Button</button>
 </div>
 
-<pre><code class="language-html">&lt;!-- Base button --&gt;
-&lt;button class=&quot;button&quot;&gt;Button&lt;/button&gt;
+<p>Empty your mind. Be formless. Shapeless. Like water. You put water into a bottle, it becomes the bottle. You put it into a teapot, it becomes the teapot. Now water can flow, or it can crash. Be water, my friend.</p>
 
-&lt;!-- Primary button --&gt;
-&lt;button class=&quot;button button--primary&quot;&gt;Button&lt;/button&gt;
+<p><button class="button button--small">Button</button>
+<button class="button button--small button--primary">Button</button>
+<button class="button button--small button--flat">Button</button></p>
 
-&lt;!-- Disabled button --&gt;
-&lt;button class=&quot;button&quot; disabled&gt;Button&lt;/button&gt;
-</code></pre>
+<p>Be formless. Shapeless. Like water. You put water into a bottle, it becomes the bottle. You put it into a teapot, it becomes the teapot. Now water can flow, or it can crash. Be water, my friend.</p>
 
-<pre><code class="language-css">.button {
-    background-color: material(&quot;lightGreen&quot;, 500);
-    border-radius: $button-borderRadius;
-    border: 0;
-    color: color(&quot;whites&quot;);
-    font-family: fontFamily(&quot;text&quot;);
-    font-size: fontSize(&quot;base&quot;);
-    line-height: fontSize(&quot;base&quot;);
-    padding: spacing(&quot;half&quot;);
-    text-transform: uppercase;
-    transition: background-color duration(&quot;faster&quot;) timing(&quot;swiftOut&quot;);
-}
-</code></pre>
+<p><button class="button button--large">Button</button>
+<button class="button button--large button--primary">Button</button>
+<button class="button button--large button--flat">Button</button></p>
+
+<h1 id="button-groups:3179e7c8f45824e0815f254569203fc8">Button groups</h1>
+
+<p>Empty your mind. Be formless. Shapeless. Like water. You put water into a bottle, it becomes the bottle. You put it into a teapot, it becomes the teapot. Now water can flow, or it can crash. Be water, my friend.</p>
+
+<div class="buttonGroup">
+    <button class="button">Button</button>
+    <button class="button">Button</button>
+    <button class="button">Button</button>
+</div>
+
+<p>Empty your mind. Be formless. Shapeless. Like water. You put water into a bottle, it becomes the bottle. You put it into a teapot, it becomes the teapot. Now water can flow, or it can crash. Be water, my friend.</p>
+
+<div class="buttonGroup buttonGroup--large">
+    <button class="button button--primary">Button</button>
+    <button class="button button--primary">Button</button>
+    <button class="button button--primary">Button</button>
+</div>
 </main>
 
         <script src="/assets/js/syntax-highlighting.js"></script>

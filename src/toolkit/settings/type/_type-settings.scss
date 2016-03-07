@@ -14,10 +14,11 @@ $fontSizeMap: (
     "base": 1rem,
 
     "display": 2.489rem,
-    "h1": 2.125rem,
+    "h1": 2.0625rem,
     "h2": 1.75rem,
     "h3": 1.4375rem,
     "h4": 1.1875rem,
+    "note": 0.8125rem,
     "small": 0.75rem
 );
 
@@ -38,9 +39,10 @@ $lineHeightMap: (
 
     "display": 2.8125rem,
     "h1": 2.5rem,
-    "h2": 2rem,
-    "h3": 1.75rem,
-    "h4": 1.5rem,
+    "h2": 2.25rem,
+    "h3": 2rem,
+    "h4": 1.75rem,
+    "note": 1.25rem,
     "small": 1.25rem
 );
 
@@ -52,8 +54,8 @@ $lineHeightMap: (
 // -----------------------------------------------------------------------------
 
 $fontFamilyMap: (
-    "text": ("Source Sans Pro", "Helvetica Neue", sans-serif),
-    "heading": ("Source Sans Pro", "Times New Roman", serif)
+    "text": (Roboto, "Helvetica Neue", sans-serif),
+    "heading": (Roboto, "Times New Roman", serif)
 );
 
 
@@ -66,7 +68,7 @@ $fontFamilyMap: (
 $fontWeightMap: (
     "thin": 300,
     "normal": 400,
-    "bold": 600
+    "bold": 500
 );
 
 

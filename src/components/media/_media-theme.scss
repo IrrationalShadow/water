@@ -31,7 +31,7 @@ $media-spacing: spacing("single");
 
 // Media figure
 // -----------------------------------------------------------------------------
-// 1. Set dimensions for maintaining vertical rhythm.
+// 1. Maintain VR.
 // -----------------------------------------------------------------------------
 
 %media-figure {
@@ -51,7 +51,7 @@ $media-spacing: spacing("single");
 
 .media:not(.media--alignMiddle) > .media-figureLeft > img,
 .media:not(.media--alignMiddle) > .media-figureRight > img {
-    margin-top: remCalc(2px); // 1
+    margin-top: remCalc(1px); // 1
 }
 
 
