@@ -75,14 +75,14 @@ h2,
 %h2 {
     @extend %heading;
     @include fontSize("h2");
-    margin: spacing("double") 0 (spacing("half") + spacing("quarter"));
+    margin: (spacing("double") + spacing("quarter")) 0 (spacing("half") + spacing("quarter"));
 }
 
 h3,
 %h3 {
     @extend %heading;
     @include fontSize("h3");
-    margin: spacing("double") 0 (spacing("half") + spacing("quarter"));
+    margin: (spacing("double") + spacing("quarter")) 0 (spacing("half") + spacing("quarter"));
 }
 
 h4,

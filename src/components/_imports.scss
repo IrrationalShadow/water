@@ -22,10 +22,10 @@
     @import "typography/typography-theme";
 }
 
-// @if $output--icons { // 2
-//     @import "icons/structure";
-//     @import "icons/theme";
-// }
+@if $output--icons { // 2
+    @import "icons/icons-structure";
+    @import "icons/icons-theme";
+}
 
 @if $output--images { // 3
     @import "images/images-structure";
@@ -40,6 +40,11 @@
 @if $output--buttons {
     @import "buttons/buttons-structure";
     @import "buttons/buttons-theme";
+}
+
+@if $output--chips {
+    @import "chips/chips-structure";
+    @import "chips/chips-theme";
 }
 
 @if $output--embed {
