@@ -61,3 +61,8 @@
     @import "media/media-structure";
     @import "media/media-theme";
 }
+
+@if $output--progress {
+    @import "progress/progress-structure";
+    @import "progress/progress-theme";
+}

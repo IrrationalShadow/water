@@ -3,6 +3,7 @@
 // =============================================================================
 
 $button-borderRadius: 2px;
+$button-borderWidth: 1px;
 
 
 // Button
@@ -13,11 +14,11 @@ $button-borderRadius: 2px;
 .button {
     @include fontSize("note");
     border-radius: $button-borderRadius;
-    border: 1px solid color("border");
+    border: $button-borderWidth solid color("border");
     color: color("text");
     font-family: fontFamily("text");
     font-weight: fontWeight("bold");
-    padding: remCalc(8px) spacing("single") remCalc(6px); // 1
+    padding: spacing("half") spacing("single") remCalc(6px); // 1
     text-transform: uppercase;
 
     &:hover,
@@ -91,7 +92,7 @@ $button-borderRadius: 2px;
 .button--large,
 %button--large {
     font-size: fontSize("base");
-    padding: remCalc(12px) spacing("double") remCalc(10px);
+    padding: remCalc(12px) spacing("double") remCalc(10px); // 2
 }
 
 .button--small,
@@ -149,7 +150,7 @@ $button-borderRadius: 2px;
 }
 
 .buttonGroup > .button + .button {
-    margin-left: -1px; // 4
+    margin-left: -$button-borderWidth; // 4
 }
 
 .buttonGroup--large > button { // 5
