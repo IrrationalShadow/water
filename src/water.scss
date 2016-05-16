@@ -8,8 +8,8 @@
 
 // Toolkit
 // -----------------------------------------------------------------------------
-// Let's bring some handy variables, maps, mixins, and functions together.
-// Define your projects global settings.
+// Define your global variables and maps.
+// House your global functions and mixins.
 // -----------------------------------------------------------------------------
 
 @import "toolkit/toolkit";
@@ -27,7 +27,7 @@
 // Constructs
 // -----------------------------------------------------------------------------
 // Complex and self-contained constructs.
-// Combination of a component(s), with introduced layout or specific purpose.
+// The combination of a component(s), with specific layout or purpose.
 // -----------------------------------------------------------------------------
 
 @import "constructs/constructs";
@@ -45,9 +45,7 @@
 // Layout
 // -----------------------------------------------------------------------------
 // The skeleton or shell of your website/app.
-// Sets up global structure such as border-box, and houses your containers for
-// your design (such as header, body and footer).
-// No content is styled here, and visual styling is kept very strict.
+// Map out the screen into global zones to house components and constructs.
 // -----------------------------------------------------------------------------
 
 @import "layout/structure";

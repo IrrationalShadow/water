@@ -2,15 +2,26 @@
 // LAYOUT (Theme)
 // =============================================================================
 
+body {
+    background-color: #fff;
+}
+
 .header {
+    background-color: color("primary");
     width: 100%;
 }
 
 .body {
-    max-width: remCalc(1280px);
-    width: 80%;
+    width: 100%;
 }
 
 .footer {
+    border-top: 1px solid color("divider");
     width: 100%;
+}
+
+.container {
+    max-width: remCalc(1280px);
+    margin: 0 auto;
+    width: 80%;
 }
