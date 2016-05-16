@@ -1,5 +1,5 @@
 // =============================================================================
-// NORMALIZE
+// LAYOUT
 // =============================================================================
 //
 // Forked from version 3.0.2.
@@ -11,7 +11,6 @@
 //
 // -----------------------------------------------------------------------------
 
-// Water: border-box addition
 *,
 *:before,
 *:after {
@@ -60,29 +59,6 @@ summary {
 }
 
 /**
- * 1. Correct `inline-block` display not defined in IE 8/9.
- * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
- */
-
-audio,
-canvas,
-progress,
-video {
-  display: inline-block; /* 1 */
-  vertical-align: baseline; /* 2 */
-}
-
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-/**
  * Address `[hidden]` styling not present in IE 8/9/10.
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
@@ -92,6 +68,15 @@ template {
   display: none;
 }
 
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
 
+canvas,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
 
 // scss-lint:enable all // 1

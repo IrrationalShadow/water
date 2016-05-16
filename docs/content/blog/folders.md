@@ -1,43 +1,98 @@
-Defining a component, utility, or pattern:
+Identifying a component, utility, or construct:
 
-Components
-- Independent building blocks.
-- Simple and very small UI pieces that are self-contained.
+### Components
+- Are small, independent, multi-purposed building blocks.
+- Are simple and self-contained.
+- Have no concept of layout present.
+- Examples: Buttons, icons, progress bars.
 
-Utilities
-- Immutable classes.
-- Commonly single property classes with 1 specific overriding purpose.
+### Constructs
+- Are one or more components, which requires specific layout or styling.
+- Are complex and self-contained.
+- Can be nested inside other constructs.
+- Examples: Accordions, Breadcrumbs, Dialogs.
 
-Patterns
-- The combination of a component(s) and layout to form larger UI patterns.
-- Can contain unique/custom styling, as well as utility classes.
+### Utilities
+- Are immutable classes.
+- Are commonly single property classes.
+- Have one very specific, overriding purpose.
+- Examples: Visibility classes, grid classes, width classes.
+
+### Layouts
+- Are page level, structural layouts.
+- Are global in scope. Can have background, border, margin and padding here.
+- Are filled with constructs to create completed pages.
+- Examples: Page header, body, footer and Page document layout files.
+
+### Templates
+- Are HTML code blocks with mock data, only found in the documentation.
+- Are typically large content blocks for a particular type of page.
+- Examples: A blog post, an article, a product grid.
 
 
-Component / Pattern file structure
+## Component & Construct file structure
 
-- Components & Patterns both follow the OOCSS structure & skin methodology.
-- 'Structure' defines the skeleton of the component or pattern.
-- 'Theme' defines one or more visual representations of the structure.
+- Components & Constructs both follow the OOCSS structure & skin methodology.
+- 'Structure' defines the core styling mandatory to the component/construct.
+- 'Theme' defines the one or more visual representations of the structure.
 
 
-Components
+## Components
 
-A component is a small, self-contained piece of UI. Its purpose is very clear
-and concise. Components do not dictate page layout on their own, they reside
-inside patterns, which control the layout. A component does not rely on any
-other component to achieve its desired output.
+A component is a small, self-contained building block. Its purpose is very clear
+and does not rely on any other component to achieve its desired output. Components
+do not have any concept of layout when placed on a page.
 
-A component cannot be broken down any further. They are small UI lego blocks,
-which you use in combinations to form complex components that we define as
-patterns. If you can break down your UI piece into smaller pieces, you've built
-a pattern and not a component.
+A component cannot be broken down any further.
+Combinations to form complex components that we define as
+constructs. If you can break down your UI piece into smaller pieces, you've built
+a construct and not a component.
 
 A component is not necessarily tied to a specific element, such as a button or
 input. It can use block or inline elements such as a div, and have descendants,
-however the descendant elements depth is likely kept to a minimum.
+however the descendant elements depth is likely kept minimal.
 
 
-Utility classes
+## Constructs
+
+A construct can be defined by two factors. If neither are applicable to your
+code, it is component or utility, not a construct.
+
+1) The construct is a combination of 2 or more components used within a containing
+   element to organize the layout into a specific, complex component.
+   Example: Cards, Carousel, Dialogs.
+
+2) The construct is a container element with 1 component within, which may
+   be present multiple times or requires specific layout styling.
+   Examples: Pagination, Media, Embed.
+
+All constructs must have [data-ui-construct] attributed to the containing element.
+This makes it very clear to your developers where these constructs are, and what
+they contain.
+
+Constructs can also have an optional container class, which applies custom
+styling to itself, and any other layout related elements needed to create the
+desired result.
+
+Constructs will generally involve the grid utilities, or other elements to control
+layout. You can then style this specific layout with cosmetic styling, such as
+margins, colors, borders, etc. The styling of constructs should be limited to the
+newly created elements. They should not override any component styling, ever.
+
+If you find yourself overriding component styling under your constructs container
+class, for example using .construct .button {} to change existing styling of the
+button within your construct, stop immediately and rethink your styles. They
+likely belong in the components theme file, so your entire site or app can make
+use of them.
+
+Finally, constructs can be used inside constructs. For example, the carousel
+construct should be able to live within the card construct. There are no limits
+to this, and you should often see this as a positive situation. If you're able to
+nest constructs happily, give yourself a pat on the back or have a well-deserved
+drink, you're doing it right.
+
+
+## Utility classes
 
 Utility classes are immutable classes, which will override or provide additional
 styling to the HTML. They are kept strictly to responsive width utility classes,
@@ -47,44 +102,3 @@ These two types of utility classes provide a lot of value for fast development
 and keep your HTML easy to follow, your CSS clear and mobile-focused without
 responsive clutter. Any other utility is unnecessary for these standards. They
 provide no value.
-
-
-Patterns
-
-A pattern can be defined by 2 factors. If neither are applicable to your UI
-piece, it is component or utility, not a pattern.
-
-1) The pattern is a combination of 2 or more components used under a containing
-   element to organize their layout into a specific, complex component.
-   Example: A login form.
-
-2) The pattern is a container element with 1 component within, which may
-   be present multiple times, or require specific layout defined styling.
-   Example: A button group or button toolbar.
-
-All patterns must have a data-ui-pattern attributed to the containing element.
-This makes it very clear to your developers where these patterns are, and what
-they contain.
-
-Patterns can also have an optional container class, which can apply custom
-styling to itself, and any other layout related elements needed to create the
-complex UI piece.
-
-Patterns will generally involve the grid component, or other elements to control
-layout of the pattern. You can then style this specific layout with cosmetic
-styling, such as margins, colors, borders, etc. The styling of patterns should
-be limited to the newly created elements. They should not override any component
-styling, ever.
-
-If you find yourself overriding component styling under your patterns container
-class, for example using .pattern .button {} to change existing styling of the
-button within your pattern, stop immediately and rethink your styles. They
-likely belong in the components theme file, so your entire site or app can make
-use of them.
-
-Finally, patterns can be used inside patterns. It's the pattern level where you
-can nest patterns within patterns. For example, a button group pattern can live
-inside of a button toolbar pattern. There are no limits to this, and you should
-often see this as a positive situation. If you're able to nest patterns happily,
-give yourself a pat on the back or have a well-deserved drink, you're doing it
-right.

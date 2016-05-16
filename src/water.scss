@@ -1,5 +1,5 @@
 // =============================================================================
-// WATER SCSS
+// WATER
 // =============================================================================
 // "Be water, my friend." - Bruce Lee.
 // Crafted with obsession and profession by Chris Roper.
@@ -9,47 +9,46 @@
 // Toolkit
 // -----------------------------------------------------------------------------
 // Let's bring some handy variables, maps, mixins, and functions together.
-// Define your projects global settings in toolkit/settings.
+// Define your projects global settings.
 // -----------------------------------------------------------------------------
 
-@import "toolkit/imports";
+@import "toolkit/toolkit";
 
 
 // Components
 // -----------------------------------------------------------------------------
-// Simple and complex components.
+// Simple and self-contained components.
 // The building blocks of your websites and applications.
 // -----------------------------------------------------------------------------
 
-@import "components/config";
-@import "components/imports";
+@import "components/components";
+
+
+// Constructs
+// -----------------------------------------------------------------------------
+// Complex and self-contained constructs.
+// Combination of a component(s), with introduced layout or specific purpose.
+// -----------------------------------------------------------------------------
+
+@import "constructs/constructs";
 
 
 // Utilities
 // -----------------------------------------------------------------------------
 // Immutible utility classes.
-// Responsive classes and hidden state classes for your pattern building.
+// Responsive grid and hidden utility classes for template building.
 // -----------------------------------------------------------------------------
 
-@import "utilities/config";
-@import "utilities/imports";
+@import "utilities/utilities";
 
 
-// Patterns
+// Layout
 // -----------------------------------------------------------------------------
-// Combinations of a component(s) and utility classes.
-// Build your complex UI patterns.
-// -----------------------------------------------------------------------------
-
-// @import "patterns/config";
-// @import "patterns/imports";
-
-
-// Layouts
-// -----------------------------------------------------------------------------
-// Page layout structures.
-// The final piece of the puzzle, constructing your page design.
+// The skeleton or shell of your website/app.
+// Sets up global structure such as border-box, and houses your containers for
+// your design (such as header, body and footer).
+// No content is styled here, and visual styling is kept very strict.
 // -----------------------------------------------------------------------------
 
-// @import "layouts/config";
-// @import "layouts/imports";
+@import "layout/structure";
+@import "layout/theme";

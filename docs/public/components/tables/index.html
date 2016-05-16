@@ -10,148 +10,195 @@
 
 <h1 id="tables:3a19b48bd83a6050396f92d451abafda">Tables</h1>
 
-<pre><code class="language-html">&lt;table class=&quot;table table--responsiveList&quot;&gt;
+<p>Empty your mind. Be formless. Shapeless. Like water. You put water into a bottle, it becomes the bottle. You put it into a teapot, it becomes the teapot. Now water can flow, or it can crash. Be water, my friend.</p>
 
-    &lt;caption class=&quot;table-surtitle&quot;&gt;Table title&lt;/caption&gt;
+<h2 id="basic-table:3a19b48bd83a6050396f92d451abafda">Basic table</h2>
 
-    &lt;thead class=&quot;table-header&quot;&gt;
-        &lt;tr class=&quot;table-row&quot;&gt;
-            &lt;th scope=&quot;col&quot;&gt;One&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Two&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Three&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Four&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
+<table class="table">
+    <thead class="table-header">
+        <tr class="table-row">
+            <th>One</th>
+            <th>Two</th>
+            <th>Three</th>
+            <th>Four</th>
+        </tr>
+    </thead>
+    <tbody class="table-body">
+        <tr class="table-row">
+            <th>Value</th>
+            <td>Value</td>
+            <td>Value</td>
+            <td>Value</td>
+        </tr>
+        <tr class="table-row">
+            <th>Value</th>
+            <td>Value</td>
+            <td>Value</td>
+            <td>Value</td>
+        </tr>
+        <tr class="table-row">
+            <th>Value</th>
+            <td>Value</td>
+            <td>Value</td>
+            <td>Value</td>
+        </tr>
+        <tr class="table-row table-row--warning">
+            <th>Value</th>
+            <td>Value</td>
+            <td>Value</td>
+            <td>Value</td>
+        </tr>
+        <tr class="table-row">
+            <th>Value</th>
+            <td>Value</td>
+            <td>Value</td>
+            <td>Value</td>
+        </tr>
+    </tbody>
+</table>
 
-    &lt;tbody class=&quot;table-body&quot;&gt;
-        &lt;tr class=&quot;table-row&quot;&gt;
-            &lt;th scope=&quot;row&quot;&gt;Value&lt;/th&gt;
-            &lt;td data-title=&quot;Column 1&quot;&gt;Value&lt;/td&gt;
-            &lt;td data-title=&quot;Column 2&quot;&gt;Value&lt;/td&gt;
-            &lt;td data-title=&quot;Column 3&quot;&gt;Value&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr class=&quot;table-row&quot;&gt;
-            &lt;th scope=&quot;row&quot;&gt;Value&lt;/th&gt;
-            &lt;td data-title=&quot;Column 1&quot;&gt;Value&lt;/td&gt;
-            &lt;td data-title=&quot;Column 2&quot;&gt;Value&lt;/td&gt;
-            &lt;td data-title=&quot;Column 3&quot;&gt;Value&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr class=&quot;table-row&quot;&gt;
-            &lt;th scope=&quot;row&quot;&gt;Value&lt;/th&gt;
-            &lt;td data-title=&quot;Column 1&quot;&gt;Value&lt;/td&gt;
-            &lt;td data-title=&quot;Column 2&quot;&gt;Value&lt;/td&gt;
-            &lt;td data-title=&quot;Column 3&quot;&gt;Value&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
+<h2 id="table-modifiers:3a19b48bd83a6050396f92d451abafda">Table modifiers</h2>
 
-&lt;/table&gt;
+<h4 id="table-with-small-modifier:3a19b48bd83a6050396f92d451abafda">Table with small modifier</h4>
 
-&lt;table class=&quot;table table--responsiveOverflowX&quot;&gt;
+<table class="table table--small">
+    <caption class="table-surtitle">Table surtitle</caption>
+    <caption class="table-subtitle">Table subtitle</caption>
+    <thead class="table-header">
+        <tr class="table-row">
+            <th>One</th>
+            <th>Two</th>
+            <th>Three</th>
+            <th>Four</th>
+        </tr>
+    </thead>
+    <tbody class="table-body">
+        <tr class="table-row">
+            <th>Value</th>
+            <td>Value</td>
+            <td>Value</td>
+            <td>Value</td>
+        </tr>
+        <tr class="table-row">
+            <th>Value</th>
+            <td>Value</td>
+            <td>Value</td>
+            <td>Value</td>
+        </tr>
+        <tr class="table-row">
+            <th>Value</th>
+            <td>Value</td>
+            <td>Value</td>
+            <td>Value</td>
+        </tr>
+        <tr class="table-row table-row--warning">
+            <th>Value</th>
+            <td>Value</td>
+            <td>Value</td>
+            <td>Value</td>
+        </tr>
+        <tr class="table-row">
+            <th>Value</th>
+            <td>Value</td>
+            <td>Value</td>
+            <td>Value</td>
+        </tr>
+    </tbody>
+</table>
 
-    &lt;caption class=&quot;table-surtitle&quot;&gt;Table title&lt;/caption&gt;
+<h4 id="table-with-responsive-list-modifier:3a19b48bd83a6050396f92d451abafda">Table with responsive list modifier</h4>
 
-    &lt;thead class=&quot;table-header&quot;&gt;
-        &lt;tr class=&quot;table-row&quot;&gt;
-            &lt;th scope=&quot;col&quot;&gt;One&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Two&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Three&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Four&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
+<p>This table will change its UI on small viewports to function more like a list.</p>
 
-    &lt;tbody class=&quot;table-body&quot;&gt;
-        &lt;tr class=&quot;table-row&quot;&gt;
-            &lt;th scope=&quot;row&quot;&gt;Value&lt;/th&gt;
-            &lt;td data-title=&quot;Column 1&quot;&gt;Value&lt;/td&gt;
-            &lt;td data-title=&quot;Column 2&quot;&gt;Value&lt;/td&gt;
-            &lt;td data-title=&quot;Column 3&quot;&gt;Value&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr class=&quot;table-row table-row--success&quot;&gt;
-            &lt;th scope=&quot;row&quot;&gt;Value&lt;/th&gt;
-            &lt;td data-title=&quot;Column 1&quot;&gt;Value&lt;/td&gt;
-            &lt;td data-title=&quot;Column 2&quot;&gt;Value&lt;/td&gt;
-            &lt;td data-title=&quot;Column 3&quot;&gt;Value&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr class=&quot;table-row&quot;&gt;
-            &lt;th scope=&quot;row&quot;&gt;Value&lt;/th&gt;
-            &lt;td data-title=&quot;Column 1&quot;&gt;Value&lt;/td&gt;
-            &lt;td data-title=&quot;Column 2&quot;&gt;Value&lt;/td&gt;
-            &lt;td data-title=&quot;Column 3&quot;&gt;Value&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
+<table class="table table--responsiveList">
+    <thead class="table-header">
+        <tr class="table-row">
+            <th scope="col">One</th>
+            <th scope="col">Two</th>
+            <th scope="col">Three</th>
+            <th scope="col">Four</th>
+        </tr>
+    </thead>
+    <tbody class="table-body">
+        <tr class="table-row">
+            <th scope="row">Value</th>
+            <td data-title="Column 1">Value</td>
+            <td data-title="Column 2">Value</td>
+            <td data-title="Column 3">Value</td>
+        </tr>
+        <tr class="table-row">
+            <th scope="row">Value</th>
+            <td data-title="Column 1">Value</td>
+            <td data-title="Column 2">Value</td>
+            <td data-title="Column 3">Value</td>
+        </tr>
+        <tr class="table-row">
+            <th scope="row">Value</th>
+            <td data-title="Column 1">Value</td>
+            <td data-title="Column 2">Value</td>
+            <td data-title="Column 3">Value</td>
+        </tr>
+        <tr class="table-row">
+            <th scope="row">Value</th>
+            <td data-title="Column 1">Value</td>
+            <td data-title="Column 2">Value</td>
+            <td data-title="Column 3">Value</td>
+        </tr>
+        <tr class="table-row">
+            <th scope="row">Value</th>
+            <td data-title="Column 1">Value</td>
+            <td data-title="Column 2">Value</td>
+            <td data-title="Column 3">Value</td>
+        </tr>
+    </tbody>
+</table>
 
-&lt;/table&gt;
+<h4 id="table-with-responsive-overflow-modifier:3a19b48bd83a6050396f92d451abafda">Table with responsive overflow modifier</h4>
 
-&lt;table class=&quot;table table--small&quot;&gt;
+<p>This table condense its column span, and will allow horizontal scrolling when the viewport is too small.</p>
 
-    &lt;caption class=&quot;table-subtitle&quot;&gt;Table small subtitle explanation&lt;/caption&gt;
-
-    &lt;thead class=&quot;table-header&quot;&gt;
-        &lt;tr class=&quot;table-row&quot;&gt;
-            &lt;th&gt;One&lt;/th&gt;
-            &lt;th&gt;Two&lt;/th&gt;
-            &lt;th&gt;Three&lt;/th&gt;
-            &lt;th&gt;Four&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-
-    &lt;tbody class=&quot;table-body&quot;&gt;
-        &lt;tr class=&quot;table-row&quot;&gt;
-            &lt;th&gt;Value&lt;/th&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr class=&quot;table-row table-row--warning&quot;&gt;
-            &lt;th&gt;Value&lt;/th&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr class=&quot;table-row&quot;&gt;
-            &lt;th&gt;Value&lt;/th&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-
-&lt;/table&gt;
-
-&lt;table class=&quot;table table--large&quot;&gt;
-
-    &lt;thead class=&quot;table-header&quot;&gt;
-        &lt;tr class=&quot;table-row&quot;&gt;
-            &lt;th&gt;One&lt;/th&gt;
-            &lt;th&gt;Two&lt;/th&gt;
-            &lt;th&gt;Three&lt;/th&gt;
-            &lt;th&gt;Four&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-
-    &lt;tbody class=&quot;table-body&quot;&gt;
-        &lt;tr class=&quot;table-row&quot;&gt;
-            &lt;th&gt;Value&lt;/th&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr class=&quot;table-row table-row--error&quot;&gt;
-            &lt;th&gt;Value&lt;/th&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr class=&quot;table-row&quot;&gt;
-            &lt;th&gt;Value&lt;/th&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-            &lt;td&gt;Value&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-
-&lt;/table&gt;
-</code></pre>
+<table class="table table--responsiveOverflowX">
+    <thead class="table-header">
+        <tr class="table-row">
+            <th scope="col">One</th>
+            <th scope="col">Two</th>
+            <th scope="col">Three</th>
+            <th scope="col">Four</th>
+        </tr>
+    </thead>
+    <tbody class="table-body">
+        <tr class="table-row">
+            <th scope="row">Value</th>
+            <td data-title="Column 1">Value</td>
+            <td data-title="Column 2">Value</td>
+            <td data-title="Column 3">Value</td>
+        </tr>
+        <tr class="table-row">
+            <th scope="row">Value</th>
+            <td data-title="Column 1">Value</td>
+            <td data-title="Column 2">Value</td>
+            <td data-title="Column 3">Value</td>
+        </tr>
+        <tr class="table-row">
+            <th scope="row">Value</th>
+            <td data-title="Column 1">Value</td>
+            <td data-title="Column 2">Value</td>
+            <td data-title="Column 3">Value</td>
+        </tr>
+        <tr class="table-row table-row--success">
+            <th scope="row">Value</th>
+            <td data-title="Column 1">Value</td>
+            <td data-title="Column 2">Value</td>
+            <td data-title="Column 3">Value</td>
+        </tr>
+        <tr class="table-row">
+            <th scope="row">Value</th>
+            <td data-title="Column 1">Value</td>
+            <td data-title="Column 2">Value</td>
+            <td data-title="Column 3">Value</td>
+        </tr>
+    </tbody>
+</table>
 </main>
 
         <script src="/assets/js/syntax-highlighting.js"></script>

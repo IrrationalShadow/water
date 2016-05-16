@@ -1,6 +1,16 @@
 // =============================================================================
-// UTILITIES (Config)
+// LAYOUT (Theme)
 // =============================================================================
 
-$output--columns: true;
-$output--hidden: false;
+.header {
+    width: 100%;
+}
+
+.body {
+    max-width: remCalc(1280px);
+    width: 80%;
+}
+
+.footer {
+    width: 100%;
+}

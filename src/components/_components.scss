@@ -1,20 +1,42 @@
 // =============================================================================
-// COMPONENTS (Imports)
+// COMPONENTS
 // =============================================================================
+
+// Config
+// -----------------------------------------------------------------------------
+// Control which components you require in your build.
+// Set the value to false for any component you wish to remove from the build.
+// -----------------------------------------------------------------------------
+
+$output--badges: true;
+$output--buttons: true;
+$output--chips: true;
+$output--icons: true;
+$output--images: true;
+$output--lists: false;
+$output--menus: false;
+$output--progress: true;
+$output--tables: true;
+$output--tooltips: false;
+$output--typography: true;
+
+
+// Imports
+// -----------------------------------------------------------------------------
 // Include the CSS classes and styles for components.
 //
-// 1. Import the typography component first.
-// 2. Import the icon component second.
-// 3. Import the images component third.
-//
-// NOTE: Don't touch the contents of this file. If you wish to turn off an
-//       object, simply update the variables in the _config.scss file.
+// NOTE: Don't touch the imports below directly. If you wish to turn off a
+//       component, simply update the variables in the config above.
 //
 // NOTE: Why are the first 3 components imported before everything else?
 //       Easy. CSS does that whole "cascading" thing, and we want to take
 //       advantage of that. These 3 components are special compared to all of
 //       the others. They can, and will show up inside other component structure
 //       or theme files. They bend the rules a little. They're rebels.
+//
+// 1. Import the typography component first.
+// 2. Import the icon component second.
+// 3. Import the images component third.
 // -----------------------------------------------------------------------------
 
 @if $output--typography { // 1
@@ -47,22 +69,12 @@
     @import "chips/chips-theme";
 }
 
-@if $output--embed {
-    @import "embed/embed-structure";
-    @import "embed/embed-theme";
-}
-
-@if $output--grid {
-    @import "grid/grid-structure";
-    @import "grid/grid-theme";
-}
-
-@if $output--media {
-    @import "media/media-structure";
-    @import "media/media-theme";
-}
-
 @if $output--progress {
     @import "progress/progress-structure";
     @import "progress/progress-theme";
+}
+
+@if $output--tables {
+    @import "tables/tables-structure";
+    @import "tables/tables-theme";
 }

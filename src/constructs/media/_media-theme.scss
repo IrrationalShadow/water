@@ -60,11 +60,8 @@ $media-spacing: spacing("single");
 // 1. Align the content to the top of the image.
 // -----------------------------------------------------------------------------
 
-.media-content {
-
-    .media:not(.media--alignMiddle) & {
-        margin-top: -(spacing("quarter")); // 1
-    }
+.media:not(.media--alignMiddle) .media-content {
+    margin-top: -(spacing("quarter")); // 1
 }
 
 .media-content > :first-child {

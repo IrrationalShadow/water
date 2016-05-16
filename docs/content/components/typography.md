@@ -7,7 +7,7 @@ title: "Typography"
 <p>Empty your mind. Be formless. Shapeless. Like water. You put water into a bottle, it becomes the bottle. You put it into a teapot, it becomes the teapot. Now water can flow, or it can crash. Be water, my friend.</p>
 
 <figure class="figure">
-    <img src="https://ubistatic9-a.akamaihd.net/ubicomstatic/en-US/global/media/ui_map_159341.jpg" style="width: 100%; height: 272px;">
+    <img src="/static/img/division.jpg" style="width: 100%; height: 272px;">
     <figcaption>This grey image is pretty amazing.</figcaption>
 </figure>
 
