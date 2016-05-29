@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ title }} | Water Docs</title>
+    <meta name="description" content="{{ description }}">
+    <style type="text/css">
+        .active {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    {{> header}}
+
+    <h2>{{ title }}</h2>
+    {{{ contents }}}
+
+    {{> footer}}
+</body>
+</html>

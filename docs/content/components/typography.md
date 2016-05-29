@@ -1,5 +1,6 @@
 ---
 title: "Typography"
+layout: layout.html
 ---
 
 # Typography

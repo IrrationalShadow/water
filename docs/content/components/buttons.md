@@ -1,5 +1,6 @@
 ---
-title: "buttons"
+title: "Buttons"
+layout: layout.html
 ---
 
 # Buttons

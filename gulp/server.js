@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync');
 
 
-// Compile the SCSS
+// Load up a local server
 // -----------------------------------------------------------------------------
 // 1. Load the server from the ./build directory.
 // 2. Hide the browserSync growl notification (in browser).
