@@ -7,23 +7,25 @@
 // -----------------------------------------------------------------------------
 
 
-// Z-index map
+// Z-index scale
+// -----------------------------------------------------------------------------
+// This scale is strictly for use in the below zIndexMap. It's not to be
+// referenced in any other partial file or theme file.
 // -----------------------------------------------------------------------------
 
-$zIndexMap: (
-    1: 10,
-    2: 20,
-    3: 30,
-    4: 40,
-    5: 50,
-    6: 60,
-    7: 70,
-    8: 80,
-    9: 90
-);
+$zIndex-1:  10;
+$zIndex-2:  20;
+$zIndex-3:  30;
+$zIndex-4:  40;
+$zIndex-5:  50;
+$zIndex-6:  60;
+$zIndex-7:  70;
+$zIndex-8:  80;
+$zIndex-9:  90;
+$zIndex-10: 100;
 
 
-// Z-index applications
+// Z-index applications map
 // -----------------------------------------------------------------------------
 // Variables for all of your z-index uses. This allows us to see all layers from
 // one central location. Prefix your z-index variable with '$zIndex-'.
@@ -31,7 +33,10 @@ $zIndexMap: (
 // Example: $zIndex-tooltip: zIndex(9);
 // -----------------------------------------------------------------------------
 
-
+$zIndexMap: (
+    "dialog": $zIndex-9,
+    "tooltip": $zIndex-9
+);
 
 
 
