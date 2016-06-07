@@ -1,5 +1,5 @@
 // =============================================================================
-// GRID (Theme)
+// GRID (Utilities)
 // =============================================================================
 
 $grid-gutter: spacing("half");
@@ -7,8 +7,10 @@ $grid-gutter: spacing("half");
 
 // Grid
 // -----------------------------------------------------------------------------
+// The grid class is the containing class for your grid columns.
+//
 // 1. Allows grid columns to wrap to a new line if there's insufficient space.
-// 2. Removes gutters from grid columns.
+// 2. Removes gutters from the grid and grid columns.
 // 3. Pushes grid columns to the right side of the grid.
 // 4. Centres the grid columns.
 // 5. Pushes grid columns to the left and right edges and works towards center.
@@ -18,6 +20,7 @@ $grid-gutter: spacing("half");
 // -----------------------------------------------------------------------------
 
 .grid {
+    display: flex;
     margin-left: -($grid-gutter);
     margin-right: -($grid-gutter);
 }
@@ -30,7 +33,7 @@ $grid-gutter: spacing("half");
     margin-left: 0;
     margin-right: 0;
 
-    .grid-col {
+    > .grid-col { // 2
         padding-left: 0;
         padding-right: 0;
     }
@@ -63,12 +66,19 @@ $grid-gutter: spacing("half");
 
 // Grid columns
 // -----------------------------------------------------------------------------
+// The column class must be used on elements that live inside a .grid containing
+// element.
+//
+// To add responsive width classes, browse the utilities/columns directory.
+// flex: 0 0 grid("#{$column}");
+//
 // 1. Vertically aligns grid column to the top of the grid.
 // 2. Vertically aligns grid column to the middle of the grid (yay).
 // 3. Vertically aligns grid column to the bottom of the grid.
 // -----------------------------------------------------------------------------
 
 .grid-col {
+    flex: 1;
     padding-left: $grid-gutter;
     padding-right: $grid-gutter;
 }

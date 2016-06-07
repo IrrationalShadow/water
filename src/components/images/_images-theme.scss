@@ -9,7 +9,7 @@
 // required on figures used in a generic container, such as page content. Any
 // other use of a figure will likely not need this treatment.
 //
-// 1. Maintain VR.
+// 2. Maintain VR.
 // -----------------------------------------------------------------------------
 
 .figure { // 1
@@ -19,13 +19,6 @@
 .figure > img {
     position: relative; // 1
     top: -1px; // 1
-}
-
-figure {
-
-    h4 + & {
-        margin-top: remCalc(27px); // 2
-    }
 }
 
 figure + h2 {
@@ -38,6 +31,10 @@ figure + h3 {
 
 figure + h4 {
     margin-top: remCalc(41px); // 2
+}
+
+h4 + figure {
+    margin-top: remCalc(27px); // 2
 }
 
 figcaption {
