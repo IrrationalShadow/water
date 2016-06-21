@@ -6,12 +6,12 @@
 // Font-size map
 // -----------------------------------------------------------------------------
 // NOTE: The root font size sets the scale for your stack. Please use pixels or
-//       a percentage unit for the value. Base font size should always be 1rem.
+//       a percentage unit for the value. Body is typically set to 1rem.
 // -----------------------------------------------------------------------------
 
 $fontSizeMap: (
     "root": 16px,
-    "base": 1rem,
+    "body": 1rem,
 
     "display": 2.489rem,
     "h1": 2.0625rem,
@@ -27,7 +27,7 @@ $fontSizeMap: (
 // -----------------------------------------------------------------------------
 // Similarly, you'll find the matching line height scale below.
 //
-// NOTE: Global line-height should be unitless. All following font-size specific
+// NOTE: Body line-height should be unitless. All following font-size specific
 //       line-heights can be measured in rem units for simplicity, or unitless.
 //
 // NOTE: Lline heights are set to a consistent vertical rhythm, which should be
@@ -35,7 +35,7 @@ $fontSizeMap: (
 // -----------------------------------------------------------------------------
 
 $lineHeightMap: (
-    "base": 1.5,
+    "body": 1.5,
 
     "display": 2.8125rem,
     "h1": 2.5rem,
