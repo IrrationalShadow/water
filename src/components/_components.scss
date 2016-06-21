@@ -11,8 +11,10 @@
 $output--badges: true;
 $output--buttons: true;
 $output--chips: true;
+$output--controls: true;
 $output--icons: true;
 $output--images: true;
+$output--inputs: true;
 $output--lists: false;
 $output--menus: false;
 $output--progress: true;
@@ -67,6 +69,16 @@ $output--typography: true;
 @if $output--chips {
     @import 'chips/chips-structure';
     @import 'chips/chips-theme';
+}
+
+@if $output--controls {
+    @import 'controls/controls-structure';
+    @import 'controls/controls-theme';
+}
+
+@if $output--inputs {
+    @import 'inputs/inputs-structure';
+    @import 'inputs/inputs-theme';
 }
 
 @if $output--progress {

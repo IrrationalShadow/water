@@ -53,7 +53,7 @@ $iconSize-large: 2rem;
 // Icon inside a button
 // -----------------------------------------------------------------------------
 // This styling is specific to icons that appear inside the button component.
-// NOTE: Don't mix these styles with any other part of the icon styling.
+// NOTE: This is for positioning within buttons only. Do not style visuals here.
 // -----------------------------------------------------------------------------
 
 .button > .icon {
@@ -85,7 +85,7 @@ $iconSize-large: 2rem;
 // Icon inside a chip
 // -----------------------------------------------------------------------------
 // This styling is specific to icons that appear inside the chips component.
-// NOTE: Don't mix these styles with any other part of the icon styling.
+// NOTE: This is for positioning within chips only. Do not style visuals here.
 // -----------------------------------------------------------------------------
 
 .chip > .icon {

@@ -1,0 +1,41 @@
+// =============================================================================
+// INPUTS (Theme)
+// =============================================================================
+
+
+// Form text inputs & selects
+// -----------------------------------------------------------------------------
+
+.form-input,
+.form-select,
+.form-textarea {
+    @include inputPlaceholder(color('primary'));
+    background-color: #fff;
+    border: 1px solid color('border');
+    color: color('text');
+    display: block;
+    font-size: fontSize('body');
+    height: 2rem;
+    max-width: 40rem;
+    padding: spacing('quarter');
+    width: 100%;
+
+    &:hover {
+        border-color: color('border', 'hover');
+    }
+
+    &:focus {
+        border-color: color('border', 'active');
+    }
+
+    &[disabled] {
+        background-color: color('background');
+        border-color: color('border');
+        cursor: not-allowed;
+    }
+}
+
+.form-textarea {
+    height: auto;
+    resize: vertical;
+}

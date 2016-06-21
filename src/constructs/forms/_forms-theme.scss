@@ -1,0 +1,159 @@
+// // =============================================================================
+// // FORMS (Theme)
+// // =============================================================================
+//
+//
+// // Base forms
+// // -----------------------------------------------------------------------------
+//
+// .form {
+//     margin-bottom: $form_marginBottom;
+// }
+//
+// fieldset {
+//     border: 1px solid #c0c0c0;
+//     margin: 0 2px;
+//     padding: 0.35em 0.625em 0.75em;
+// }
+//
+// .form-group {
+//     @include o-grid($marginBottom: null);
+//
+//     + .form-group {
+//         margin-top: $form-group_marginTop;
+//     }
+//
+//     .form-field,
+//     .form-actions {
+//         @include o-grid-block;
+//     }
+// }
+//
+// .form-field-group {
+//     // Layout
+//     display: flex;
+//     position: relative;
+//
+//     .form-input,
+//     .form-textarea,
+//     .form-select {
+//         flex: 1;
+//     }
+// }
+//
+// .form-toggleGroup {
+//     // Layout
+//     display: flex;
+//     align-items: flex-start;
+//
+//     .form-label {
+//         // Layout
+//         margin-right: $form-toggleGroup-form-label_marginRight;
+//         margin-bottom: 0;
+//     }
+// }
+//
+// .form-toggleGroup--column {
+//     flex-direction: column;
+// }
+//
+// .form-toggleGroup--stretch {
+//
+//     > label {
+//         flex: 1;
+//     }
+// }
+//
+//
+// // Inline forms
+// // -----------------------------------------------------------------------------
+//
+// .form--inline {
+//
+//     .form-group {
+//         align-items: flex-start;
+//     }
+//
+//     .form-field,
+//     .form-actions {
+//         // Layout
+//         display: flex;
+//         flex: 0 1 auto;
+//         align-items: center;
+//     }
+//
+//     .form-label,
+//     .form-input {
+//         width: auto;
+//     }
+//
+//     .form-label {
+//         margin: $form--inline-form-label_margin;
+//     }
+//
+//     .form-input,
+//     .form-select {
+//         flex: 1;
+//     }
+// }
+//
+//
+// // Horizontal label forms
+// // -----------------------------------------------------------------------------
+//
+// .form--horizontal {
+//
+//     .form-field {
+//         // Layout
+//         display: flex;
+//         flex-wrap: wrap;
+//     }
+//
+//     .form-label {
+//         // Layout
+//         align-self: center;
+//         width: $form--horizontal-form-label_width;
+//         margin-bottom: 0;
+//         padding-right: $form--horizontal-form-label_paddingRight;
+//         // Appearance
+//         text-align: $form--horizontal-form-label_textAlign;
+//
+//         &-small,
+//         small {
+//             display: block;
+//         }
+//     }
+//
+//     .form-input,
+//     .form-select,
+//     .form-textarea,
+//     .form-field-group {
+//         flex: 1;
+//     }
+//
+//     .form-feedback {
+//         margin-left: $form--horizontal-form-feedback_marginLeft;
+//     }
+// }
+//
+//
+// // Labels
+// // -----------------------------------------------------------------------------
+//
+// .form-label {
+//     color: $form-label_color;
+//     display: inline-block;
+//     font-size: $form-label_fontSize;
+//     font-style: $form-label_fontStyle;
+//     font-weight: $form-label_fontWeight;
+//     margin-bottom: $form-label_marginBottom;
+//     text-transform: $form-label_textTransform;
+// }
+//
+// .form-label-small {
+//     color: $form-label-small_color;
+//     font-size: $form-label-small_fontSize;
+//     font-style: $form-label-small_fontStyle;
+//     font-weight: $form-label-small_fontWeight;
+//     text-transform: $form-label-small_textTransform;
+// }

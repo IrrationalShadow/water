@@ -28,8 +28,7 @@ button {
 
 button,
 input {
-    -moz-appearance: none;
-    -webkit-appearance: none;
+    appearance: none;
     background: none;
     border-radius: 0;
     color: inherit; // 3
@@ -39,6 +38,8 @@ input {
     padding: 0;
 }
 
+// scss-lint:disable QualifyingElement
+
 button,
 html input[type='button'], // 6
 input[type='reset'],
@@ -47,11 +48,12 @@ input[type='submit'] {
     cursor: pointer; // 8
 }
 
-
 button[disabled],
 html input[disabled] {
     cursor: default; // 9
 }
+
+// scss-lint:enable QualifyingElement
 
 button::-moz-focus-inner,
 input::-moz-focus-inner { // 10

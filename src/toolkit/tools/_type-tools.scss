@@ -3,7 +3,7 @@
 // =============================================================================
 
 
-// Font Size mixin
+// Font Size
 // -----------------------------------------------------------------------------
 // This is the mixin you will be using to define your font-size in all of your
 // components, patterns or layouts files.
@@ -44,4 +44,24 @@
     font-feature-settings: 'kern' 1; // 1
     font-kerning: normal; // 2
     text-rendering: optimizeLegibility; // 3
+}
+
+
+// Placeholder Text
+// -----------------------------------------------------------------------------
+
+@mixin inputPlaceholder($color) {
+    // scss-lint:disable VendorPrefixes
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+
+    &::-moz-placeholder {
+        color: $color;
+    }
+
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+    // scss-lint:enable VendorPrefixes
 }

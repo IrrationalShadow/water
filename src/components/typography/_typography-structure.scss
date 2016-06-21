@@ -69,3 +69,13 @@ hr {
     box-sizing: content-box;
     height: 0;
 }
+
+// Legend
+// -----------------------------------------------------------------------------
+// 1. Remove borders and padding for legends. A minor reset.
+// -----------------------------------------------------------------------------
+
+legend {
+    border: 0; // 1
+    padding: 0; // 2
+}

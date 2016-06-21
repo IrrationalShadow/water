@@ -1,0 +1,20 @@
+// =============================================================================
+// CONTROLS (Structure)
+// =============================================================================
+// It's recommended that you don't attempt to style checkboxes or radio buttons
+// directly. Firefox's implementation doesn't respect box-sizing, padding, or
+// width.
+//
+// 1. Address box sizing set to `content-box` in IE 8/9/10.
+// 2. Remove excess padding in IE 8/9/10.
+// -----------------------------------------------------------------------------
+
+// scss-lint:disable QualifyingElement
+
+input[type='checkbox'],
+input[type='radio'] {
+    box-sizing: border-box; // 1
+    padding: 0; // 2
+}
+
+// scss-lint:enable QualifyingElement
