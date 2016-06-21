@@ -34,7 +34,7 @@ linters:
 
   NestingDepth:
     enabled: true
-    max_depth: 4
+    max_depth: 2
 
   MergeableSelector:
     force_nesting: false

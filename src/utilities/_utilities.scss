@@ -9,7 +9,7 @@
 // -----------------------------------------------------------------------------
 
 $output--width: true;
-$output--grid: false;
+$output--grid: true;
 $output--hidden: true;
 
 
@@ -25,9 +25,9 @@ $output--hidden: true;
     @import "width/width-utilities";
 }
 
-// @if $output--grid {
-//     @import "grid/grid-utilities";
-// }
+@if $output--grid {
+    @import "grid/grid-utilities";
+}
 
 @if $output--hidden {
     @import "hidden/hidden-utilities";
