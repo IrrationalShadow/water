@@ -2,7 +2,7 @@
 // GRID (Utilities)
 // =============================================================================
 
-$grid-gutter: spacing("half");
+$grid-gutter: spacing('half');
 
 
 // Grid
@@ -70,7 +70,7 @@ $grid-gutter: spacing("half");
 // element.
 //
 // To add responsive width classes, browse the utilities/columns directory.
-// flex: 0 0 grid("#{$column}");
+// flex: 0 0 grid('#{$column}');
 //
 // 1. Vertically aligns grid column to the top of the grid.
 // 2. Vertically aligns grid column to the middle of the grid (yay).

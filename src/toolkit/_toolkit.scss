@@ -7,25 +7,25 @@
 // -----------------------------------------------------------------------------
 
 // Calculations
-@import "tools/calculation-tools";
+@import 'tools/calculation-tools';
 
 // Colors (Material Design)
-@import "tools/materialColor-tools";
+@import 'tools/materialColor-tools';
 
 // Columns
-@import "tools/column-tools";
+@import 'tools/column-tools';
 
 // Display
-@import "tools/display-tools";
+@import 'tools/display-tools';
 
 // Float
-@import "tools/float-tools";
+@import 'tools/float-tools';
 
 // Position
-@import "tools/position-tools";
+@import 'tools/position-tools';
 
 // Shapes
-@import "tools/shape-tools";
+@import 'tools/shape-tools';
 
 
 // Settings
@@ -36,19 +36,19 @@
 // -----------------------------------------------------------------------------
 
 // Viewport
-@import "settings/viewport-settings"; // 1
+@import 'settings/viewport-settings'; // 1
 
 // Typography
-@import "settings/type-settings"; // 1
+@import 'settings/type-settings'; // 1
 
 // Spacing
-@import "settings/spacing-settings"; // 1
+@import 'settings/spacing-settings'; // 1
 
 // Animations
-@import "settings/animation-settings";
+@import 'settings/animation-settings';
 
 // Color
-@import "settings/color-settings";
+@import 'settings/color-settings';
 
 // Z-index
-@import "settings/zIndex-settings";
+@import 'settings/zIndex-settings';

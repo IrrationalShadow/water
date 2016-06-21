@@ -41,7 +41,7 @@
 // -----------------------------------------------------------------------------
 
 @mixin textKerning {
-    font-feature-settings: "kern" 1; // 1
+    font-feature-settings: 'kern' 1; // 1
     font-kerning: normal; // 2
     text-rendering: optimizeLegibility; // 3
 }

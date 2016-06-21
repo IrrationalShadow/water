@@ -3,8 +3,8 @@
 // =============================================================================
 
 .badge {
-    font-weight: fontWeight("normal");
-    line-height: lineHeight("small");
+    font-weight: fontWeight('normal');
+    line-height: lineHeight('small');
 }
 
 
@@ -15,32 +15,32 @@
 // -----------------------------------------------------------------------------
 
 .badge--label {
-    background-color: color("background", "light");
+    background-color: color('background', 'light');
     border-radius: 2px;
-    font-size: fontSize("small");
-    padding: remCalc(1px) (spacing("quarter") + spacing("eighth")) 0; // 1
+    font-size: fontSize('small');
+    padding: remCalc(1px) (spacing('quarter') + spacing('eighth')) 0; // 1
     text-transform: uppercase;
 }
 
 .badge--count {
     border-radius: 50%;
-    font-size: fontSize("small");
+    font-size: fontSize('small');
     text-align: center;
     text-indent: 0.05em;
-    width: lineHeight("small");
+    width: lineHeight('small');
 }
 
 .badge--large { // 2
-    font-size: fontSize("base");
+    font-size: fontSize('base');
     line-height: 1;
     margin-top: -1px; // 1
-    padding: remCalc(5px) (spacing("quarter") + spacing("eighth")) remCalc(3px); // 1
+    padding: remCalc(5px) (spacing('quarter') + spacing('eighth')) remCalc(3px); // 1
 }
 
 .badge--outline {
-    border: 1px solid color("divider");
+    border: 1px solid color('divider');
     line-height: 1;
-    padding: spacing("quarter") remCalc(5px) remCalc(3px); // 1
+    padding: spacing('quarter') remCalc(5px) remCalc(3px); // 1
 }
 
 
@@ -48,8 +48,8 @@
 // -----------------------------------------------------------------------------
 
 .badge--primary {
-    background-color: color("primary");
-    color: color("basics", "white");
+    background-color: color('primary');
+    color: color('basics', 'white');
 }
 
 
@@ -62,12 +62,12 @@
 
 .badge--outline.badge--primary {
     background: none;
-    border-color: color("primary");
+    border-color: color('primary');
     color: inherit;
 }
 
 .badge--outline.badge--large {
-    padding: spacing("quarter") remCalc(5px) remCalc(2px); // 1
+    padding: spacing('quarter') remCalc(5px) remCalc(2px); // 1
 }
 
 

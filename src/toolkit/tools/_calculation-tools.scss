@@ -35,9 +35,9 @@
 // The $base-value should correspond to a root value from your $fontSizeMap.
 // -----------------------------------------------------------------------------
 
-@function remCalc($values, $base-value: "root") {
+@function remCalc($values, $base-value: 'root') {
     $max: length($values);
-    @if $max == "1" {
+    @if $max == '1' {
         @return convertToRem(nth($values, 1), fontSize($base-value));
     }
     $remValues: ();

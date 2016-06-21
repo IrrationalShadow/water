@@ -38,7 +38,7 @@ h4 + figure {
 }
 
 figcaption {
-    @include fontSize("note");
-    color: color("text", "light");
+    @include fontSize('note');
+    color: color('text', 'light');
     margin: remCalc(9px) 0 remCalc(-5px); // 2
 }

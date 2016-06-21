@@ -10,7 +10,7 @@
 // -----------------------------------------------------------------------------
 
 @mixin position($variant) {
-    @if $variant == "absoluteCenter" { // 1
+    @if $variant == 'absoluteCenter' { // 1
         bottom: 0;
         left: 0;
         margin: auto;
@@ -19,7 +19,7 @@
         top: 0;
 
     }
-    @else if $variant == "fixed" {
+    @else if $variant == 'fixed' {
         backface-visibility: hidden; // 2
         position: fixed;
     }

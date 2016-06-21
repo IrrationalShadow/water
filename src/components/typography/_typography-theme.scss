@@ -6,7 +6,7 @@
 //       however this is to ensure consistent vertical rhythm throughout.
 // -----------------------------------------------------------------------------
 
-$text-spacing: spacing("single");
+$text-spacing: spacing('single');
 
 
 // Document
@@ -14,12 +14,12 @@ $text-spacing: spacing("single");
 
 html {
     @include textKerning;
-    font-size: fontSize("root");
+    font-size: fontSize('root');
 }
 
 body {
-    color: color("text");
-    font: 1rem/#{lineHeight("base")} fontFamily("text");
+    color: color('text');
+    font: 1rem/#{lineHeight('base')} fontFamily('text');
 }
 
 
@@ -28,8 +28,8 @@ body {
 
 ::selection {
     text-shadow: none;
-    color: color("basics", "white");
-    background: color("primary");
+    color: color('basics', 'white');
+    background: color('primary');
 }
 
 
@@ -37,16 +37,16 @@ body {
 // -----------------------------------------------------------------------------
 
 a {
-    color: color("link");
+    color: color('link');
     text-decoration: underline;
-    transition: color duration("fastest") ease;
+    transition: color duration('fastest') ease;
 
     &:hover {
-        color: color("link", "hover");
+        color: color('link', 'hover');
     }
 
     &:active {
-        color: color("link", "active");
+        color: color('link', 'active');
     }
 }
 
@@ -57,53 +57,53 @@ a {
 // -----------------------------------------------------------------------------
 
 %heading {
-    color: color("text", "dark");
-    font-family: fontFamily("heading");
-    font-weight: fontWeight("bold");
+    color: color('text', 'dark');
+    font-family: fontFamily('heading');
+    font-weight: fontWeight('bold');
     position: relative; // 1
-    top: -(spacing("eighth")); // 1
+    top: -(spacing('eighth')); // 1
 }
 
 h1,
 %h1 {
     @extend %heading;
-    @include fontSize("h1");
-    margin: 0 0 (spacing("single") - spacing("quarter"));
+    @include fontSize('h1');
+    margin: 0 0 (spacing('single') - spacing('quarter'));
 }
 
 h2,
 %h2 {
     @extend %heading;
-    @include fontSize("h2");
-    margin: (spacing("double") + spacing("quarter")) 0 (spacing("half") + spacing("quarter"));
+    @include fontSize('h2');
+    margin: (spacing('double') + spacing('quarter')) 0 (spacing('half') + spacing('quarter'));
 }
 
 h3,
 %h3 {
     @extend %heading;
-    @include fontSize("h3");
-    margin: (spacing("double") + spacing("quarter")) 0 (spacing("half") + spacing("quarter"));
+    @include fontSize('h3');
+    margin: (spacing('double') + spacing('quarter')) 0 (spacing('half') + spacing('quarter'));
 }
 
 h4,
 %h4 {
     @extend %heading;
-    @include fontSize("h4");
+    @include fontSize('h4');
     margin: remCalc(35px) 0 remCalc(13px); // 1
 }
 
 h1:not(:first-child) {
-    margin-top: spacing("double"); // 1
+    margin-top: spacing('double'); // 1
 }
 
 h1 + h2,
 %h1 + %h2 {
-    margin-top: spacing("single"); // 1
+    margin-top: spacing('single'); // 1
 }
 
 h2 + h3,
 %h2 + %h3 {
-    margin-top: spacing("single");
+    margin-top: spacing('single');
 }
 
 h3 + h4,
@@ -140,12 +140,12 @@ ol {
 }
 
 dt {
-    font-weight: fontWeight("bold");
+    font-weight: fontWeight('bold');
 }
 
 dt,
 dd {
-    margin-bottom: spacing("half");
+    margin-bottom: spacing('half');
 }
 
 
@@ -154,8 +154,8 @@ dd {
 
 abbr,
 acronym {
-    border-bottom: 1px dotted color("divider");
-    color: color("text", "light");
+    border-bottom: 1px dotted color('divider');
+    color: color('text', 'light');
     cursor: help;
 }
 
@@ -168,16 +168,16 @@ em {
 }
 
 small {
-    @include fontSize("small");
+    @include fontSize('small');
 }
 
 strong {
-    font-weight: fontWeight("bold");
+    font-weight: fontWeight('bold');
 }
 
 sub,
 sup {
-    @include fontSize("small");
+    @include fontSize('small');
 }
 
 sup {
@@ -195,16 +195,16 @@ sub {
 // -----------------------------------------------------------------------------
 
 blockquote {
-    @include fontSize($fontSize: "h4");
-    border-left: 4px solid color("divider");
+    @include fontSize($fontSize: 'h4');
+    border-left: 4px solid color('divider');
     margin: remCalc(26px) 0 remCalc(22px); // 1
-    padding: remCalc(7px) spacing("single") remCalc(9px); // 1
+    padding: remCalc(7px) spacing('single') remCalc(9px); // 1
 
     cite {
-        color: color("text", "light");
+        color: color('text', 'light');
         display: block;
         font-size: 1rem;
-        line-height: lineHeight("base");
+        line-height: lineHeight('base');
         margin-top: remCalc(3px); // 1
     }
 
@@ -236,11 +236,11 @@ blockquote {
 // -----------------------------------------------------------------------------
 
 hr {
-    background-color: color("divider");
+    background-color: color('divider');
     border: 0;
     clear: both;
     height: 1px;
-    margin: (spacing("single") + spacing("half")) 0 remCalc(23px); // 1
+    margin: (spacing('single') + spacing('half')) 0 remCalc(23px); // 1
 
     h4 + &,
     %h4 + & {
@@ -251,7 +251,7 @@ hr {
     + %h2,
     + h3,
     + %h3 {
-        margin-top: (spacing("single") + spacing("quarter")); // 1
+        margin-top: (spacing('single') + spacing('quarter')); // 1
     }
 
     + h4,

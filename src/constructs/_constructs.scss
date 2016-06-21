@@ -31,11 +31,11 @@ $output--timeline: false;
 // -----------------------------------------------------------------------------
 
 @if $output--embed {
-    @import "embed/embed-structure";
-    @import "embed/embed-theme";
+    @import 'embed/embed-structure';
+    @import 'embed/embed-theme';
 }
 
 @if $output--media {
-    @import "media/media-structure";
-    @import "media/media-theme";
+    @import 'media/media-structure';
+    @import 'media/media-theme';
 }

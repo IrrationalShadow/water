@@ -29,7 +29,7 @@ $output--typography: true;
 //       component, simply update the variables in the config above.
 //
 // NOTE: Why are the first 3 components imported before everything else?
-//       Easy. CSS does that whole "cascading" thing, and we want to take
+//       Easy. CSS does that whole 'cascading' thing, and we want to take
 //       advantage of that. These 3 components are special compared to all of
 //       the others. They can, and will show up inside other component structure
 //       or theme files. They bend the rules a little. They're rebels.
@@ -40,41 +40,41 @@ $output--typography: true;
 // -----------------------------------------------------------------------------
 
 @if $output--typography { // 1
-    @import "typography/typography-structure";
-    @import "typography/typography-theme";
+    @import 'typography/typography-structure';
+    @import 'typography/typography-theme';
 }
 
 @if $output--icons { // 2
-    @import "icons/icons-structure";
-    @import "icons/icons-theme";
+    @import 'icons/icons-structure';
+    @import 'icons/icons-theme';
 }
 
 @if $output--images { // 3
-    @import "images/images-structure";
-    @import "images/images-theme";
+    @import 'images/images-structure';
+    @import 'images/images-theme';
 }
 
 @if $output--badges {
-    @import "badges/badges-structure";
-    @import "badges/badges-theme";
+    @import 'badges/badges-structure';
+    @import 'badges/badges-theme';
 }
 
 @if $output--buttons {
-    @import "buttons/buttons-structure";
-    @import "buttons/buttons-theme";
+    @import 'buttons/buttons-structure';
+    @import 'buttons/buttons-theme';
 }
 
 @if $output--chips {
-    @import "chips/chips-structure";
-    @import "chips/chips-theme";
+    @import 'chips/chips-structure';
+    @import 'chips/chips-theme';
 }
 
 @if $output--progress {
-    @import "progress/progress-structure";
-    @import "progress/progress-theme";
+    @import 'progress/progress-structure';
+    @import 'progress/progress-theme';
 }
 
 @if $output--tables {
-    @import "tables/tables-structure";
-    @import "tables/tables-theme";
+    @import 'tables/tables-structure';
+    @import 'tables/tables-theme';
 }

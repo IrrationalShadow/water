@@ -11,7 +11,7 @@
 // scss-lint:disable ColorKeyword,ColorVariable
 
 $materialMap: (
-    "red": (
+    'red': (
         base:                   #f44336,
         50:                     #ffebee,
         100:                    #ffcdd2,
@@ -29,7 +29,7 @@ $materialMap: (
         A700:                   #d50000
     ),
 
-    "pink": (
+    'pink': (
         base:                   #e91e63,
         50:                     #fce4ec,
         100:                    #f8bbd0,
@@ -47,7 +47,7 @@ $materialMap: (
         A700:                   #c51162
     ),
 
-    "purple": (
+    'purple': (
         base:                   #9c27b0,
         50:                     #f3e5f5,
         100:                    #e1bee7,
@@ -65,7 +65,7 @@ $materialMap: (
         A700:                   #a0f
     ),
 
-    "deepPurple": (
+    'deepPurple': (
         base:                   #673ab7,
         50:                     #ede7f6,
         100:                    #d1c4e9,
@@ -83,7 +83,7 @@ $materialMap: (
         A700:                   #6200ea
     ),
 
-    "indigo": (
+    'indigo': (
         base:                   #3f51b5,
         50:                     #e8eaf6,
         100:                    #c5cae9,
@@ -101,7 +101,7 @@ $materialMap: (
         A700:                   #304ffe
     ),
 
-    "blue": (
+    'blue': (
         base:                   #2196f3,
         50:                     #e3f2fd,
         100:                    #bbdefb,
@@ -119,7 +119,7 @@ $materialMap: (
         A700:                   #2962ff
     ),
 
-    "lightBlue": (
+    'lightBlue': (
         base:                   #03a9f4,
         50:                     #e1f5fe,
         100:                    #b3e5fc,
@@ -137,7 +137,7 @@ $materialMap: (
         A700:                   #0091ea
     ),
 
-    "cyan": (
+    'cyan': (
         base:                   #00bcd4,
         50:                     #e0f7fa,
         100:                    #b2ebf2,
@@ -155,7 +155,7 @@ $materialMap: (
         A700:                   #00b8d4
     ),
 
-    "teal": (
+    'teal': (
         base:                   #009688,
         50:                     #e0f2f1,
         100:                    #b2dfdb,
@@ -173,7 +173,7 @@ $materialMap: (
         A700:                   #00bfa5
     ),
 
-    "green": (
+    'green': (
         base:                   #4caf50,
         50:                     #e8f5e9,
         100:                    #c8e6c9,
@@ -191,7 +191,7 @@ $materialMap: (
         A700:                   #00c853
     ),
 
-    "lightGreen": (
+    'lightGreen': (
         base:                   #8bc34a,
         50:                     #f1f8e9,
         100:                    #dcedc8,
@@ -209,7 +209,7 @@ $materialMap: (
         A700:                   #64dd17
     ),
 
-    "lime": (
+    'lime': (
         base:                   #cddc39,
         50:                     #f9fbe7,
         100:                    #f0f4c3,
@@ -227,7 +227,7 @@ $materialMap: (
         A700:                   #aeea00
     ),
 
-    "yellow": (
+    'yellow': (
         base:                   #ffeb3b,
         50:                     #fffde7,
         100:                    #fff9c4,
@@ -245,7 +245,7 @@ $materialMap: (
         A700:                   #ffd600
     ),
 
-    "amber": (
+    'amber': (
         base:                   #ffc107,
         50:                     #fff8e1,
         100:                    #ffecb3,
@@ -263,7 +263,7 @@ $materialMap: (
         A700:                   #ffab00
     ),
 
-    "orange": (
+    'orange': (
         base:                   #ff9800,
         50:                     #fff3e0,
         100:                    #ffe0b2,
@@ -281,7 +281,7 @@ $materialMap: (
         A700:                   #ff6d00
     ),
 
-    "deepOrange": (
+    'deepOrange': (
         base:                   #ff5722,
         50:                     #fbe9e7,
         100:                    #ffccbc,
@@ -299,7 +299,7 @@ $materialMap: (
         A700:                   #dd2c00
     ),
 
-    "brown": (
+    'brown': (
         base:                   #795548,
         50:                     #efebe9,
         100:                    #d7ccc8,
@@ -313,7 +313,7 @@ $materialMap: (
         900:                    #3e2723
     ),
 
-    "grey": (
+    'grey': (
         base:                   #9e9e9e,
         50:                     #fafafa,
         100:                    #f5f5f5,
@@ -327,7 +327,7 @@ $materialMap: (
         900:                    #212121
     ),
 
-    "blueGrey": (
+    'blueGrey': (
         base:                   #607d8b,
         50:                     #eceff1,
         100:                    #cfd8dc,
@@ -350,9 +350,9 @@ $materialMap: (
 // Material color function
 // -----------------------------------------------------------------------------
 
-@function material($color, $variant: "base") {
+@function material($color, $variant: 'base') {
     @return map-get(map-get($materialMap, $color), $variant);
 
-    @warn "Unknown material color `#{$color}` in $materialMap.";
+    @warn 'Unknown material color `#{$color}` in $materialMap.';
     @return null
 }

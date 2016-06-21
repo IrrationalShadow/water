@@ -2,7 +2,7 @@
 // MEDIA (Theme)
 // =============================================================================
 
-$media-spacing: spacing("single");
+$media-spacing: spacing('single');
 
 
 // Media
@@ -16,7 +16,7 @@ $media-spacing: spacing("single");
     margin-bottom: $media-spacing;
 
     + .media:not(.media--alignMiddle) {
-        margin-top: $media-spacing + spacing("quarter"); // 1
+        margin-top: $media-spacing + spacing('quarter'); // 1
     }
 }
 
@@ -61,7 +61,7 @@ $media-spacing: spacing("single");
 // -----------------------------------------------------------------------------
 
 .media:not(.media--alignMiddle) .media-content {
-    margin-top: -(spacing("quarter")); // 1
+    margin-top: -(spacing('quarter')); // 1
 }
 
 .media-content > :first-child {

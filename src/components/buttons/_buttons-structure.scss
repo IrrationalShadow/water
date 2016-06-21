@@ -40,9 +40,9 @@ input {
 }
 
 button,
-html input[type="button"], // 6
-input[type="reset"],
-input[type="submit"] {
+html input[type='button'], // 6
+input[type='reset'],
+input[type='submit'] {
     -webkit-appearance: button; // 7
     cursor: pointer; // 8
 }

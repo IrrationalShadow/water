@@ -7,12 +7,12 @@
 // -----------------------------------------------------------------------------
 
 $animationDurationMap: (
-    "fastest": 0.2s,
-    "faster":  0.3s,
-    "fast":    0.5s,
-    "slow":    0.75s,
-    "slower":  1s,
-    "slowest": 1.5s
+    'fastest': 0.2s,
+    'faster':  0.3s,
+    'fast':    0.5s,
+    'slow':    0.75s,
+    'slower':  1s,
+    'slowest': 1.5s
 );
 
 
@@ -20,8 +20,8 @@ $animationDurationMap: (
 // -----------------------------------------------------------------------------
 
 $animationTimingFunctionMap: (
-    "swiftOut": cubic-bezier(0.55, 0, 0.1, 1),
-    "ease": cubic-bezier(0.215, 0.61, 0.355, 1)
+    'swiftOut': cubic-bezier(0.55, 0, 0.1, 1),
+    'ease': cubic-bezier(0.215, 0.61, 0.355, 1)
 );
 
 
@@ -34,7 +34,7 @@ $animationTimingFunctionMap: (
     @if map-has-key($animationDurationMap, $duration) {
         @return map-get($animationDurationMap, $duration);
     }
-    @warn "Unknown duration '#{$duration}' in $animationDurationMap.";
+    @warn 'Unknown duration `#{$duration}` in $animationDurationMap.';
     @return null;
 }
 
@@ -46,7 +46,7 @@ $animationTimingFunctionMap: (
     @if map-has-key($animationTimingFunctionMap, $timingFunction) {
         @return map-get($animationTimingFunctionMap, $timingFunction);
     }
-    @warn "Unknown timing function '#{$animation}' in $animationTimingFunctionMap.";
+    @warn 'Unknown timing function `#{$animation}` in $animationTimingFunctionMap.';
     @return null;
 }
 
@@ -58,6 +58,6 @@ $animationTimingFunctionMap: (
     @if map-has-key($animation--speedMap, $delay) {
         @return map-get(map-get($animationDurationMap, $delay), $value);
     }
-    @warn "Unknown delay '#{$delay}' in $animationDurationMap.";
+    @warn 'Unknown delay `#{$delay}` in $animationDurationMap.';
     @return null;
 }

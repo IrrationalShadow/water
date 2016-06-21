@@ -8,7 +8,7 @@
 @mixin clearFloats() {
     &:before,
     &:after {
-        content: "";
+        content: '';
         display: table; // 1
     }
 

@@ -25,17 +25,17 @@ $viewportMap: (
 //    For example: (max-width: 1024px) opposed to (max-width: 1025px).
 //
 // Example use:
-//    @include viewport("small") {
+//    @include viewport('small') {
 //        property: styles;
 //    }
 //
-//    @include viewport("large", "max-width") {
+//    @include viewport('large', 'max-width') {
 //        property: styles;
 //    }
 // -----------------------------------------------------------------------------
 
 @mixin viewport($size, $maxWidth: null) {
-    @if $maxWidth == "max-width" {
+    @if $maxWidth == 'max-width' {
         @media (max-width: (viewport($size) - 1px)) { // 1
             @content;
         }
@@ -57,6 +57,6 @@ $viewportMap: (
     @if map-has-key($viewportMap, $viewport) {
         @return map-get($viewportMap, $viewport);
     }
-    @warn "Unknown viewport '#{$viewport}' specified in the viewport function.";
+    @warn 'Unknown viewport `#{$viewport}` specified in the viewport function.';
     @return null;
 }

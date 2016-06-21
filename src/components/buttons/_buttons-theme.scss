@@ -12,28 +12,28 @@ $button-borderWidth: 1px;
 // -----------------------------------------------------------------------------
 
 .button {
-    @include fontSize("note");
+    @include fontSize('note');
     border-radius: $button-borderRadius;
-    border: $button-borderWidth solid color("border");
-    color: color("text");
-    font-family: fontFamily("text");
-    font-weight: fontWeight("bold");
-    padding: spacing("half") spacing("single") remCalc(6px); // 1
+    border: $button-borderWidth solid color('border');
+    color: color('text');
+    font-family: fontFamily('text');
+    font-weight: fontWeight('bold');
+    padding: spacing('half') spacing('single') remCalc(6px); // 1
     text-transform: uppercase;
 
     &:hover,
     &:focus {
-        border-color: color("border", "hover");
+        border-color: color('border', 'hover');
     }
 
     &:active,
     &.is-active {
-        border-color: color("border", "active");
+        border-color: color('border', 'active');
     }
 }
 
 .button + .button {
-    margin-left: spacing("half");
+    margin-left: spacing('half');
 }
 
 
@@ -41,20 +41,20 @@ $button-borderWidth: 1px;
 // -----------------------------------------------------------------------------
 
 .button--primary {
-    background-color: color("primary");
-    border-color: color("primary");
-    color: color("basics", "white");
+    background-color: color('primary');
+    border-color: color('primary');
+    color: color('basics', 'white');
 
     &:hover,
     &:focus {
-        background-color: color("primary", "light");
-        border-color: color("primary", "light");
+        background-color: color('primary', 'light');
+        border-color: color('primary', 'light');
     }
 
     &:active,
     &.is-active {
-        background-color: color("primary", "dark");
-        border-color: color("primary", "dark");
+        background-color: color('primary', 'dark');
+        border-color: color('primary', 'dark');
     }
 }
 
@@ -64,21 +64,21 @@ $button-borderWidth: 1px;
 
     &:hover,
     &:focus {
-        background-color: color("primary", "light");
-        border-color: color("primary", "light");
+        background-color: color('primary', 'light');
+        border-color: color('primary', 'light');
     }
 
     &:active,
     &.is-active {
-        background-color: color("primary", "dark");
-        border-color: color("primary", "dark");
+        background-color: color('primary', 'dark');
+        border-color: color('primary', 'dark');
     }
 }
 
 .button[disabled] {
-    background-color: material("grey", 300);
-    border-color: material("grey", 300);
-    color: material("grey");
+    background-color: material('grey', 300);
+    border-color: material('grey', 300);
+    color: material('grey');
     cursor: not-allowed;
 }
 
@@ -91,15 +91,15 @@ $button-borderWidth: 1px;
 
 .button--large,
 %button--large {
-    font-size: fontSize("base");
-    padding: remCalc(12px) spacing("double") remCalc(10px); // 2
+    font-size: fontSize('base');
+    padding: remCalc(12px) spacing('double') remCalc(10px); // 2
 }
 
 .button--small,
 %button--small {
-    font-size: fontSize("small");
+    font-size: fontSize('small');
     margin-top: 1px; // 2
-    padding: remCalc(3px) (spacing("half") + spacing("eighth")) remCalc(2px); // 2
+    padding: remCalc(3px) (spacing('half') + spacing('eighth')) remCalc(2px); // 2
 }
 
 .button--stretch { // 1

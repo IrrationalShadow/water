@@ -49,6 +49,6 @@ $zIndexMap: (
     @if map-has-key($zIndexMap, $zIndex) {
         @return map-get($zIndexMap, $zIndex);
     }
-    @warn "Unknown z-index '#{$zIndex}' used in zIndex function.";
+    @warn 'Unknown z-index `#{$zIndex}` used in zIndex function.';
     @return null;
 }
