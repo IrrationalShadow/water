@@ -8,9 +8,9 @@
 // Set the value to false for any utility you wish to remove from the build.
 // -----------------------------------------------------------------------------
 
-$output--columns: true;
+$output--width: true;
 $output--grid: false;
-$output--hidden: false;
+$output--hidden: true;
 
 
 // Imports
@@ -21,14 +21,14 @@ $output--hidden: false;
 //       utility, simply update the variables in the config above.
 // -----------------------------------------------------------------------------
 
-@if $output--columns {
-    @import "columns/columns-utilities";
+@if $output--width {
+    @import "width/width-utilities";
 }
 
 // @if $output--grid {
 //     @import "grid/grid-utilities";
 // }
 
-// @if $output--hidden {
-//     @import "hidden/hidden-utilities";
-// }
+@if $output--hidden {
+    @import "hidden/hidden-utilities";
+}
