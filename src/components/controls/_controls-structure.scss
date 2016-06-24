@@ -7,6 +7,13 @@
 //
 // 1. Address box sizing set to `content-box` in IE 8/9/10.
 // 2. Remove excess padding in IE 8/9/10.
+// 3. Correct color not being inherited.
+//    Known issue: affects color of disabled elements.
+// 4. Correct font properties not being inherited.
+// 5. Address margins set differently in Firefox 4+, Safari, and Chrome.
+//
+// NOTE: By default, Chrome and Safari on OS X allow very limited styling of
+// select, unless a `border` property is set.
 // -----------------------------------------------------------------------------
 
 // scss-lint:disable QualifyingElement
@@ -18,3 +25,14 @@ input[type='radio'] {
 }
 
 // scss-lint:enable QualifyingElement
+
+select {
+    appearance: none;
+    background: none;
+    border-radius: 0;
+    color: inherit; // 3
+    font: inherit; // 4
+    margin: 0; // 5
+    outline: none;
+    padding: 0;
+}

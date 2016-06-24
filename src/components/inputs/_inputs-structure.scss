@@ -19,11 +19,7 @@
 // 9. Don't inherit the `font-weight` (applied by a rule above).
 //    Note: the default cannot safely be changed in Chrome and Safari on OS X.
 // 10. Remove default vertical scrollbar in IE 8-11.
-//
-// NOTE: By default, Chrome and Safari on OS X allow very limited styling of
-// select, unless a `border` property is set.
 // -----------------------------------------------------------------------------
-
 
 input {
     line-height: normal; // 1
@@ -49,7 +45,6 @@ input[type='number']::-webkit-outer-spin-button {
 // scss-lint:enable QualifyingElement
 
 optgroup,
-select,
 textarea {
     appearance: none;
     background: none;

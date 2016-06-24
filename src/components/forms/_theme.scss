@@ -140,258 +140,258 @@ fieldset {
 // Labels
 // -----------------------------------------------------------------------------
 
-.form-legend {
-    @include heading(
-        $baseStyles: true,
-        $levelStyles: 'h2'
-    );
-}
+// .form-legend {
+//     @include heading(
+//         $baseStyles: true,
+//         $levelStyles: 'h2'
+//     );
+// }
 
-.form-label {
-    // Layout
-    display: inline-block;
-    margin-bottom: $form-label_marginBottom;
-    // Appearance
-    font-size: $form-label_fontSize;
-    font-style: $form-label_fontStyle;
-    font-weight: $form-label_fontWeight;
-    text-transform: $form-label_textTransform;
-    color: $form-label_color;
-
-    &-small,
-    small {
-        // Appearance
-        font-size: $form-label-small_fontSize;
-        font-style: $form-label-small_fontStyle;
-        font-weight: $form-label-small_fontWeight;
-        text-transform: $form-label-small_textTransform;
-        color: $form-label-small_color;
-    }
-}
+// .form-label {
+//     // Layout
+//     display: inline-block;
+//     margin-bottom: $form-label_marginBottom;
+//     // Appearance
+//     font-size: $form-label_fontSize;
+//     font-style: $form-label_fontStyle;
+//     font-weight: $form-label_fontWeight;
+//     text-transform: $form-label_textTransform;
+//     color: $form-label_color;
+//
+//     &-small,
+//     small {
+//         // Appearance
+//         font-size: $form-label-small_fontSize;
+//         font-style: $form-label-small_fontStyle;
+//         font-weight: $form-label-small_fontWeight;
+//         text-transform: $form-label-small_textTransform;
+//         color: $form-label-small_color;
+//     }
+// }
 
 
 // Inputs, Textareas & Selects
 // -----------------------------------------------------------------------------
 
-.form-input {
-    // Layout
-    display: block;
-    width: 100%;
-    max-width: $form-input_maxWidth;
-    height: $form-input_height;
-    padding: $form-input_padding;
-    // Appearance
-    font-size: $form-input_fontSize;
-    color: $form-input_color;
-    background: $form-input_background;
-    border: $form-input_border;
-    border-width: $form-input_borderWidth;
-    border-radius: $form-input_borderRadius;
+// .form-input {
+//     // Layout
+//     display: block;
+//     width: 100%;
+//     max-width: $form-input_maxWidth;
+//     height: $form-input_height;
+//     padding: $form-input_padding;
+//     // Appearance
+//     font-size: $form-input_fontSize;
+//     color: $form-input_color;
+//     background: $form-input_background;
+//     border: $form-input_border;
+//     border-width: $form-input_borderWidth;
+//     border-radius: $form-input_borderRadius;
+//
+//     &:hover {
+//         // Appearance
+//         color: $form-input_color-hover;
+//         background: $form-input_background-hover;
+//         border-color: $form-input_border-hover;
+//     }
+//
+//     &:focus {
+//         // Appearance
+//         color: $form-input_color-focus;
+//         background: $form-input_background-focus;
+//         border-color: $form-input_border-focus;
+//     }
+//
+//     &[disabled] {
+//         // Appearance
+//         cursor: $form-input_cursor-disabled;
+//         color: $form-input_color-disabled;
+//         background: $form-input_background-disabled;
+//         border-color: $form-input_border-disabled;
+//     }
+//
+//     @include inputPlaceholder($form-input_color-placeholder);
+// }
 
-    &:hover {
-        // Appearance
-        color: $form-input_color-hover;
-        background: $form-input_background-hover;
-        border-color: $form-input_border-hover;
-    }
+// .form-textarea {
+//     // Layout
+//     display: block;
+//     width: 100%;
+//     max-width: $form-textarea_maxWidth;
+//     height: $form-textarea_height;
+//     padding: $form-textarea_padding;
+//     resize: $form-textarea_resize;
+//     // Appearance
+//     font-size: $form-textarea_fontSize;
+//     color: $form-textarea_color;
+//     background: $form-textarea_background;
+//     border: $form-textarea_border;
+//     border-width: $form-textarea_borderWidth;
+//     border-radius: $form-textarea_borderRadius;
+//
+//     &:hover {
+//         // Appearance
+//         color: $form-textarea_color-hover;
+//         background: $form-textarea_background-hover;
+//         border-color: $form-textarea_border-hover;
+//     }
+//
+//     &:focus {
+//         // Appearance
+//         color: $form-textarea_color-focus;
+//         background: $form-textarea_background-focus;
+//         border-color: $form-textarea_border-focus;
+//     }
+//
+//     &[disabled] {
+//         // Appearance
+//         cursor: $form-textarea_cursor-disabled;
+//         color: $form-textarea_color-disabled;
+//         background: $form-textarea_background-disabled;
+//         border-color: $form-textarea_border-disabled;
+//     }
+//
+//     @include inputPlaceholder($form-textarea_color-placeholder);
+// }
 
-    &:focus {
-        // Appearance
-        color: $form-input_color-focus;
-        background: $form-input_background-focus;
-        border-color: $form-input_border-focus;
-    }
-
-    &[disabled] {
-        // Appearance
-        cursor: $form-input_cursor-disabled;
-        color: $form-input_color-disabled;
-        background: $form-input_background-disabled;
-        border-color: $form-input_border-disabled;
-    }
-
-    @include inputPlaceholder($form-input_color-placeholder);
-}
-
-.form-textarea {
-    // Layout
-    display: block;
-    width: 100%;
-    max-width: $form-textarea_maxWidth;
-    height: $form-textarea_height;
-    padding: $form-textarea_padding;
-    resize: $form-textarea_resize;
-    // Appearance
-    font-size: $form-textarea_fontSize;
-    color: $form-textarea_color;
-    background: $form-textarea_background;
-    border: $form-textarea_border;
-    border-width: $form-textarea_borderWidth;
-    border-radius: $form-textarea_borderRadius;
-
-    &:hover {
-        // Appearance
-        color: $form-textarea_color-hover;
-        background: $form-textarea_background-hover;
-        border-color: $form-textarea_border-hover;
-    }
-
-    &:focus {
-        // Appearance
-        color: $form-textarea_color-focus;
-        background: $form-textarea_background-focus;
-        border-color: $form-textarea_border-focus;
-    }
-
-    &[disabled] {
-        // Appearance
-        cursor: $form-textarea_cursor-disabled;
-        color: $form-textarea_color-disabled;
-        background: $form-textarea_background-disabled;
-        border-color: $form-textarea_border-disabled;
-    }
-
-    @include inputPlaceholder($form-textarea_color-placeholder);
-}
-
-.form-select {
-    // Layout
-    display: block;
-    position: relative;
-    width: 100%;
-    max-width: $form-select_maxWidth;
-    height: $form-select_height;
-    padding: $form-select_padding;
-    // Appearance
-    font-size: $form-select_fontSize;
-    color: $form-select_color;
-    background: $form-select_background;
-    background-size: $form-select_backgroundSize;
-    border: $form-select_border;
-    border-width: $form-select_borderWidth;
-    border-radius: $form-select_borderRadius;
-
-    &:hover {
-        // Appearance
-        color: $form-input_color-hover;
-        background: $form-input_background-hover;
-        border-color: $form-input_border-hover;
-    }
-
-    &:focus {
-        // Appearance
-        color: $form-input_color-focus;
-        background: $form-input_background-focus;
-        border-color: $form-input_border-focus;
-    }
-
-    &[disabled] {
-        // Appearance
-        cursor: $form-select_cursor-disabled;
-        color: $form-select_color-disabled;
-        background: $form-select_background-disabled;
-        border-color: $form-select_border-disabled;
-    }
-}
+// .form-select {
+//     // Layout
+//     display: block;
+//     position: relative;
+//     width: 100%;
+//     max-width: $form-select_maxWidth;
+//     height: $form-select_height;
+//     padding: $form-select_padding;
+//     // Appearance
+//     font-size: $form-select_fontSize;
+//     color: $form-select_color;
+//     background: $form-select_background;
+//     background-size: $form-select_backgroundSize;
+//     border: $form-select_border;
+//     border-width: $form-select_borderWidth;
+//     border-radius: $form-select_borderRadius;
+//
+//     &:hover {
+//         // Appearance
+//         color: $form-input_color-hover;
+//         background: $form-input_background-hover;
+//         border-color: $form-input_border-hover;
+//     }
+//
+//     &:focus {
+//         // Appearance
+//         color: $form-input_color-focus;
+//         background: $form-input_background-focus;
+//         border-color: $form-input_border-focus;
+//     }
+//
+//     &[disabled] {
+//         // Appearance
+//         cursor: $form-select_cursor-disabled;
+//         color: $form-select_color-disabled;
+//         background: $form-select_background-disabled;
+//         border-color: $form-select_border-disabled;
+//     }
+// }
 
 
 // Radio buttons, Checkboxes & Switches
 // -----------------------------------------------------------------------------
 
-.form-radio {
-    // Layout
-    @include hidden('visually');
-
-    &:checked {
-
-        + .form-label {
-
-            &:before {
-                // Appearance
-                border-color: $form-radio-checked_borderColor;
-            }
-
-            &:after {
-                // Appearance
-                opacity: $form-radio-checked_opacity;
-                transform: $form-radio-checked_transform;
-                background-color: $form-radio-checked_backgroundColor;
-            }
-        }
-
-        + .form-labelBox {
-            // Appearance
-            color: $form-radio-checked-labelBox_color;
-            background-color: $form-radio-checked-labelBox_background;
-            border-color: $form-radio-checked-labelBox_borderColor;
-        }
-    }
-
-    + .form-label {
-        // Layout
-        position: relative;
-        padding-left: $form-radio_paddingLeft;
-        // Appearance
-        cursor: $form-radio_cursor;
-
-        &:before {
-            // Layout
-            @include generateContent;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: $form-radio_width;
-            height: $form-radio_height;
-            // Appearance
-            background-color: $form-radio_backgroundColor;
-            border: $form-radio_borderStyle $form-radio_borderColor;
-            border-width: $form-radio_borderWidth;
-            border-radius: $form-radio_borderRadius;
-            // Interaction
-            transition: $form-radio_transition;
-        }
-
-        &:after {
-            // Layout
-            @include generateContent;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: $form-radio-pip_width;
-            height: $form-radio-pip_height;
-            margin-top: $form-radio-pip_marginTop;
-            margin-left: $form-radio-pip_marginLeft;
-            border-radius: $form-radio-pip_borderRadius;
-            opacity: $form-radio-pip_opacity;
-            transform: $form-radio-pip_transform;
-            transition: $form-radio-pip_transition;
-            // Appearance
-            cursor: $form-radio_cursor;
-        }
-
-        &:last-child {
-            margin-right: 0;
-        }
-    }
-
-    + .form-labelBox {
-        // Layout
-        margin: $form-radio-labelBox_margin;
-        padding: $form-radio-labelBox_padding;
-        // Appearance
-        cursor: $form-radio-labelBox_cursor;
-        text-align: $form-radio-labelBox_textAlign;
-        color: $form-radio-labelBox_color;
-        background-color: $form-radio-labelBox_background;
-        border: $form-radio-labelBox_border;
-        // Animation
-        transition: $form-radio-labelBox_transition;
-
-        &:last-child {
-            margin: 0;
-        }
-    }
-}
+// .form-radio {
+//     // Layout
+//     @include hidden('visually');
+//
+//     &:checked {
+//
+//         + .form-label {
+//
+//             &:before {
+//                 // Appearance
+//                 border-color: $form-radio-checked_borderColor;
+//             }
+//
+//             &:after {
+//                 // Appearance
+//                 opacity: $form-radio-checked_opacity;
+//                 transform: $form-radio-checked_transform;
+//                 background-color: $form-radio-checked_backgroundColor;
+//             }
+//         }
+//
+//         + .form-labelBox {
+//             // Appearance
+//             color: $form-radio-checked-labelBox_color;
+//             background-color: $form-radio-checked-labelBox_background;
+//             border-color: $form-radio-checked-labelBox_borderColor;
+//         }
+//     }
+//
+//     + .form-label {
+//         // Layout
+//         position: relative;
+//         padding-left: $form-radio_paddingLeft;
+//         // Appearance
+//         cursor: $form-radio_cursor;
+//
+//         &:before {
+//             // Layout
+//             @include generateContent;
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//             width: $form-radio_width;
+//             height: $form-radio_height;
+//             // Appearance
+//             background-color: $form-radio_backgroundColor;
+//             border: $form-radio_borderStyle $form-radio_borderColor;
+//             border-width: $form-radio_borderWidth;
+//             border-radius: $form-radio_borderRadius;
+//             // Interaction
+//             transition: $form-radio_transition;
+//         }
+//
+//         &:after {
+//             // Layout
+//             @include generateContent;
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//             width: $form-radio-pip_width;
+//             height: $form-radio-pip_height;
+//             margin-top: $form-radio-pip_marginTop;
+//             margin-left: $form-radio-pip_marginLeft;
+//             border-radius: $form-radio-pip_borderRadius;
+//             opacity: $form-radio-pip_opacity;
+//             transform: $form-radio-pip_transform;
+//             transition: $form-radio-pip_transition;
+//             // Appearance
+//             cursor: $form-radio_cursor;
+//         }
+//
+//         &:last-child {
+//             margin-right: 0;
+//         }
+//     }
+//
+//     + .form-labelBox {
+//         // Layout
+//         margin: $form-radio-labelBox_margin;
+//         padding: $form-radio-labelBox_padding;
+//         // Appearance
+//         cursor: $form-radio-labelBox_cursor;
+//         text-align: $form-radio-labelBox_textAlign;
+//         color: $form-radio-labelBox_color;
+//         background-color: $form-radio-labelBox_background;
+//         border: $form-radio-labelBox_border;
+//         // Animation
+//         transition: $form-radio-labelBox_transition;
+//
+//         &:last-child {
+//             margin: 0;
+//         }
+//     }
+// }
 
 // .form-checkbox {
 //     // Layout
@@ -448,16 +448,16 @@ fieldset {
 // -----------------------------------------------------------------------------
 
 // Webkit thumb
-.form-range::-webkit-slider-thumb {
-    // Layout
-    height: 20px;
-    width: 20px;
-    margin-top: -10px; // 1
-    // Appearance
-    cursor: pointer;
-    background: #f0f;
-    border: 1px solid #000;
-}
+// .form-range::-webkit-slider-thumb {
+//     // Layout
+//     height: 20px;
+//     width: 20px;
+//     margin-top: -10px; // 1
+//     // Appearance
+//     cursor: pointer;
+//     background: #f0f;
+//     border: 1px solid #000;
+// }
 
 // Firefox range slider
 // .form-range::-moz-range-thumb {
@@ -482,20 +482,20 @@ fieldset {
 // }
 
 // Webkit track
-.form-range::-webkit-slider-runnable-track {
-    // Layout
-    width: 100%;
-    height: 8.4px;
-    // Appearance
-    cursor: pointer;
-    background: #3071a9;
-    border: 0.2px solid #010101;
-    border-radius: 1.3px;
-}
-
-.form-range:focus::-webkit-slider-runnable-track {
-    background: #367ebd;
-}
+// .form-range::-webkit-slider-runnable-track {
+//     // Layout
+//     width: 100%;
+//     height: 8.4px;
+//     // Appearance
+//     cursor: pointer;
+//     background: #3071a9;
+//     border: 0.2px solid #010101;
+//     border-radius: 1.3px;
+// }
+//
+// .form-range:focus::-webkit-slider-runnable-track {
+//     background: #367ebd;
+// }
 
 // input[type=range]::-moz-range-track {
 //   width: 100%;
@@ -640,91 +640,91 @@ fieldset {
 //
 // -----------------------------------------------------------------------------
 
-.form-affix-label { // 1
-    // Layout
-    display: flex;
-    align-items: center;
-    padding: $form-affix-label_padding;
-    // Appearance
-    cursor: $form-affix-label_cursor;
-    color: $form-affix-label_color;
-    background: $form-affix-label_background;
-    border: $form-affix-label_borderStyle $form-affix-label_borderColor;
-    border-width: $form-affix-label_borderWidth;
-    border-radius: $form-affix-label_borderRadius;
-
-    &:not(:first-child) {
-        @if $form-affix-label_borderWidth != null {
-            border-left: 0;
-        }
-    }
-
-    &:not(:last-child) {
-        @if $form-affix-label_borderWidth != null {
-            border-right: 0;
-        }
-    }
-}
-
-.form-affix-button {
-    // Layout
-    margin: $form-affix-button_margin;
-    padding: $form-affix-button_padding;
-    // Appearance
-    border-radius: $form-affix-button_borderRadius;
-
-    &:not(:first-child) {
-        // Appearance
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-
-    &:not(:last-child) {
-        // Appearance
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-}
-
-
-// Inset labels
-// -----------------------------------------------------------------------------
+// .form-affix-label { // 1
+//     // Layout
+//     display: flex;
+//     align-items: center;
+//     padding: $form-affix-label_padding;
+//     // Appearance
+//     cursor: $form-affix-label_cursor;
+//     color: $form-affix-label_color;
+//     background: $form-affix-label_background;
+//     border: $form-affix-label_borderStyle $form-affix-label_borderColor;
+//     border-width: $form-affix-label_borderWidth;
+//     border-radius: $form-affix-label_borderRadius;
 //
-// Displays a label within a form field, similar to an inset icon.
+//     &:not(:first-child) {
+//         @if $form-affix-label_borderWidth != null {
+//             border-left: 0;
+//         }
+//     }
 //
-// 1. Allows the insetLabel to be clicked through in modern browsers.
+//     &:not(:last-child) {
+//         @if $form-affix-label_borderWidth != null {
+//             border-right: 0;
+//         }
+//     }
+// }
 //
-// -----------------------------------------------------------------------------
+// .form-affix-button {
+//     // Layout
+//     margin: $form-affix-button_margin;
+//     padding: $form-affix-button_padding;
+//     // Appearance
+//     border-radius: $form-affix-button_borderRadius;
+//
+//     &:not(:first-child) {
+//         // Appearance
+//         border-top-left-radius: 0;
+//         border-bottom-left-radius: 0;
+//     }
+//
+//     &:not(:last-child) {
+//         // Appearance
+//         border-top-right-radius: 0;
+//         border-bottom-right-radius: 0;
+//     }
+// }
 
-.form-inset-label {
-    // Layout
-    position: absolute;
-    width: $form-inset-label_width;
-    height: $form-inset-label_height;
-    margin: $form-inset-label_margin;
-    padding: $form-inset-label_padding;
-    // Appearance
-    pointer-events: none; // 1
-    font-size: $form-inset-label_fontSize;
-    font-weight: $form-inset-label_fontWeight;
-    font-style: $form-inset-label_fontStyle;
-    text-transform: $form-inset-label_textTransform;
-    line-height: $form-inset-label_lineHeight;
-    color: $form-inset-label_color;
-    background-color: $form-inset-label_background;
-    border: $form-inset-label_borderStyle $form-inset-label_borderColor;
-    border-width: $form-inset-label_borderWidth;
-}
 
-// scss-lint:disable MergeableSelector
-.form-input {
-
-    &.has-inset-label {
-        // Layout
-        padding-left: $form-has-label_paddingLeft;
-    }
-}
-// scss-lint:enable MergeableSelector
+// // Inset labels
+// // -----------------------------------------------------------------------------
+// //
+// // Displays a label within a form field, similar to an inset icon.
+// //
+// // 1. Allows the insetLabel to be clicked through in modern browsers.
+// //
+// // -----------------------------------------------------------------------------
+//
+// .form-inset-label {
+//     // Layout
+//     position: absolute;
+//     width: $form-inset-label_width;
+//     height: $form-inset-label_height;
+//     margin: $form-inset-label_margin;
+//     padding: $form-inset-label_padding;
+//     // Appearance
+//     pointer-events: none; // 1
+//     font-size: $form-inset-label_fontSize;
+//     font-weight: $form-inset-label_fontWeight;
+//     font-style: $form-inset-label_fontStyle;
+//     text-transform: $form-inset-label_textTransform;
+//     line-height: $form-inset-label_lineHeight;
+//     color: $form-inset-label_color;
+//     background-color: $form-inset-label_background;
+//     border: $form-inset-label_borderStyle $form-inset-label_borderColor;
+//     border-width: $form-inset-label_borderWidth;
+// }
+//
+// // scss-lint:disable MergeableSelector
+// .form-input {
+//
+//     &.has-inset-label {
+//         // Layout
+//         padding-left: $form-has-label_paddingLeft;
+//     }
+// }
+// // scss-lint:enable MergeableSelector
 
 
 // Inset buttons & icons
@@ -734,27 +734,27 @@ fieldset {
 //
 // -----------------------------------------------------------------------------
 
-.form-inset-button {
-    // Layout
-    display: block;
-    position: absolute;
-    right: 0;
-    width: $form-inset-button_width;
-    height: $form-inset-button_height;
-    // Appearance
-    border: $form-inset-button_borderStyle $form-inset-button_borderColor;
-    border-width: $form-inset-button_borderWidth;
-}
-
-// scss-lint:disable MergeableSelector
-.form-input { // 1
-
-    &.has-inset-button {
-        // Layout
-        padding-right: $form-has-button_paddingRight;
-    }
-}
-// scss-lint:enable MergeableSelector
+// .form-inset-button {
+//     // Layout
+//     display: block;
+//     position: absolute;
+//     right: 0;
+//     width: $form-inset-button_width;
+//     height: $form-inset-button_height;
+//     // Appearance
+//     border: $form-inset-button_borderStyle $form-inset-button_borderColor;
+//     border-width: $form-inset-button_borderWidth;
+// }
+//
+// // scss-lint:disable MergeableSelector
+// .form-input { // 1
+//
+//     &.has-inset-button {
+//         // Layout
+//         padding-right: $form-has-button_paddingRight;
+//     }
+// }
+// // scss-lint:enable MergeableSelector
 
 
 // Form field feedback

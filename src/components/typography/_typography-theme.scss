@@ -112,6 +112,29 @@ h3 + h4,
 }
 
 
+// Class-based headings
+// -----------------------------------------------------------------------------
+// Classes that replicate h1-h4 styling. For use when you visually want to add
+// emphasis or size, but semantically use the correct element.
+// -----------------------------------------------------------------------------
+
+.text-display {
+    @extend %h1;
+}
+
+.text-headline {
+    @extend %h2;
+}
+
+.text-heading {
+    @extend %h3;
+}
+
+.text-subheading {
+    @extend %h4;
+}
+
+
 // Paragraphs
 // -----------------------------------------------------------------------------
 
@@ -261,24 +284,19 @@ hr {
 }
 
 
-// Class-based font styles
-// -----------------------------------------------------------------------------
-// Classes that replicate h1-h4 styling. For use when you visually want to add
-// emphasis or size, but semantically use the correct element.
+// Legend
 // -----------------------------------------------------------------------------
 
-.text-display {
-    @extend %h1;
-}
-
-.text-headline {
+legend {
     @extend %h2;
 }
 
-.text-heading {
-    @extend %h3;
-}
 
-.text-subheading {
-    @extend %h4;
+// Label
+// -----------------------------------------------------------------------------
+
+label {
+    color: color('text');
+    display: inline-block;
+    font-weight: fontWeight('bold');
 }

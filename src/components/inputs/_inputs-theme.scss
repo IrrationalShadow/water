@@ -1,18 +1,14 @@
 // =============================================================================
 // INPUTS (Theme)
 // =============================================================================
-
-$input-bgColor: #fff;
-
-
-// Form text inputs & selects
+// Styles text inputs and textareas, as well as any labels related to them.
+//
+// 1. Allow textareas to default to their row attributes height.
+// 2. Restrict users to vertically resizing textareas to avoid broken layouts.
 // -----------------------------------------------------------------------------
 
-.form-input,
-.form-select,
-.form-textarea {
-    @include inputPlaceholder(color('primary'));
-    background-color: $input-bgColor;
+.input {
+    background-color: #fff;
     border: 1px solid color('border');
     color: color('text');
     display: block;
@@ -35,14 +31,105 @@ $input-bgColor: #fff;
         border-color: color('border');
         cursor: not-allowed;
     }
+
+    // scss-lint:disable VendorPrefixes
+
+    &::-webkit-input-placeholder {
+        color: color('text', 'light');
+    }
+
+    &::-moz-placeholder {
+        color: color('text', 'light');
+    }
+
+    &:-ms-input-placeholder {
+        color: color('text', 'light');
+    }
+
+    // scss-lint:enable VendorPrefixes
 }
 
-.form-select {
-    background: $input-bgColor url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: black'></polygon></svg>") no-repeat right 0 center;
-    background-size: 8px;
+.input--textarea {
+    height: auto; // 1
+    resize: vertical; // 2
 }
 
-.form-textarea {
-    height: auto;
-    resize: vertical;
+
+// Affixed labels
+// -----------------------------------------------------------------------------
+// Affix labels to either end of a text input.
+// -----------------------------------------------------------------------------
+
+.label--affix {
+    align-items: center;
+    border: 1px solid color('border');
+    color: color('text', 'light');
+    cursor: default;
+    display: flex;
+    padding: 0 spacing('half');
+
+    &:not(:first-child) {
+        border-left: 0;
+    }
+
+    &:not(:last-child) {
+        border-right: 0;
+    }
+}
+
+
+// Affixed buttons
+// -----------------------------------------------------------------------------
+// Affix buttons to text inputs, either before or after the input.
+// -----------------------------------------------------------------------------
+
+.button--affix:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.button--affix:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+// Inset labels
+// -----------------------------------------------------------------------------
+// Displays labels within text inputs.
+//
+// 1. Allows the insetLabel to be clicked through in modern browsers.
+// -----------------------------------------------------------------------------
+
+$label-inset-margin: spacing('eighth');
+$label-inset-width: 5rem;
+
+.label--inset {
+    height: 2rem;
+    margin: spacing('eighth');
+    pointer-events: none; // 1
+    position: absolute;
+    width: 5rem;
+}
+
+.input.has-label-inset {
+    padding-left: $label-inset-width + ($label-inset-margin * 2);
+}
+
+
+// Inset buttons
+// -----------------------------------------------------------------------------
+// Displays buttons within text inputs.
+// -----------------------------------------------------------------------------
+
+.button--inset {
+    display: block;
+    height: 2rem;
+    position: absolute;
+    right: 0;
+    width: 2rem;
+}
+
+.form-input.has-button-inset {
+    padding-right: spacing('double');
 }
