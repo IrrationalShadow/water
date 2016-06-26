@@ -4,18 +4,17 @@
     <meta charset="UTF-8" />
     <title>{{ title }} | Water Docs</title>
     <meta name="description" content="{{ description }}">
-    <style type="text/css">
-        .active {
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/water.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,400italic,500italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    {{> header}}
+    <div style="width: 36rem; margin: 3rem auto;">
+        {{> header}}
 
-    <h2>{{ title }}</h2>
-    {{{ contents }}}
+        <h2>{{ title }}</h2>
+        {{{ contents }}}
 
-    {{> footer}}
+        {{> footer}}
+    </div>
 </body>
 </html>

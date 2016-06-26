@@ -6,8 +6,8 @@
 // wireframe for the global sections of your design; eg. header/body/footer.
 // All descendant content should be made up of components and constructs.
 //
-// 1. Add in the HTML5 elements to support older browsers.
-// 2. Set the global box-sizing to border-box.
+// 1. Add in HTML5 element support for older browsers.
+// 2. Set the global box-sizing to border-box by default.
 // -----------------------------------------------------------------------------
 
 @include html5-elements-display; // 1

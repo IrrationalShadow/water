@@ -4,7 +4,6 @@ title: "forms"
 
 # Forms
 
-```html
 <form class="form">
 
     <legend class="form-legend">Form legend</legend>
@@ -211,4 +210,3 @@ title: "forms"
         </div>
     </div>
 </form>
-```

@@ -1,16 +1,23 @@
-Brad Frost Clarity Conference 2016
+# Brad Frost Clarity Conference 2016
 
-style guide types
+### Style guide types
 
 brand identity - logo, tagline, color, typography
+
 voice & tone - speak with a consistent tone of voice (mailchimp, the economist)
+
 design language -  design principles, color, animation (material design)
+
 code - bem, smacss, oocss, bigcommerce, airbnb - how to write code
+
 ui pattern library - (bootstrap)
 
 "mood boards" - inspiration collage of sites/apps
+
 "style tile" - a collage of the colors/type/style. a general look/feel before high fidelity
+
 "component collage" - sketch file with a bunch of elements + color palette together
+
 All 3 of these things can come in discovery, and then FED's can dive straight
 into early development and come up with basic (greyscale) coded concepts.
 No need to wait for finished mocks in sketch/photoshop etc.
@@ -23,6 +30,7 @@ No need to wait for finished mocks in sketch/photoshop etc.
 - Make it last (Keep updating it. Release new versions, changelogs, blog posts, etc. PR's into Slack)
 
 create component/construct templates in HTML for either handlebars or react etc
+
 namespace them with component or construct or layout.
 
 Docs:
