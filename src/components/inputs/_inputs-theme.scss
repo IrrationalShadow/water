@@ -98,7 +98,7 @@
 // -----------------------------------------------------------------------------
 // Displays labels within text inputs.
 //
-// 1. Allows the insetLabel to be clicked through in modern browsers.
+// 1. Allow the inset label to be clicked through in modern browsers.
 // -----------------------------------------------------------------------------
 
 $label-inset-margin: spacing('eighth');
@@ -106,10 +106,10 @@ $label-inset-width: 5rem;
 
 .label--inset {
     height: 2rem;
-    margin: spacing('eighth');
+    margin: $label-inset-margin;
     pointer-events: none; // 1
     position: absolute;
-    width: 5rem;
+    width: $label-inset-width;
 }
 
 .input.has-label-inset {

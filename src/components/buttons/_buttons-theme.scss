@@ -43,7 +43,7 @@ $button-borderWidth: 1px;
 .button--primary {
     background-color: color('primary');
     border-color: color('primary');
-    color: color('basics', 'white');
+    color: #fff;
 
     &:hover,
     &:focus {
@@ -91,7 +91,7 @@ $button-borderWidth: 1px;
 
 .button--large,
 %button--large {
-    font-size: fontSize('base');
+    font-size: fontSize('body');
     padding: remCalc(12px) spacing('double') remCalc(10px); // 2
 }
 

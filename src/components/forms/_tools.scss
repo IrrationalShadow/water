@@ -3,26 +3,6 @@
 // =============================================================================
 
 
-// Placeholder text
-// -----------------------------------------------------------------------------
-
-@mixin inputPlaceholder($color) {
-    // scss-lint:disable VendorPrefixes
-    &::-webkit-input-placeholder {
-        color: $color;
-    }
-
-    &::-moz-placeholder {
-        color: $color;
-    }
-
-    &:-ms-input-placeholder {
-        color: $color;
-    }
-    // scss-lint:enable VendorPrefixes
-}
-
-
 // Form feedback variants
 // -----------------------------------------------------------------------------
 

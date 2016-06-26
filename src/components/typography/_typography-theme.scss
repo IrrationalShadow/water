@@ -19,7 +19,7 @@ html {
 
 body {
     color: color('text');
-    font: 1rem/#{lineHeight('base')} fontFamily('text');
+    font: 1rem/#{lineHeight('body')} fontFamily('text');
 }
 
 
@@ -227,7 +227,7 @@ blockquote {
         color: color('text', 'light');
         display: block;
         font-size: 1rem;
-        line-height: lineHeight('base');
+        line-height: lineHeight('body');
         margin-top: remCalc(3px); // 1
     }
 

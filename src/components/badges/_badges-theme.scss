@@ -37,7 +37,7 @@
 // -----------------------------------------------------------------------------
 
 .badge--large { // 1
-    font-size: fontSize('base');
+    font-size: fontSize('body');
     line-height: 1;
     margin-top: -1px; // 2
     padding: remCalc(5px) (spacing('quarter') + spacing('eighth')) remCalc(3px); // 2

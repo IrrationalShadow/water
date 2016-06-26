@@ -34,3 +34,41 @@
     display: inline-block;
     max-width: 100%; // 1
 }
+
+
+// HTML5 element support for older browsers
+// -----------------------------------------------------------------------------
+// 1. Correct `block` display not defined for:
+//    a) any HTML5 element in IE 8/9.
+//    b) Both `details` and `summary` in IE 10/11 and Firefox.
+//    c) The `main` element in IE 11.
+// 2. Address `[hidden]` styling not present in IE 8/9/10.
+// 3. Correct `inline-block` display not defined in IE 8/9.
+// -----------------------------------------------------------------------------
+
+@mixin html5-elements-display() {
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    main,
+    menu,
+    nav,
+    section,
+    summary {
+        display: block; // 1
+    }
+
+    [hidden] {
+        display: none; // 2
+    }
+
+    canvas,
+    video {
+        display: inline-block; // 3
+    }
+}

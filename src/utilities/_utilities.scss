@@ -1,34 +1,11 @@
 // =============================================================================
 // UTILITIES
 // =============================================================================
-
-// Config
-// -----------------------------------------------------------------------------
-// Control which utilities you require in your build.
-// Set the value to false for any utility you wish to remove from the build.
-// -----------------------------------------------------------------------------
-
-$output--width: true;
-$output--grid: true;
-$output--hidden: true;
-
-
-// Imports
-// -----------------------------------------------------------------------------
 // Include the CSS classes and styles for utilities.
-//
-// NOTE: Don't touch the imports below directly. If you wish to turn off a
-//       utility, simply update the variables in the config above.
 // -----------------------------------------------------------------------------
 
-@if $output--width {
-    @import 'width/width-utilities';
-}
+@import 'width/width-utilities';
 
-@if $output--grid {
-    @import 'grid/grid-utilities';
-}
+@import 'grid/grid-utilities';
 
-@if $output--hidden {
-    @import 'hidden/hidden-utilities';
-}
+@import 'hidden/hidden-utilities';

@@ -135,25 +135,86 @@
 //         margin-left: $form--horizontal-form-feedback_marginLeft;
 //     }
 // }
+
+
+// Form field feedback
+// -----------------------------------------------------------------------------
 //
+// 1. Feedback modifiers are applied to the .form-field class. This ensures
+//    maximum control over any element within.
+// 2. Visuals are handled via a mixin, allowing you to add custom variants.
 //
-// // Labels
-// // -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// 
+// .has-validation {
 //
-// .form-label {
-//     color: $form-label_color;
-//     display: inline-block;
-//     font-size: $form-label_fontSize;
-//     font-style: $form-label_fontStyle;
-//     font-weight: $form-label_fontWeight;
-//     margin-bottom: $form-label_marginBottom;
-//     text-transform: $form-label_textTransform;
+//     // scss-lint:disable MergeableSelector
+//     .form-input { // 1
+//         // Layout
+//         padding-right: $form-has-validation_paddingRight;
+//     }
+//     // scss-lint:enable MergeableSelector
+//
+//     .form-field-group:after {
+//         // Layout
+//         @include generateContent;
+//         position: absolute;
+//         right: 0;
+//         width: $form-inset-icon_width;
+//         height: $form-inset-icon_height;
+//         // Appearance
+//         pointer-events: none;
+//     }
 // }
 //
-// .form-label-small {
-//     color: $form-label-small_color;
-//     font-size: $form-label-small_fontSize;
-//     font-style: $form-label-small_fontStyle;
-//     font-weight: $form-label-small_fontWeight;
-//     text-transform: $form-label-small_textTransform;
+// .form-feedback {
+//     // Layout
+//     display: block;
+//     margin-top: $form-feedback_marginTop;
+//     margin-bottom: $form-feedback_marginBottom;
+//     // Appearance
+//     font-size: $form-feedback_fontSize;
+//     font-weight: $form-feedback_fontWeight;
+//     font-style: $form-feedback_fontStyle;
+//     text-transform: $form-feedback_textTransform;
+//     color: $form-feedback_color;
+// }
+//
+// .form-field--error { // 1
+//     @include form-feedback--variant( // 2
+//         $form-label_fontWeight: $form-label--error_fontWeight,
+//         $form-label_color: $form-label--error_color,
+//         $form-input_background: $form-input--error_background,
+//         $form-input_borderColor: $form-input--error_borderColor,
+//         $form-icon_background: $form-icon--error_background,
+//         $form-icon_fill: $form-icon--error_fill,
+//         $form-feedback_color: $form-feedback--error_color,
+//         $form-feedback_background: $form-feedback--error_background
+//     );
+// }
+//
+// .form-field--success { // 1
+//     @include form-feedback--variant( // 2
+//         $form-label_fontWeight: $form-label--success_fontWeight,
+//         $form-label_color: $form-label--success_color,
+//         $form-input_background: $form-input--success_background,
+//         $form-input_borderColor: $form-input--success_borderColor,
+//         $form-icon_background: $form-icon--success_background,
+//         $form-icon_fill: $form-icon--success_fill,
+//         $form-feedback_color: $form-feedback--success_color,
+//         $form-feedback_background: $form-feedback--success_background
+//     );
+// }
+//
+// .form-field--warning { // 1
+//     @include form-feedback--variant( // 2
+//         $form-label_fontWeight: $form-label--warning_fontWeight,
+//         $form-label_color: $form-label--warning_color,
+//         $form-input_background: $form-input--warning_background,
+//         $form-input_borderColor: $form-input--warning_borderColor,
+//         $form-icon_background: $form-input--warning_background,
+//         $form-icon_fill: $form-icon--warning_fill,
+//         $form-feedback_color: $form-feedback--warning_color,
+//         $form-feedback_background: $form-feedback--warning_background
+//     );
 // }

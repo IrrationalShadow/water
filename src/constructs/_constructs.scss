@@ -1,41 +1,14 @@
 // =============================================================================
 // CONSTRUCTS
 // =============================================================================
-
-// Config
-// -----------------------------------------------------------------------------
-// Control which constructs you require in your build.
-// Set the value to false for any construct you wish to remove from the build.
-// -----------------------------------------------------------------------------
-
-$output--accordion: false;
-$output--breadcrumbs: false;
-$output--cards: false;
-$output--carousel: false;
-$output--dialogs: false;
-$output--embed: true;
-$output--feedback: false;
-$output--forms: false;
-$output--media: true;
-$output--pagination: false;
-$output--tabs: false;
-$output--timeline: false;
-
-
-// Imports
-// -----------------------------------------------------------------------------
 // Include the CSS classes and styles for constructs.
-//
-// NOTE: Don't touch the imports below directly. If you wish to turn off a
-//       construct, simply update the variables in the config above.
 // -----------------------------------------------------------------------------
 
-@if $output--embed {
-    @import 'embed/embed-structure';
-    @import 'embed/embed-theme';
-}
+@import 'embed/embed-structure';
+@import 'embed/embed-theme';
 
-@if $output--media {
-    @import 'media/media-structure';
-    @import 'media/media-theme';
-}
+@import 'media/media-structure';
+@import 'media/media-theme';
+
+@import 'tables/tables-structure';
+@import 'tables/tables-theme';

@@ -9,7 +9,7 @@ $table-cell-padding: spacing('half') + spacing('quarter');
 // -----------------------------------------------------------------------------
 
 .table {
-    line-height: lineHeight('base');
+    line-height: lineHeight('body');
     margin-bottom: spacing('single');
     width: 100%;
 }
@@ -19,12 +19,12 @@ $table-cell-padding: spacing('half') + spacing('quarter');
 // -----------------------------------------------------------------------------
 
 .table-surtitle {
-    line-height: lineHeight('base');
+    line-height: lineHeight('body');
     margin-bottom: spacing('half');
 }
 
 .table-subtitle {
-    line-height: lineHeight('base');
+    line-height: lineHeight('body');
     margin-top: spacing('half');
 }
 
