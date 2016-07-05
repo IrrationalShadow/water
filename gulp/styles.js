@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     cache = require('gulp-cached'),
     scss = require('gulp-sass'),
-    lint = require('gulp-scss-lint'),
+    // lint = require('gulp-scss-lint'),
+    lint = require('gulp-sass-lint'),
     optimise  = require('gulp-csso'),
     rename = require('gulp-rename'),
     filesize = require('gulp-filesize');
@@ -37,9 +38,12 @@ gulp.task('scss', ['scss:lint'], function () {
 
 gulp.task('scss:lint', function () {
     return gulp.src(['./src/**/*.scss', './docs/assets/css/**/*.scss'])
-        .pipe(cache('linting')) // 1
+        // .pipe(cache('linting')) // 1
+        // .pipe(lint())
+        // .pipe(lint.failReporter('E')) // 2
         .pipe(lint())
-        .pipe(lint.failReporter('E')) // 2
+        .pipe(lint.format())
+        .pipe(lint.failOnError())
 });
 
 
