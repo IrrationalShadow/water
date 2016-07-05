@@ -6,7 +6,6 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     cache = require('gulp-cached'),
     scss = require('gulp-sass'),
-    // lint = require('gulp-scss-lint'),
     lint = require('gulp-sass-lint'),
     optimise  = require('gulp-csso'),
     rename = require('gulp-rename'),
@@ -32,16 +31,30 @@ gulp.task('scss', ['scss:lint'], function () {
 
 // Lint the SCSS
 // -----------------------------------------------------------------------------
-// 1. Cache the SCSS so the task only lints modified files.
-// 2. Fail the task only when an error happens, don't fail on warnings.
+// Rule values: 0 = disabled, 1 = warning, 2 = error.
 // -----------------------------------------------------------------------------
 
 gulp.task('scss:lint', function () {
     return gulp.src(['./src/**/*.scss', './docs/assets/css/**/*.scss'])
-        // .pipe(cache('linting')) // 1
-        // .pipe(lint())
-        // .pipe(lint.failReporter('E')) // 2
-        .pipe(lint())
+        .pipe(lint({
+            options: {
+                'merge-default-rules': false
+            },
+            rules: {
+                'no-ids': 2,
+                'no-mergeable-selectors': 0,
+                'indentation': [ 1,
+                    {
+                        'size': '4'
+                    }
+                ],
+                'leading-zero': [ 1,
+                    {
+                        'include': true
+                    }
+                ]
+            },
+        }))
         .pipe(lint.format())
         .pipe(lint.failOnError())
 });
