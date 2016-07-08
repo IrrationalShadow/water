@@ -39,6 +39,7 @@ gulp.task('scss:lint', function () {
         .pipe(cache('linting'))
         .pipe(lint({
             options: {
+                'cache-config': true,
                 'merge-default-rules': false
             },
             rules: {
@@ -48,11 +49,13 @@ gulp.task('scss:lint', function () {
                         'style': '1tbs'
                     }
                 ],
-                // 'class-name-format': [ 2,
-                //     {
-                //
-                //     }
-                // ],
+                'class-name-format': [ 1,
+                    {
+                        'allow-leading-underscore': false,
+                        'convention': /^(([a-z][a-zA-Z]*)+)(-(([a-z][a-zA-Z][0-9]+)+))?(--(([a-z][a-zA-Z][0-9]+)+))?$/,
+                        'convention-explanation': 'Class name does not follow conventions: .className[-descendantName][--modifierName], .u-utilityName, or .is-stateName'
+                    }
+                ],
                 'clean-import-paths': [ 1,
                     {
                         'leading-underscore': false,
@@ -101,12 +104,12 @@ gulp.task('scss:lint', function () {
                 //         'convention': 'camelcase'
                 //     }
                 // ],
-                'nesting-depth': [ 2,
-                    {
-                        'max-depth': '2'
-                    }
-                ],
-                'no-attribute-selectors': 2,
+                // 'nesting-depth': [ 2,
+                //     {
+                //         'max-depth': '2'
+                //     }
+                // ],
+                // 'no-attribute-selectors': 2,
                 'no-color-keywords': 1,
                 'no-color-literals': [ 1,
                     {
@@ -116,11 +119,11 @@ gulp.task('scss:lint', function () {
                     }
                 ],
                 'no-css-comments': 1,
-                'no-duplicate-properties': 2,
-                'no-empty-rulesets': 2,
-                'no-ids': 2,
-                'no-important': 2,
-                'no-invalid-hex': 2,
+                // 'no-duplicate-properties': 2,
+                // 'no-empty-rulesets': 2,
+                // 'no-ids': 2,
+                // 'no-important': 2,
+                // 'no-invalid-hex': 2,
                 'no-mergeable-selectors': 1,
                 'no-misspelled-properties': 2,
                 'no-qualifying-elements': [ 2,
@@ -131,18 +134,17 @@ gulp.task('scss:lint', function () {
                 'no-trailing-whitespace': 1,
                 'no-trailing-zero': 1,
                 'no-transition-all': 1,
-                'no-vendor-prefixes': 2,
-                'one-declaration-per-line': 2,
-                'placeholder-in-extend': 2,
+                // 'no-vendor-prefixes': 2,
+                // 'one-declaration-per-line': 2,
+                // 'placeholder-in-extend': 2,
                 // 'placeholder-name-format': [ 2,
                 //     {
                 //
                 //     }
                 // ],
-                'property-sort-order': 2,
-                'pseudo-element': 2,
+                // 'property-sort-order': 2,
+                // 'pseudo-element': 2,
                 'quotes': 1,
-                'shorthand-values': 1,
                 'single-line-per-selector': 1,
                 'space-after-bang': 1,
                 'space-after-colon': 1,
