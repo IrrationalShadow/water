@@ -18,8 +18,7 @@
         right: 0;
         top: 0;
 
-    }
-    @else if $variant == 'fixed' {
+    } @else if $variant == 'fixed' {
         backface-visibility: hidden; // 2
         position: fixed;
     }

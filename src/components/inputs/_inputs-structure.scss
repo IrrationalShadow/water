@@ -25,8 +25,6 @@ input {
     line-height: normal; // 1
 }
 
-// scss-lint:disable QualifyingElement
-
 input[type='search'] {
     appearance: textfield; // 2
     box-sizing: content-box; // 3
@@ -41,8 +39,6 @@ input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
     height: auto; // 5
 }
-
-// scss-lint:enable QualifyingElement
 
 optgroup,
 textarea {

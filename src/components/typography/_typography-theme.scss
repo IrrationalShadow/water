@@ -13,13 +13,13 @@ $text-spacing: spacing('single');
 // -----------------------------------------------------------------------------
 
 html {
-    @include textKerning;
+    @include textKerning();
     font-size: fontSize('root');
 }
 
 body {
     color: color('text');
-    font: 1rem/#{lineHeight('body')} fontFamily('text');
+    font: 1rem / #{lineHeight('body')} fontFamily('text');
 }
 
 
@@ -27,9 +27,9 @@ body {
 // -----------------------------------------------------------------------------
 
 ::selection {
-    text-shadow: none;
-    color: #fff;
     background: color('primary');
+    color: #fff;
+    text-shadow: none;
 }
 
 

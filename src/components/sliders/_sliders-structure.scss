@@ -8,8 +8,6 @@
 // 4. Hides the slider so custom styles can be added
 // -----------------------------------------------------------------------------
 
-// scss-lint:disable QualifyingElement
-
 input[type='range']::-webkit-slider-thumb,
 input[type='range']:focus {
     appearance: none;
@@ -29,5 +27,3 @@ input[type='range']::-ms-track {
     cursor: pointer;
     width: 100%;
 }
-
-// scss-lint:enable QualifyingElement

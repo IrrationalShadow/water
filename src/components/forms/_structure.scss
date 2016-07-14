@@ -1,287 +1,287 @@
-// =============================================================================
-// FORMS (Config)
-// =============================================================================
-
-// Basic config
-// -----------------------------------------------------------------------------
+// // =============================================================================
+// // FORMS (Config)
+// // =============================================================================
 //
-// Common variables for your form elements (Eg. input, select, etc).
+// // Basic config
+// // -----------------------------------------------------------------------------
+// //
+// // Common variables for your form elements (Eg. input, select, etc).
+// //
+// // 1. You may omit the border-width, and instead apply a specific side on the
+// //    borderWidth variables for added flexibility.
+// //
+// // -----------------------------------------------------------------------------
 //
-// 1. You may omit the border-width, and instead apply a specific side on the
-//    borderWidth variables for added flexibility.
+// // Form spacing
+// $form_marginBottom:                 spacing('single');
+// $form-group_marginTop:              spacing('single');
 //
-// -----------------------------------------------------------------------------
-
-// Form spacing
-$form_marginBottom:                 spacing('single');
-$form-group_marginTop:              spacing('single');
-
-// Form layouts
-$form--inline-form-label_margin:            0 spacing('quarter') 0 0;
-$form--horizontal-form-label_width:         12rem;
-$form--horizontal-form-label_paddingRight:  spacing('single');
-$form--horizontal-form-label_textAlign:     right;
-$form--horizontal-form-feedback_marginLeft: $form--horizontal-form-label_width;
-
-// Form groups
-$form-toggleGroup-form-label_marginRight:   spacing('single');
-
-// Labels
-$form-label_marginBottom:           spacing('quarter');
-$form-label_fontSize:               1rem;
-$form-label_fontStyle:              null;
-$form-label_fontWeight:             null;
-$form-label_textTransform:          null;
-$form-label_color:                  null;
-
-$form-label-small_fontSize:         inherit;
-$form-label-small_fontStyle:        null;
-$form-label-small_fontWeight:       null;
-$form-label-small_textTransform:    null;
-$form-label-small_color:            color('greys', 'light');
-
-// Inputs
-$form-common_maxWidth:              40rem;
-$form-common_height:                2rem;
-$form-common_padding:               null;
-
-$form-common_cursor-disabled:       not-allowed;
-$form-common_fontSize:              1rem;
-$form-common_fontStyle:             null;
-$form-common_fontWeight:            null;
-
-$form-common_color:                 null;
-$form-common_color-hover:           null;
-$form-common_color-focus:           null;
-$form-common_color-disabled:        null;
-$form-common_color-placeholder:     color('greys', 'light');
-
-$form-common_background:            null;
-$form-common_background-hover:      null;
-$form-common_background-focus:      null;
-$form-common_background-disabled:   null;
-
-$form-common_borderWidth:           1px;
-$form-common_borderStyle:           solid;
-$form-common_borderColor:           color('greys', 'dark');
-$form-common_borderColor-hover:     color('greys', 'light');
-$form-common_borderColor-focus:     color('greys', 'darker');
-$form-common_borderColor-disabled:  color('greys', 'lighter');
-$form-common_borderRadius:          null;
-
-// Radio buttons
-$form-radio_width:                  20px;
-$form-radio_height:                 20px;
-$form-radio_paddingLeft:            spacing('single');
-$form-radio_borderRadius:           50%;
-$form-radio_transition:             border-color 0.2s ease;
-$form-radio_borderWidth:            2px;
-$form-radio_borderStyle:            solid;
-$form-radio_borderColor:            material('grey', 500);
-$form-radio_backgroundColor:        #fff;
-$form-radio_cursor:                 pointer;
-
-$form-radio-pip_width:              10px;
-$form-radio-pip_height:             10px;
-$form-radio-pip_marginTop:          5px;
-$form-radio-pip_marginLeft:         5px;
-$form-radio-pip_borderRadius:       50%;
-$form-radio-pip_opacity:            0;
-$form-radio-pip_transform:          scale(0);
-$form-radio-pip_transition:         all 0.2s ease;
-
-$form-radio-checked_borderColor:            material('blue', 500);
-$form-radio-checked_backgroundColor:        material('blue', 500);
-$form-radio-checked_opacity:                1;
-$form-radio-checked_transform:              scale(1);
-
-$form-radio-labelBox_margin:                0 spacing('single') 0 0;
-$form-radio-labelBox_padding:               spacing('single') spacing('double');
-$form-radio-labelBox_cursor:                pointer;
-$form-radio-labelBox_textAlign:             center;
-$form-radio-labelBox_color:                 null;
-$form-radio-labelBox_background:            null;
-$form-radio-labelBox_border:                1px solid material('grey', 100);
-$form-radio-labelBox_transition:            all duration('fastest') timing('swiftOut');
-$form-radio-checked-labelBox_color:         null;
-$form-radio-checked-labelBox_background:    material('grey', 50);
-$form-radio-checked-labelBox_borderColor:   material('grey', 500);
-
-// Inline labels
-$form-affix-label_padding:          0 spacing('half');
-$form-affix-label_cursor:           default;
-$form-affix-label_color:            null;
-$form-affix-label_background:       material('pink', 50);
-$form-affix-label_borderWidth:      1px;
-$form-affix-label_borderStyle:      solid;
-$form-affix-label_borderColor:      material('pink', 500);
-$form-affix-label_borderRadius:     null;
-
-// Inline buttons
-$form-affix-button_margin:          null;
-$form-affix-button_padding:         null;
-$form-affix-button_borderRadius:    null;
-
-// Inset labels
-$form-inset-label_width:            100px;
-$form-inset-label_height:           20px;
-$form-inset-label_margin:           4px;
-$form-inset-label_padding:          null;
-$form-inset-label_lineHeight:       null;
-$form-inset-label_fontSize:         null;
-$form-inset-label_fontWeight:       null;
-$form-inset-label_fontStyle:        null;
-$form-inset-label_textTransform:    null;
-$form-inset-label_color:            null;
-$form-inset-label_background:       null;
-$form-inset-label_borderWidth:      null;
-$form-inset-label_borderStyle:      null;
-$form-inset-label_borderColor:      null;
-$form-has-label_paddingLeft:        $form-inset-label_width + ($form-inset-label_margin * 2);
-
-// Inset buttons
-$form-inset-button_width:           $form-common_height;
-$form-inset-button_height:          $form-common_height;
-$form-inset-button_marginLeft:      $form-inset-button_width;
-$form-inset-button_borderWidth:     null;
-$form-inset-button_borderStyle:     none;
-$form-inset-button_borderColor:     null;
-$form-has-button_paddingRight:      spacing('double');
-
-// Inset icons
-$form-inset-icon_width:             $form-common_height;
-$form-inset-icon_height:            $form-common_height;
-$form-has-validation_paddingRight:  spacing('double');
-
-// Feedback
-$form-feedback_marginTop:           spacing('quarter');
-$form-feedback_marginBottom:        -(spacing('quarter'));
-$form-feedback_fontSize:            1rem;
-$form-feedback_fontStyle:           null;
-$form-feedback_fontWeight:          null;
-$form-feedback_textTransform:       null;
-$form-feedback_color:               null;
-
-// Error feedback
-$form-label--error_fontWeight:      null;
-$form-label--error_color:           null;
-$form-input--error_background:      material('red', 50);
-$form-input--error_borderColor:     material('red', 500);
-$form-icon--error_background:       null;
-$form-icon--error_fill:             material('red', 500);
-$form-feedback--error_color:        material('red', 500);
-$form-feedback--error_background:   null;
-
-// Success feedback
-$form-label--success_fontWeight:    null;
-$form-label--success_color:         null;
-$form-input--success_background:    material('lightGreen', 50);
-$form-input--success_borderColor:   material('lightGreen', 500);
-$form-icon--success_background:     null;
-$form-icon--success_fill:           material('lightGreen', 500);
-$form-feedback--success_color:      material('lightGreen', 500);
-$form-feedback--success_background: null;
-
-// Warning feedback
-$form-label--warning_fontWeight:    null;
-$form-label--warning_color:         null;
-$form-input--warning_background:    material('amber', 50);
-$form-input--warning_borderColor:   material('amber', 500);
-$form-icon--warning_background:     null;
-$form-icon--warning_fill:           material('amber', 500);
-$form-feedback--warning_color:      material('amber', 500);
-$form-feedback--warning_background: null;
-
-
-
-
-// Advanced config
-// -----------------------------------------------------------------------------
+// // Form layouts
+// $form--inline-form-label_margin:            0 spacing('quarter') 0 0;
+// $form--horizontal-form-label_width:         12rem;
+// $form--horizontal-form-label_paddingRight:  spacing('single');
+// $form--horizontal-form-label_textAlign:     right;
+// $form--horizontal-form-feedback_marginLeft: $form--horizontal-form-label_width;
 //
-// Full control over all form elements. Customise to your liking. To remain as
-// dry as possible, consider using the basic config vars as values below.
+// // Form groups
+// $form-toggleGroup-form-label_marginRight:   spacing('single');
 //
-// -----------------------------------------------------------------------------
-
-// Inputs
-$form-input_maxWidth:               $form-common_maxWidth;
-$form-input_height:                 $form-common_height;
-$form-input_padding:                $form-common_padding;
-
-$form-input_cursor-disabled:        $form-common_cursor-disabled;
-$form-input_fontSize:               $form-common_fontSize;
-
-$form-input_color:                  $form-common_color;
-$form-input_color-hover:            $form-common_color-hover;
-$form-input_color-focus:            $form-common_color-focus;
-$form-input_color-disabled:         $form-common_color-disabled;
-$form-input_color-placeholder:      $form-common_color-placeholder;
-
-$form-input_background:             $form-common_background;
-$form-input_background-hover:       $form-common_background-hover;
-$form-input_background-focus:       $form-common_background-focus;
-$form-input_background-disabled:    $form-common_background-disabled;
-
-$form-input_border:                 $form-common_borderStyle $form-common_borderColor;
-$form-input_border-hover:           $form-common_borderColor-hover;
-$form-input_border-focus:           $form-common_borderColor-focus;
-$form-input_border-disabled:        $form-common_borderColor-disabled;
-$form-input_borderWidth:            $form-common_borderWidth;
-$form-input_borderRadius:           $form-common_borderRadius;
-
-
-// Textarea
-$form-textarea_maxWidth:            $form-common_maxWidth;
-$form-textarea_height:              null;
-$form-textarea_padding:             $form-common_padding;
-$form-textarea_resize:              vertical;
-
-$form-textarea_cursor-disabled:     $form-common_cursor-disabled;
-$form-textarea_fontSize:            $form-common_fontSize;
-
-$form-textarea_color:               $form-common_color;
-$form-textarea_color-hover:         $form-common_color-hover;
-$form-textarea_color-focus:         $form-common_color-focus;
-$form-textarea_color-disabled:      $form-common_color-disabled;
-$form-textarea_color-placeholder:   $form-common_color-placeholder;
-
-$form-textarea_background:          $form-common_background;
-$form-textarea_background-hover:    $form-common_background-hover;
-$form-textarea_background-focus:    $form-common_background-focus;
-$form-textarea_background-disabled: $form-common_background-disabled;
-
-$form-textarea_border:              $form-common_borderStyle $form-common_borderColor;
-$form-textarea_border-hover:        $form-common_borderColor-hover;
-$form-textarea_border-focus:        $form-common_borderColor-focus;
-$form-textarea_border-disabled:     $form-common_borderColor-disabled;
-$form-textarea_borderWidth:         $form-common_borderWidth;
-$form-textarea_borderRadius:        $form-common_borderRadius;
-
-
-// Selects
-$form-select_maxWidth:              $form-common_maxWidth;
-$form-select_height:                $form-common_height;
-$form-select_padding:               $form-common_padding;
-
-$form-select_cursor-disabled:       $form-common_cursor-disabled;
-$form-select_fontSize:              $form-common_fontSize;
-
-$form-select_color:                 $form-common_color;
-$form-select_color-hover:           $form-common_color-hover;
-$form-select_color-focus:           $form-common_color-focus;
-$form-select_color-disabled:        $form-common_color-disabled;
-
-$form-select_backgroundImage:       url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: black'></polygon></svg>") no-repeat;
-$form-select_backgroundSize:        8px;
-$form-select_backgroundPosition:    right 0 center;
-$form-select_background:            $form-common_background $form-select_backgroundImage $form-select_backgroundPosition;
-$form-select_background-hover:      $form-common_background-hover;
-$form-select_background-focus:      $form-common_background-focus;
-$form-select_background-disabled:   $form-common_background-disabled;
-
-$form-select_border:                $form-common_borderStyle $form-common_borderColor;
-$form-select_border-hover:          $form-common_borderColor-hover;
-$form-select_border-focus:          $form-common_borderColor-focus;
-$form-select_border-disabled:       $form-common_borderColor-disabled;
-$form-select_borderWidth:           $form-common_borderWidth;
-$form-select_borderRadius:          $form-common_borderRadius;
+// // Labels
+// $form-label_marginBottom:           spacing('quarter');
+// $form-label_fontSize:               1rem;
+// $form-label_fontStyle:              null;
+// $form-label_fontWeight:             null;
+// $form-label_textTransform:          null;
+// $form-label_color:                  null;
+//
+// $form-label-small_fontSize:         inherit;
+// $form-label-small_fontStyle:        null;
+// $form-label-small_fontWeight:       null;
+// $form-label-small_textTransform:    null;
+// $form-label-small_color:            color('greys', 'light');
+//
+// // Inputs
+// $form-common_maxWidth:              40rem;
+// $form-common_height:                2rem;
+// $form-common_padding:               null;
+//
+// $form-common_cursor-disabled:       not-allowed;
+// $form-common_fontSize:              1rem;
+// $form-common_fontStyle:             null;
+// $form-common_fontWeight:            null;
+//
+// $form-common_color:                 null;
+// $form-common_color-hover:           null;
+// $form-common_color-focus:           null;
+// $form-common_color-disabled:        null;
+// $form-common_color-placeholder:     color('greys', 'light');
+//
+// $form-common_background:            null;
+// $form-common_background-hover:      null;
+// $form-common_background-focus:      null;
+// $form-common_background-disabled:   null;
+//
+// $form-common_borderWidth:           1px;
+// $form-common_borderStyle:           solid;
+// $form-common_borderColor:           color('greys', 'dark');
+// $form-common_borderColor-hover:     color('greys', 'light');
+// $form-common_borderColor-focus:     color('greys', 'darker');
+// $form-common_borderColor-disabled:  color('greys', 'lighter');
+// $form-common_borderRadius:          null;
+//
+// // Radio buttons
+// $form-radio_width:                  20px;
+// $form-radio_height:                 20px;
+// $form-radio_paddingLeft:            spacing('single');
+// $form-radio_borderRadius:           50%;
+// $form-radio_transition:             border-color 0.2s ease;
+// $form-radio_borderWidth:            2px;
+// $form-radio_borderStyle:            solid;
+// $form-radio_borderColor:            material('grey', 500);
+// $form-radio_backgroundColor:        #fff;
+// $form-radio_cursor:                 pointer;
+//
+// $form-radio-pip_width:              10px;
+// $form-radio-pip_height:             10px;
+// $form-radio-pip_marginTop:          5px;
+// $form-radio-pip_marginLeft:         5px;
+// $form-radio-pip_borderRadius:       50%;
+// $form-radio-pip_opacity:            0;
+// $form-radio-pip_transform:          scale(0);
+// $form-radio-pip_transition:         all 0.2s ease;
+//
+// $form-radio-checked_borderColor:            material('blue', 500);
+// $form-radio-checked_backgroundColor:        material('blue', 500);
+// $form-radio-checked_opacity:                1;
+// $form-radio-checked_transform:              scale(1);
+//
+// $form-radio-labelBox_margin:                0 spacing('single') 0 0;
+// $form-radio-labelBox_padding:               spacing('single') spacing('double');
+// $form-radio-labelBox_cursor:                pointer;
+// $form-radio-labelBox_textAlign:             center;
+// $form-radio-labelBox_color:                 null;
+// $form-radio-labelBox_background:            null;
+// $form-radio-labelBox_border:                1px solid material('grey', 100);
+// $form-radio-labelBox_transition:            all duration('fastest') timing('swiftOut');
+// $form-radio-checked-labelBox_color:         null;
+// $form-radio-checked-labelBox_background:    material('grey', 50);
+// $form-radio-checked-labelBox_borderColor:   material('grey', 500);
+//
+// // Inline labels
+// $form-affix-label_padding:          0 spacing('half');
+// $form-affix-label_cursor:           default;
+// $form-affix-label_color:            null;
+// $form-affix-label_background:       material('pink', 50);
+// $form-affix-label_borderWidth:      1px;
+// $form-affix-label_borderStyle:      solid;
+// $form-affix-label_borderColor:      material('pink', 500);
+// $form-affix-label_borderRadius:     null;
+//
+// // Inline buttons
+// $form-affix-button_margin:          null;
+// $form-affix-button_padding:         null;
+// $form-affix-button_borderRadius:    null;
+//
+// // Inset labels
+// $form-inset-label_width:            100px;
+// $form-inset-label_height:           20px;
+// $form-inset-label_margin:           4px;
+// $form-inset-label_padding:          null;
+// $form-inset-label_lineHeight:       null;
+// $form-inset-label_fontSize:         null;
+// $form-inset-label_fontWeight:       null;
+// $form-inset-label_fontStyle:        null;
+// $form-inset-label_textTransform:    null;
+// $form-inset-label_color:            null;
+// $form-inset-label_background:       null;
+// $form-inset-label_borderWidth:      null;
+// $form-inset-label_borderStyle:      null;
+// $form-inset-label_borderColor:      null;
+// $form-has-label_paddingLeft:        $form-inset-label_width + ($form-inset-label_margin * 2);
+//
+// // Inset buttons
+// $form-inset-button_width:           $form-common_height;
+// $form-inset-button_height:          $form-common_height;
+// $form-inset-button_marginLeft:      $form-inset-button_width;
+// $form-inset-button_borderWidth:     null;
+// $form-inset-button_borderStyle:     none;
+// $form-inset-button_borderColor:     null;
+// $form-has-button_paddingRight:      spacing('double');
+//
+// // Inset icons
+// $form-inset-icon_width:             $form-common_height;
+// $form-inset-icon_height:            $form-common_height;
+// $form-has-validation_paddingRight:  spacing('double');
+//
+// // Feedback
+// $form-feedback_marginTop:           spacing('quarter');
+// $form-feedback_marginBottom:        -(spacing('quarter'));
+// $form-feedback_fontSize:            1rem;
+// $form-feedback_fontStyle:           null;
+// $form-feedback_fontWeight:          null;
+// $form-feedback_textTransform:       null;
+// $form-feedback_color:               null;
+//
+// // Error feedback
+// $form-label--error_fontWeight:      null;
+// $form-label--error_color:           null;
+// $form-input--error_background:      material('red', 50);
+// $form-input--error_borderColor:     material('red', 500);
+// $form-icon--error_background:       null;
+// $form-icon--error_fill:             material('red', 500);
+// $form-feedback--error_color:        material('red', 500);
+// $form-feedback--error_background:   null;
+//
+// // Success feedback
+// $form-label--success_fontWeight:    null;
+// $form-label--success_color:         null;
+// $form-input--success_background:    material('lightGreen', 50);
+// $form-input--success_borderColor:   material('lightGreen', 500);
+// $form-icon--success_background:     null;
+// $form-icon--success_fill:           material('lightGreen', 500);
+// $form-feedback--success_color:      material('lightGreen', 500);
+// $form-feedback--success_background: null;
+//
+// // Warning feedback
+// $form-label--warning_fontWeight:    null;
+// $form-label--warning_color:         null;
+// $form-input--warning_background:    material('amber', 50);
+// $form-input--warning_borderColor:   material('amber', 500);
+// $form-icon--warning_background:     null;
+// $form-icon--warning_fill:           material('amber', 500);
+// $form-feedback--warning_color:      material('amber', 500);
+// $form-feedback--warning_background: null;
+//
+//
+//
+//
+// // Advanced config
+// // -----------------------------------------------------------------------------
+// //
+// // Full control over all form elements. Customise to your liking. To remain as
+// // dry as possible, consider using the basic config vars as values below.
+// //
+// // -----------------------------------------------------------------------------
+//
+// // Inputs
+// $form-input_maxWidth:               $form-common_maxWidth;
+// $form-input_height:                 $form-common_height;
+// $form-input_padding:                $form-common_padding;
+//
+// $form-input_cursor-disabled:        $form-common_cursor-disabled;
+// $form-input_fontSize:               $form-common_fontSize;
+//
+// $form-input_color:                  $form-common_color;
+// $form-input_color-hover:            $form-common_color-hover;
+// $form-input_color-focus:            $form-common_color-focus;
+// $form-input_color-disabled:         $form-common_color-disabled;
+// $form-input_color-placeholder:      $form-common_color-placeholder;
+//
+// $form-input_background:             $form-common_background;
+// $form-input_background-hover:       $form-common_background-hover;
+// $form-input_background-focus:       $form-common_background-focus;
+// $form-input_background-disabled:    $form-common_background-disabled;
+//
+// $form-input_border:                 $form-common_borderStyle $form-common_borderColor;
+// $form-input_border-hover:           $form-common_borderColor-hover;
+// $form-input_border-focus:           $form-common_borderColor-focus;
+// $form-input_border-disabled:        $form-common_borderColor-disabled;
+// $form-input_borderWidth:            $form-common_borderWidth;
+// $form-input_borderRadius:           $form-common_borderRadius;
+//
+//
+// // Textarea
+// $form-textarea_maxWidth:            $form-common_maxWidth;
+// $form-textarea_height:              null;
+// $form-textarea_padding:             $form-common_padding;
+// $form-textarea_resize:              vertical;
+//
+// $form-textarea_cursor-disabled:     $form-common_cursor-disabled;
+// $form-textarea_fontSize:            $form-common_fontSize;
+//
+// $form-textarea_color:               $form-common_color;
+// $form-textarea_color-hover:         $form-common_color-hover;
+// $form-textarea_color-focus:         $form-common_color-focus;
+// $form-textarea_color-disabled:      $form-common_color-disabled;
+// $form-textarea_color-placeholder:   $form-common_color-placeholder;
+//
+// $form-textarea_background:          $form-common_background;
+// $form-textarea_background-hover:    $form-common_background-hover;
+// $form-textarea_background-focus:    $form-common_background-focus;
+// $form-textarea_background-disabled: $form-common_background-disabled;
+//
+// $form-textarea_border:              $form-common_borderStyle $form-common_borderColor;
+// $form-textarea_border-hover:        $form-common_borderColor-hover;
+// $form-textarea_border-focus:        $form-common_borderColor-focus;
+// $form-textarea_border-disabled:     $form-common_borderColor-disabled;
+// $form-textarea_borderWidth:         $form-common_borderWidth;
+// $form-textarea_borderRadius:        $form-common_borderRadius;
+//
+//
+// // Selects
+// $form-select_maxWidth:              $form-common_maxWidth;
+// $form-select_height:                $form-common_height;
+// $form-select_padding:               $form-common_padding;
+//
+// $form-select_cursor-disabled:       $form-common_cursor-disabled;
+// $form-select_fontSize:              $form-common_fontSize;
+//
+// $form-select_color:                 $form-common_color;
+// $form-select_color-hover:           $form-common_color-hover;
+// $form-select_color-focus:           $form-common_color-focus;
+// $form-select_color-disabled:        $form-common_color-disabled;
+//
+// // $form-select_backgroundImage:       url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: black'></polygon></svg>") no-repeat;
+// $form-select_backgroundSize:        8px;
+// $form-select_backgroundPosition:    right 0 center;
+// $form-select_background:            $form-common_background $form-select_backgroundImage $form-select_backgroundPosition;
+// $form-select_background-hover:      $form-common_background-hover;
+// $form-select_background-focus:      $form-common_background-focus;
+// $form-select_background-disabled:   $form-common_background-disabled;
+//
+// $form-select_border:                $form-common_borderStyle $form-common_borderColor;
+// $form-select_border-hover:          $form-common_borderColor-hover;
+// $form-select_border-focus:          $form-common_borderColor-focus;
+// $form-select_border-disabled:       $form-common_borderColor-disabled;
+// $form-select_borderWidth:           $form-common_borderWidth;
+// $form-select_borderRadius:          $form-common_borderRadius;

@@ -13,8 +13,8 @@ $button-borderWidth: 1px;
 
 .button {
     @include fontSize('note');
-    border-radius: $button-borderRadius;
     border: $button-borderWidth solid color('border');
+    border-radius: $button-borderRadius;
     color: color('text');
     font-family: fontFamily('text');
     font-weight: fontWeight('bold');

@@ -145,15 +145,13 @@
 // 2. Visuals are handled via a mixin, allowing you to add custom variants.
 //
 // -----------------------------------------------------------------------------
-// 
+//
 // .has-validation {
 //
-//     // scss-lint:disable MergeableSelector
 //     .form-input { // 1
 //         // Layout
 //         padding-right: $form-has-validation_paddingRight;
 //     }
-//     // scss-lint:enable MergeableSelector
 //
 //     .form-field-group:after {
 //         // Layout

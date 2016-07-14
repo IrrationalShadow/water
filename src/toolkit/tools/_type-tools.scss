@@ -24,7 +24,7 @@
 // 2. Fix for IE 8/9 if `word-wrap: break-word` is in effect on ancestor nodes.
 // -----------------------------------------------------------------------------
 
-@mixin textTruncate {
+@mixin textTruncate() {
     max-width: 100%; // 1
     overflow: hidden;
     text-overflow: ellipsis;
@@ -40,7 +40,7 @@
 // 3. Chrome (not Windows), Firefox, Safari 6+, iOS, Android.
 // -----------------------------------------------------------------------------
 
-@mixin textKerning {
+@mixin textKerning() {
     font-feature-settings: 'kern' 1; // 1
     font-kerning: normal; // 2
     text-rendering: optimizeLegibility; // 3
@@ -51,8 +51,7 @@
 // -----------------------------------------------------------------------------
 
 @mixin inputPlaceholder($color) {
-    // scss-lint:disable VendorPrefixes
-    &::-webkit-input-placeholder {
+    &:-ms-input-placeholder {
         color: $color;
     }
 
@@ -60,8 +59,7 @@
         color: $color;
     }
 
-    &:-ms-input-placeholder {
+    &::-webkit-input-placeholder {
         color: $color;
     }
-    // scss-lint:enable VendorPrefixes
 }

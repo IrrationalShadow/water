@@ -49,20 +49,24 @@ gulp.task('scss:lint', function () {
                         'style': '1tbs'
                     }
                 ],
-                'class-name-format': [ 1,
-                    {
-                        'allow-leading-underscore': false,
-                        'convention': /^(([a-z][a-zA-Z]*)+)(-(([a-z][a-zA-Z][0-9]+)+))?(--(([a-z][a-zA-Z][0-9]+)+))?$/,
-                        'convention-explanation': 'Class name does not follow conventions: .className[-descendantName][--modifierName], .u-utilityName, or .is-stateName'
-                    }
-                ],
+                // 'class-name-format': [ 1,
+                //     {
+                //         'allow-leading-underscore': false,
+                //         'convention': /^(([a-z][a-zA-Z]*)+)(-(([a-z][a-zA-Z][0-9]+)+))?(--(([a-z][a-zA-Z][0-9]+)+))?$/,
+                //         'convention-explanation': 'Class name does not follow conventions: .className[-descendantName][--modifierName], .u-utilityName, or .is-stateName'
+                //     }
+                // ],
                 'clean-import-paths': [ 1,
                     {
                         'leading-underscore': false,
                         'filename-extension': false
                     }
                 ],
-                'empty-args': 1,
+                'empty-args': [ 1,
+                    {
+                        'include': true
+                    }
+                ],
                 'empty-line-between-blocks': [ 1,
                     {
                         'allow-single-line-rulesets': false
@@ -71,7 +75,7 @@ gulp.task('scss:lint', function () {
                 'extends-before-declarations': 1,
                 'extends-before-mixins': 1,
                 'final-newline': 1,
-                'force-pseudo-nesting': 1,
+                // 'force-pseudo-nesting': 1,
                 'function-name-format': [ 1,
                     {
                         'allow-leading-underscore': false,
@@ -104,26 +108,26 @@ gulp.task('scss:lint', function () {
                 //         'convention': 'camelcase'
                 //     }
                 // ],
-                // 'nesting-depth': [ 2,
-                //     {
-                //         'max-depth': '2'
-                //     }
-                // ],
-                // 'no-attribute-selectors': 2,
-                'no-color-keywords': 1,
-                'no-color-literals': [ 1,
+                'nesting-depth': [ 2,
                     {
-                        'allow-rgba': true,
-                        'allow-map-identifiers': true,
-                        'allow-variable-identifiers': false
+                        'max-depth': '2'
                     }
                 ],
+                'no-attribute-selectors': 0,
+                'no-color-keywords': 1,
+                // 'no-color-literals': [ 1,
+                //     {
+                //         'allow-rgba': true,
+                //         'allow-map-identifiers': true,
+                //         'allow-variable-identifiers': false
+                //     }
+                // ],
                 'no-css-comments': 1,
-                // 'no-duplicate-properties': 2,
-                // 'no-empty-rulesets': 2,
-                // 'no-ids': 2,
-                // 'no-important': 2,
-                // 'no-invalid-hex': 2,
+                'no-duplicate-properties': 2,
+                'no-empty-rulesets': 2,
+                'no-ids': 2,
+                'no-important': 2,
+                'no-invalid-hex': 2,
                 'no-mergeable-selectors': 1,
                 'no-misspelled-properties': 2,
                 'no-qualifying-elements': [ 2,
@@ -134,15 +138,15 @@ gulp.task('scss:lint', function () {
                 'no-trailing-whitespace': 1,
                 'no-trailing-zero': 1,
                 'no-transition-all': 1,
-                // 'no-vendor-prefixes': 2,
-                // 'one-declaration-per-line': 2,
-                // 'placeholder-in-extend': 2,
+                'no-vendor-prefixes': 2,
+                'one-declaration-per-line': 2,
+                'placeholder-in-extend': 2,
                 // 'placeholder-name-format': [ 2,
                 //     {
                 //
                 //     }
                 // ],
-                // 'property-sort-order': 2,
+                'property-sort-order': 2,
                 // 'pseudo-element': 2,
                 'quotes': 1,
                 'single-line-per-selector': 1,

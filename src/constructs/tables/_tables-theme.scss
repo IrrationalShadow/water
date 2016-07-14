@@ -124,12 +124,10 @@ $table-cell-padding: spacing('half') + spacing('quarter');
         padding: spacing('half');
     }
 
-    // scss-lint:disable QualifyingElement // 1
     .table--responsiveList > .table-body td[data-title]:before {
         content: attr(data-title);
         float: left;
     }
-    // scss-lint:enable QualifyingElement // 1
 
     .table--responsiveList .table-row,
     .table--responsiveList .table-row:nth-of-type(odd) {

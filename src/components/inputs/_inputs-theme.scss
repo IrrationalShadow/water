@@ -32,8 +32,6 @@
         cursor: not-allowed;
     }
 
-    // scss-lint:disable VendorPrefixes
-
     &::-webkit-input-placeholder {
         color: color('text', 'light');
     }
@@ -45,8 +43,6 @@
     &:-ms-input-placeholder {
         color: color('text', 'light');
     }
-
-    // scss-lint:enable VendorPrefixes
 }
 
 .input--textarea {
@@ -84,13 +80,13 @@
 // -----------------------------------------------------------------------------
 
 .button--affix:not(:first-child) {
-    border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 }
 
 .button--affix:not(:last-child) {
-    border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
 }
 
 

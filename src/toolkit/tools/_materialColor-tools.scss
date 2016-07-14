@@ -8,7 +8,6 @@
 
 // Material color map
 // -----------------------------------------------------------------------------
-// scss-lint:disable ColorKeyword,ColorVariable
 
 $materialMap: (
     'red': (
@@ -342,8 +341,6 @@ $materialMap: (
     )
 );
 
-// scss-lint:enable ColorKeyword,ColorVariable
-
 
 
 
@@ -354,5 +351,5 @@ $materialMap: (
     @return map-get(map-get($materialMap, $color), $variant);
 
     @warn 'Unknown material color `#{$color}` in $materialMap.';
-    @return null
+    @return null;
 }

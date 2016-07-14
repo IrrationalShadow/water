@@ -16,10 +16,9 @@
 // strip unit function, from its unitless value to a rem value.
 // -----------------------------------------------------------------------------
 
-@function convertToRem($value, $base-value: 1rem) {
-    $value: stripUnit($value) / stripUnit($base-value) * 1rem;
-    // scss-lint:disable ZeroUnit
-    @if ($value == 0rem) {
+@function convertToRem($value, $base-value: 1rem, $unit: rem) {
+    $value: stripUnit($value) / stripUnit($base-value) * 1$unit;
+    @if ($value == 0$unit) {
         $value: 0;
     }
     @return $value;

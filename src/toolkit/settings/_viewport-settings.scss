@@ -39,8 +39,7 @@ $viewportMap: (
         @media (max-width: (viewport($size) - 1px)) { // 1
             @content;
         }
-    }
-    @else {
+    } @else {
         @media (min-width: viewport($size)) {
             @content;
         }

@@ -10,7 +10,7 @@
 // 2. Set the global box-sizing to border-box by default.
 // -----------------------------------------------------------------------------
 
-@include html5-elements-display; // 1
+@include html5-elements-display(); // 1
 
 *,
 *::before,
@@ -20,8 +20,8 @@
 
 body {
     background-color: #fff;
-    margin: 0;
     border: none;
+    margin: 0;
 }
 
 
