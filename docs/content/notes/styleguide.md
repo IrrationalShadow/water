@@ -14,9 +14,6 @@ These guidelines strongly encourage the use of existing, common, sensible patter
  - General principles
  - Specificity
  - Formatting
- - Units
- - White space
- - Vendor prefixes
 3. **Sass**
  - General principles
  - Syntax
@@ -43,7 +40,7 @@ These guidelines strongly encourage the use of existing, common, sensible patter
 A “rule declaration” is the name given to a selector (or a group of selectors) with an accompanying group of properties. Here's an example:
 
 ```scss
-.class {
+.selector {
     background-color: #777;
     color: #333;
 }
@@ -65,7 +62,7 @@ In a rule declaration, “selectors” are the bits that determine which element
 Finally, properties are what give the selected elements of a rule declaration their style. Properties are key-value pairs, and a rule declaration can contain one or more property declarations. Property declarations look like this:
 
 ```scss
-.class {
+.selector {
     [property]: [property-value];
 }
 ```
@@ -93,40 +90,40 @@ guidelines will help you on the path to scalability:
 
 - **Do:** Use classes in your selectors.
 - **Do:** Style the base elements.
-- **Do:** Keep your selector specificity as low as possible at all times.
+- **Do:** Keep your selector specificity as low as possible.
 - **Do:** Use the child selector `>` when applicable.
-- **Do:** Use the `!important` tag, but limit its use strictly to utility classes.
+- **Do:** Use the `!important` tag, *but limit its use strictly to utility classes*.
 
 - **Don't:** Use ID's for styling.
-- **Don't:** Reference or style descendant elements in your selectors.
 - **Don't:** Qualify selectors by prefixing an element.
+- **Don't:** Reference or style descendant elements in your selectors.
 - **Don't:** Chain classes together ([State classes](#state-classes) being the exception).
 - **Don't:** Write selectors with two or more descendants. (See [nesting](#nesting) below).
 - **Don't:** Write descendant selectors that will work without being nested.
 
 When following these guidelines you may still find that you're writing *location dependent* selectors. This
-is something you should be trying to avoid. A location dependent selector occurs when you're styling a class
-or element that is inside a particular containing element, which restricts where the styles will work.
+is something you should be trying to avoid. Location dependent selectors are selectors that style a class
+or element only when present inside a particular containing class or element.
 
-Note the below code block, the *selector intent* is to style the `.button` class a particular way when it
+Note the below code block, the *selector intent* is to style the `.selector` class a particular way when it
 appears inside the sidebar, but there's a much better way to achieve this. As Harry Roberts has said,
 *"A component shouldn’t have to live in a certain place to look a certain way".*
 
 ```scss
-.sidebar .button {
+.sidebar .selector {
     color: #333;
 }
 ```
 
-There are a few problems with this code. The selector has unnecessarily increased the specificity of the `.button` class, its made
-the properties valid only when `.button` appears within the `.sidebar` class, and can confuse the developer for where the code belongs
-(does it belong with the sidebar CSS or the button CSS?). It's also no longer flexible, or reusable elsewhere in your project.
+There are a few problems with this code. The selector has unnecessarily increased the specificity of the `.selector` class, its made
+the properties valid only when `.selector` appears within the `.sidebar` class, it can confuse the developer about where the code belongs
+(does it belong with the sidebar CSS or the button CSS file?), and it's also no longer flexible or reusable elsewhere in your project.
 
-This can be rectified by adding a modifier class to the `.button` pattern, such as `.button--primary`. This extends the base class
-without adding specificity, while maintaining a relationship with it, and will work across your entire project. See below:
+This can be improved by adding a modifier class to the `.selector` pattern, such as `.selector--primary`. This adds to the base class
+without extra specificity, while maintaining a relationship with it, and will work across your entire project. See below:
 
 ```scss
-.button--primary {
+.selector--primary {
     color: #333;
 }
 ```
@@ -137,7 +134,102 @@ without adding specificity, while maintaining a relationship with it, and will w
 
 ### Formatting
 
+The chosen code format must ensure that code is: easy to read; easy to clearly comment; minimizes the chance of accidentally introducing errors; and results in useful diffs and blames.
 
+#### Rule declaration
+
+- Use one selector per line in multi-selector rulesets.
+- Include a single space before the opening brace of a ruleset.
+- Include one property declaration per line in a declaration block.
+- Property declarations are to be *ordered alphabetically*.
+- Include a single space after the colon of a property declaration.
+- Include a space after each comma in comma-separated property or function values.
+- Include a single space between math operators (such as `+` or `/`) and values.
+- Include a semi-colon at the end of *every* property in a declaration block.
+- Place the closing brace of a ruleset in the same column as the first character of the ruleset.
+- Separate each rule declaration with a blank line.
+
+#### Indentation
+
+- Never mix spaces and tabs for indentation.
+- Use soft-tabs (4 spaces) for indentation.
+- Use one level of indentation for each property declaration.
+
+#### Whitespace
+
+- Always be consistent in your use of whitespace.
+- Remove all trailing white-space from your file.
+  - Tip: Set your editor to "show invisibles" and automatically remove end-of-line whitespace.
+- Leave one clear line at the bottom of your file.
+
+#### Quotation
+
+- Use single quotes consistently.
+- Quote attribute values in selectors.
+- Quote all property values where applicable.
+
+#### Property values
+
+- Use lowercase and shorthand hex values.
+- Where allowed, avoid specifying units for zero-values (`0` opposed to `0rem`).
+- When styling borders to have no border, use `0` instead of `none`.
+- As a general rule, use unit-less `line-height` values as defaults.
+- Never specify the `height` property unless it's specifically needed.
+- Only style the property you're explicitly concerned with.
+  - Example: `margin-top: 1rem` instead of `margin: 1rem 0 0`.
+- Use shorthand property values when you must style all values.
+
+### Units
+
+- Use `rem` units as the primary unit type.
+- Use `px` units only when specifying border widths and the root font size.
+- Use `%` units only when necessary to either position or set dimensions.
+- **Never** resort to setting a *[magic number](https://css-tricks.com/magic-numbers-in-css/)* such as `margin-left: 34px`.
+
+#### Pseudo elements and classes
+
+- Declare *pseudo classes* with a single colon.
+- Declare *pseudo elements* with a double colon.
+
+#### Vendor prefixes
+
+Do not use vendor prefixes in your code. Write all properties using web standards,
+and run [autoprefixer](https://github.com/postcss/autoprefixer) to provide the necessary
+vendor prefixes during a build step.
+
+```scss
+.selector {
+    background-image: url('img/image.png');
+    border: 1px solid #333;
+    color: #abcdef;
+    font-family: 'Times New Roman', serif;
+    margin: 2rem 0;
+    padding-top: 1rem;
+    text-transform: uppercase;
+    width: calc(100% - 80px);
+}
+
+.selector:hover {
+    border-color: #daa520;
+}
+
+.selector::before {
+    content: 'Hello';
+}
+
+.selectorA,
+.selectorB,
+.selectorC[type='text'] {
+    color: #f00;
+}
+```
+
+
+## Sass
+
+### General principles
+
+- 
 
 
 ## Acknowledgements
