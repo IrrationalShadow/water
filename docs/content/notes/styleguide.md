@@ -10,13 +10,11 @@ These guidelines strongly encourage the use of existing, common, sensible patter
  - Rule declaration
  - Selector
  - Property
-2. **CSS**
- - General principles
- - Specificity
- - Formatting
-3. **Sass**
+2. **(S)CSS**
  - General principles
  - Syntax
+ - Specificity
+ - Formatting
  - Ordering
  - Comments
  - Functions
@@ -37,7 +35,8 @@ These guidelines strongly encourage the use of existing, common, sensible patter
 
 ### Rule declaration
 
-A “rule declaration” is the name given to a selector (or a group of selectors) with an accompanying group of properties. Here's an example:
+A “rule declaration” is the name given to a selector (or a group of selectors)
+with an accompanying group of properties. Here's an example:
 
 ```scss
 .selector {
@@ -48,7 +47,10 @@ A “rule declaration” is the name given to a selector (or a group of selector
 
 ### Selector
 
-In a rule declaration, “selectors” are the bits that determine which elements in the DOM tree will be styled by the defined properties. Selectors can match HTML elements, as well as an element's class, ID, or any of its attributes. Here are some examples of selectors:
+In a rule declaration, “selectors” are the bits that determine which elements in
+the DOM tree will be styled by the defined properties. Selectors can match HTML
+elements, as well as an element's class, ID, or any of its attributes. Here are
+ome examples of selectors:
 
 ```scss
 [selector] {
@@ -59,7 +61,9 @@ In a rule declaration, “selectors” are the bits that determine which element
 
 ### Property
 
-Finally, properties are what give the selected elements of a rule declaration their style. Properties are key-value pairs, and a rule declaration can contain one or more property declarations. Property declarations look like this:
+Finally, properties are what give the selected elements of a rule declaration
+their style. Properties are key-value pairs, and a rule declaration can contain
+one or more property declarations. Property declarations look like this:
 
 ```scss
 .selector {
@@ -68,7 +72,7 @@ Finally, properties are what give the selected elements of a rule declaration th
 ```
 
 
-## CSS
+## (S)CSS
 
 ### General principles
 
@@ -79,21 +83,24 @@ Finally, properties are what give the selected elements of a rule declaration th
 - Split CSS across multiple files, concatenating them during a build step.
 - Never style patterns in unrelated pattern files (don't style a `.button` in `.table` files.).
 - Keep selector specificity as low as possible.
-- Choose simple solutions over clever solutions where applicable.
+- Choose simple solutions over clever solutions whenever possible.
 
+### Syntax
+
+- Use the `.scss` syntax, never the original `.sass` syntax.
 
 ### Specificity
 
-Scaling CSS as well as possible, on any large code-base, is difficult. There's a number of things we can
-do to assist us, but it can all come undone if specificity is abused and/or forgotten. Adhere to the following
-guidelines will help you on the path to scalability:
+Scaling CSS as well as possible, on any large code-base, is difficult. There's a
+number of things we can do to assist us, but it can all come undone if specificity
+is abused and/or forgotten. Adhere to the following guidelines will help you on
+the path to scalability:
 
 - **Do:** Use classes in your selectors.
 - **Do:** Style the base elements.
 - **Do:** Keep your selector specificity as low as possible.
 - **Do:** Use the child selector `>` when applicable.
 - **Do:** Use the `!important` tag, *but limit its use strictly to utility classes*.
-
 - **Don't:** Use ID's for styling.
 - **Don't:** Qualify selectors by prefixing an element.
 - **Don't:** Reference or style descendant elements in your selectors.
@@ -101,13 +108,16 @@ guidelines will help you on the path to scalability:
 - **Don't:** Write selectors with two or more descendants. (See [nesting](#nesting) below).
 - **Don't:** Write descendant selectors that will work without being nested.
 
-When following these guidelines you may still find that you're writing *location dependent* selectors. This
-is something you should be trying to avoid. Location dependent selectors are selectors that style a class
-or element only when present inside a particular containing class or element.
+When following these guidelines you may still find that you're writing *location
+dependent* selectors. This is something you should be trying to avoid.
 
-Note the below code block, the *selector intent* is to style the `.selector` class a particular way when it
-appears inside the sidebar, but there's a much better way to achieve this. As Harry Roberts has said,
-*"A component shouldn’t have to live in a certain place to look a certain way".*
+*Location dependent selectors are selectors that style a class or element only
+when present inside a particular containing class or element.*
+
+Note the code block below. The *selector intent* is to style the `.selector` class
+a particular way when it appears inside the sidebar, but there's a much better way
+to achieve this. As Harry Roberts has said, *"A component shouldn’t have to live
+in a certain place to look a certain way".*
 
 ```scss
 .sidebar .selector {
@@ -115,12 +125,16 @@ appears inside the sidebar, but there's a much better way to achieve this. As Ha
 }
 ```
 
-There are a few problems with this code. The selector has unnecessarily increased the specificity of the `.selector` class, its made
-the properties valid only when `.selector` appears within the `.sidebar` class, it can confuse the developer about where the code belongs
-(does it belong with the sidebar CSS or the button CSS file?), and it's also no longer flexible or reusable elsewhere in your project.
+There are a few problems with this code. The selector has unnecessarily increased
+the specificity of the `.selector` class, its made the properties valid only when
+`.selector` appears within the `.sidebar` class, it can confuse the developer about
+where the code belongs (does it belong with the sidebar CSS or the button CSS file?),
+and it's also no longer flexible or reusable elsewhere in your project.
 
-This can be improved by adding a modifier class to the `.selector` pattern, such as `.selector--primary`. This adds to the base class
-without extra specificity, while maintaining a relationship with it, and will work across your entire project. See below:
+This can be improved by adding a modifier class to the `.selector` pattern, such
+as `.selector--primary`. This adds to the base class without extra specificity,
+while maintaining a relationship with it, and will work across your entire project.
+See below:
 
 ```scss
 .selector--primary {
@@ -128,13 +142,16 @@ without extra specificity, while maintaining a relationship with it, and will wo
 }
 ```
 
-*For more information on CSS Specificity, see Harry Roberts' [CSS Guidelines on specificity](http://cssguidelin.es/#specificity).*
-*To understand selector intent, see [CSS Guidelines on Selector Intent](http://cssguidelin.es/#selector-intent).*
+*For more information on CSS Specificity, see Harry Roberts' [CSS Guidelines on
+specificity](http://cssguidelin.es/#specificity).* *To understand selector intent,
+see [CSS Guidelines on Selector Intent](http://cssguidelin.es/#selector-intent).*
 
 
 ### Formatting
 
-The chosen code format must ensure that code is: easy to read; easy to clearly comment; minimizes the chance of accidentally introducing errors; and results in useful diffs and blames.
+The chosen code format must ensure that code is: easy to read; easy to clearly
+comment; minimizes the chance of accidentally introducing errors; and results in
+useful diffs and blames.
 
 #### 80 character line length
 
@@ -242,7 +259,7 @@ comfortable line length for reading and commenting.
 - Do not use vendor prefixes in your code.
 - Run [autoprefixer](https://github.com/postcss/autoprefixer) to provide the necessary vendor prefixes during a build step.
 
-**Example of correct formatting:**
+#### Example of correct formatting:
 
 ```scss
 // =============================================================================
@@ -257,7 +274,7 @@ comfortable line length for reading and commenting.
     margin: 2rem 0;
     padding-top: 1rem;
     text-transform: uppercase;
-    width: calc(100% - 80px);
+    width: calc(100% - 8rem);
 }
 
 .selector:hover {
@@ -278,6 +295,18 @@ comfortable line length for reading and commenting.
     color: #f00;
 }
 ```
+
+### Ordering
+
+*Declaration order should be consistent.* The simplest solution is always the best
+when it comes to declaration order for teams of any size. Order your properties
+as follows:
+
+https://github.com/airbnb/css#ordering-of-property-declarations
+https://github.com/necolas/idiomatic-css#2-whitespace
+https://github.com/bigcommerce/sass-style-guide#value-declaration
+https://github.com/StrangePurple/styleguide/blob/master/pages/css.md#validating-css
+http://cssguidelin.es/#syntax-and-formatting
 
 
 ## Acknowledgements
