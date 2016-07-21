@@ -77,7 +77,7 @@ Finally, properties are what give the selected elements of a rule declaration th
 - All code in any code-base should look like a single person typed it, even with multiple contributors.
 - Break down complex design patterns into small, reusable patterns.
 - Split CSS across multiple files, concatenating them during a build step.
-- Never style patterns in unrelated pattern files.
+- Never style patterns in unrelated pattern files (don't style a `.button` in `.table` files.).
 - Keep selector specificity as low as possible.
 - Choose simple solutions over clever solutions where applicable.
 
@@ -136,6 +136,52 @@ without extra specificity, while maintaining a relationship with it, and will wo
 
 The chosen code format must ensure that code is: easy to read; easy to clearly comment; minimizes the chance of accidentally introducing errors; and results in useful diffs and blames.
 
+#### 80 character line length
+
+Whenever possible, limit the line length to a maximum of 80 characters. Doing so
+enables developers to have multiple files open side by side, and provides a
+comfortable line length for reading and commenting.
+
+#### Title block
+
+- Begin every file with a title block.
+- Title blocks must always have *uppercased* text.
+- The total line length of the borders must be 80 characters.
+- Always leave **1** empty line after the title block before you start writing your code.
+
+```scss
+// =============================================================================
+// EXAMPLE
+// =============================================================================
+
+.selector
+```
+
+#### Section title block
+
+- Group related sections under section title blocks.
+- Section titles should always use *sentence case*.
+- The total line length of the borders must be 80 characters.
+- Always leave **1** empty line below a section title.
+- Always leave **2** empty lines above section titles when code appears above it.
+
+```scss
+// Section example
+// -----------------------------------------------------------------------------
+
+.selectorA {
+    color: #333;
+}
+
+
+// Another section example
+// -----------------------------------------------------------------------------
+
+.selectorB {
+    font-size: 1rem;
+}
+```
+
 #### Rule declaration
 
 - Use one selector per line in multi-selector rulesets.
@@ -164,7 +210,7 @@ The chosen code format must ensure that code is: easy to read; easy to clearly c
 
 #### Quotation
 
-- Use single quotes consistently.
+- Use *single quotes* consistently.
 - Quote attribute values in selectors.
 - Quote all property values where applicable.
 
@@ -179,7 +225,7 @@ The chosen code format must ensure that code is: easy to read; easy to clearly c
   - Example: `margin-top: 1rem` instead of `margin: 1rem 0 0`.
 - Use shorthand property values when you must style all values.
 
-### Units
+#### Units
 
 - Use `rem` units as the primary unit type.
 - Use `px` units only when specifying border widths and the root font size.
@@ -193,11 +239,16 @@ The chosen code format must ensure that code is: easy to read; easy to clearly c
 
 #### Vendor prefixes
 
-Do not use vendor prefixes in your code. Write all properties using web standards,
-and run [autoprefixer](https://github.com/postcss/autoprefixer) to provide the necessary
-vendor prefixes during a build step.
+- Do not use vendor prefixes in your code.
+- Run [autoprefixer](https://github.com/postcss/autoprefixer) to provide the necessary vendor prefixes during a build step.
+
+**Example of correct formatting:**
 
 ```scss
+// =============================================================================
+// EXAMPLE
+// =============================================================================
+
 .selector {
     background-image: url('img/image.png');
     border: 1px solid #333;
@@ -217,19 +268,16 @@ vendor prefixes during a build step.
     content: 'Hello';
 }
 
+
+// Section example
+// -----------------------------------------------------------------------------
+
 .selectorA,
 .selectorB,
 .selectorC[type='text'] {
     color: #f00;
 }
 ```
-
-
-## Sass
-
-### General principles
-
-- 
 
 
 ## Acknowledgements
