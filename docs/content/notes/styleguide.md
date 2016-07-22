@@ -7,28 +7,28 @@ These guidelines strongly encourage the use of existing, common, sensible patter
 ## Table of contents
 
 1. **Terminology**
- - Rule declaration
- - Selector
- - Property
+ - [Rule declaration](#rule-declaration)
+ - [Selector](#selector)
+ - [Property](#property)
 2. **(S)CSS**
- - General principles
- - Syntax
- - Specificity
- - Formatting
- - Ordering
- - Comments
- - Functions
- - Variables
- - Mixins
- - Extending
- - Nesting
-4. **Naming conventions**
- - General principles
- - Component & Construct classes
- - State classes
- - Utility classes
- - JavaScript data-attributes
-5. **Acknowledgements**
+ - [General principles](#general-principles)
+ - [Syntax](#syntax)
+ - [Specificity](#specificity)
+ - [Formatting](#formatting)
+ - [Ordering](#ordering)
+ - [Comments](#comments)
+ - [Functions](#functions)
+ - [Variables](#variables)
+ - [Mixins](#mixins)
+ - [Extending](#extending)
+ - [Nesting](#nesting)
+3. **Naming conventions**
+ - [General principles]()
+ - [Component classes](#component-classes)
+ - [State classes](#state-classes)
+ - [Utility classes](#utility-classes)
+ - [JavaScript data-attributes](#javascript-data-attributes)
+4. **Acknowledgements**
 
 
 ## Terminology
@@ -100,7 +100,7 @@ the path to scalability:
 - **Do:** Style the base elements.
 - **Do:** Keep your selector specificity as low as possible.
 - **Do:** Use the child selector `>` when applicable.
-- **Do:** Use the `!important` tag, *but limit its use strictly to utility classes*.
+- **Do:** Use `!important`, but limit its use strictly to utility classes.
 - **Don't:** Use ID's for styling.
 - **Don't:** Qualify selectors by prefixing an element.
 - **Don't:** Reference or style descendant elements in your selectors.
@@ -164,7 +164,7 @@ comfortable line length for reading and commenting.
 - Begin every file with a title block.
 - Title blocks must always have *uppercased* text.
 - The total line length of the borders must be 80 characters.
-- Always leave **1** empty line after the title block before you start writing your code.
+- Always leave **one** empty line after the title block before you start writing your code.
 
 ```scss
 // =============================================================================
@@ -179,8 +179,8 @@ comfortable line length for reading and commenting.
 - Group related sections under section title blocks.
 - Section titles should always use *sentence case*.
 - The total line length of the borders must be 80 characters.
-- Always leave **1** empty line below a section title.
-- Always leave **2** empty lines above section titles when code appears above it.
+- Always leave **one** empty line below a section title.
+- Always leave **two** empty lines above section titles when code appears above it.
 
 ```scss
 // Section example
@@ -245,8 +245,8 @@ comfortable line length for reading and commenting.
 #### Units
 
 - Use `rem` units as the primary unit type.
-- Use `px` units only when specifying border widths and the root font size.
-- Use `%` units only when necessary to either position or set dimensions.
+- Use `px` units only when specifying a border width or radius, and the root font size.
+- Use `%` units only when necessary to position, set width or height and to make circular border radius'.
 - **Never** resort to setting a *[magic number](https://css-tricks.com/magic-numbers-in-css/)* such as `margin-left: 34px`.
 
 #### Pseudo elements and classes
@@ -298,15 +298,79 @@ comfortable line length for reading and commenting.
 
 ### Ordering
 
-*Declaration order should be consistent.* The simplest solution is always the best
-when it comes to declaration order for teams of any size. Order your properties
-as follows:
+When it comes to ordering your properties, consistency and simplicity are the most
+important factors.
 
-https://github.com/airbnb/css#ordering-of-property-declarations
-https://github.com/necolas/idiomatic-css#2-whitespace
-https://github.com/bigcommerce/sass-style-guide#value-declaration
-https://github.com/StrangePurple/styleguide/blob/master/pages/css.md#validating-css
-http://cssguidelin.es/#syntax-and-formatting
+1. *Extend* declarations
+ - Begin with `@extend` in your property declarations.
+2. *Property* declarations
+ - Use alphabetical ordering of properties.
+3. *Include* declarations
+ - Placing `@includes` after property declarations makes it easier to read the entire selector.
+ - Breakpoint includes should appear as the last includes, in order of size, with **one** line break above.
+4. *Nested rule* declarations
+ - When necessary, nested rules go last.
+ - Always add **one** line break between your nested rules and properties.
+
+#### Example of ordering:
+
+ ```scss
+ .button {
+     @extend %button;
+     border: 1px solid #aaa;
+     border-radius: 2px;
+     color: #333;
+     text-transform: uppercase;
+     @include fontSize('h5');
+
+     &:hover,
+     &:focus {
+         border-color: #008080;
+     }
+
+     > .icon {
+         color: #fff;
+     }
+ }
+ ```
+
+### Comments
+
+- Use `//` for comments. Do not use the CSS comment style `/* */`.
+- Separate your code into logical sections using comment title and section blocks.
+- Write detailed comments for code that isn't self-documenting.
+- Annotate your code at the end of the line.
+- Write comments for your annotations inside the relevant title or section block.
+
+```scss
+// =============================================================================
+// EXAMPLE
+// =============================================================================
+// Describe your file when necessary. Explain how it should be used.
+// This comment block is 80 characters wide.
+//
+// 1. Example annotated code.
+// -----------------------------------------------------------------------------
+
+.selectorA {
+    color: #232425;
+    text-align: center; // 1
+}
+
+
+// Section example
+// -----------------------------------------------------------------------------
+// 1. Annotate comments in title or section blocks.
+// 2. Another example of an annotated comment.
+// -----------------------------------------------------------------------------
+
+.selectorB {
+    background-color: #777;
+    float: left; // 1
+    padding: 1rem; // 2
+}
+```
+
 
 
 ## Acknowledgements
