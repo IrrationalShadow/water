@@ -12,19 +12,19 @@ These guidelines strongly encourage the use of existing, common, sensible patter
  - [Property](#property)
 2. **(S)CSS**
  - [General principles](#general-principles)
- - [Syntax](#syntax)
  - [Specificity](#specificity)
  - [Formatting](#formatting)
  - [Ordering](#ordering)
  - [Comments](#comments)
- - [Functions](#functions)
  - [Variables](#variables)
  - [Mixins](#mixins)
+ - [Functions](#functions)
  - [Extending](#extending)
  - [Nesting](#nesting)
 3. **Naming conventions**
  - [General principles]()
  - [Component classes](#component-classes)
+ - [Construct classes](#construct-classes)
  - [State classes](#state-classes)
  - [Utility classes](#utility-classes)
  - [JavaScript data-attributes](#javascript-data-attributes)
@@ -72,9 +72,10 @@ one or more property declarations. Property declarations look like this:
 ```
 
 
-## (S)CSS
+# (S)CSS
 
-### General principles
+
+## General principles
 
 - Strictly enforce and adhere to the agreed-upon style guide.
 - Don't try to prematurely optimize your code; keep it readable and understandable.
@@ -84,12 +85,10 @@ one or more property declarations. Property declarations look like this:
 - Never style patterns in unrelated pattern files (don't style a `.button` in `.table` files.).
 - Keep selector specificity as low as possible.
 - Choose simple solutions over clever solutions whenever possible.
-
-### Syntax
-
 - Use the `.scss` syntax, never the original `.sass` syntax.
 
-### Specificity
+
+## Specificity
 
 Scaling CSS as well as possible, on any large code-base, is difficult. There's a
 number of things we can do to assist us, but it can all come undone if specificity
@@ -147,19 +146,19 @@ specificity](http://cssguidelin.es/#specificity).* *To understand selector inten
 see [CSS Guidelines on Selector Intent](http://cssguidelin.es/#selector-intent).*
 
 
-### Formatting
+## Formatting
 
 The chosen code format must ensure that code is: easy to read; easy to clearly
 comment; minimizes the chance of accidentally introducing errors; and results in
 useful diffs and blames.
 
-#### 80 character line length
+### 80 character line length
 
 Whenever possible, limit the line length to a maximum of 80 characters. Doing so
 enables developers to have multiple files open side by side, and provides a
 comfortable line length for reading and commenting.
 
-#### Title block
+### Title block
 
 - Begin every file with a title block.
 - Title blocks must always have *uppercased* text.
@@ -174,7 +173,7 @@ comfortable line length for reading and commenting.
 .selector
 ```
 
-#### Section title block
+### Section title block
 
 - Group related sections under section title blocks.
 - Section titles should always use *sentence case*.
@@ -199,7 +198,7 @@ comfortable line length for reading and commenting.
 }
 ```
 
-#### Rule declaration
+### Rule declaration
 
 - Use one selector per line in multi-selector rulesets.
 - Include a single space before the opening brace of a ruleset.
@@ -212,26 +211,26 @@ comfortable line length for reading and commenting.
 - Place the closing brace of a ruleset in the same column as the first character of the ruleset.
 - Separate each rule declaration with a blank line.
 
-#### Indentation
+### Indentation
 
 - Never mix spaces and tabs for indentation.
 - Use soft-tabs (4 spaces) for indentation.
 - Use one level of indentation for each property declaration.
 
-#### Whitespace
+### Whitespace
 
 - Always be consistent in your use of whitespace.
 - Remove all trailing white-space from your file.
   - Tip: Set your editor to "show invisibles" and automatically remove end-of-line whitespace.
 - Leave one clear line at the bottom of your file.
 
-#### Quotation
+### Quotation
 
 - Use *single quotes* consistently.
 - Quote attribute values in selectors.
 - Quote all property values where applicable.
 
-#### Property values
+### Property values
 
 - Use lowercase and shorthand hex values.
 - Where allowed, avoid specifying units for zero-values (`0` opposed to `0rem`).
@@ -242,24 +241,24 @@ comfortable line length for reading and commenting.
   - Example: `margin-top: 1rem` instead of `margin: 1rem 0 0`.
 - Use shorthand property values when you must style all values.
 
-#### Units
+### Units
 
 - Use `rem` units as the primary unit type.
 - Use `px` units only when specifying a border width or radius, and the root font size.
 - Use `%` units only when necessary to position, set width or height and to make circular border radius'.
 - **Never** resort to setting a *[magic number](https://css-tricks.com/magic-numbers-in-css/)* such as `margin-left: 34px`.
 
-#### Pseudo elements and classes
+### Pseudo elements and classes
 
 - Declare *pseudo classes* with a single colon.
 - Declare *pseudo elements* with a double colon.
 
-#### Vendor prefixes
+### Vendor prefixes
 
 - Do not use vendor prefixes in your code.
 - Run [autoprefixer](https://github.com/postcss/autoprefixer) to provide the necessary vendor prefixes during a build step.
 
-#### Example of correct formatting:
+#### Example formatting:
 
 ```scss
 // =============================================================================
@@ -296,31 +295,39 @@ comfortable line length for reading and commenting.
 }
 ```
 
-### Ordering
+
+## Ordering
 
 When it comes to ordering your properties, consistency and simplicity are the most
 important factors.
 
-1. *Extend* declarations
- - Begin with `@extend` in your property declarations.
-2. *Property* declarations
+1. *Local variable* definitions.
+ - Any variables specific to one block of code can be local.
+2. *Extend* declarations
+ - Only `@extend` placeholder selectors.
+3. *Property* declarations
  - Use alphabetical ordering of properties.
-3. *Include* declarations
+4. *Include* declarations
  - Placing `@includes` after property declarations makes it easier to read the entire selector.
  - Breakpoint includes should appear as the last includes, in order of size, with **one** line break above.
-4. *Nested rule* declarations
+5. *Nested rule* declarations
  - When necessary, nested rules go last.
  - Always add **one** line break between your nested rules and properties.
 
-#### Example of ordering:
+#### Example ordering:
 
  ```scss
  .button {
+     $button-size: 3rem;
      @extend %button;
      border: 1px solid #aaa;
      border-radius: 2px;
      color: #333;
+     height: $button-size;
+     margin-top: -($button-size / 2);
+     position: absolute;
      text-transform: uppercase;
+     top: 50%;
      @include fontSize('h5');
 
      &:hover,
@@ -334,13 +341,16 @@ important factors.
  }
  ```
 
-### Comments
+
+## Comments
 
 - Use `//` for comments. Do not use the CSS comment style `/* */`.
 - Separate your code into logical sections using comment title and section blocks.
 - Write detailed comments for code that isn't self-documenting.
 - Annotate your code at the end of the line.
 - Write comments for your annotations inside the relevant title or section block.
+
+#### Example comments:
 
 ```scss
 // =============================================================================
@@ -372,11 +382,129 @@ important factors.
 ```
 
 
+## Variables
+
+Use variables appropriately. Use them to maintain the typical DRY standards.
+They should be defined at the top of the file you wish to use them in if
+global in scope, or at the top of a selectors properties for local scope. Don't
+hide your variables in a separate "settings" file.
+
+Try to avoid single use variables (variables actually used only once), they miss
+the point of variables altogether and needlessly complicate your styles.
+
+Variables should be written with one consistent naming convention, which mirrors
+class naming as much as possible. Using a variant of BEM naming, (the BEM
+methodology from Yandex) with camelCased words, all variables should follow a
+*"Base, Element, Modifier"* pattern, consisting of structured names and meaningful
+hyphens.
+
+The goal is to effectively create a variable name that both explains what it does,
+and what it relates to, in as few of words as possible.
+
+Sass variables are global in scope by default, unless you specifically specify a
+local variable (a variable defined within a selector). The naming convention
+differs slightly, depending on the scope of your variable:
+
+- Global variables follow a pattern of `<blockName>[-elementName][-propertyName][--modifier]`.
+- Local variables follow a simpler pattern of `<elementName|propertyName>[--modifier]`.
+
+*What do the symbols mean?* The words wrapped in `< >` are compulsory, the `[ ]`
+are all optional, however you must choose at least one. The `|` is simply separating
+your options, choose either option in your naming.
+
+*To simplify the terms:*
+
+- `<blockName>` will almost always be the name of your file or component/construct/utility
+(an example being `button`).
+
+- `[-elementName]`, which could either be a verb or an adjective used to describe
+the variable (an example being `-size`).
+
+- `[-propertyName]` can be defined if the variable is specific enough (an example
+being `-borderRadius`).
+
+- `[--modifier]` is used to change something specific about an existing block or
+property variable, or apply only to a sub-set of a property (examples being `--vertical`).
+
+#### Example global variables
+
+- `$button-borderRadius` uses `block-propertyName`.
+- `$chip-padding--vertical` uses `block-propertyName--modifier`.
+- `$icon-size` uses `block-elementName`.
+- `$radio-checked-borderColor` uses `block-elementName-propertyName`.
+- `$formHorizontal-label-fontSize` uses `block-elementName-propertyName`.
+
+#### Examples of local variables
+
+- `$padding` uses `propertyName`.
+- `$padding--vertical` uses `propertyName--modifier`.
+- `$size` uses `elementName`.
+- `$size--large` uses `elementName--modifier`.
+
+
+## Mixins
+
+Mixins follow a simpler naming convention, needing only to follow camelCase. Choose
+a general word or phrase to describe your mixin, being as accurate to what it
+actually does as you can.
+
+#### Example Mixins
+
+- `@mixin textTruncate()`.
+- `@mixin hidden()`.
+- `@mixin clearFloats()`.
+
+
+## Functions & maps
+
+Abstraction is also very important when naming your variables. Choose abstractions
+that allow the ability to scale, for example `fastest, faster, fast, slow, slower,
+slowest` or when sizing `largest, larger, large, small, smaller, smallest`.
+
+
+## Extending
+
+
+
+
+## Nesting
+
+
+
+
+# Naming conventions
+
+
+
+
+## Component classes
+
+
+
+
+## Construct classes
+
+
+
+## State classes
+
+
+
+## Utility classes
+
+
+
+## JavaScript data attributes
+
+
+
 
 ## Acknowledgements
 
  _These guidelines wouldn't exist without being 'influenced' by these lovely people/documents:_
+
+ - Yandex's [BEM: Key concepts](https://en.bem.info/methodology/key-concepts/)
  - Nicolas Gallagher's [SUIT CSS](http://suitcss.github.io/) and [Idiomatic CSS](https://github.com/necolas/idiomatic-css)
- - Airbnb's [CSS / Sass Styleguide](https://github.com/airbnb/css)
+ - Airbnb's [CSS / Sass styleguide](https://github.com/airbnb/css)
  - Medium's [CSS is actually pretty f***ing good](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06#.jmtwduxy9)
- - Harry Roberts' [CSS Guidelines](http://cssguidelin.es/)
+ - Harry Roberts' [CSS guidelines](http://cssguidelin.es/)
