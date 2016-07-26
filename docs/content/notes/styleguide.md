@@ -1,6 +1,6 @@
 # Sass Guidelines
 
-_The following guidelines outline an occasionally reasonable style guide for CSS development.
+_The following guidelines outline an occasionally reasonable style guide for (S)CSS development.
 These guidelines strongly encourage the use of existing, common, sensible patterns._
 
 
@@ -22,7 +22,7 @@ These guidelines strongly encourage the use of existing, common, sensible patter
  - [Extending](#extending)
  - [Nesting](#nesting)
 3. **Naming conventions**
- - [General principles]()
+ - [Convention](#convention)
  - [Component classes](#component-classes)
  - [Construct classes](#construct-classes)
  - [State classes](#state-classes)
@@ -301,7 +301,7 @@ comfortable line length for reading and commenting.
 When it comes to ordering your properties, consistency and simplicity are the most
 important factors.
 
-1. *Local variable* definitions.
+1. *Local variable* declarations
  - Any variables specific to one block of code can be local.
 2. *Extend* declarations
  - Only `@extend` placeholder selectors.
@@ -384,26 +384,24 @@ important factors.
 
 ## Variables
 
-Use variables appropriately. Use them to maintain the typical DRY standards.
-They should be defined at the top of the file you wish to use them in if
-global in scope, or at the top of a selectors properties for local scope. Don't
-hide your variables in a separate "settings" file.
+- Use variables appropriately to maintain DRY standards.
+- Avoid single-use variables, they lose the point of variables altogether.
+- Don't hide variables in a separate 'settings' file, keep them with your code.
+- Define variables at the top of the file you're using them in.
+- All variables should only be used in the file they're declared in.
+- Use local variables when applicable only to a specific selector tree.
+- Write variables with one consistent naming convention.
 
-Try to avoid single use variables (variables actually used only once), they miss
-the point of variables altogether and needlessly complicate your styles.
+Using a variant of BEM (the BEM methodology from Yandex), all variables should
+follow a *"Base, Element, Modifier"* pattern, consisting of structured names and
+meaningful hyphens. The goal is to effectively create a variable name that both
+explains what it does, and what it relates to as succinctly as possible.
 
-Variables should be written with one consistent naming convention, which mirrors
-class naming as much as possible. Using a variant of BEM naming, (the BEM
-methodology from Yandex) with camelCased words, all variables should follow a
-*"Base, Element, Modifier"* pattern, consisting of structured names and meaningful
-hyphens.
+Sass variables are global in scope by default unless you specify a local variable
+(a variable defined within a selector). The naming conventions differ slightly,
+depending on the scope of your variable.
 
-The goal is to effectively create a variable name that both explains what it does,
-and what it relates to, in as few of words as possible.
-
-Sass variables are global in scope by default, unless you specifically specify a
-local variable (a variable defined within a selector). The naming convention
-differs slightly, depending on the scope of your variable:
+#### Variable naming conventions
 
 - Global variables follow a pattern of `<blockName>[-elementName][-propertyName][--modifier]`.
 - Local variables follow a simpler pattern of `<elementName|propertyName>[--modifier]`.
@@ -412,29 +410,22 @@ differs slightly, depending on the scope of your variable:
 are all optional, however you must choose at least one. The `|` is simply separating
 your options, choose either option in your naming.
 
-*To simplify the terms:*
-
-- `<blockName>` will almost always be the name of your file or component/construct/utility
-(an example being `button`).
-
-- `[-elementName]`, which could either be a verb or an adjective used to describe
-the variable (an example being `-size`).
-
-- `[-propertyName]` can be defined if the variable is specific enough (an example
-being `-borderRadius`).
-
-- `[--modifier]` is used to change something specific about an existing block or
-property variable, or apply only to a sub-set of a property (examples being `--vertical`).
+*What do the terms mean?*
+- `<blockName>` will either match or be very similar to the name of your file.
+- `[-elementName]` could either be a verb or an adjective used to describe the variable.
+- `[-propertyName]` should be defined if the variable is specific to a property.
+- `[--modifier]` only needs to be used when you're modifying an existing variable,
+or applies to a specific
 
 #### Example global variables
 
-- `$button-borderRadius` uses `block-propertyName`.
-- `$chip-padding--vertical` uses `block-propertyName--modifier`.
-- `$icon-size` uses `block-elementName`.
-- `$radio-checked-borderColor` uses `block-elementName-propertyName`.
-- `$formHorizontal-label-fontSize` uses `block-elementName-propertyName`.
+- `$button-borderRadius` uses `blockName-propertyName`.
+- `$chip-padding--vertical` uses `blockName-propertyName--modifier`.
+- `$icon-size` uses `blockName-elementName`.
+- `$radio-checked-borderColor` uses `blockName-elementName-propertyName`.
+- `$formHorizontal-label-fontSize` uses `blockName-elementName-propertyName`.
 
-#### Examples of local variables
+#### Example local variables
 
 - `$padding` uses `propertyName`.
 - `$padding--vertical` uses `propertyName--modifier`.
@@ -473,6 +464,8 @@ slowest` or when sizing `largest, larger, large, small, smaller, smallest`.
 
 
 # Naming conventions
+
+## Convention
 
 
 
