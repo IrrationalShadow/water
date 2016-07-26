@@ -468,14 +468,14 @@ below). Make use of these functions in particular whenever you deem necessary.
 - [round($number)](http://sass-lang.com/documentation/Sass/Script/Functions.html#round-instance_method)
 
 Maps in particular have become extraordinarily useful. When combined with
-custom functions they can create a great solution to global styles such as color,
+custom functions they can create a great solution to global styles such as color
 or typography.
 
 ### Global styling functions
 
 Using the combination of custom functions and maps, you can build a global toolkit
 that will become the backbone of your styles. These global functions very clearly
-differentiate themselves from simple file variables, and build relationships between
+differentiate themselves from simple file variables and build relationships between
 your color palette or your typography choices more so than just a variable naming
 convention.
 
@@ -549,7 +549,31 @@ that allow the ability to scale. Some examples:
 
 ## Extending
 
+- `@extend` placeholder selectors only, do not extend classes or elements.
+- Never extend a placeholder selector in another file.
+- Placeholder selectors should be written in the appropriate line position.
 
+#### Example extend
+
+```scss
+%placeholder {
+    color: #333;
+    display: block;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.selectorA {
+    @extend %placeholder;
+    margin: 1rem;
+}
+
+.selectorB {
+    @extend %placeholder;
+    border: 1px solid #777;
+}
+
+```
 
 
 ## Nesting
