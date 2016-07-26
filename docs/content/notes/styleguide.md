@@ -408,7 +408,7 @@ depending on the scope of your variable.
 
 *What do the symbols mean?* The words wrapped in `< >` are compulsory, the `[ ]`
 are optional, however you must choose at least one. The `|` is simply separating
-your options, choose either option in your naming.z
+your options, choose either option in your naming.
 
 *What do the terms mean?*
 - `<blockName>` will either match or be very similar to the name of your file.
@@ -452,7 +452,7 @@ handle such things, use [autoprefixer](https://github.com/postcss/autoprefixer).
 ## Functions
 
 [Sass functions](http://sass-lang.com/documentation/Sass/Script/Functions.html)
-are fantastic. They enable a lot of new possibilities to your CSS, but remember   
+are fantastic. They enable a lot of new possibilities to your CSS, but remember
 that just because you can, doesn't mean you should. Make use of functions when
 appropriate, but don't go and be too clever. The simpler your code, the simpler
 the upkeep.
