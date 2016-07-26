@@ -50,7 +50,7 @@ with an accompanying group of properties. Here's an example:
 In a rule declaration, “selectors” are the bits that determine which elements in
 the DOM tree will be styled by the defined properties. Selectors can match HTML
 elements, as well as an element's class, ID, or any of its attributes. Here are
-ome examples of selectors:
+some examples of selectors:
 
 ```scss
 [selector] {
