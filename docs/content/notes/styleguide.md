@@ -49,8 +49,8 @@ with an accompanying group of properties. Here's an example:
 
 In a rule declaration, “selectors” are the bits that determine which elements in
 the DOM tree will be styled by the defined properties. Selectors can match HTML
-elements, as well as an element's class, ID, or any of its attributes. Here are
-some examples of selectors:
+elements, as well as an element's class, ID, or any of its attributes. Here's an
+example:
 
 ```scss
 [selector] {
@@ -392,7 +392,7 @@ important factors.
 - Use local variables when applicable only to a specific selector tree.
 - Write variables with one consistent naming convention.
 
-Using a variant of BEM (the BEM methodology from Yandex), all variables should
+Using a variant of BEM (the methodology from Yandex), all variables should
 follow a *"Base, Element, Modifier"* pattern, consisting of structured names and
 meaningful hyphens. The goal is to effectively create a variable name that both
 explains what it does, and what it relates to as succinctly as possible.
@@ -401,14 +401,14 @@ Sass variables are global in scope by default unless you specify a local variabl
 (a variable defined within a selector). The naming conventions differ slightly,
 depending on the scope of your variable.
 
-#### Variable naming conventions
+### Variable naming conventions
 
 - Global variables follow a pattern of `<blockName>[-elementName][-propertyName][--modifier]`.
 - Local variables follow a simpler pattern of `<elementName|propertyName>[--modifier]`.
 
 *What do the symbols mean?* The words wrapped in `< >` are compulsory, the `[ ]`
-are all optional, however you must choose at least one. The `|` is simply separating
-your options, choose either option in your naming.
+are optional, however you must choose at least one. The `|` is simply separating
+your options, choose either option in your naming.z
 
 *What do the terms mean?*
 - `<blockName>` will either match or be very similar to the name of your file.
@@ -439,19 +439,113 @@ Mixins follow a simpler naming convention, needing only to follow camelCase. Cho
 a general word or phrase to describe your mixin, being as accurate to what it
 actually does as you can.
 
+*Note: You don't need to create any cross-browser mixins or use any library to
+handle such things, use [autoprefixer](https://github.com/postcss/autoprefixer).*
+
 #### Example Mixins
 
-- `@mixin textTruncate()`.
-- `@mixin hidden()`.
 - `@mixin clearFloats()`.
+- `@mixin hidden()`.
+- `@mixin textTruncate()`.
 
 
-## Functions & maps
+## Functions
 
-Abstraction is also very important when naming your variables. Choose abstractions
-that allow the ability to scale, for example `fastest, faster, fast, slow, slower,
-slowest` or when sizing `largest, larger, large, small, smaller, smallest`.
+[Sass functions](http://sass-lang.com/documentation/Sass/Script/Functions.html)
+are fantastic. They enable a lot of new possibilities to your CSS, but remember   
+that just because you can, doesn't mean you should. Make use of functions when
+appropriate, but don't go and be too clever. The simpler your code, the simpler
+the upkeep.
 
+#### Notable functions
+
+There's a few functions that stand out from the crowd (more than those mentioned
+below). Make use of these functions in particular whenever you deem necessary.
+
+- [if($condition, $if-true, $if-false)](http://sass-lang.com/documentation/Sass/Script/Functions.html#if-instance_method)
+- [map-get($map, $key)](http://sass-lang.com/documentation/Sass/Script/Functions.html#map_get-instance_method)
+- [rgba($color, $alpha)](http://sass-lang.com/documentation/Sass/Script/Functions.html#rgba-instance_method)
+- [round($number)](http://sass-lang.com/documentation/Sass/Script/Functions.html#round-instance_method)
+
+Maps in particular have become extraordinarily useful. When combined with
+custom functions they can create a great solution to global styles such as color,
+or typography.
+
+### Global styling functions
+
+Using the combination of custom functions and maps, you can build a global toolkit
+that will become the backbone of your styles. These global functions very clearly
+differentiate themselves from simple file variables, and build relationships between
+your color palette or your typography choices more so than just a variable naming
+convention.
+
+One of the most popular uses of this combination is for building your color palette.
+You create a map of your colors, and a custom function such as `color()` to call
+the value you need.
+
+With this in mind, there's a handful of candidates that you should consider making
+use of throughout your styles:
+
+- Animation
+- Color
+- Spacing
+- Typography
+- Viewport
+- z-index
+
+By creating maps for each of these areas, you cover everything you need to build
+the core aesthetics for any project with the added bonus functionality that maps
+provide. Here's an example for creating a color function powered by a map:
+
+*Map*
+
+```scss
+$colorMap: (
+    'primary': (
+        'dark': #333,
+        'base': #777,
+        'light': #aaa
+    )
+);
+```
+
+*Helper function*
+
+```scss
+@function color($color, $variant: 'base') {
+    @return map-get(map-get($colorMap, $color), $variant);
+    @warn 'Unknown color `#{$color}` used in color function.';
+    @return null;
+}
+```
+
+*Sass*
+
+```scss
+.selector {
+    color: color('primary');
+}
+```
+
+*CSS*
+
+```css
+.selector {
+    color: #777;
+}
+```
+
+Abstraction is also very important when naming your map keys. Choose abstractions
+that allow the ability to scale. Some examples:
+
+- `fastest, faster, fast, slow, slower, slowest`
+- `largest, larger, large, small, smaller, smallest`
+- `darkest, darker, dark, light, lighter, lightest`
+
+*For more on using sass maps, check out these articles:*
+
+- Erskine Design's [Friendlier colour names with Sass maps](http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/).
+- Sitepoint's [Using Sass Maps](https://www.sitepoint.com/using-sass-maps/).
 
 ## Extending
 
