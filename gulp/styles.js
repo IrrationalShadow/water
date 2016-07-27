@@ -75,7 +75,7 @@ gulp.task('scss:lint', function () {
                 'extends-before-declarations': 1,
                 'extends-before-mixins': 1,
                 'final-newline': 1,
-                // 'force-pseudo-nesting': 1,
+                // 'force-pseudo-nesting': 0,
                 'function-name-format': [ 1,
                     {
                         'allow-leading-underscore': false,

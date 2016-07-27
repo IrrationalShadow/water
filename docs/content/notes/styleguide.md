@@ -437,7 +437,8 @@ or applies to a specific
 
 Mixins follow a simpler naming convention, needing only to follow camelCase. Choose
 a general word or phrase to describe your mixin, being as accurate to what it
-actually does as you can.
+actually does as you can. Generally all `@include`'s should be called *inside* your
+selectors, not the other way around.
 
 *Note: You don't need to create any cross-browser mixins or use any library to
 handle such things, use [autoprefixer](https://github.com/postcss/autoprefixer).*
@@ -578,7 +579,21 @@ that allow the ability to scale. Some examples:
 
 ## Nesting
 
+Nesting is a feature of Sass that has divided developers. Some love to use nesting,
+while others throw a blanket ban on it. There was even an article creating a rule called
+[The Inception Rule](http://thesassway.com/beginner/the-inception-rule), which was
+basically advising: "Don't nest more than 4 levels deep". In the end though, it comes
+down to the fact that [Sass doesn't create bad code, bad coders do](http://www.thesassway.com/editorial/sass-doesnt-create-bad-code-bad-coders-do).
 
+- Aim for *one* level of class and element nesting, with a hard limit at *two*.
+- Reassess all selectors that are more than two descendants in the selector.
+- Try to avoid long blocks of nested rules, readability starts to suffer.
+
+### Current thoughts for nesting/descendant selectors
+
+- nest descendant selectors when they appear inside a modifier class
+- don't nest modifier descendants if the modifier has 0 styles and there is only 1 descendant selector.
+- keep every other selector inline (like regular css)
 
 
 # Naming conventions
