@@ -75,7 +75,7 @@ gulp.task('scss:lint', function () {
                 'extends-before-declarations': 1,
                 'extends-before-mixins': 1,
                 'final-newline': 1,
-                // 'force-pseudo-nesting': 0,
+                'force-pseudo-nesting': 1,
                 'function-name-format': [ 1,
                     {
                         'allow-leading-underscore': false,
@@ -108,9 +108,9 @@ gulp.task('scss:lint', function () {
                 //         'convention': 'camelcase'
                 //     }
                 // ],
-                'nesting-depth': [ 2,
+                'nesting-depth': [ 3,
                     {
-                        'max-depth': '2'
+                        'max-depth': '3'
                     }
                 ],
                 'no-attribute-selectors': 0,

@@ -440,14 +440,48 @@ a general word or phrase to describe your mixin, being as accurate to what it
 actually does as you can. Generally all `@include`'s should be called *inside* your
 selectors, not the other way around.
 
+#### Syntax
+- When declaring a `@mixin` or calling an `@include` always write the `()`.
+- Where applicable, follow the same alphabetical sort order for multiple mixins.
+- When using a responsive breakpoint `@include`, always leave *one* empty line above.
+
 *Note: You don't need to create any cross-browser mixins or use any library to
 handle such things, use [autoprefixer](https://github.com/postcss/autoprefixer).*
 
-#### Example Mixins
+#### Example mixin declarations
 
-- `@mixin clearFloats()`.
-- `@mixin hidden()`.
-- `@mixin textTruncate()`.
+```scss
+@mixin fontSize($fontSize, $lineHeight: $fontSize) {
+    font-size: fontSize($fontSize);
+    line-height: lineHeight($lineHeight);
+}
+
+@mixin textTruncate() {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+```
+
+#### Example mixin includes
+
+```scss
+.selector {
+    @include fontSize('h3');
+    @include textTruncate();
+}
+
+.selector {
+    color: #333;
+    text-align: center;
+
+    @include breakpoint('large') {
+        color: #777;
+    }
+}
+```
 
 
 ## Functions
@@ -498,19 +532,19 @@ By creating maps for each of these areas, you cover everything you need to build
 the core aesthetics for any project with the added bonus functionality that maps
 provide. Here's an example for creating a color function powered by a map:
 
-*Map*
+*Map:*
 
 ```scss
 $colorMap: (
     'primary': (
         'dark': #333,
         'base': #777,
-        'light': #aaa
+        'light': #ccc
     )
 );
 ```
 
-*Helper function*
+*Helper function:*
 
 ```scss
 @function color($color, $variant: 'base') {
@@ -520,18 +554,20 @@ $colorMap: (
 }
 ```
 
-*Sass*
+*Sass:*
 
 ```scss
 .selector {
+    background-color: color('primary', 'light');
     color: color('primary');
 }
 ```
 
-*CSS*
+*Compiled CSS:*
 
 ```css
 .selector {
+    background-color: #aaa;
     color: #777;
 }
 ```
@@ -548,11 +584,17 @@ that allow the ability to scale. Some examples:
 - Erskine Design's [Friendlier colour names with Sass maps](http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/).
 - Sitepoint's [Using Sass Maps](https://www.sitepoint.com/using-sass-maps/).
 
+
 ## Extending
 
 - `@extend` placeholder selectors only, do not extend classes or elements.
 - Never extend a placeholder selector in another file.
 - Placeholder selectors should be written in the appropriate line position.
+
+In a scenario where you have multiple selectors with unique properties as well as
+sharing some common properties, a placeholder `@extend` could simplify your sass.
+Rather than repeating selectors in a comma separated multi-line way, you can  
+opt for a placeholder that is extended by each individual selector that needs it.
 
 #### Example extend
 
@@ -585,15 +627,64 @@ while others throw a blanket ban on it. There was even an article creating a rul
 basically advising: "Don't nest more than 4 levels deep". In the end though, it comes
 down to the fact that [Sass doesn't create bad code, bad coders do](http://www.thesassway.com/editorial/sass-doesnt-create-bad-code-bad-coders-do).
 
-- Aim for *one* level of class and element nesting, with a hard limit at *two*.
-- Reassess all selectors that are more than two descendants in the selector.
+Sass nesting and the resulting CSS selectors can be different. Don't confuse
+proper use of indentation for negative selector specificity/performance. Take the
+following sass for example:
+
+```scss
+.selector--modifier {
+    @include viewport('large') {
+        > .oneLevelDescendant {
+            display: block;
+            float: left;
+
+            &:hover {
+                color: #333;
+            }
+        }
+    }
+}
+```
+
+In sass, this above code has the class `.oneLevelDescendant` as two levels deep
+as far as nesting is concerned, where the compiled class selector is actually only
+one level deep `.selector--modifier > .oneLevelDescendant`, likewise the `:hover`
+level is a third level of nesting in sass, but when the CSS compiles the selector
+is actually `.selector--modifier > .oneLevelDescendant:hover`.
+
+With this in mind, you should have a clearer picture for why the following rules
+dictate that the sass nesting level is different to the acceptable outputted CSS
+selectors.
+
+### Nesting guidelines
+
+- There is a maximum of *three* levels of depth for nesting.
 - Try to avoid long blocks of nested rules, readability starts to suffer.
+- **Do** use the ampersand operator for chained state classes and other class selectors.
+- **Don't** use [parent selectors suffixes](http://thesassway.com/news/sass-3-3-released#parent-selector-suffixes) appended to selectors, they are harder to scan/search for.
+- Nest pseudo selectors
+
+### Compiled selector guidelines
+- CSS selectors should be at max, *one* level deep.
+- Reassess all selectors that have two or more descendants.
+
 
 ### Current thoughts for nesting/descendant selectors
 
-- nest descendant selectors when they appear inside a modifier class
+- nest descendant selectors inside a modifier class when there are *two or more* descendants
 - don't nest modifier descendants if the modifier has 0 styles and there is only 1 descendant selector.
 - keep every other selector inline (like regular css)
+
+- restrict nesting to:
+  - modifier class descendants should be nested 1 level inside the modifier
+  - pseudo selectors should be nested up to 2 levels
+  - state selectors and other chained selectors should be nested up to 2 levels
+- all other selectors, including attribute selectors should be inline
+
+### Nesting selectors
+
+- Nest chained classes.
+- Nest pseudo elements and classes
 
 
 # Naming conventions
