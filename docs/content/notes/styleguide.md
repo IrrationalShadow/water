@@ -621,18 +621,21 @@ opt for a placeholder that is extended by each individual selector that needs it
 
 ## Nesting
 
-Nesting is a feature of Sass that has divided developers. Some love to use nesting,
+Nesting is a feature of Sass that can divide developers. Some love to use nesting,
 while others throw a blanket ban on it. There was even an article creating a rule called
 [The Inception Rule](http://thesassway.com/beginner/the-inception-rule), which was
-basically advising: "Don't nest more than 4 levels deep". In the end though, it comes
-down to the fact that [Sass doesn't create bad code, bad coders do](http://www.thesassway.com/editorial/sass-doesnt-create-bad-code-bad-coders-do).
+basically advising: "Don't nest more than 4 levels deep". In the end though, it
+really comes down to the fact that [sass doesn't create bad code, bad coders do](http://www.thesassway.com/editorial/sass-doesnt-create-bad-code-bad-coders-do).
 
-Sass nesting and the resulting CSS selectors can be different. Don't confuse
-proper use of indentation for negative selector specificity/performance. Take the
-following sass for example:
+Sass nesting and the resulting CSS selectors can be different in appearance. Don't
+confuse proper use of indentation for poor selector specificity/performance.
+Take the following sass for example:
 
 ```scss
 .selector--modifier {
+    color: #111;
+    text-transform: uppercase;
+
     @include viewport('large') {
         > .oneLevelDescendant {
             display: block;
@@ -646,45 +649,76 @@ following sass for example:
 }
 ```
 
-In sass, this above code has the class `.oneLevelDescendant` as two levels deep
-as far as nesting is concerned, where the compiled class selector is actually only
-one level deep `.selector--modifier > .oneLevelDescendant`, likewise the `:hover`
-level is a third level of nesting in sass, but when the CSS compiles the selector
-is actually `.selector--modifier > .oneLevelDescendant:hover`.
+The class `.oneLevelDescendant` as two levels deep as far as nesting is concerned.
+The compiled css class selector is actually one level deep
+`.selector--modifier > .oneLevelDescendant`, and the `:hover` selector sits at a
+third level of nesting, but when the CSS compiles the selector is actually
+`.selector--modifier > .oneLevelDescendant:hover`.
 
-With this in mind, you should have a clearer picture for why the following rules
-dictate that the sass nesting level is different to the acceptable outputted CSS
-selectors.
+With this in mind, you should have a clearer picture for why the following guidelines
+dictate that the nesting level is different to the outputted CSS selectors.
 
-### Nesting guidelines
+### CSS selector guidelines
 
-- There is a maximum of *three* levels of depth for nesting.
+- Keep specificity as low as possible.
+- Selectors should have at most **one** level of descendants.
+- Restructure all selectors that have two or more descendants.
+
+### Sass nesting guidelines
+
+- There is a maximum of **three** levels of depth for nesting.
 - Try to avoid long blocks of nested rules, readability starts to suffer.
-- **Do** use the ampersand operator for chained state classes and other class selectors.
-- **Don't** use [parent selectors suffixes](http://thesassway.com/news/sass-3-3-released#parent-selector-suffixes) appended to selectors, they are harder to scan/search for.
-- Nest pseudo selectors
+- Restrict nesting to:
+  - Pseudo selectors (classes and elements).
+  - Chained class selectors (such as state classes).
+  - Modifier class descendants when there are *multiple descendant selectors*.
+- *All other selectors including attribute selectors should be written like CSS selectors.*
+- **Do** use the ampersand operator for pseudo selectors and chaining class selectors.
+- **Don't** use [parent selector suffixes](http://thesassway.com/news/sass-3-3-released#parent-selector-suffixes) (see below) appended to selectors, they are harder to scan/search for.
 
-### Compiled selector guidelines
-- CSS selectors should be at max, *one* level deep.
-- Reassess all selectors that have two or more descendants.
+#### Example of correct nesting
 
+```scss
+.button {
+    color: #333;
+    text-transform: uppercase;
 
-### Current thoughts for nesting/descendant selectors
+    &:active,
+    &.is-active {
+        border-color: #f00;
+    }
+}
 
-- nest descendant selectors inside a modifier class when there are *two or more* descendants
-- don't nest modifier descendants if the modifier has 0 styles and there is only 1 descendant selector.
-- keep every other selector inline (like regular css)
+.button[disabled] {
+    cursor: not-allowed;
+}
 
-- restrict nesting to:
-  - modifier class descendants should be nested 1 level inside the modifier
-  - pseudo selectors should be nested up to 2 levels
-  - state selectors and other chained selectors should be nested up to 2 levels
-- all other selectors, including attribute selectors should be inline
+.button--ghost {
+    background: none;
+    border: 2px solid #333;
 
-### Nesting selectors
+    &.button--primary {
+        border-color: #f00;
+    }
+}
 
-- Nest chained classes.
-- Nest pseudo elements and classes
+.table--responsiveList {
+    @include viewport('small', 'max-width') {
+        > .table-header {
+            @include hidden();
+        }
+
+        > .table-body th,
+        > .table-body td {
+            padding: spacing('half');
+
+            &:hover {
+                background-color: #eee;
+            }
+        }
+    }
+}
+```
 
 
 # Naming conventions
