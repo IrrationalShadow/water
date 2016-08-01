@@ -661,22 +661,22 @@ dictate that the nesting level is different to the outputted CSS selectors.
 ### CSS selector guidelines
 
 - Keep specificity as low as possible.
-- Selectors should have at most **one** level of descendants.
-- Restructure all selectors that have two or more descendants.
+- Selectors should aim to have **one** descendant, *with a hard limit on **two***.
+- Restructure all selectors that have **three** or more descendants.
 
 ### Sass nesting guidelines
 
 - There is a maximum of **three** levels of depth for nesting.
 - Try to avoid long blocks of nested rules, readability starts to suffer.
-- Restrict nesting to:
+- **Restrict nesting to:**
   - Pseudo selectors (classes and elements).
   - Chained class selectors (such as state classes).
-  - Modifier class descendants when there are *multiple descendant selectors*.
-- *All other selectors including attribute selectors should be written like CSS selectors.*
-- **Do** use the ampersand operator for pseudo selectors and chaining class selectors.
-- **Don't** use [parent selector suffixes](http://thesassway.com/news/sass-3-3-released#parent-selector-suffixes) (see below) appended to selectors, they are harder to scan/search for.
+  - Modifier class descendants (such as `.buttonGroup--large > .button`).
+- ***All other selectors including attribute selectors should be written like CSS selectors.***
+- **Do:** use the ampersand operator for pseudo selectors and chaining class selectors.
+- **Don't:** use [parent selector suffixes](http://thesassway.com/news/sass-3-3-released#parent-selector-suffixes) (see below) appended to selectors, they are harder to scan/search for.
 
-#### Example of correct nesting
+#### Example nesting
 
 ```scss
 .button {
@@ -691,6 +691,10 @@ dictate that the nesting level is different to the outputted CSS selectors.
 
 .button[disabled] {
     cursor: not-allowed;
+}
+
+.button + .button {
+    margin-left: 1rem;
 }
 
 .button--ghost {
