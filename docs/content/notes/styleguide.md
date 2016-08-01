@@ -661,7 +661,7 @@ dictate that the nesting level is different to the outputted CSS selectors.
 ### CSS selector guidelines
 
 - Keep specificity as low as possible.
-- Selectors should aim to have **one** descendant, *with a hard limit on **two***.
+- Selectors should aim to have **one** descendant, *with a hard limit on two*.
 - Restructure all selectors that have **three** or more descendants.
 
 ### Sass nesting guidelines
