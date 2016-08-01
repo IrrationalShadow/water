@@ -28,7 +28,9 @@ These guidelines strongly encourage the use of existing, common, sensible patter
  - [State classes](#state-classes)
  - [Utility classes](#utility-classes)
  - [JavaScript data-attributes](#javascript-data-attributes)
-4. **Acknowledgements**
+4. **Architecture**
+ - [Folder structure](#folder-structure)
+5. **Acknowledgements**
 
 
 ## Terminology
@@ -624,7 +626,7 @@ opt for a placeholder that is extended by each individual selector that needs it
 Nesting is a feature of Sass that can divide developers. Some love to use nesting,
 while others throw a blanket ban on it. There was even an article creating a rule called
 [The Inception Rule](http://thesassway.com/beginner/the-inception-rule), which was
-basically advising: "Don't nest more than 4 levels deep". In the end though, it
+basically advising: "Don't nest more than three levels deep". In the end though, it
 really comes down to the fact that [sass doesn't create bad code, bad coders do](http://www.thesassway.com/editorial/sass-doesnt-create-bad-code-bad-coders-do).
 
 Sass nesting and the resulting CSS selectors can be different in appearance. Don't
@@ -661,8 +663,8 @@ dictate that the nesting level is different to the outputted CSS selectors.
 ### CSS selector guidelines
 
 - Keep specificity as low as possible.
-- Selectors should aim to have **one** descendant, *with a hard limit on two*.
-- Restructure all selectors that have **three** or more descendants.
+- Selectors should aim to have *one* descendant, with **no more than two**.
+- Restructure all selectors that have *three* or more descendants.
 
 ### Sass nesting guidelines
 
@@ -674,7 +676,7 @@ dictate that the nesting level is different to the outputted CSS selectors.
   - Modifier class descendants (such as `.buttonGroup--large > .button`).
 - ***All other selectors including attribute selectors should be written like CSS selectors.***
 - **Do:** use the ampersand operator for pseudo selectors and chaining class selectors.
-- **Don't:** use [parent selector suffixes](http://thesassway.com/news/sass-3-3-released#parent-selector-suffixes) (see below) appended to selectors, they are harder to scan/search for.
+- **Don't:** use [parent selector suffixes](http://thesassway.com/news/sass-3-3-released#parent-selector-suffixes) appended to selectors, they are harder to scan/search for.
 
 #### Example nesting
 
@@ -689,7 +691,7 @@ dictate that the nesting level is different to the outputted CSS selectors.
     }
 }
 
-.button[disabled] {
+.button['disabled'] {
     cursor: not-allowed;
 }
 
@@ -729,23 +731,25 @@ dictate that the nesting level is different to the outputted CSS selectors.
 
 ## Convention
 
+Class naming conventions use SUIT CSS' conventions with the exception of `camelCase`
+over `PascalCase` for component names. You pay pass an optional namespace to your
+components and constructs if necessary for your project.
 
 
 
 ## Component classes
 
-
-
+Syntax: `[<namespace>-]<componentName>[-descendentName][--modifierName]`
 
 ## Construct classes
 
-
-
-## State classes
-
-
+Syntax: `[<namespace>-]<constructName>[-descendentName][--modifierName]`
 
 ## Utility classes
+
+Syntax: `u-<utilityName>-@[s|m|l|xl]`
+
+## State classes
 
 
 
