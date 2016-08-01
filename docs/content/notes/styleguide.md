@@ -735,7 +735,8 @@ Class naming conventions use SUIT CSS' conventions with the exception of `camelC
 over `PascalCase` for component names. You pay pass an optional namespace to your
 components and constructs if necessary for your project.
 
-
+http://sass-guidelin.es/
+https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
 
 ## Component classes
 
