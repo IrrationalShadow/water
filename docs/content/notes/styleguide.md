@@ -22,7 +22,7 @@ These guidelines strongly encourage the use of existing, common, sensible patter
  - [Extending](#extending)
  - [Nesting](#nesting)
 3. **Naming conventions**
- - [Convention](#convention)
+ - [Convention](#naming-conventions)
  - [Component classes](#component-classes)
  - [Construct classes](#construct-classes)
  - [State classes](#state-classes)
@@ -729,14 +729,12 @@ dictate that the nesting level is different to the outputted CSS selectors.
 
 # Naming conventions
 
-## Convention
+https://github.com/bigcommerce/sass-style-guide#components
+https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#suit-css-naming-conventions
 
 Class naming conventions use SUIT CSS' conventions with the exception of `camelCase`
-over `PascalCase` for component names. You pay pass an optional namespace to your
+over `PascalCase` for component names. You may pass an optional namespace to your
 components and constructs if necessary for your project.
-
-http://sass-guidelin.es/
-https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
 
 ## Component classes
 
@@ -752,11 +750,11 @@ Syntax: `u-<utilityName>-@[s|m|l|xl]`
 
 ## State classes
 
+Syntax: `is-<stateName>`
 
+## JavaScript hooks
 
-## JavaScript data attributes
-
-
+Syntax: `data-<name>`
 
 
 ## Acknowledgements
