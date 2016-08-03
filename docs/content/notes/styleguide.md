@@ -1,4 +1,4 @@
-# Sass Guidelines
+# Sass Styleguide
 
 _The following guidelines outline an occasionally reasonable style guide for (S)CSS development.
 These guidelines strongly encourage the use of existing, common, sensible patterns._
@@ -6,31 +6,65 @@ These guidelines strongly encourage the use of existing, common, sensible patter
 
 ## Table of contents
 
-1. **Terminology**
- - [Rule declaration](#rule-declaration)
- - [Selector](#selector)
- - [Property](#property)
-2. **(S)CSS**
- - [General principles](#general-principles)
- - [Specificity](#specificity)
+1. **Introduction**
+ - [Key principles](#general-principles)
+ - [Terminology](#terminology)
+2. **Syntax & formatting**
+ - [Syntax](#syntax)
  - [Formatting](#formatting)
  - [Ordering](#ordering)
  - [Comments](#comments)
+3. **Sass features**
  - [Variables](#variables)
  - [Mixins](#mixins)
- - [Functions](#functions)
  - [Extending](#extending)
  - [Nesting](#nesting)
-3. **Naming conventions**
+ - [Functions](#functions)
+ - [Maps](#maps)
+ - [Conditionals](#conditional-statements)
+ - [Loops](#loops)
+ - [Warnings & errors](#warnings-errors)
+4. **Specificity**
+ - [Selector specificity](#selector-specificity)
+5. **Naming conventions**
  - [Convention](#naming-conventions)
- - [Component classes](#component-classes)
- - [Construct classes](#construct-classes)
- - [State classes](#state-classes)
- - [Utility classes](#utility-classes)
- - [JavaScript data-attributes](#javascript-data-attributes)
-4. **Architecture**
+ - [Components](#components)
+ - [Constructs](#constructs)
+ - [Utilities](#utilities)
+ - [States](#states)
+ - [Data-attributes](#data-attributes)
+6. **Architecture**
+ - [OOCSS](#oocss)
+ - [DRY KISS](#dry-kiss)
  - [Folder structure](#folder-structure)
-5. **Acknowledgements**
+ - [Global style functions](#global-style-functions)
+7. **Acknowledgements**
+ - [Shamelessly influenced by:](#acknowledgements)
+
+
+# Introduction
+
+This is yet another (S)CSS Styleguide, with strong opinions on the why's and how's
+to write your styles, name your classes and so on. While reading, keep in mind that
+although the rules and guidelines are firm, they can be bent or broken when it
+makes sense to do so, as long as you can comment and articulate your reasoning
+in your code.
+
+## Key principles
+
+> Sass, being intended to write CSS, should not get much more complex than regular CSS.
+> The KISS principle (Keep It Simple Stupid) is key here and may even take precedence
+> over the DRY principle (Don’t Repeat Yourself) in some circumstances.
+*- Hugo Giraudel*
+
+- Keep it simple stupid.
+- Choose simple solutions over clever solutions whenever possible.
+- Don't try to prematurely optimize your code; keep it readable and understandable.
+- All code in any code-base should look like a single person typed it, even with multiple contributors.
+- Break down complex design patterns into small, reusable patterns.
+- Split CSS across multiple files, concatenating them during a build step.
+- Never style patterns in unrelated pattern files (don't style `.button` presentation in `.table` files).
+- Keep selector specificity as low as possible.
 
 
 ## Terminology
@@ -74,79 +108,12 @@ one or more property declarations. Property declarations look like this:
 ```
 
 
-# (S)CSS
+# Syntax & formatting
 
+## Syntax
 
-## General principles
-
-- Strictly enforce and adhere to the agreed-upon style guide.
-- Don't try to prematurely optimize your code; keep it readable and understandable.
-- All code in any code-base should look like a single person typed it, even with multiple contributors.
-- Break down complex design patterns into small, reusable patterns.
-- Split CSS across multiple files, concatenating them during a build step.
-- Never style patterns in unrelated pattern files (don't style a `.button` in `.table` files.).
-- Keep selector specificity as low as possible.
-- Choose simple solutions over clever solutions whenever possible.
-- Use the `.scss` syntax, never the original `.sass` syntax.
-
-
-## Specificity
-
-Scaling CSS as well as possible, on any large code-base, is difficult. There's a
-number of things we can do to assist us, but it can all come undone if specificity
-is abused and/or forgotten. Adhere to the following guidelines will help you on
-the path to scalability:
-
-- **Do:** Use classes in your selectors.
-- **Do:** Style the base elements.
-- **Do:** Keep your selector specificity as low as possible.
-- **Do:** Use the child selector `>` when applicable.
-- **Do:** Use `!important`, but limit its use strictly to utility classes.
-- **Don't:** Use ID's for styling.
-- **Don't:** Qualify selectors by prefixing an element.
-- **Don't:** Reference or style descendant elements in your selectors.
-- **Don't:** Chain classes together ([State classes](#state-classes) being the exception).
-- **Don't:** Write selectors with two or more descendants. (See [nesting](#nesting) below).
-- **Don't:** Write descendant selectors that will work without being nested.
-
-When following these guidelines you may still find that you're writing *location
-dependent* selectors. This is something you should be trying to avoid.
-
-*Location dependent selectors are selectors that style a class or element only
-when present inside a particular containing class or element.*
-
-Note the code block below. The *selector intent* is to style the `.selector` class
-a particular way when it appears inside the sidebar, but there's a much better way
-to achieve this. As Harry Roberts has said, *"A component shouldn’t have to live
-in a certain place to look a certain way".*
-
-```scss
-.sidebar .selector {
-    color: #333;
-}
-```
-
-There are a few problems with this code. The selector has unnecessarily increased
-the specificity of the `.selector` class, its made the properties valid only when
-`.selector` appears within the `.sidebar` class, it can confuse the developer about
-where the code belongs (does it belong with the sidebar CSS or the button CSS file?),
-and it's also no longer flexible or reusable elsewhere in your project.
-
-This can be improved by adding a modifier class to the `.selector` pattern, such
-as `.selector--primary`. This adds to the base class without extra specificity,
-while maintaining a relationship with it, and will work across your entire project.
-See below:
-
-```scss
-.selector--primary {
-    color: #333;
-}
-```
-
-*For more information on CSS Specificity, see Harry Roberts' [CSS Guidelines on
-specificity](http://cssguidelin.es/#specificity).* *To understand selector intent,
-see [CSS Guidelines on Selector Intent](http://cssguidelin.es/#selector-intent).*
-
+Use the `.scss` syntax and file extention for all sass files, never the original
+`.sass` standards and extention.
 
 ## Formatting
 
@@ -337,8 +304,8 @@ important factors.
          border-color: #008080;
      }
 
-     > .icon {
-         color: #fff;
+     &.is-active {
+         font-weight: bold;
      }
  }
  ```
@@ -384,6 +351,8 @@ important factors.
 ```
 
 
+# Sass features
+
 ## Variables
 
 - Use variables appropriately to maintain DRY standards.
@@ -394,8 +363,10 @@ important factors.
 - Use local variables when applicable only to a specific selector tree.
 - Write variables with one consistent naming convention.
 
+### Variable naming conventions
+
 Using a variant of BEM (the methodology from Yandex), all variables should
-follow a *"Base, Element, Modifier"* pattern, consisting of structured names and
+follow a *"Block, Element, Modifier"* pattern, consisting of structured names and
 meaningful hyphens. The goal is to effectively create a variable name that both
 explains what it does, and what it relates to as succinctly as possible.
 
@@ -403,14 +374,12 @@ Sass variables are global in scope by default unless you specify a local variabl
 (a variable defined within a selector). The naming conventions differ slightly,
 depending on the scope of your variable.
 
-### Variable naming conventions
-
 - Global variables follow a pattern of `<blockName>[-elementName][-propertyName][--modifier]`.
 - Local variables follow a simpler pattern of `<elementName|propertyName>[--modifier]`.
 
 *What do the symbols mean?* The words wrapped in `< >` are compulsory, the `[ ]`
 are optional, however you must choose at least one. The `|` is simply separating
-your options, choose either option in your naming.
+your available options, choose one option only.
 
 *What do the terms mean?*
 - `<blockName>` will either match or be very similar to the name of your file.
@@ -484,107 +453,6 @@ handle such things, use [autoprefixer](https://github.com/postcss/autoprefixer).
     }
 }
 ```
-
-
-## Functions
-
-[Sass functions](http://sass-lang.com/documentation/Sass/Script/Functions.html)
-are fantastic. They enable a lot of new possibilities to your CSS, but remember
-that just because you can, doesn't mean you should. Make use of functions when
-appropriate, but don't go and be too clever. The simpler your code, the simpler
-the upkeep.
-
-#### Notable functions
-
-There's a few functions that stand out from the crowd (more than those mentioned
-below). Make use of these functions in particular whenever you deem necessary.
-
-- [if($condition, $if-true, $if-false)](http://sass-lang.com/documentation/Sass/Script/Functions.html#if-instance_method)
-- [map-get($map, $key)](http://sass-lang.com/documentation/Sass/Script/Functions.html#map_get-instance_method)
-- [rgba($color, $alpha)](http://sass-lang.com/documentation/Sass/Script/Functions.html#rgba-instance_method)
-- [round($number)](http://sass-lang.com/documentation/Sass/Script/Functions.html#round-instance_method)
-
-Maps in particular have become extraordinarily useful. When combined with
-custom functions they can create a great solution to global styles such as color
-or typography.
-
-### Global styling functions
-
-Using the combination of custom functions and maps, you can build a global toolkit
-that will become the backbone of your styles. These global functions very clearly
-differentiate themselves from simple file variables and build relationships between
-your color palette or your typography choices more so than just a variable naming
-convention.
-
-One of the most popular uses of this combination is for building your color palette.
-You create a map of your colors, and a custom function such as `color()` to call
-the value you need.
-
-With this in mind, there's a handful of candidates that you should consider making
-use of throughout your styles:
-
-- Animation
-- Color
-- Spacing
-- Typography
-- Viewport
-- z-index
-
-By creating maps for each of these areas, you cover everything you need to build
-the core aesthetics for any project with the added bonus functionality that maps
-provide. Here's an example for creating a color function powered by a map:
-
-*Map:*
-
-```scss
-$colorMap: (
-    'primary': (
-        'dark': #333,
-        'base': #777,
-        'light': #ccc
-    )
-);
-```
-
-*Helper function:*
-
-```scss
-@function color($color, $variant: 'base') {
-    @return map-get(map-get($colorMap, $color), $variant);
-    @warn 'Unknown color `#{$color}` used in color function.';
-    @return null;
-}
-```
-
-*Sass:*
-
-```scss
-.selector {
-    background-color: color('primary', 'light');
-    color: color('primary');
-}
-```
-
-*Compiled CSS:*
-
-```css
-.selector {
-    background-color: #aaa;
-    color: #777;
-}
-```
-
-Abstraction is also very important when naming your map keys. Choose abstractions
-that allow the ability to scale. Some examples:
-
-- `fastest, faster, fast, slow, slower, slowest`
-- `largest, larger, large, small, smaller, smallest`
-- `darkest, darker, dark, light, lighter, lightest`
-
-*For more on using sass maps, check out these articles:*
-
-- Erskine Design's [Friendlier colour names with Sass maps](http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/).
-- Sitepoint's [Using Sass Maps](https://www.sitepoint.com/using-sass-maps/).
 
 
 ## Extending
@@ -727,6 +595,94 @@ dictate that the nesting level is different to the outputted CSS selectors.
 ```
 
 
+## Functions
+
+[Sass functions](http://sass-lang.com/documentation/Sass/Script/Functions.html)
+are fantastic. They enable a lot of new possibilities to your CSS, but remember
+that just because you can, doesn't mean you should. Make use of functions when
+appropriate, but don't go and be too clever. The simpler your code, the simpler
+the upkeep.
+
+#### Notable functions
+
+There's a few functions that stand out from the crowd (more than those mentioned
+below). Make use of these functions in particular whenever you deem necessary.
+
+- [if($condition, $if-true, $if-false)](http://sass-lang.com/documentation/Sass/Script/Functions.html#if-instance_method)
+- [map-get($map, $key)](http://sass-lang.com/documentation/Sass/Script/Functions.html#map_get-instance_method)
+- [rgba($color, $alpha)](http://sass-lang.com/documentation/Sass/Script/Functions.html#rgba-instance_method)
+- [round($number)](http://sass-lang.com/documentation/Sass/Script/Functions.html#round-instance_method)
+
+#### Example function
+
+```scss
+@function color($color, $variant: 'base') {
+    @return map-get(map-get($colorMap, $color), $variant);
+    @warn 'Unknown color `#{$color}` used in color function.';
+    @return null;
+}
+```
+
+
+# Specificity
+
+## Class specificity
+
+Scaling CSS as well as possible, on any large code-base, is difficult. There's a
+number of things we can do to assist us, but it can all come undone if specificity
+is abused and/or forgotten. Adhere to the following guidelines will help you on
+the path to scalability:
+
+- **Do** use classes in your selectors.
+- **Do** style the base elements.
+- **Do** keep your selector specificity as low as possible.
+- **Do** use the child selector `>` when applicable.
+- **Do** use `!important`, but limit its use strictly to utility classes.
+- **Don't** use ID's for styling.
+- **Don't** qualify selectors by prefixing an element.
+- **Don't** reference or style descendant elements in your selectors.
+- **Don't** write selectors with more than two descendants. (See [nesting](#nesting)).
+- **Don't** write descendant selectors that will work without being nested.
+
+When following these guidelines you may still find that you're writing *location
+dependent* selectors. This is something you should be trying to avoid.
+
+*Location dependent selectors are selectors that style a class or element only
+when present inside a particular containing class or element.*
+
+Note the code block below. The *selector intent* is to style the `.selector` class
+a particular way when it appears inside the sidebar, but there's a much better way
+to achieve this. As Harry Roberts has said, *"A component shouldn’t have to live
+in a certain place to look a certain way".*
+
+```scss
+.sidebar .selector {
+    color: #333;
+}
+```
+
+There are a few problems with this code. The selector has unnecessarily increased
+the specificity of the `.selector` class, its made the properties valid only when
+`.selector` appears within the `.sidebar` class, it can confuse the developer about
+where the code belongs (does it belong with the sidebar CSS or the button CSS file?),
+and it's also no longer flexible or reusable elsewhere in your project.
+
+This can be improved by adding a modifier class to the `.selector` pattern, such
+as `.selector--primary`. This adds to the base class without extra specificity,
+while maintaining a relationship with it, and will work across your entire project.
+See below:
+
+```scss
+.selector--primary {
+    color: #333;
+}
+```
+
+*For more information on CSS Specificity, see Harry Roberts' [CSS Guidelines on
+specificity](http://cssguidelin.es/#specificity).* *To understand selector intent,
+see [CSS Guidelines on Selector Intent](http://cssguidelin.es/#selector-intent).*
+
+
 # Naming conventions
 
 https://github.com/bigcommerce/sass-style-guide#components
@@ -740,29 +696,122 @@ components and constructs if necessary for your project.
 
 Syntax: `[<namespace>-]<componentName>[-descendentName][--modifierName]`
 
+
 ## Construct classes
 
 Syntax: `[<namespace>-]<constructName>[-descendentName][--modifierName]`
+
 
 ## Utility classes
 
 Syntax: `u-<utilityName>-@[s|m|l|xl]`
 
+
 ## State classes
 
 Syntax: `is-<stateName>`
+
 
 ## JavaScript hooks
 
 Syntax: `data-<name>`
 
 
-## Acknowledgements
+# Architecture
 
- _These guidelines wouldn't exist without being 'influenced' by these lovely people/documents:_
+## Global style functions
 
- - Yandex's [BEM: Key concepts](https://en.bem.info/methodology/key-concepts/)
+Sass maps are extraordinarily useful. When combined with custom functions they
+can be utilised as a great solution to global styles such as color or typography.
+
+Using the combination of custom functions and maps, you can build a global toolkit
+that will become the backbone of your styles. These global functions very clearly
+differentiate themselves from simple file variables and build relationships between
+your color palette or your typography choices more so than just a variable naming
+convention.
+
+One of the most popular uses of this combination is for building your color palette.
+You create a map of your colors, and a custom function such as `color()` to call
+the value you need.
+
+With this in mind, there's a handful of candidates that you should consider making
+use of throughout all of your sass:
+
+- Animation
+- Color
+- Spacing
+- Typography
+- Viewport
+- z-index
+
+By creating maps for each of these areas, you cover everything you need to build
+the core aesthetics for any project with the added bonus functionality that maps
+provide. Here's an example for creating a color function powered by a map:
+
+*Map:*
+
+```scss
+$colorMap: (
+    'primary': (
+        'dark': #333,
+        'base': #777,
+        'light': #ccc
+    )
+);
+```
+
+*Helper function:*
+
+```scss
+@function color($color, $variant: 'base') {
+    @return map-get(map-get($colorMap, $color), $variant);
+    @warn 'Unknown color `#{$color}` used in color function.';
+    @return null;
+}
+```
+
+*Sass:*
+
+```scss
+.selector {
+    background-color: color('primary', 'light');
+    color: color('primary');
+}
+```
+
+*Compiled CSS:*
+
+```css
+.selector {
+    background-color: #aaa;
+    color: #777;
+}
+```
+
+Abstraction is also very important when naming your map keys. Choose abstractions
+that allow the ability to scale. Some examples:
+
+- `fastest, faster, fast, slow, slower, slowest`
+- `largest, larger, large, small, smaller, smallest`
+- `darkest, darker, dark, light, lighter, lightest`
+
+*For more on using sass maps, check out these articles:*
+
+- Erskine Design's [Friendlier colour names with Sass maps](http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/).
+- Sitepoint's [Using Sass Maps](https://www.sitepoint.com/using-sass-maps/).
+
+
+# Acknowledgements
+
+ *These guidelines wouldn't exist without being shamelessly influenced by these
+ lovely people/documents:*
+
  - Nicolas Gallagher's [SUIT CSS](http://suitcss.github.io/) and [Idiomatic CSS](https://github.com/necolas/idiomatic-css)
  - Airbnb's [CSS / Sass styleguide](https://github.com/airbnb/css)
- - Medium's [CSS is actually pretty f***ing good](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06#.jmtwduxy9)
+ - Hugo Giraudel's [Sass guidelines](http://sass-guidelin.es/)
  - Harry Roberts' [CSS guidelines](http://cssguidelin.es/)
+ - Brad Frosts' [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/)
+ - Medium's [CSS is actually pretty f***ing good](https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06#.jmtwduxy9)
+ - Yandex's [BEM: Key concepts](https://en.bem.info/methodology/key-concepts/)
+ - Nicole Sullivan's [Media object saves hundreds of lines of code](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) & [OOCSS](https://github.com/stubbornella/oocss/wiki)
+ - Jonathan Snook's [SMACSS State rules](https://smacss.com/book/type-state)
