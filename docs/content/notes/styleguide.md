@@ -26,6 +26,7 @@ These guidelines strongly encourage the use of existing, common, sensible patter
  - [Warnings & errors](#warnings-errors)
 4. **Specificity**
  - [Selector specificity](#selector-specificity)
+ - [Location dependent selectors](#location-dependent-selectors)
 5. **Naming conventions**
  - [Convention](#naming-conventions)
  - [Components](#components)
@@ -34,8 +35,7 @@ These guidelines strongly encourage the use of existing, common, sensible patter
  - [States](#states)
  - [Data-attributes](#data-attributes)
 6. **Architecture**
- - [OOCSS](#oocss)
- - [DRY KISS](#dry-kiss)
+ - [Methodology](#methodology)
  - [Folder structure](#folder-structure)
  - [Global style functions](#global-style-functions)
 7. **Acknowledgements**
@@ -55,7 +55,7 @@ in your code.
 > Sass, being intended to write CSS, should not get much more complex than regular CSS.
 > The KISS principle (Keep It Simple Stupid) is key here and may even take precedence
 > over the DRY principle (Don’t Repeat Yourself) in some circumstances.
-*- Hugo Giraudel*
+&mdash; *Hugo Giraudel*
 
 - Keep it simple stupid.
 - Choose simple solutions over clever solutions whenever possible.
@@ -466,7 +466,7 @@ sharing some common properties, a placeholder `@extend` could simplify your sass
 Rather than repeating selectors in a comma separated multi-line way, you can  
 opt for a placeholder that is extended by each individual selector that needs it.
 
-#### Example extend
+#### Example placeholder extend
 
 ```scss
 %placeholder {
@@ -626,7 +626,7 @@ below). Make use of these functions in particular whenever you deem necessary.
 
 # Specificity
 
-## Class specificity
+## Selector specificity
 
 Scaling CSS as well as possible, on any large code-base, is difficult. There's a
 number of things we can do to assist us, but it can all come undone if specificity
@@ -644,16 +644,19 @@ the path to scalability:
 - **Don't** write selectors with more than two descendants. (See [nesting](#nesting)).
 - **Don't** write descendant selectors that will work without being nested.
 
-When following these guidelines you may still find that you're writing *location
-dependent* selectors. This is something you should be trying to avoid.
+When following these guidelines you may still find that you're writing location
+dependent selectors. This is something you should be trying to avoid.
+
+## Location dependent selectors
 
 *Location dependent selectors are selectors that style a class or element only
-when present inside a particular containing class or element.*
+when present inside a specific containing class or element.*
 
 Note the code block below. The *selector intent* is to style the `.selector` class
-a particular way when it appears inside the sidebar, but there's a much better way
-to achieve this. As Harry Roberts has said, *"A component shouldn’t have to live
-in a certain place to look a certain way".*
+a particular way, but currently the styles will only work when it's inside the
+`.sidebar` container. What should we do if we want these styles to appear inside
+another section of the website/app? As Harry Roberts has said, *"A component
+shouldn’t have to live in a certain place to look a certain way".*
 
 ```scss
 .sidebar .selector {
@@ -718,6 +721,32 @@ Syntax: `data-<name>`
 
 
 # Architecture
+
+http://sass-guidelin.es/#architecture
+http://cssguidelin.es/#selector-intent
+https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#suit-css-naming-conventions
+https://github.com/StrangePurple/styleguide/blob/master/pages/css.md#format
+https://github.com/bigcommerce/sass-style-guide#variable-maps
+https://github.com/airbnb/css#oocss-and-bem
+http://bradfrost.com/blog/post/atomic-web-design/
+
+
+## Methodology
+
+### DRY
+Don't repeat yourself.
+
+### KISS
+Keep it simple stupid.
+
+### OOCSS
+Object oriented CSS.
+
+### Atomic Design
+Atomic design
+
+### BEM & SUIT CSS
+`.blockName-elementName--modifierName`
 
 ## Global style functions
 
