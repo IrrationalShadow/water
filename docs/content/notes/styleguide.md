@@ -239,14 +239,14 @@ comfortable line length for reading and commenting.
     padding-top: 1rem;
     text-transform: uppercase;
     width: calc(100% - 8rem);
-}
 
-.selector:hover {
-    border-color: #daa520;
-}
+    &:hover {
+        border-color: #daa520;
+    }
 
-.selector::before {
-    content: 'Hello';
+    &::before {
+        content: 'Hello';
+    }
 }
 
 
@@ -693,7 +693,11 @@ We all know naming things is hard, even without quoting Phil Karlton. When it
 comes to naming CSS classes it's not any easier, but it can become a little less
 daunting when you know what *not* to name classes.
 
-
+http://sass-guidelin.es/
+http://nicolasgallagher.com/about-html-semantics-front-end-architecture/#distinguishing-between-different-types-of-html-semantics
+http://cssguidelin.es/#naming
+https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#suit-css-naming-conventions
+https://github.com/airbnb/css#oocss-and-bem
 
 ## Naming conventions
 
