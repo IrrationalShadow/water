@@ -26,7 +26,7 @@ These guidelines strongly encourage the use of existing, common, sensible patter
  - [Warnings & errors](#warnings-errors)
 4. **Specificity**
  - [Selector specificity](#selector-specificity)
- - [Location dependent selectors](#location-dependent-selectors)
+ - [Separate container and content](#separate-container-and-content)
 5. **Naming conventions**
  - [Convention](#naming-conventions)
  - [Components](#components)
@@ -647,32 +647,33 @@ the path to scalability:
 When following these guidelines you may still find that you're writing location
 dependent selectors. This is something you should be trying to avoid.
 
-## Location dependent selectors
+## Separate container and content
 
 *Location dependent selectors are selectors that style a class or element only
 when present inside a specific containing class or element.*
 
-Note the code block below. The *selector intent* is to style the `.selector` class
+Note the code block below. The *selector intent* is to style the `.button` class
 a particular way, but currently the styles will only work when it's inside the
 `.sidebar` container. What should we do if we want these styles to appear inside
-another section of the website/app? As Harry Roberts has said, *"A component
-shouldn’t have to live in a certain place to look a certain way".*
+another section of the website/app? A component should look the same no matter
+where you put it.
 
 ```scss
-.sidebar .selector {
+.sidebar .button {
     color: #333;
 }
 ```
 
-There are a few problems with this code. The selector has unnecessarily increased
-the specificity of the `.selector` class, its made the properties valid only when
-`.selector` appears within the `.sidebar` class, it can confuse the developer about
-where the code belongs (does it belong with the sidebar CSS or the button CSS file?),
-and it's also no longer flexible or reusable elsewhere in your project.
+There are a few problems with this code. The selector has:
 
-This can be improved by adding a modifier class to the `.selector` pattern, such
-as `.selector--primary`. This adds to the base class without extra specificity,
-while maintaining a relationship with it, and will work across your entire project.
+1. Unnecessarily increased the specificity of the `.button` class.
+2. It's no longer flexible or reusable elsewhere in your project.
+3. It can confuse the developer about where the code belongs.
+
+This can be improved by adding a modifier class to the `.button` pattern, such
+as `.button--primary`. This adds to the base class without extra specificity,
+maintaining a relationship with it, and will work across your entire project.
+
 See below:
 
 ```scss
@@ -683,7 +684,9 @@ See below:
 
 *For more information on CSS Specificity, see Harry Roberts' [CSS Guidelines on
 specificity](http://cssguidelin.es/#specificity).* *To understand selector intent,
-see [CSS Guidelines on Selector Intent](http://cssguidelin.es/#selector-intent).*
+see [CSS Guidelines on Selector Intent](http://cssguidelin.es/#selector-intent).
+See the [OOCSS Wiki](https://github.com/stubbornella/oocss/wiki#separate-structure-and-skin)
+for information on separating style concerns.*
 
 
 # Naming conventions
@@ -722,44 +725,131 @@ Syntax: `data-<name>`
 
 # Architecture
 
-http://sass-guidelin.es/#architecture
-http://cssguidelin.es/#selector-intent
-https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#suit-css-naming-conventions
-https://github.com/StrangePurple/styleguide/blob/master/pages/css.md#format
-https://github.com/bigcommerce/sass-style-guide#variable-maps
-https://github.com/airbnb/css#oocss-and-bem
-http://bradfrost.com/blog/post/atomic-web-design/
-
-
 ## Methodology
 
-### DRY
-Don't repeat yourself.
+If you've read this far, you've probably got a fairly good idea of the decisions
+made and the multiple methodologies used. This styleguide adheres to a methodology
+that really just splices together a number of old and modern principles and
+methodologies in a cohesive way. To break it down here's the biggest influences:
 
-### KISS
-Keep it simple stupid.
+### DRY KISS
+Don't repeat yourself. Keep it simple stupid. These two key principles are the
+foundations of this coding styleguide. The DRY principle applies to your sass,
+allowing your compiled CSS to have some repetition when it makes sense to do so.
+With equal importance, your sass should also be kept as simple as possible. Sass
+can do many complicated things very well, but in then end its intention is to
+output CSS. Your sass doesn't need to get much more complicated than that.
 
-### OOCSS
-Object oriented CSS.
+Don't over-engineer your styling. Don't write code that may be very clever, but
+is very hard for others to follow/digest. You're not building a rocket, so keep
+it simple stupid.
 
-### Atomic Design
-Atomic design
+### OOCSS & Atomic Design
+Object-oriented CSS and Atomic Design. There's been several methodologies and
+coding styles/patterns built around the idea of reusable UI components, these
+two in particular speaking quite loudly.
+
+Nicole Sullivan popularised the concept of object-oriented CSS back in 2010 by
+creating the [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/).
+The idea was simple, to encourage you to think about your CSS as reusable objects
+that can be used independently throughout your website. The two main principles
+are separating structure from skin, and separating container from content. The
+most popular way to describe this concept is to think of your objects as lego
+pieces that you fit together in whatever combination you need.
+
+[Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) is a more recent
+methodology, created by Brad Frost. It takes the core concepts of OOCSS and runs
+with them in a style that breaks down your UI into logical chunks from smallest
+to largest, or from 'atoms' to 'molecules' to 'organisms'. It wants you to stop
+thinking of building 'a home page' (or any web page) and start thinking of building
+the pieces that make up that web page.
 
 ### BEM & SUIT CSS
-`.blockName-elementName--modifierName`
+
+Another methodology which kicked off a lot of similar naming conventions is [BEM](https://en.bem.info/methodology/key-concepts/)
+(Block-Element-Modifier), a class naming convention created by Yandex with large
+codebases and scalability in mind. BEM solidifies the OOCSS/Atomic Design methodologies
+mentioned above. Each larger piece of UI can be referred to as a 'block', with its
+descendants being 'elements' and any 'modifier' - an entity that defines the
+appearance and behaviour of a block or an element.
+
+Nicholas Gallagher, as part of [SUIT CSS](https://github.com/suitcss/suit), created
+a variant of BEM naming conventions that relies on structured class names and
+meaningful hyphens, and adds to it a utility class format and state class format,
+rounding out everything you'll need to construct a well built design system.
+
+
+## Folder structure
+
+### Toolkit
+- Has no outputted styles.
+- Contains the global settings (maps and functions).
+- Contains the global tools (mixins and functions).
+
+-----
+
+### Layout
+- Is the designs structural layout (skeleton/wireframe only).
+- Can define a container class for fixed width global scoped content.
+- Has limited visual styling (Background, border, margin/padding) only.
+- *Examples: Header, Body and Footer content zones.*
+
+### Components
+- Are small, independent, multi-purposed building blocks.
+- Are simple and self-contained.
+- Have no concept of layout present.
+- *Examples: Buttons, Icons, Inputs, Typography.*
+
+### Constructs
+- Are one or more components, which requires specific layout or visuals.
+- Are complex and self-contained.
+- Can be nested inside other constructs.
+- *Examples: Accordions, Cards, Dialogs, Tables.*
+
+### Utilities
+- Are immutable classes.
+- Are typically single property classes.
+- Have one very specific, overriding purpose.
+- *Examples: Visibility classes, Grid classes, Width classes.*
+
+-----
+
+#### Example folder structure
+
+- `/toolkit`
+  - `/settings`
+    - `_name-settings.scss`
+  - `/tools`
+    - `_name-tools.scss`
+  - `_toolkit.scss`
+- `/layout`
+  - `_layout.scss`
+- `/components`
+  - `/component`
+    - `_component-structure.scss`
+    - `_component-theme.scss`
+  - `_components.scss`
+- `/constructs`
+  - `/construct`
+    - `_construct-structure.scss`
+    - `_construct-theme.scss`
+  - `_constructs.scss`
+- `/utilities`
+  - `/utility`
+    - `_utility-utilities.scss`
+- `project.scss`
+
 
 ## Global style functions
 
 Sass maps are extraordinarily useful. When combined with custom functions they
 can be utilised as a great solution to global styles such as color or typography.
+These global functions very clearly differentiate themselves from simple file
+variables, they convey global importance and build relationships between your
+color palette, typography, etc more so than basic variables.
 
-Using the combination of custom functions and maps, you can build a global toolkit
-that will become the backbone of your styles. These global functions very clearly
-differentiate themselves from simple file variables and build relationships between
-your color palette or your typography choices more so than just a variable naming
-convention.
-
-One of the most popular uses of this combination is for building your color palette.
+You can build a global toolkit that will become the backbone of your styles. One
+of the most popular uses of this combination is for building your color palette.
 You create a map of your colors, and a custom function such as `color()` to call
 the value you need.
 
@@ -818,13 +908,14 @@ $colorMap: (
 ```
 
 Abstraction is also very important when naming your map keys. Choose abstractions
-that allow the ability to scale. Some examples:
+that allow the ability to scale. The scale you choose doesn't necessarily matter,
+as long as it's clearly understood by others. Some examples:
 
 - `fastest, faster, fast, slow, slower, slowest`
 - `largest, larger, large, small, smaller, smallest`
 - `darkest, darker, dark, light, lighter, lightest`
 
-*For more on using sass maps, check out these articles:*
+*For more on using sass maps in this way, check out these articles:*
 
 - Erskine Design's [Friendlier colour names with Sass maps](http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/).
 - Sitepoint's [Using Sass Maps](https://www.sitepoint.com/using-sass-maps/).
@@ -832,7 +923,7 @@ that allow the ability to scale. Some examples:
 
 # Acknowledgements
 
- *These guidelines wouldn't exist without being shamelessly influenced by these
+*These guidelines wouldn't exist without being shamelessly influenced by these
  lovely people/documents:*
 
  - Nicolas Gallagher's [SUIT CSS](http://suitcss.github.io/) and [Idiomatic CSS](https://github.com/necolas/idiomatic-css)
