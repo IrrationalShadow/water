@@ -27,13 +27,9 @@ These guidelines strongly encourage the use of existing, common, sensible patter
 4. **Specificity**
  - [Selector specificity](#selector-specificity)
  - [Separate container and content](#separate-container-and-content)
-5. **Naming conventions**
- - [Convention](#naming-conventions)
- - [Components](#components)
- - [Constructs](#constructs)
- - [Utilities](#utilities)
- - [States](#states)
- - [Data-attributes](#data-attributes)
+5. **Class naming**
+ - [Naming classes is hard](#naming-classes-is-hard)
+ - [Naming conventions](#naming-conventions)
 6. **Architecture**
  - [Methodology](#methodology)
  - [Folder structure](#folder-structure)
@@ -689,36 +685,43 @@ See the [OOCSS Wiki](https://github.com/stubbornella/oocss/wiki#separate-structu
 for information on separating style concerns.*
 
 
-# Naming conventions
+# Class naming
 
-https://github.com/bigcommerce/sass-style-guide#components
-https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#suit-css-naming-conventions
+## Naming classes is hard
+
+We all know naming things is hard, even without quoting Phil Karlton. When it
+comes to naming CSS classes it's not any easier, but it can become a little less
+daunting when you know what *not* to name classes.
+
+
+
+## Naming conventions
 
 Class naming conventions use SUIT CSS' conventions with the exception of `camelCase`
 over `PascalCase` for component names. You may pass an optional namespace to your
 components and constructs if necessary for your project.
 
-## Component classes
+### Component classes
 
 Syntax: `[<namespace>-]<componentName>[-descendentName][--modifierName]`
 
 
-## Construct classes
+### Construct classes
 
 Syntax: `[<namespace>-]<constructName>[-descendentName][--modifierName]`
 
 
-## Utility classes
+### Utility classes
 
-Syntax: `u-<utilityName>-@[s|m|l|xl]`
+Syntax: `u-<utilityName>[-@[s|m|l|xl]]`
 
 
-## State classes
+### State classes
 
 Syntax: `is-<stateName>`
 
 
-## JavaScript hooks
+### JavaScript hooks
 
 Syntax: `data-<name>`
 
@@ -733,6 +736,7 @@ that really just splices together a number of old and modern principles and
 methodologies in a cohesive way. To break it down here's the biggest influences:
 
 ### DRY KISS
+
 Don't repeat yourself. Keep it simple stupid. These two key principles are the
 foundations of this coding styleguide. The DRY principle applies to your sass,
 allowing your compiled CSS to have some repetition when it makes sense to do so.
@@ -745,6 +749,7 @@ is very hard for others to follow/digest. You're not building a rocket, so keep
 it simple stupid.
 
 ### OOCSS & Atomic Design
+
 Object-oriented CSS and Atomic Design. There's been several methodologies and
 coding styles/patterns built around the idea of reusable UI components, these
 two in particular speaking quite loudly.
@@ -785,8 +790,8 @@ rounding out everything you'll need to construct a well built design system.
 - Has no outputted styles.
 - Contains the global settings (maps and functions).
 - Contains the global tools (mixins and functions).
-
------
+- *Example settings: Animation Colors, Spacing, Type*
+- *Example tools: Calculations, Float, Shape, Type*
 
 ### Layout
 - Is the designs structural layout (skeleton/wireframe only).
@@ -812,32 +817,32 @@ rounding out everything you'll need to construct a well built design system.
 - Have one very specific, overriding purpose.
 - *Examples: Visibility classes, Grid classes, Width classes.*
 
------
-
 #### Example folder structure
 
-- `/toolkit`
-  - `/settings`
-    - `_name-settings.scss`
-  - `/tools`
-    - `_name-tools.scss`
-  - `_toolkit.scss`
-- `/layout`
-  - `_layout.scss`
-- `/components`
-  - `/component`
-    - `_component-structure.scss`
-    - `_component-theme.scss`
-  - `_components.scss`
-- `/constructs`
-  - `/construct`
-    - `_construct-structure.scss`
-    - `_construct-theme.scss`
-  - `_constructs.scss`
-- `/utilities`
-  - `/utility`
-    - `_utility-utilities.scss`
-- `project.scss`
+```scss
+/toolkit
+    /settings
+        _name-settings.scss
+    /tools
+        _name-tools.scss
+    _toolkit.scss
+/layout
+    _layout.scss
+/components
+    /component
+        _component-structure.scss
+        _component-theme.scss
+    _components.scss
+/constructs
+    /construct
+        _construct-structure.scss
+        _construct-theme.scss
+    _constructs.scss
+/utilities
+    /utility
+        _utility-utilities.scss
+project.scss
+```
 
 
 ## Global style functions
@@ -926,7 +931,7 @@ as long as it's clearly understood by others. Some examples:
 *These guidelines wouldn't exist without being shamelessly influenced by these
  lovely people/documents:*
 
- - Nicolas Gallagher's [SUIT CSS](http://suitcss.github.io/) and [Idiomatic CSS](https://github.com/necolas/idiomatic-css)
+ - Nicolas Gallagher's [SUIT CSS](http://suitcss.github.io/), [Idiomatic CSS](https://github.com/necolas/idiomatic-css), and [About HTML semantics and front-end architecture](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
  - Airbnb's [CSS / Sass styleguide](https://github.com/airbnb/css)
  - Hugo Giraudel's [Sass guidelines](http://sass-guidelin.es/)
  - Harry Roberts' [CSS guidelines](http://cssguidelin.es/)
