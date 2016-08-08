@@ -27,7 +27,7 @@ These guidelines strongly encourage the use of existing, common, sensible patter
 4. **Specificity**
  - [Selector specificity](#selector-specificity)
  - [Separate container and content](#separate-container-and-content)
-5. **Class naming**
+5. **Naming**
  - [Naming classes is hard](#naming-classes-is-hard)
  - [Naming conventions](#naming-conventions)
 6. **Architecture**
@@ -373,11 +373,14 @@ depending on the scope of your variable.
 - Global variables follow a pattern of `<blockName>[-elementName][-propertyName][--modifier]`.
 - Local variables follow a simpler pattern of `<elementName|propertyName>[--modifier]`.
 
-*What do the symbols mean?* The words wrapped in `< >` are compulsory, the `[ ]`
+*What do the symbols mean?*
+
+The words wrapped in `< >` are compulsory, the `[ ]`
 are optional, however you must choose at least one. The `|` is simply separating
 your available options, choose one option only.
 
 *What do the terms mean?*
+
 - `<blockName>` will either match or be very similar to the name of your file.
 - `[-elementName]` could either be a verb or an adjective used to describe the variable.
 - `[-propertyName]` should be defined if the variable is specific to a property.
@@ -459,7 +462,7 @@ handle such things, use [autoprefixer](https://github.com/postcss/autoprefixer).
 
 In a scenario where you have multiple selectors with unique properties as well as
 sharing some common properties, a placeholder `@extend` could simplify your sass.
-Rather than repeating selectors in a comma separated multi-line way, you can  
+Rather than repeating selectors in a comma separated multi-line way, you can
 opt for a placeholder that is extended by each individual selector that needs it.
 
 #### Example placeholder extend
@@ -685,19 +688,105 @@ See the [OOCSS Wiki](https://github.com/stubbornella/oocss/wiki#separate-structu
 for information on separating style concerns.*
 
 
-# Class naming
+# Naming
 
 ## Naming classes is hard
 
-We all know naming things is hard, even without quoting Phil Karlton. When it
-comes to naming CSS classes it's not any easier, but it can become a little less
-daunting when you know what *not* to name classes.
+*Nicolas Gallagher has written a great article covering HTML semantics and front-end
+architecture. There's a section on class naming that I can't recommend enough,
+and will be referencing throughout this part of the styleguide. For more information
+see his article on [distinguishing between different types of HTML semantics](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/#distinguishing-between-different-types-of-html-semantics).*
 
-http://sass-guidelin.es/
-http://nicolasgallagher.com/about-html-semantics-front-end-architecture/#distinguishing-between-different-types-of-html-semantics
-http://cssguidelin.es/#naming
-https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#suit-css-naming-conventions
-https://github.com/airbnb/css#oocss-and-bem
+We all know naming things is hard, even without quoting Phil Karlton. When it
+comes to naming CSS classes it's not any easier. Developers can struggle to come
+up with class names for individual UI pieces, especially ones that aren't as
+obvious as `.button` or `.modal`. For example, you've been handed a design that
+is a list of news articles, with a title, date, and short description. You quickly
+build the HTML and throw on a couple of classes resulting in something like this:
+
+```html
+<div class="news">
+  <h2>News</h2>
+  <article class="news-article">
+    <h3>Article headline</h3>
+    <p>Butcher waistcoat austin art party franzen, letterpress cardigan...</p>
+  </article>
+</div>
+```
+
+The class names `news` and descendant `news-article` don't tell you anything that's
+not already obvious from viewing the content, and cannot be used (or even worse, is used)
+with content that isn't news.
+
+> Tying your class name semantics tightly to the nature of the content has already
+reduced the ability of your architecture to scale or be easily put to use by other
+developers.
+&mdash; *Nicolas Gallagher*
+
+So how do you name your classes? You should be focusing on the repeating structural
+and functional patterns in the design, not on the content. Class names that are
+independent of the content, but do not literally describe the presentation. The
+poster child for abstraction is the [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/)
+by Nicole Sullivan.
+
+> The most reusable components are those with class names that are independent of
+the content.
+&mdash; *Nicolas Gallagher*
+
+> It is important to strike a balance between names that do not literally describe
+the style that the class brings, but also ones that do not explicitly describe
+specific use cases.
+&mdash; *Harry Roberts*
+
+#### Recommended
+
+- Highly reusable class names.
+- Classes that are as short as possible but as long as necessary.
+- Classes that communicate useful information *to developers*.
+
+```scss
+.nav {
+    margin-bottom: 1rem;
+}
+
+.button {
+    font-size: 1rem;
+}
+
+.thumbnail {
+    border: 1px solid #333;
+}
+```
+
+#### Not recommended
+
+- Don't create class names that describe the content or use cases.
+- Don't name classes based on location of content.
+- Don't name classes based on presentation.
+
+```scss
+.navigation {
+    margin-bottom: 1rem;
+}
+
+.btn {
+    font-size: 1rem;
+}
+
+.news-thumbnail {
+    border: 1px solid #333;
+}
+```
+
+### When building complex UI
+
+With this approach to class naming, your complex pieces of UI can likely involve
+several different pieces being used together. Combinations of these reusable,
+content agnostic classes when used together can benefit from adding a specific
+or meaningful name to sit alongside or to wrap the UI.
+
+Harry Roberts suggests adding a data attribute to your HTML if your containing
+element or component could benefit from a meaningful name.
 
 ## Naming conventions
 
@@ -786,7 +875,6 @@ Nicholas Gallagher, as part of [SUIT CSS](https://github.com/suitcss/suit), crea
 a variant of BEM naming conventions that relies on structured class names and
 meaningful hyphens, and adds to it a utility class format and state class format,
 rounding out everything you'll need to construct a well built design system.
-
 
 ## Folder structure
 
@@ -916,9 +1004,9 @@ $colorMap: (
 }
 ```
 
-Abstraction is also very important when naming your map keys. Choose abstractions
-that allow the ability to scale. The scale you choose doesn't necessarily matter,
-as long as it's clearly understood by others. Some examples:
+A little abstraction is also very important when naming your map keys. Choose
+abstractions that allow the ability to scale. The scale you choose doesn't
+necessarily matter, as long as it's clearly understood by others. Some examples:
 
 - `fastest, faster, fast, slow, slower, slowest`
 - `largest, larger, large, small, smaller, smallest`
