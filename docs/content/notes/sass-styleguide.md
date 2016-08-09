@@ -29,10 +29,12 @@ These guidelines strongly encourage the use of existing, common, sensible patter
  - [Separate container and content](#separate-container-and-content)
 5. **Naming**
  - [Naming your classes](#naming-your-classes)
+ - [Building constructs](#building-constructs)
  - [Naming conventions](#naming-conventions)
 6. **Architecture**
  - [Methodology](#methodology)
  - [Folder structure](#folder-structure)
+ - [Component vs Construct vs Utility](#component-vs-construct-vs-utility)
  - [Global style functions](#global-style-functions)
 7. **Acknowledgements**
  - [Shamelessly influenced by:](#acknowledgements)
@@ -717,7 +719,7 @@ developers.
 
 The class names `news` and descendant `news-article` don't tell you anything that's
 not already obvious from viewing the content, and cannot be used (or even worse, is used)
-with content that isn't news.
+with content that isn't 'news'.
 
 > The most reusable components are those with class names that are independent of
 the content.
@@ -760,6 +762,7 @@ specific use cases.
 
 #### Not recommended
 
+- Don't create class names that are longer than necessary.
 - Don't create class names that describe the content or use cases.
 - Don't name classes based on location of content.
 - Don't name classes based on presentation.
@@ -784,7 +787,7 @@ specific use cases.
 
 ### Building constructs
 
-- Add a `data-construct="Construct name"` to your containing element.
+- Add an optional `data-construct="Construct name"` to your containing element.
 - Use sentence case for your construct names.
 
 Mixing and matching reusable classes allows developers to create constructs (large
@@ -804,7 +807,7 @@ names. *You may pass an optional namespace to your components and constructs if
 your project could have multiple CSS libraries in use.*
 
 These conventions rely on *structured class names and meaningful hyphens* (i.e., not  
-using hyphens merely to separate words). This helps to work around the current  
+using hyphens merely to separate words). This helps to work around the current
 limits of applying CSS to the DOM (i.e., the lack of style encapsulation), and to
 better communicate the relationships between classes.
 
@@ -812,40 +815,59 @@ better communicate the relationships between classes.
 
 Syntax: `[<namespace>-]<componentName>[-descendentName][--modifierName]`
 
-*A component is a small, self-contained building block. Its purpose is very clear
-and does not rely on any other component to achieve its desired output. Components
-do not have any concept of 'layout' when placed on a page, they simply look after
-themselves without shaping things around them.*
+#### Examples
+
+```scss
+// Component
+.badge
+.button
+.checkbox
+
+// Component modifier
+.button--primary
+```
 
 ### Construct classes
 
 Syntax: `[<namespace>-]<constructName>[-descendentName][--modifierName]`
 
-*A construct creates a specifically styled layout for content. This content could
-be an aesthetic layout for a single component, or a structural layout for a group
-of components or other constructs.*
+#### Example constructs
+
+```scss
+// Construct
+.media
+
+// Construct modifier
+.media--alignMiddle
+
+// Construct descendant
+.media-figure
+.media-content
+```
 
 ### Utility classes
 
 Syntax: `u-<utilityName>[-@[s|m|l|xl]]`
 
-*Utility classes are immutable classes, which will override or provide additional
-styling to the HTML.*
+```scss
+// Utilities
+.u-grid
+.u-3/4-@xl
+```
 
 ### State classes
 
 Syntax: `is-<stateName>`
 
-*State classes are typically triggered via JavaScript when a state has changed in
-the UI, though states can also be applied on page load from the initial page render,
-to be later toggled to a new state. They trigger specific styling to occur.*
+```scss
+// States
+.is-active
+.is-hidden
+```
 
 ### JavaScript hooks
 
 Syntax: `data-<name>`
-
-*When you need to apply state or other logic that has no connection to CSS styling,
-do so via a data attribute.*
 
 
 # Architecture
@@ -931,7 +953,7 @@ rounding out everything you'll need to construct a well built design system.
 
 ### Constructs
 
-- Are one or more components, which requires specific layout or visuals.
+- Are one or more components, which requires specific layout or presentation.
 - Are complex and self-contained.
 - Can be nested inside other constructs.
 - *Examples: Accordions, Cards, Dialogs, Tables.*
@@ -969,6 +991,69 @@ rounding out everything you'll need to construct a well built design system.
     _utility-utilities.scss
 project.scss
 ```
+
+
+## Component vs Construct vs Utility
+
+### Components
+
+*A component is a small, self-contained building block. Its purpose is very clear
+and does not rely on any other component to achieve its desired output. Components
+do not have any concept of 'layout' when placed on a page, they simply look after
+themselves without shaping things around them.*
+
+A component cannot be broken down into a smaller UI, it relies only on the toolkit.
+If you can break down your component into a smaller piece(s), you've built a
+construct and not a component.
+
+A component is not necessarily tied to a specific element, such as a button or an
+input field. It can be built with any generic element, and it can have descendants,
+however the descendant elements depth is likely kept to a minimum.
+
+**Note:** Typography, Icons and Images are components that *can* be used by other
+components. They are the only exceptions to the rule of "components do not rely on
+any other component" mentioned above. This means that you can write selectors such
+as `.button .icon` for positioning an icon within a button.
+
+### Constructs
+
+*A construct creates a specifically styled layout for content. This content could
+be an aesthetic layout for a single component, or a structural layout for a group
+of components or other constructs.*
+
+If the above definition is not applicable to your code, you've built a component
+or utility, not a construct. All constructs can have a `data-construct` attributed
+to the containing element. This makes it very clear to developers where these
+constructs are, and what they contain.
+
+Constructs must have a container class, which can apply custom styling to itself,
+and/or any other newly created descendant elements. Construct classes should not
+override any component styling or classes used to build the construct.
+
+If you find yourself overriding component styling under your constructs container
+class (eg. using `.construct .button`) to change existing styling of the
+`.button` within your construct, immediately stop and rethink your styles. They
+belong in the components file so your entire codebase can make use of them.
+
+*Constructs can be nested inside other constructs.* For example, the carousel
+construct should be able to live within the card construct. You can also create
+a construct which applies a specific layout to nested constructs. If you're able
+to nest constructs happily within one another, give yourself a pat on the back
+or have a well-deserved drink, you're doing it right.
+
+### Utilities
+
+*Utility classes are immutable classes, which will override or provide additional
+styling to the HTML.* They should be kept strictly to grid utility classes, width
+utility classes, and display utility classes. These utility classes provide a lot
+of value for fast development, keep your HTML easy to follow, your CSS clear and
+mobile-focused without responsive clutter.
+
+Other utility classes are typically always unnecessary as they provide no meaningful
+value. Examples of utility classes to avoid are text utilities, padding/margin
+utilities, colour utilities etc. If you find yourself wanting to apply a utility
+class to add padding, try rethinking how that could fit into your
+component/construct's files.
 
 
 ## Global style functions
