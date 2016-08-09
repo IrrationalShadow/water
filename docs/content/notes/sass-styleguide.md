@@ -997,10 +997,10 @@ project.scss
 
 ### Components
 
-*A component is a small, self-contained building block. Its purpose is very clear
+> A component is a small, self-contained building block. Its purpose is very clear
 and does not rely on any other component to achieve its desired output. Components
 do not have any concept of 'layout' when placed on a page, they simply look after
-themselves without shaping things around them.*
+themselves without shaping things around them.
 
 A component cannot be broken down into a smaller UI, it relies only on the toolkit.
 If you can break down your component into a smaller piece(s), you've built a
@@ -1017,9 +1017,9 @@ as `.button .icon` for positioning an icon within a button.
 
 ### Constructs
 
-*A construct creates a specifically styled layout for content. This content could
+> A construct creates a specifically styled layout for content. This content could
 be an aesthetic layout for a single component, or a structural layout for a group
-of components or other constructs.*
+of components or other constructs.
 
 If the above definition is not applicable to your code, you've built a component
 or utility, not a construct. All constructs can have a `data-construct` attributed
@@ -1043,8 +1043,10 @@ or have a well-deserved drink, you're doing it right.
 
 ### Utilities
 
-*Utility classes are immutable classes, which will override or provide additional
-styling to the HTML.* They should be kept strictly to grid utility classes, width
+> Utility classes are immutable classes, which will override or provide additional
+styling to the HTML.
+
+They should be kept strictly to grid utility classes, width
 utility classes, and display utility classes. These utility classes provide a lot
 of value for fast development, keep your HTML easy to follow, your CSS clear and
 mobile-focused without responsive clutter.
