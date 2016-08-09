@@ -28,7 +28,7 @@ These guidelines strongly encourage the use of existing, common, sensible patter
  - [Selector specificity](#selector-specificity)
  - [Separate container and content](#separate-container-and-content)
 5. **Naming**
- - [Naming classes is hard](#naming-classes-is-hard)
+ - [Naming your classes](#naming-your-classes)
  - [Naming conventions](#naming-conventions)
 6. **Architecture**
  - [Methodology](#methodology)
@@ -72,8 +72,8 @@ with an accompanying group of properties. Here's an example:
 
 ```scss
 .selector {
-    background-color: #777;
-    color: #333;
+  background-color: #777;
+  color: #333;
 }
 ```
 
@@ -86,8 +86,8 @@ example:
 
 ```scss
 [selector] {
-    background-color: #777;
-    color: #333;
+  background-color: #777;
+  color: #333;
 }
 ```
 
@@ -99,7 +99,7 @@ one or more property declarations. Property declarations look like this:
 
 ```scss
 .selector {
-    [property]: [property-value];
+  [property]: [property-value];
 }
 ```
 
@@ -151,7 +151,7 @@ comfortable line length for reading and commenting.
 // -----------------------------------------------------------------------------
 
 .selectorA {
-    color: #333;
+  color: #333;
 }
 
 
@@ -159,7 +159,7 @@ comfortable line length for reading and commenting.
 // -----------------------------------------------------------------------------
 
 .selectorB {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 ```
 
@@ -178,15 +178,15 @@ comfortable line length for reading and commenting.
 
 ### Indentation
 
+- Use soft-tabs (2 spaces) for indentation.
 - Never mix spaces and tabs for indentation.
-- Use soft-tabs (4 spaces) for indentation.
 - Use one level of indentation for each property declaration.
 
 ### Whitespace
 
 - Always be consistent in your use of whitespace.
 - Remove all trailing white-space from your file.
-  - Tip: Set your editor to "show invisibles" and automatically remove end-of-line whitespace.
+  - *Tip: Set your editor to "show invisibles" and automatically remove end-of-line whitespace.*
 - Leave one clear line at the bottom of your file.
 
 ### Quotation
@@ -203,7 +203,7 @@ comfortable line length for reading and commenting.
 - As a general rule, use unit-less `line-height` values as defaults.
 - Never specify the `height` property unless it's specifically needed.
 - Only style the property you're explicitly concerned with.
-  - Example: `margin-top: 1rem` instead of `margin: 1rem 0 0`.
+  - *Example: `margin-top: 1rem` instead of `margin: 1rem 0 0`.*
 - Use shorthand property values when you must style all values.
 
 ### Units
@@ -231,22 +231,22 @@ comfortable line length for reading and commenting.
 // =============================================================================
 
 .selector {
-    background-image: url('img/image.png');
-    border: 1px solid #333;
-    color: #abcdef;
-    font-family: 'Times New Roman', serif;
-    margin: 2rem 0;
-    padding-top: 1rem;
-    text-transform: uppercase;
-    width: calc(100% - 8rem);
+  background-image: url('img/image.png');
+  border: 1px solid #333;
+  color: #abcdef;
+  font-family: 'Times New Roman', serif;
+  margin: 2rem 0;
+  padding-top: 1rem;
+  text-transform: uppercase;
+  width: calc(100% - 8rem);
 
-    &:hover {
-        border-color: #daa520;
-    }
+  &:hover {
+    border-color: #daa520;
+  }
 
-    &::before {
-        content: 'Hello';
-    }
+  &::before {
+    content: 'Hello';
+  }
 }
 
 
@@ -256,7 +256,7 @@ comfortable line length for reading and commenting.
 .selectorA,
 .selectorB,
 .selectorC[type='text'] {
-    color: #f00;
+  color: #f00;
 }
 ```
 
@@ -283,26 +283,26 @@ important factors.
 
  ```scss
  .button {
-     $button-size: 3rem;
-     @extend %button;
-     border: 1px solid #aaa;
-     border-radius: 2px;
-     color: #333;
-     height: $button-size;
-     margin-top: -($button-size / 2);
-     position: absolute;
-     text-transform: uppercase;
-     top: 50%;
-     @include fontSize('h5');
+   $button-size: 3rem;
+   @extend %button;
+   border: 1px solid #aaa;
+   border-radius: 2px;
+   color: #333;
+   height: $button-size;
+   margin-top: -($button-size / 2);
+   position: absolute;
+   text-transform: uppercase;
+   top: 50%;
+   @include fontSize('h5');
 
-     &:hover,
-     &:focus {
-         border-color: #008080;
-     }
+   &:hover,
+   &:focus {
+     border-color: #008080;
+   }
 
-     &.is-active {
-         font-weight: bold;
-     }
+   &.is-active {
+     font-weight: bold;
+   }
  }
  ```
 
@@ -328,8 +328,8 @@ important factors.
 // -----------------------------------------------------------------------------
 
 .selectorA {
-    color: #232425;
-    text-align: center; // 1
+  color: #232425;
+  text-align: center; // 1
 }
 
 
@@ -340,9 +340,9 @@ important factors.
 // -----------------------------------------------------------------------------
 
 .selectorB {
-    background-color: #777;
-    float: left; // 1
-    padding: 1rem; // 2
+  background-color: #777;
+  float: left; // 1
+  padding: 1rem; // 2
 }
 ```
 
@@ -405,15 +405,14 @@ or applies to a specific
 
 ## Mixins
 
+- When declaring a `@mixin` or calling an `@include` always write the `()`.
+- Where applicable, follow the same alphabetical sort order for multiple mixins.
+- When using a responsive breakpoint `@include`, always leave *one* empty line above.
+
 Mixins follow a simpler naming convention, needing only to follow camelCase. Choose
 a general word or phrase to describe your mixin, being as accurate to what it
 actually does as you can. Generally all `@include`'s should be called *inside* your
 selectors, not the other way around.
-
-#### Syntax
-- When declaring a `@mixin` or calling an `@include` always write the `()`.
-- Where applicable, follow the same alphabetical sort order for multiple mixins.
-- When using a responsive breakpoint `@include`, always leave *one* empty line above.
 
 *Note: You don't need to create any cross-browser mixins or use any library to
 handle such things, use [autoprefixer](https://github.com/postcss/autoprefixer).*
@@ -422,16 +421,16 @@ handle such things, use [autoprefixer](https://github.com/postcss/autoprefixer).
 
 ```scss
 @mixin fontSize($fontSize, $lineHeight: $fontSize) {
-    font-size: fontSize($fontSize);
-    line-height: lineHeight($lineHeight);
+  font-size: fontSize($fontSize);
+  line-height: lineHeight($lineHeight);
 }
 
 @mixin textTruncate() {
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: normal;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
 }
 ```
 
@@ -439,17 +438,17 @@ handle such things, use [autoprefixer](https://github.com/postcss/autoprefixer).
 
 ```scss
 .selector {
-    @include fontSize('h3');
-    @include textTruncate();
+  @include fontSize('h3');
+  @include textTruncate();
 }
 
 .selector {
-    color: #333;
-    text-align: center;
+  color: #333;
+  text-align: center;
 
-    @include breakpoint('large') {
-        color: #777;
-    }
+  @include breakpoint('large') {
+    color: #777;
+  }
 }
 ```
 
@@ -469,63 +468,26 @@ opt for a placeholder that is extended by each individual selector that needs it
 
 ```scss
 %placeholder {
-    color: #333;
-    display: block;
-    padding: 1rem 2rem;
-    text-align: center;
+  color: #333;
+  display: block;
+  padding: 1rem 2rem;
+  text-align: center;
 }
 
 .selectorA {
-    @extend %placeholder;
-    margin: 1rem;
+  @extend %placeholder;
+  margin: 1rem;
 }
 
 .selectorB {
-    @extend %placeholder;
-    border: 1px solid #777;
+  @extend %placeholder;
+  border: 1px solid #777;
 }
 
 ```
 
 
 ## Nesting
-
-Nesting is a feature of Sass that can divide developers. Some love to use nesting,
-while others throw a blanket ban on it. There was even an article creating a rule called
-[The Inception Rule](http://thesassway.com/beginner/the-inception-rule), which was
-basically advising: "Don't nest more than three levels deep". In the end though, it
-really comes down to the fact that [sass doesn't create bad code, bad coders do](http://www.thesassway.com/editorial/sass-doesnt-create-bad-code-bad-coders-do).
-
-Sass nesting and the resulting CSS selectors can be different in appearance. Don't
-confuse proper use of indentation for poor selector specificity/performance.
-Take the following sass for example:
-
-```scss
-.selector--modifier {
-    color: #111;
-    text-transform: uppercase;
-
-    @include viewport('large') {
-        > .oneLevelDescendant {
-            display: block;
-            float: left;
-
-            &:hover {
-                color: #333;
-            }
-        }
-    }
-}
-```
-
-The class `.oneLevelDescendant` as two levels deep as far as nesting is concerned.
-The compiled css class selector is actually one level deep
-`.selector--modifier > .oneLevelDescendant`, and the `:hover` selector sits at a
-third level of nesting, but when the CSS compiles the selector is actually
-`.selector--modifier > .oneLevelDescendant:hover`.
-
-With this in mind, you should have a clearer picture for why the following guidelines
-dictate that the nesting level is different to the outputted CSS selectors.
 
 ### CSS selector guidelines
 
@@ -545,51 +507,85 @@ dictate that the nesting level is different to the outputted CSS selectors.
 - **Do:** use the ampersand operator for pseudo selectors and chaining class selectors.
 - **Don't:** use [parent selector suffixes](http://thesassway.com/news/sass-3-3-released#parent-selector-suffixes) appended to selectors, they are harder to scan/search for.
 
+Nesting is a feature of Sass that can divide developers. Some love to use nesting,
+while others throw a blanket ban on it. There was even an article creating a rule called
+[The Inception Rule](http://thesassway.com/beginner/the-inception-rule), which was
+basically advising: "Don't nest more than three levels deep". In the end though, it
+really comes down to the fact that [sass doesn't create bad code, bad coders do](http://www.thesassway.com/editorial/sass-doesnt-create-bad-code-bad-coders-do).
+
+Sass nesting and the resulting CSS selectors can be different in appearance. Don't
+confuse proper use of indentation for poor selector specificity/performance.
+Take the following sass for example:
+
+```scss
+.selector--modifier {
+  color: #111;
+  text-transform: uppercase;
+
+  @include viewport('large') {
+    > .oneLevelDescendant {
+      display: block;
+      float: left;
+
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+}
+```
+
+The class `.oneLevelDescendant` as two levels deep as far as nesting is concerned.
+The compiled css class selector is actually one level deep
+`.selector--modifier > .oneLevelDescendant`, and the `:hover` selector sits at a
+third level of nesting, but when the CSS compiles the selector is actually
+`.selector--modifier > .oneLevelDescendant:hover`.
+
 #### Example nesting
 
 ```scss
 .button {
-    color: #333;
-    text-transform: uppercase;
+  color: #333;
+  text-transform: uppercase;
 
-    &:active,
-    &.is-active {
-        border-color: #f00;
-    }
+  &:active,
+  &.is-active {
+    border-color: #f00;
+  }
 }
 
 .button['disabled'] {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 .button + .button {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 .button--ghost {
-    background: none;
-    border: 2px solid #333;
+  background: none;
+  border: 2px solid #333;
 
-    &.button--primary {
-        border-color: #f00;
-    }
+  &.button--primary {
+    border-color: #f00;
+  }
 }
 
 .table--responsiveList {
-    @include viewport('small', 'max-width') {
-        > .table-header {
-            @include hidden();
-        }
-
-        > .table-body th,
-        > .table-body td {
-            padding: spacing('half');
-
-            &:hover {
-                background-color: #eee;
-            }
-        }
+  @include viewport('small', 'max-width') {
+    > .table-header {
+      @include hidden();
     }
+
+    > .table-body th,
+    > .table-body td {
+      padding: spacing('half');
+
+      &:hover {
+        background-color: #eee;
+      }
+    }
+  }
 }
 ```
 
@@ -616,9 +612,9 @@ below). Make use of these functions in particular whenever you deem necessary.
 
 ```scss
 @function color($color, $variant: 'base') {
-    @return map-get(map-get($colorMap, $color), $variant);
-    @warn 'Unknown color `#{$color}` used in color function.';
-    @return null;
+  @return map-get(map-get($colorMap, $color), $variant);
+  @warn 'Unknown color `#{$color}` used in color function.';
+  @return null;
 }
 ```
 
@@ -659,7 +655,7 @@ where you put it.
 
 ```scss
 .sidebar .button {
-    color: #333;
+  color: #333;
 }
 ```
 
@@ -677,7 +673,7 @@ See below:
 
 ```scss
 .selector--primary {
-    color: #333;
+  color: #333;
 }
 ```
 
@@ -690,7 +686,7 @@ for information on separating style concerns.*
 
 # Naming
 
-## Naming classes is hard
+## Naming your classes
 
 *Nicolas Gallagher has written a great article covering HTML semantics and front-end
 architecture. There's a section on class naming that I can't recommend enough,
@@ -708,19 +704,23 @@ build the HTML and throw on a couple of classes resulting in something like this
 <div class="news">
   <h2>News</h2>
   <article class="news-article">
-    <h3>Article headline</h3>
-    <p>Butcher waistcoat austin art party franzen, letterpress cardigan...</p>
+  <h3>Article headline</h3>
+  <p>Butcher waistcoat austin art party franzen, letterpress cardigan...</p>
   </article>
 </div>
 ```
+
+> Tying your class name semantics tightly to the nature of the content has already
+reduced the ability of your architecture to scale or be easily put to use by other
+developers.
+&mdash; *Nicolas Gallagher*
 
 The class names `news` and descendant `news-article` don't tell you anything that's
 not already obvious from viewing the content, and cannot be used (or even worse, is used)
 with content that isn't news.
 
-> Tying your class name semantics tightly to the nature of the content has already
-reduced the ability of your architecture to scale or be easily put to use by other
-developers.
+> The most reusable components are those with class names that are independent of
+the content.
 &mdash; *Nicolas Gallagher*
 
 So how do you name your classes? You should be focusing on the repeating structural
@@ -728,10 +728,6 @@ and functional patterns in the design, not on the content. Class names that are
 independent of the content, but do not literally describe the presentation. The
 poster child for abstraction is the [media object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/)
 by Nicole Sullivan.
-
-> The most reusable components are those with class names that are independent of
-the content.
-&mdash; *Nicolas Gallagher*
 
 > It is important to strike a balance between names that do not literally describe
 the style that the class brings, but also ones that do not explicitly describe
@@ -746,15 +742,19 @@ specific use cases.
 
 ```scss
 .nav {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .button {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .thumbnail {
-    border: 1px solid #333;
+  border: 1px solid #333;
+}
+
+.button--primary {
+    color: #00f;
 }
 ```
 
@@ -766,57 +766,86 @@ specific use cases.
 
 ```scss
 .navigation {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .btn {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .news-thumbnail {
-    border: 1px solid #333;
+  border: 1px solid #333;
+}
+
+.button--blue {
+    color: #00f;
 }
 ```
 
-### When building complex UI
+### Building constructs
 
-With this approach to class naming, your complex pieces of UI can likely involve
-several different pieces being used together. Combinations of these reusable,
-content agnostic classes when used together can benefit from adding a specific
-or meaningful name to sit alongside or to wrap the UI.
+- Add a `data-construct="Construct name"` to your containing element.
+- Use sentence case for your construct names.
 
-Harry Roberts suggests adding a data attribute to your HTML if your containing
-element or component could benefit from a meaningful name.
+Mixing and matching reusable classes allows developers to create constructs (large
+or complex UI) much quicker, requiring much less effort and new styling. To improve
+the scanning of these complicated chunks of code, Harry Roberts suggests adding a
+data attribute to the HTML's wrapping element to provide a more specific, meaningful
+name alongside the reusable classes. This makes it very clear to all developers
+where a particular construct begins and what content it contains. This is where
+you can describe the specific use case of your UI.
+
 
 ## Naming conventions
 
-Class naming conventions use SUIT CSS' conventions with the exception of `camelCase`
-over `PascalCase` for component names. You may pass an optional namespace to your
-components and constructs if necessary for your project.
+Class naming conventions use [SUIT CSS](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)'
+conventions with the exception of `camelCase` over `PascalCase` for component
+names. *You may pass an optional namespace to your components and constructs if
+your project could have multiple CSS libraries in use.*
+
+These conventions rely on *structured class names and meaningful hyphens* (i.e., not  
+using hyphens merely to separate words). This helps to work around the current  
+limits of applying CSS to the DOM (i.e., the lack of style encapsulation), and to
+better communicate the relationships between classes.
 
 ### Component classes
 
 Syntax: `[<namespace>-]<componentName>[-descendentName][--modifierName]`
 
+*A component is a small, self-contained building block. Its purpose is very clear
+and does not rely on any other component to achieve its desired output. Components
+do not have any concept of 'layout' when placed on a page, they simply look after
+themselves without shaping things around them.*
 
 ### Construct classes
 
 Syntax: `[<namespace>-]<constructName>[-descendentName][--modifierName]`
 
+*A construct creates a specifically styled layout for content. This content could
+be an aesthetic layout for a single component, or a structural layout for a group
+of components or other constructs.*
 
 ### Utility classes
 
 Syntax: `u-<utilityName>[-@[s|m|l|xl]]`
 
+*Utility classes are immutable classes, which will override or provide additional
+styling to the HTML.*
 
 ### State classes
 
 Syntax: `is-<stateName>`
 
+*State classes are typically triggered via JavaScript when a state has changed in
+the UI, though states can also be applied on page load from the initial page render,
+to be later toggled to a new state. They trigger specific styling to occur.*
 
 ### JavaScript hooks
 
 Syntax: `data-<name>`
+
+*When you need to apply state or other logic that has no connection to CSS styling,
+do so via a data attribute.*
 
 
 # Architecture
@@ -879,6 +908,7 @@ rounding out everything you'll need to construct a well built design system.
 ## Folder structure
 
 ### Toolkit
+
 - Has no outputted styles.
 - Contains the global settings (maps and functions).
 - Contains the global tools (mixins and functions).
@@ -886,24 +916,28 @@ rounding out everything you'll need to construct a well built design system.
 - *Example tools: Calculations, Float, Shape, Type*
 
 ### Layout
+
 - Is the designs structural layout (skeleton/wireframe only).
 - Can define a container class for fixed width global scoped content.
 - Has limited visual styling (Background, border, margin/padding) only.
 - *Examples: Header, Body and Footer content zones.*
 
 ### Components
+
 - Are small, independent, multi-purposed building blocks.
 - Are simple and self-contained.
 - Have no concept of layout present.
 - *Examples: Buttons, Icons, Inputs, Typography.*
 
 ### Constructs
+
 - Are one or more components, which requires specific layout or visuals.
 - Are complex and self-contained.
 - Can be nested inside other constructs.
 - *Examples: Accordions, Cards, Dialogs, Tables.*
 
 ### Utilities
+
 - Are immutable classes.
 - Are typically single property classes.
 - Have one very specific, overriding purpose.
@@ -913,26 +947,26 @@ rounding out everything you'll need to construct a well built design system.
 
 ```scss
 /toolkit
-    /settings
-        _name-settings.scss
-    /tools
-        _name-tools.scss
-    _toolkit.scss
+  /settings
+    _name-settings.scss
+  /tools
+    _name-tools.scss
+  _toolkit.scss
 /layout
-    _layout.scss
+  _layout.scss
 /components
-    /component
-        _component-structure.scss
-        _component-theme.scss
-    _components.scss
+  /component
+    _component-structure.scss
+    _component-theme.scss
+  _components.scss
 /constructs
-    /construct
-        _construct-structure.scss
-        _construct-theme.scss
-    _constructs.scss
+  /construct
+    _construct-structure.scss
+    _construct-theme.scss
+  _constructs.scss
 /utilities
-    /utility
-        _utility-utilities.scss
+  /utility
+    _utility-utilities.scss
 project.scss
 ```
 
@@ -968,11 +1002,11 @@ provide. Here's an example for creating a color function powered by a map:
 
 ```scss
 $colorMap: (
-    'primary': (
-        'dark': #333,
-        'base': #777,
-        'light': #ccc
-    )
+  'primary': (
+    'dark': #333,
+    'base': #777,
+    'light': #ccc
+  )
 );
 ```
 
@@ -980,9 +1014,9 @@ $colorMap: (
 
 ```scss
 @function color($color, $variant: 'base') {
-    @return map-get(map-get($colorMap, $color), $variant);
-    @warn 'Unknown color `#{$color}` used in color function.';
-    @return null;
+  @return map-get(map-get($colorMap, $color), $variant);
+  @warn 'Unknown color `#{$color}` used in color function.';
+  @return null;
 }
 ```
 
@@ -990,8 +1024,8 @@ $colorMap: (
 
 ```scss
 .selector {
-    background-color: color('primary', 'light');
-    color: color('primary');
+  background-color: color('primary', 'light');
+  color: color('primary');
 }
 ```
 
@@ -999,8 +1033,8 @@ $colorMap: (
 
 ```css
 .selector {
-    background-color: #aaa;
-    color: #777;
+  background-color: #aaa;
+  color: #777;
 }
 ```
 
