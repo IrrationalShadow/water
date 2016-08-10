@@ -621,6 +621,11 @@ below). Make use of these functions in particular whenever you deem necessary.
 ```
 
 
+## Maps
+
+
+
+
 # Specificity
 
 ## Selector specificity
@@ -806,10 +811,15 @@ conventions with the exception of `camelCase` over `PascalCase` for component
 names. *You may pass an optional namespace to your components and constructs if
 your project could have multiple CSS libraries in use.*
 
-These conventions rely on *structured class names and meaningful hyphens* (i.e., not  
+These conventions rely on *structured class names and meaningful hyphens* (i.e., not
 using hyphens merely to separate words). This helps to work around the current
 limits of applying CSS to the DOM (i.e., the lack of style encapsulation), and to
 better communicate the relationships between classes.
+
+*Tip: Just because your descendant happens to sit 2 or 3+ levels nested in the HMTL,
+it doesn't mean you need to name your class* `.thing-descend1-descend2-descend3`.
+*It's almost always going to be better to just call your class* `.thing-descend3`.
+*Don't get caught following the conventions simply based on DOM structure.*
 
 ### Component classes
 
@@ -994,6 +1004,16 @@ project.scss
 
 
 ## Component vs Construct vs Utility
+
+The break up of UI pieces may look or sound odd, but it's in the same vein as Brad
+Frost's [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). The
+idea being to create a certain small to large flow for your UI. Where his is based
+on the concept of Atoms to Molecules to Organisms, we take a seemingly unique
+approach but it really isn't anything new. It blends Atomic Design concepts with
+older OOCSS principles of Components and Utility classes found in a number of
+libraries/methodologies. We have *Components* (similar to atoms), *Constructs*
+(similar to molecules and organisms together), and *Utilities* (your regular
+single-purpose classes).
 
 ### Components
 
