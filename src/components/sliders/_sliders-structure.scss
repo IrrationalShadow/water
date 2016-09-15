@@ -2,14 +2,15 @@
 // SLIDERS (Structure)
 // =============================================================================
 // 1. Correct color not being inherited.
-//    Known issue: affects color of disabled elements.
+//  Known issue: affects color of disabled elements.
 // 2. Correct font properties not being inherited.
 // 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
 // 4. Hides the slider so custom styles can be added
 // -----------------------------------------------------------------------------
 
-input[type='range']::-webkit-slider-thumb,
-input[type='range']:focus {
+input[type='range'] {
+  &::-webkit-slider-thumb,
+  &:focus {
     appearance: none;
     background: none;
     border-radius: 0;
@@ -18,12 +19,13 @@ input[type='range']:focus {
     margin: 0; // 3
     outline: none;
     padding: 0;
-}
+  }
 
-input[type='range']::-ms-track {
+  &::-ms-track {
     background: transparent; // 4
     border-color: transparent;
     color: transparent;
     cursor: pointer;
     width: 100%;
+  }
 }

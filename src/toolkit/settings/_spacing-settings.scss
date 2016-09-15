@@ -8,7 +8,7 @@
 // spacing function, referencing a mapped value.
 //
 // NOTE: Use these values exclusively for all spacing.
-//       The only exceptions to this are unitless values or '1rem' if needed.
+//     The only exceptions to this are unitless values or '1rem' if needed.
 // -----------------------------------------------------------------------------
 
 $spacingUnit: 1rem;
@@ -18,13 +18,13 @@ $spacingUnit: 1rem;
 // -----------------------------------------------------------------------------
 
 $verticalRhythmMap: (
-    'quad':    $spacingUnit * 4,
-    'triple':  $spacingUnit * 3,
-    'double':  $spacingUnit * 2,
-    'single':  $spacingUnit,
-    'half':    $spacingUnit / 2,
-    'quarter': $spacingUnit / 4,
-    'eighth':  $spacingUnit / 8
+  'quad':  $spacingUnit * 4,
+  'triple':  $spacingUnit * 3,
+  'double':  $spacingUnit * 2,
+  'single':  $spacingUnit,
+  'half':  $spacingUnit / 2,
+  'quarter': $spacingUnit / 4,
+  'eighth':  $spacingUnit / 8
 );
 
 
@@ -34,9 +34,9 @@ $verticalRhythmMap: (
 // -----------------------------------------------------------------------------
 
 @function spacing($spacing) {
-    @if map-has-key($verticalRhythmMap, $spacing) {
-        @return map-get($verticalRhythmMap, $spacing);
-    }
-    @warn 'Unknown vertical rhythm `#{$spacing}` used in spacing function.';
-    @return null;
+  @if map-has-key($verticalRhythmMap, $spacing) {
+    @return map-get($verticalRhythmMap, $spacing);
+  }
+  @warn 'Unknown vertical rhythm `#{$spacing}` used in spacing function.';
+  @return null;
 }

@@ -6,7 +6,7 @@
 // -----------------------------------------------------------------------------
 
 @function stripUnit($num) {
-    @return $num / ($num * 0 + 1);
+  @return $num / ($num * 0 + 1);
 }
 
 
@@ -17,11 +17,11 @@
 // -----------------------------------------------------------------------------
 
 @function convertToRem($value, $base-value: 1rem, $unit: rem) {
-    $value: stripUnit($value) / stripUnit($base-value) * 1$unit;
-    @if ($value == 0$unit) {
-        $value: 0;
-    }
-    @return $value;
+  $value: stripUnit($value) / stripUnit($base-value) * 1$unit;
+  @if ($value == 0$unit) {
+    $value: 0;
+  }
+  @return $value;
 }
 
 
@@ -35,13 +35,13 @@
 // -----------------------------------------------------------------------------
 
 @function remCalc($values, $base-value: 'root') {
-    $max: length($values);
-    @if $max == '1' {
-        @return convertToRem(nth($values, 1), fontSize($base-value));
-    }
-    $remValues: ();
-    @for $i from 1 through $max {
-        $remValues: append($remValues, convertToRem(nth($values, $i), fontSize($base-value)));
-    }
-    @return $remValues;
+  $max: length($values);
+  @if $max == '1' {
+    @return convertToRem(nth($values, 1), fontSize($base-value));
+  }
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convertToRem(nth($values, $i), fontSize($base-value)));
+  }
+  @return $remValues;
 }

@@ -6,11 +6,11 @@
 // Document
 // -----------------------------------------------------------------------------
 // 1. Prevent iOS text size adjust after orientation change, without disabling
-//    user zoom.
+//  user zoom.
 // -----------------------------------------------------------------------------
 
 html {
-    text-size-adjust: 100%; // 1
+  text-size-adjust: 100%; // 1
 }
 
 
@@ -21,12 +21,12 @@ html {
 // -----------------------------------------------------------------------------
 
 a {
-    background-color: transparent; // 1
-}
+  background-color: transparent; // 1
 
-a:active,
-a:hover {
+  &:active,
+  &:hover {
     outline: 0; // 2
+  }
 }
 
 
@@ -39,22 +39,22 @@ a:hover {
 // -----------------------------------------------------------------------------
 
 abbr[title] {
-    border-bottom: 1px dotted; // 1
+  border-bottom: 1px dotted; // 1
 }
 
 dfn {
-    font-style: italic; // 2
+  font-style: italic; // 2
 }
 
 pre {
-    overflow: auto; // 3
+  overflow: auto; // 3
 }
 
 sub,
 sup {
-    line-height: 0; // 4
-    position: relative; // 4
-    vertical-align: baseline; // 4
+  line-height: 0; // 4
+  position: relative; // 4
+  vertical-align: baseline; // 4
 }
 
 
@@ -64,8 +64,8 @@ sup {
 // -----------------------------------------------------------------------------
 
 hr {
-    box-sizing: content-box;
-    height: 0;
+  box-sizing: content-box;
+  height: 0;
 }
 
 // Legend
@@ -74,6 +74,6 @@ hr {
 // -----------------------------------------------------------------------------
 
 legend {
-    border: 0; // 1
-    padding: 0; // 2
+  border: 0; // 1
+  padding: 0; // 2
 }

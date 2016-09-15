@@ -6,6 +6,9 @@
 // Tools
 // -----------------------------------------------------------------------------
 
+// Border box
+@import 'tools/borderbox-tools';
+
 // Calculations
 @import 'tools/calculation-tools';
 
@@ -34,8 +37,8 @@
 // Settings
 // -----------------------------------------------------------------------------
 // 1) These imports need to be defined in this specific order:
-//    Viewport > Typography > Spacing.
-//    Everything after 'Layout' is imported in the typical alphabetical order.
+//  Viewport > Typography > Spacing.
+//  Everything after 'Layout' is imported in the typical alphabetical order.
 // -----------------------------------------------------------------------------
 
 // Viewport

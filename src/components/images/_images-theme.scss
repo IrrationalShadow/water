@@ -13,32 +13,32 @@
 // -----------------------------------------------------------------------------
 
 .figure { // 1
-    margin: remCalc(26px) 0; // 2
+  margin: remCalc(26px) 0; // 2
 }
 
 .figure > img {
-    position: relative; // 1
-    top: -1px; // 1
+  position: relative; // 1
+  top: -1px; // 1
 }
 
 figure + h2 {
-    margin-top: remCalc(38px); // 2
+  margin-top: remCalc(38px); // 2
 }
 
 figure + h3 {
-    margin-top: remCalc(42px); // 2
+  margin-top: remCalc(42px); // 2
 }
 
 figure + h4 {
-    margin-top: remCalc(41px); // 2
+  margin-top: remCalc(41px); // 2
 }
 
 h4 + figure {
-    margin-top: remCalc(27px); // 2
+  margin-top: remCalc(27px); // 2
 }
 
 figcaption {
-    @include fontSize('note');
-    color: color('text', 'light');
-    margin: remCalc(9px) 0 remCalc(-5px); // 2
+  @include fontSize('note');
+  color: color('text', 'light');
+  margin: remCalc(9px) 0 remCalc(-5px); // 2
 }

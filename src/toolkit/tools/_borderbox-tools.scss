@@ -1,15 +1,21 @@
 // =============================================================================
-// EMBED (Theme)
+// BORDER BOX (Tools)
 // =============================================================================
 
-
-// Embed aspect ratio modifiers
+// Global border-box support
 // -----------------------------------------------------------------------------
 
-.embed--16x9 {
-  padding-bottom: 56.25%;
-}
+@mixin border-box() {
+  %borderBox {
+    box-sizing: border-box;
+  }
 
-.embed--4x3 {
-  padding-bottom: 75%;
+  * {
+    @extend %borderBox;
+
+    &::before,
+    &::after {
+      @extend %borderBox;
+    }
+  }
 }

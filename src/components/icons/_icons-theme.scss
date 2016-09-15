@@ -11,8 +11,8 @@ $iconSize-large: 2rem;
 // -----------------------------------------------------------------------------
 
 .icon {
-    height: $iconSize;
-    width: $iconSize;
+  height: $iconSize;
+  width: $iconSize;
 }
 
 
@@ -20,13 +20,13 @@ $iconSize-large: 2rem;
 // -----------------------------------------------------------------------------
 
 .icon--small {
-    height: $iconSize-small;
-    width: $iconSize-small;
+  height: $iconSize-small;
+  width: $iconSize-small;
 }
 
 .icon--large {
-    height: $iconSize-large;
-    width: $iconSize-large;
+  height: $iconSize-large;
+  width: $iconSize-large;
 }
 
 
@@ -34,19 +34,19 @@ $iconSize-large: 2rem;
 // -----------------------------------------------------------------------------
 
 .icon--primary {
-    fill: color('primary');
+  fill: color('primary');
 }
 
 .icon--success {
-    fill: color('success');
+  fill: color('success');
 }
 
 .icon--error {
-    fill: color('error');
+  fill: color('error');
 }
 
 .icon--warning {
-    fill: color('warning');
+  fill: color('warning');
 }
 
 
@@ -57,28 +57,28 @@ $iconSize-large: 2rem;
 // -----------------------------------------------------------------------------
 
 .button > .icon {
-    height: $iconSize;
-    margin: (-(spacing('eighth'))) remCalc(-6px);
-    position: relative;
-    top: remCalc(-1px);
-    vertical-align: top;
-    width: $iconSize;
+  height: $iconSize;
+  margin: (-(spacing('eighth'))) remCalc(-6px);
+  position: relative;
+  top: remCalc(-1px);
+  vertical-align: top;
+  width: $iconSize;
 }
 
 .button--small > .icon {
-    height: $iconSize-small;
-    margin: 0 (-(spacing('quarter')));
-    padding: spacing('eighth');
-    top: 0;
-    width: $iconSize-small;
+  height: $iconSize-small;
+  margin: 0 (-(spacing('quarter')));
+  padding: spacing('eighth');
+  top: 0;
+  width: $iconSize-small;
 }
 
 .button--large > .icon {
-    height: $iconSize-large;
-    margin: remCalc(-7px) (-(spacing('half'))) remCalc(-5px);
-    position: relative;
-    top: 0;
-    width: $iconSize-large;
+  height: $iconSize-large;
+  margin: remCalc(-7px) (-(spacing('half'))) remCalc(-5px);
+  position: relative;
+  top: 0;
+  width: $iconSize-large;
 }
 
 
@@ -89,6 +89,6 @@ $iconSize-large: 2rem;
 // -----------------------------------------------------------------------------
 
 .chip > .icon {
-    margin: spacing('eighth') (-(spacing('quarter'))) 0 spacing('eighth');
-    vertical-align: top;
+  margin: spacing('eighth') (-(spacing('quarter'))) 0 spacing('eighth');
+  vertical-align: top;
 }

@@ -3,8 +3,8 @@
 // =============================================================================
 
 .badge {
-    font-weight: fontWeight('normal');
-    line-height: lineHeight('small');
+  font-weight: fontWeight('normal');
+  line-height: lineHeight('small');
 }
 
 
@@ -14,19 +14,19 @@
 // -----------------------------------------------------------------------------
 
 .badge--label {
-    background-color: color('background', 'light');
-    border-radius: 2px;
-    font-size: fontSize('small');
-    padding: remCalc(1px) (spacing('quarter') + spacing('eighth')) 0; // 1
-    text-transform: uppercase;
+  background-color: color('background', 'light');
+  border-radius: 2px;
+  font-size: fontSize('small');
+  padding: remCalc(1px) (spacing('quarter') + spacing('eighth')) 0; // 1
+  text-transform: uppercase;
 }
 
 .badge--count {
-    border-radius: 50%;
-    font-size: fontSize('small');
-    text-align: center;
-    text-indent: 0.05em;
-    width: lineHeight('small');
+  border-radius: 50%;
+  font-size: fontSize('small');
+  text-align: center;
+  text-indent: 0.05em;
+  width: lineHeight('small');
 }
 
 
@@ -37,10 +37,10 @@
 // -----------------------------------------------------------------------------
 
 .badge--large { // 1
-    font-size: fontSize('body');
-    line-height: 1;
-    margin-top: -1px; // 2
-    padding: remCalc(5px) (spacing('quarter') + spacing('eighth')) remCalc(3px); // 2
+  font-size: fontSize('body');
+  line-height: 1;
+  margin-top: -1px; // 2
+  padding: remCalc(5px) (spacing('quarter') + spacing('eighth')) remCalc(3px); // 2
 }
 
 
@@ -48,40 +48,40 @@
 // -----------------------------------------------------------------------------
 
 .badge--primary {
-    background-color: color('primary');
-    color: #fff;
+  background-color: color('primary');
+  color: #fff;
 }
 
 .badge--ghost { // 1
-    border: 1px solid color('divider');
-    line-height: 1;
-    padding: spacing('quarter') remCalc(5px) remCalc(3px); // 2
+  border: 1px solid color('divider');
+  line-height: 1;
+  padding: spacing('quarter') remCalc(5px) remCalc(3px); // 2
 }
 
 .badge--ghost.badge--label {
-    background: none;
+  background: none;
 }
 
 .badge--ghost.badge--primary {
-    background: none;
-    border-color: color('primary');
-    color: inherit;
+  background: none;
+  border-color: color('primary');
+  color: inherit;
 }
 
 .badge--ghost.badge--large {
-    padding: spacing('quarter') remCalc(5px) remCalc(2px); // 1
+  padding: spacing('quarter') remCalc(5px) remCalc(2px); // 1
 }
 
 
 // Badges inside headings
 // -----------------------------------------------------------------------------
 // 1. Align badges to the middle of the headings.
-//    They lose VR rhythm, but visually suit much better.
+//  They lose VR rhythm, but visually suit much better.
 // -----------------------------------------------------------------------------
 
 h1 > .badge--label,
 h2 > .badge--label,
 h3 > .badge--label,
 h4 > .badge--label {
-    vertical-align: middle; // 1
+  vertical-align: middle; // 1
 }

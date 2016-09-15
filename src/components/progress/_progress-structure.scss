@@ -12,14 +12,14 @@
 // -----------------------------------------------------------------------------
 
 .progress {
-    display: block; // 1
-    vertical-align: baseline; // 2
-    width: 100%;
+  display: block; // 1
+  vertical-align: baseline; // 2
+  width: 100%;
 }
 
 .progress[value] {
-    appearance: none; // 3
-    border: 0; // 4
+  appearance: none; // 3
+  border: 0; // 4
 }
 
 

@@ -34,9 +34,9 @@ $zIndex-9: 90;
 // -----------------------------------------------------------------------------
 
 $zIndexMap: (
-    'dropdown': $zIndex-6,
-    'tooltip': $zIndex-7,
-    'dialog': $zIndex-8
+  'dropdown': $zIndex-6,
+  'tooltip': $zIndex-7,
+  'dialog': $zIndex-8
 );
 
 
@@ -46,9 +46,9 @@ $zIndexMap: (
 // -----------------------------------------------------------------------------
 
 @function zIndex($zIndex) {
-    @if map-has-key($zIndexMap, $zIndex) {
-        @return map-get($zIndexMap, $zIndex);
-    }
-    @warn 'Unknown z-index `#{$zIndex}` used in zIndex function.';
-    @return null;
+  @if map-has-key($zIndexMap, $zIndex) {
+    @return map-get($zIndexMap, $zIndex);
+  }
+  @warn 'Unknown z-index `#{$zIndex}` used in zIndex function.';
+  @return null;
 }

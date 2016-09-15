@@ -75,7 +75,7 @@ gulp.task('scss:lint', function () {
                 'extends-before-declarations': 1,
                 'extends-before-mixins': 1,
                 'final-newline': 1,
-                'force-pseudo-nesting': 1,
+                'force-pseudo-nesting': 0,
                 'function-name-format': [ 1,
                     {
                         'allow-leading-underscore': false,
@@ -94,7 +94,7 @@ gulp.task('scss:lint', function () {
                 ],
                 'indentation': [ 1,
                     {
-                        'size': '4'
+                        'size': '2'
                     }
                 ],
                 'leading-zero': [ 1,
@@ -128,7 +128,7 @@ gulp.task('scss:lint', function () {
                 'no-ids': 2,
                 'no-important': 2,
                 'no-invalid-hex': 2,
-                'no-mergeable-selectors': 1,
+                'no-mergeable-selectors': 0,
                 'no-misspelled-properties': 2,
                 'no-qualifying-elements': [ 2,
                     {
@@ -138,7 +138,7 @@ gulp.task('scss:lint', function () {
                 'no-trailing-whitespace': 1,
                 'no-trailing-zero': 1,
                 'no-transition-all': 1,
-                'no-vendor-prefixes': 2,
+                'no-vendor-prefixes': 0,
                 'one-declaration-per-line': 2,
                 'placeholder-in-extend': 2,
                 // 'placeholder-name-format': [ 2,
@@ -147,7 +147,7 @@ gulp.task('scss:lint', function () {
                 //     }
                 // ],
                 'property-sort-order': 2,
-                // 'pseudo-element': 2,
+                'pseudo-element': 2,
                 'quotes': 1,
                 'single-line-per-selector': 1,
                 'space-after-bang': 1,

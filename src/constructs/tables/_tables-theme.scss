@@ -9,9 +9,9 @@ $table-cell-padding: spacing('half') + spacing('quarter');
 // -----------------------------------------------------------------------------
 
 .table {
-    line-height: lineHeight('body');
-    margin-bottom: spacing('single');
-    width: 100%;
+  line-height: lineHeight('body');
+  margin-bottom: spacing('single');
+  width: 100%;
 }
 
 
@@ -19,13 +19,13 @@ $table-cell-padding: spacing('half') + spacing('quarter');
 // -----------------------------------------------------------------------------
 
 .table-surtitle {
-    line-height: lineHeight('body');
-    margin-bottom: spacing('half');
+  line-height: lineHeight('body');
+  margin-bottom: spacing('half');
 }
 
 .table-subtitle {
-    line-height: lineHeight('body');
-    margin-top: spacing('half');
+  line-height: lineHeight('body');
+  margin-top: spacing('half');
 }
 
 
@@ -33,9 +33,9 @@ $table-cell-padding: spacing('half') + spacing('quarter');
 // -----------------------------------------------------------------------------
 
 .table-header th {
-    font-weight: fontWeight('bold');
-    padding: spacing('quarter') $table-cell-padding;
-    text-align: left;
+  font-weight: fontWeight('bold');
+  padding: spacing('quarter') $table-cell-padding;
+  text-align: left;
 }
 
 
@@ -43,27 +43,27 @@ $table-cell-padding: spacing('half') + spacing('quarter');
 // -----------------------------------------------------------------------------
 
 .table-body > .table-row {
-    transition: background-color duration('fast') timing('swiftOut');
+  transition: background-color duration('fast') timing('swiftOut');
 
-    &:hover {
-        background-color: color('background', 'dark');
-    }
+  &:hover {
+    background-color: color('background', 'dark');
+  }
 
-    &.is-active {
-        background-color: color('background', 'light');
-    }
+  &.is-active {
+    background-color: color('background', 'light');
+  }
 }
 
 .table-body th,
 .table-body td {
-    border-top: 1px solid color('background', 'dark');
-    padding: $table-cell-padding $table-cell-padding remCalc(11px);
-    vertical-align: middle;
+  border-top: 1px solid color('background', 'dark');
+  padding: $table-cell-padding $table-cell-padding remCalc(11px);
+  vertical-align: middle;
 }
 
 .table-body th {
-    font-weight: fontWeight('bold');
-    text-align: left;
+  font-weight: fontWeight('bold');
+  text-align: left;
 }
 
 
@@ -71,14 +71,14 @@ $table-cell-padding: spacing('half') + spacing('quarter');
 // -----------------------------------------------------------------------------
 
 .table--small .table-header th {
-    font-size: fontSize('small');
-    padding: spacing('quarter') spacing('half');
+  font-size: fontSize('small');
+  padding: spacing('quarter') spacing('half');
 }
 
 .table--small .table-body th,
 .table--small .table-body td {
-    font-size: fontSize('small');
-    padding: spacing('half');
+  font-size: fontSize('small');
+  padding: spacing('half');
 }
 
 
@@ -86,96 +86,102 @@ $table-cell-padding: spacing('half') + spacing('quarter');
 // -----------------------------------------------------------------------------
 
 .table-row--success {
-    background-color: color('success', 'light');
-    color: color('success');
+  background-color: color('success', 'light');
+  color: color('success');
 }
 
 .table-row--warning {
-    background-color: color('warning', 'light');
-    color: color('warning');
+  background-color: color('warning', 'light');
+  color: color('warning');
 }
 
 .table-row--error {
-    background-color: color('error', 'light');
-    color: color('error');
+  background-color: color('error', 'light');
+  color: color('error');
 }
 
 
 // Responsive table modifiers
 // -----------------------------------------------------------------------------
 // 1. Disable the linting on this line. It specifically needs to target table
-//    cells (td's) with a data-title. Won't pass linting.
+//  cells (td's) with a data-title. Won't pass linting.
 // -----------------------------------------------------------------------------
 
-@include viewport('small', 'max-width') {
-    .table--responsiveList > .table-header {
-        @include hidden();
+.table--responsiveList {
+  @include viewport('small', 'max-width') {
+    > .table-header {
+      @include hidden();
     }
 
-    .table--responsiveList > .table-body,
-    .table--responsiveList .table-row,
-    .table--responsiveList th,
-    .table--responsiveList td {
-        display: block;
+    > .table-body,
+    .table-row,
+    th,
+    td {
+      display: block;
     }
 
-    .table--responsiveList > .table-body th,
-    .table--responsiveList > .table-body td {
-        padding: spacing('half');
+    > .table-body th,
+    > .table-body td {
+      padding: spacing('half');
     }
 
-    .table--responsiveList > .table-body td[data-title]:before {
+    > .table-body td[data-title] {
+      &::before {
         content: attr(data-title);
         float: left;
+      }
     }
 
-    .table--responsiveList .table-row,
-    .table--responsiveList .table-row:nth-of-type(odd) {
-        background-color: #fff;
-        border: solid color('background', 'dark');
+    .table-row,
+    .table-row:nth-of-type(odd) {
+      background-color: #fff;
+      border: solid color('background', 'dark');
     }
 
-    .table--responsiveList .table-row th,
-    .table--responsiveList .table-row td,
-    .table--responsiveList .table-row:nth-of-type(odd) th,
-    .table--responsiveList .table-row:nth-of-type(odd) td {
-        border-top: 0;
+    .table-row th,
+    .table-row td,
+    .table-row:nth-of-type(odd) th,
+    .table-row:nth-of-type(odd) td {
+      border-top: 0;
     }
 
-    .table--responsiveList .table-row:hover {
-        background-color: #fff;
+    .table-row:hover {
+      background-color: #fff;
     }
 
-    .table--responsiveList .table-row + .table-row {
-        margin-top: spacing('single');
+    .table-row + .table-row {
+      margin-top: spacing('single');
     }
 
-    .table--responsiveList .table-row + .table-row th,
-    .table--responsiveList .table-row + .table-row td {
-        border-top: 0;
+    .table-row + .table-row th,
+    .table-row + .table-row td {
+      border-top: 0;
     }
+  }
 }
 
-@include viewport('small', 'max-width') {
-    .table--responsiveOverflowX > .table-header {
-        display: block;
-        float: left;
+.table--responsiveOverflowX {
+  @include viewport('small', 'max-width') {
+    > .table-header {
+      display: block;
+      float: left;
     }
 
-    .table--responsiveOverflowX > .table-body {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-        width: auto;
+    > .table-body {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+      width: auto;
     }
 
-    .table--responsiveOverflowX > .table-body > .table-row {
-        display: inline-block;
-        vertical-align: top;
+    > .table-body > .table-row {
+      display: inline-block;
+      vertical-align: top;
     }
 
-    .table--responsiveOverflowX th,
-    .table--responsiveOverflowX td {
-        display: block;
+    th,
+    td {
+      display: block;
     }
+  }
 }

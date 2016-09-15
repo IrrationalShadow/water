@@ -8,46 +8,46 @@
 // -----------------------------------------------------------------------------
 
 .input {
-    background-color: #fff;
-    border: 1px solid color('border');
-    color: color('text');
-    display: block;
-    font-size: fontSize('body');
-    height: 2rem;
-    max-width: 40rem;
-    padding: spacing('quarter');
-    width: 100%;
+  background-color: #fff;
+  border: 1px solid color('border');
+  color: color('text');
+  display: block;
+  font-size: fontSize('body');
+  height: 2rem;
+  max-width: 40rem;
+  padding: spacing('quarter');
+  width: 100%;
 
-    &:hover {
-        border-color: color('border', 'hover');
-    }
+  &:hover {
+    border-color: color('border', 'hover');
+  }
 
-    &:focus {
-        border-color: color('border', 'active');
-    }
+  &:focus {
+    border-color: color('border', 'active');
+  }
 
-    &[disabled] {
-        background-color: color('background');
-        border-color: color('border');
-        cursor: not-allowed;
-    }
+  &[disabled] {
+    background-color: color('background');
+    border-color: color('border');
+    cursor: not-allowed;
+  }
 
-    &::-webkit-input-placeholder {
-        color: color('text', 'light');
-    }
+  &::-webkit-input-placeholder {
+    color: color('text', 'light');
+  }
 
-    &::-moz-placeholder {
-        color: color('text', 'light');
-    }
+  &::-moz-placeholder {
+    color: color('text', 'light');
+  }
 
-    &:-ms-input-placeholder {
-        color: color('text', 'light');
-    }
+  &:-ms-input-placeholder {
+    color: color('text', 'light');
+  }
 }
 
 .input--textarea {
-    height: auto; // 1
-    resize: vertical; // 2
+  height: auto; // 1
+  resize: vertical; // 2
 }
 
 
@@ -57,20 +57,20 @@
 // -----------------------------------------------------------------------------
 
 .label--affix {
-    align-items: center;
-    border: 1px solid color('border');
-    color: color('text', 'light');
-    cursor: default;
-    display: flex;
-    padding: 0 spacing('half');
+  align-items: center;
+  border: 1px solid color('border');
+  color: color('text', 'light');
+  cursor: default;
+  display: flex;
+  padding: 0 spacing('half');
 
-    &:not(:first-child) {
-        border-left: 0;
-    }
+  &:not(:first-child) {
+    border-left: 0;
+  }
 
-    &:not(:last-child) {
-        border-right: 0;
-    }
+  &:not(:last-child) {
+    border-right: 0;
+  }
 }
 
 
@@ -79,14 +79,16 @@
 // Affix buttons to text inputs, either before or after the input.
 // -----------------------------------------------------------------------------
 
-.button--affix:not(:first-child) {
+.button--affix {
+  &:not(:first-child) {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-}
+  }
 
-.button--affix:not(:last-child) {
+  &:not(:last-child) {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
+  }
 }
 
 
@@ -101,15 +103,15 @@ $label-inset-margin: spacing('eighth');
 $label-inset-width: 5rem;
 
 .label--inset {
-    height: 2rem;
-    margin: $label-inset-margin;
-    pointer-events: none; // 1
-    position: absolute;
-    width: $label-inset-width;
+  height: 2rem;
+  margin: $label-inset-margin;
+  pointer-events: none; // 1
+  position: absolute;
+  width: $label-inset-width;
 }
 
 .input.has-label-inset {
-    padding-left: $label-inset-width + ($label-inset-margin * 2);
+  padding-left: $label-inset-width + ($label-inset-margin * 2);
 }
 
 
@@ -119,13 +121,13 @@ $label-inset-width: 5rem;
 // -----------------------------------------------------------------------------
 
 .button--inset {
-    display: block;
-    height: 2rem;
-    position: absolute;
-    right: 0;
-    width: 2rem;
+  display: block;
+  height: 2rem;
+  position: absolute;
+  right: 0;
+  width: 2rem;
 }
 
 .form-input.has-button-inset {
-    padding-right: spacing('double');
+  padding-right: spacing('double');
 }

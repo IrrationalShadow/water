@@ -12,28 +12,28 @@ $button-borderWidth: 1px;
 // -----------------------------------------------------------------------------
 
 .button {
-    @include fontSize('note');
-    border: $button-borderWidth solid color('border');
-    border-radius: $button-borderRadius;
-    color: color('text');
-    font-family: fontFamily('text');
-    font-weight: fontWeight('bold');
-    padding: spacing('half') spacing('single') remCalc(6px); // 1
-    text-transform: uppercase;
+  border: $button-borderWidth solid color('border');
+  border-radius: $button-borderRadius;
+  color: color('text');
+  font-family: fontFamily('text');
+  font-weight: fontWeight('bold');
+  padding: spacing('half') spacing('single') calc(#{spacing('half')} - 2px); // 1
+  text-transform: uppercase;
+  @include fontSize('note');
 
-    &:hover,
-    &:focus {
-        border-color: color('border', 'hover');
-    }
+  &:hover,
+  &:focus {
+    border-color: color('border', 'hover');
+  }
 
-    &:active,
-    &.is-active {
-        border-color: color('border', 'active');
-    }
+  &:active,
+  &.is-active {
+    border-color: color('border', 'active');
+  }
 }
 
 .button + .button {
-    margin-left: spacing('half');
+  margin-left: spacing('half');
 }
 
 
@@ -41,45 +41,45 @@ $button-borderWidth: 1px;
 // -----------------------------------------------------------------------------
 
 .button--primary {
-    background-color: color('primary');
-    border-color: color('primary');
-    color: #fff;
+  background-color: color('primary');
+  border-color: color('primary');
+  color: #fff;
 
-    &:hover,
-    &:focus {
-        background-color: color('primary', 'light');
-        border-color: color('primary', 'light');
-    }
+  &:hover,
+  &:focus {
+    background-color: color('primary', 'light');
+    border-color: color('primary', 'light');
+  }
 
-    &:active,
-    &.is-active {
-        background-color: color('primary', 'dark');
-        border-color: color('primary', 'dark');
-    }
+  &:active,
+  &.is-active {
+    background-color: color('primary', 'dark');
+    border-color: color('primary', 'dark');
+  }
 }
 
 .button--flat {
-    background-color: none;
-    border-color: transparent;
+  background-color: none;
+  border-color: transparent;
 
-    &:hover,
-    &:focus {
-        background-color: color('primary', 'light');
-        border-color: color('primary', 'light');
-    }
+  &:hover,
+  &:focus {
+    background-color: color('primary', 'light');
+    border-color: color('primary', 'light');
+  }
 
-    &:active,
-    &.is-active {
-        background-color: color('primary', 'dark');
-        border-color: color('primary', 'dark');
-    }
+  &:active,
+  &.is-active {
+    background-color: color('primary', 'dark');
+    border-color: color('primary', 'dark');
+  }
 }
 
 .button[disabled] {
-    background-color: material('grey', 300);
-    border-color: material('grey', 300);
-    color: material('grey');
-    cursor: not-allowed;
+  background-color: material('grey', 300);
+  border-color: material('grey', 300);
+  color: material('grey');
+  cursor: not-allowed;
 }
 
 
@@ -91,20 +91,20 @@ $button-borderWidth: 1px;
 
 .button--large,
 %button--large {
-    font-size: fontSize('body');
-    padding: remCalc(12px) spacing('double') remCalc(10px); // 2
+  font-size: fontSize('body');
+  padding: remCalc(12px) spacing('double') remCalc(10px); // 2
 }
 
 .button--small,
 %button--small {
-    font-size: fontSize('small');
-    margin-top: 1px; // 2
-    padding: remCalc(3px) (spacing('half') + spacing('eighth')) remCalc(2px); // 2
+  font-size: fontSize('small');
+  margin-top: 1px; // 2
+  padding: remCalc(3px) (spacing('half') + spacing('eighth')) remCalc(2px); // 2
 }
 
 .button--stretch { // 1
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 
@@ -112,51 +112,51 @@ $button-borderWidth: 1px;
 // -----------------------------------------------------------------------------
 // 1. Inline-block layout. Reduce font-size to 0, to be re-set on the button.
 // 2. Relative positioning is placed here for reference to nested input
-//    checkboxes and radio buttons which are hidden via position: absolute;
+//  checkboxes and radio buttons which are hidden via position: absolute;
 // 3. Removes any undesired border-radius.
 // 4. Offset the border-width of the buttons.
 // 5. Button groups can apply the sizing modifiers once via the group class.
-//    This allows the buttons themselves to remain as simple as possible.
+//  This allows the buttons themselves to remain as simple as possible.
 // -----------------------------------------------------------------------------
 
 .buttonGroup {
-    display: inline-block;
-    font-size: 0; // 1
-    position: relative;
-    vertical-align: middle;
+  display: inline-block;
+  font-size: 0; // 1
+  position: relative;
+  vertical-align: middle;
 }
 
 .buttonGroup > .button {
-    display: inline-block;
-    position: relative; // 2
+  display: inline-block;
+  position: relative; // 2
 
-    &:hover {
-        z-index: 1;
-    }
+  &:hover {
+    z-index: 1;
+  }
 
-    &:first-child {
-        border-bottom-right-radius: 0; // 3
-        border-top-right-radius: 0; // 3
-    }
+  &:first-child {
+    border-bottom-right-radius: 0; // 3
+    border-top-right-radius: 0; // 3
+  }
 
-    &:not(:first-child):not(:last-child) {
-        border-radius: 0; // 3
-    }
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0; // 3
+  }
 
-    &:last-child {
-        border-bottom-left-radius: 0; // 3
-        border-top-left-radius: 0; // 3
-    }
+  &:last-child {
+    border-bottom-left-radius: 0; // 3
+    border-top-left-radius: 0; // 3
+  }
 }
 
 .buttonGroup > .button + .button {
-    margin-left: -$button-borderWidth; // 4
+  margin-left: -$button-borderWidth; // 4
 }
 
 .buttonGroup--large > button { // 5
-    @extend %button--large;
+  @extend %button--large;
 }
 
 .buttonGroup--small > button { // 5
-    @extend %button--small;
+  @extend %button--small;
 }

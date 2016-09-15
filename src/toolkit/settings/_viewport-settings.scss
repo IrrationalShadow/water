@@ -7,10 +7,10 @@
 // -----------------------------------------------------------------------------
 
 $viewportMap: (
-    xlarge: 1681px,
-    large: 1281px,
-    medium: 961px,
-    small: 601px
+  xlarge: 1681px,
+  large: 1281px,
+  medium: 961px,
+  small: 601px
 );
 
 
@@ -20,30 +20,30 @@ $viewportMap: (
 // to the selector you're working on.
 //
 // 1. Media queries are typically min-width, scaling up with mobile first.
-//    When there is a need for a max-width media query, the viewport size must
-//    be reduced by 1px to ensure the correct viewport is targeted.
-//    For example: (max-width: 1024px) opposed to (max-width: 1025px).
+//  When there is a need for a max-width media query, the viewport size must
+//  be reduced by 1px to ensure the correct viewport is targeted.
+//  For example: (max-width: 1024px) opposed to (max-width: 1025px).
 //
 // Example use:
-//    @include viewport('small') {
-//        property: styles;
-//    }
+//  @include viewport('small') {
+//    property: styles;
+//  }
 //
-//    @include viewport('large', 'max-width') {
-//        property: styles;
-//    }
+//  @include viewport('large', 'max-width') {
+//    property: styles;
+//  }
 // -----------------------------------------------------------------------------
 
 @mixin viewport($size, $maxWidth: null) {
-    @if $maxWidth == 'max-width' {
-        @media (max-width: (viewport($size) - 1px)) { // 1
-            @content;
-        }
-    } @else {
-        @media (min-width: viewport($size)) {
-            @content;
-        }
+  @if $maxWidth == 'max-width' {
+    @media (max-width: (viewport($size) - 1px)) { // 1
+      @content;
     }
+  } @else {
+    @media (min-width: viewport($size)) {
+      @content;
+    }
+  }
 }
 
 
@@ -53,9 +53,9 @@ $viewportMap: (
 // -----------------------------------------------------------------------------
 
 @function viewport($viewport) {
-    @if map-has-key($viewportMap, $viewport) {
-        @return map-get($viewportMap, $viewport);
-    }
-    @warn 'Unknown viewport `#{$viewport}` specified in the viewport function.';
-    @return null;
+  @if map-has-key($viewportMap, $viewport) {
+    @return map-get($viewportMap, $viewport);
+  }
+  @warn 'Unknown viewport `#{$viewport}` specified in the viewport function.';
+  @return null;
 }

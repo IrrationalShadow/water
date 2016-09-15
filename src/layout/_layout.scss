@@ -7,21 +7,16 @@
 // All descendant content should be made up of components and constructs.
 //
 // 1. Add in HTML5 element support for older browsers.
-// 2. Set the global box-sizing to border-box by default.
+// 2. Add the border-box global * support for all elements.
 // -----------------------------------------------------------------------------
 
 @include html5-elements-display(); // 1
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box; // 2
-}
+@include border-box(); // 2
 
 body {
-    background-color: #fff;
-    border: none;
-    margin: 0;
+  background-color: #fff;
+  border: none;
+  margin: 0;
 }
 
 
@@ -29,17 +24,17 @@ body {
 // -----------------------------------------------------------------------------
 
 .header {
-    background-color: color('primary');
-    width: 100%;
+  background-color: color('primary');
+  width: 100%;
 }
 
 .body {
-    width: 100%;
+  width: 100%;
 }
 
 .footer {
-    border-top: 1px solid color('divider');
-    width: 100%;
+  border-top: 1px solid color('divider');
+  width: 100%;
 }
 
 
@@ -47,7 +42,7 @@ body {
 // -----------------------------------------------------------------------------
 
 .container {
-    margin: 0 auto;
-    max-width: remCalc(1280px);
-    width: 80%;
+  margin: 0 auto;
+  max-width: remCalc(1280px);
+  width: 80%;
 }

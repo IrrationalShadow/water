@@ -6,63 +6,63 @@
 // -----------------------------------------------------------------------------
 
 $colorMap: (
-    // Branding
-    'primary': (
-        'base': #00c483,
-        'dark': darken(#00c483, 5%),
-        'light': lighten(#00c483, 5%)
-    ),
-    'accent': (
-        'base': #202021,
-        'dark': #090909,
-        'light': #252526
-    ),
+  // Branding
+  'primary': (
+    'base': #00c483,
+    'dark': darken(#00c483, 5%),
+    'light': lighten(#00c483, 5%)
+  ),
+  'accent': (
+    'base': #202021,
+    'dark': #090909,
+    'light': #252526
+  ),
 
-    // Type
-    'text': (
-        'base': #363637,
-        'dark': #262627,
-        'light': #969697
-    ),
-    'link': (
-        'base': #00c483,
-        'hover': darken(#00c483, 5%),
-        'active': lighten(#00c483, 5%)
-    ),
+  // Type
+  'text': (
+    'base': #363637,
+    'dark': #262627,
+    'light': #969697
+  ),
+  'link': (
+    'base': #00c483,
+    'hover': darken(#00c483, 5%),
+    'active': lighten(#00c483, 5%)
+  ),
 
-    // Outlines
-    'divider': (
-        'base': #ddd
-    ),
-    'border': (
-        'base': #ddd,
-        'hover': #bbb,
-        'active': #888
-    ),
+  // Outlines
+  'divider': (
+    'base': #ddd
+  ),
+  'border': (
+    'base': #ddd,
+    'hover': #bbb,
+    'active': #888
+  ),
 
-    // Backgrounds
-    'background': (
-        'base': #ddd,
-        'dark': #bbb,
-        'light': #fafafa
-    ),
+  // Backgrounds
+  'background': (
+    'base': #ddd,
+    'dark': #bbb,
+    'light': #fafafa
+  ),
 
-    // States
-    'success': (
-        'base': material('green'),
-        'dark': material('green', 700),
-        'light': material('green', 100)
-    ),
-    'error': (
-        'base': material('red'),
-        'dark': material('red', 700),
-        'light': material('red', 100)
-    ),
-    'warning': (
-        'base': material('amber'),
-        'dark': material('amber', 700),
-        'light': material('amber', 100)
-    )
+  // States
+  'success': (
+    'base': material('green'),
+    'dark': material('green', 700),
+    'light': material('green', 100)
+  ),
+  'error': (
+    'base': material('red'),
+    'dark': material('red', 700),
+    'light': material('red', 100)
+  ),
+  'warning': (
+    'base': material('amber'),
+    'dark': material('amber', 700),
+    'light': material('amber', 100)
+  )
 );
 
 
@@ -72,7 +72,7 @@ $colorMap: (
 // -----------------------------------------------------------------------------
 
 @function color($color, $variant: 'base') {
-    @return map-get(map-get($colorMap, $color), $variant);
-    @warn 'Unknown color `#{$color}` used in color function.';
-    @return null;
+  @return map-get(map-get($colorMap, $color), $variant);
+  @warn 'Unknown color `#{$color}` used in color function.';
+  @return null;
 }

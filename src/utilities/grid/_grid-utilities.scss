@@ -20,47 +20,47 @@ $grid-gutter: spacing('half');
 // -----------------------------------------------------------------------------
 
 .u-grid {
-    display: flex;
-    margin-left: -($grid-gutter);
-    margin-right: -($grid-gutter);
+  display: flex;
+  margin-left: -($grid-gutter);
+  margin-right: -($grid-gutter);
 }
 
 .u-grid--wrap {
-    flex-wrap: wrap; // 1
+  flex-wrap: wrap; // 1
 }
 
 .u-grid--collapseGutter { // 2
-    margin-left: 0;
-    margin-right: 0;
+  margin-left: 0;
+  margin-right: 0;
 
-    > .u-grid-col { // 2
-        padding-left: 0;
-        padding-right: 0;
-    }
+  > .u-grid-col { // 2
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .u-grid--alignRight {
-    justify-content: flex-end; // 3
+  justify-content: flex-end; // 3
 }
 
 .u-grid--alignCenter {
-    justify-content: center; // 4
+  justify-content: center; // 4
 }
 
 .u-grid--alignJustify {
-    justify-content: space-between; // 5
+  justify-content: space-between; // 5
 }
 
 .u-grid--alignTop {
-    align-items: flex-start; // 6
+  align-items: flex-start; // 6
 }
 
 .u-grid--alignMiddle {
-    align-items: center; // 7
+  align-items: center; // 7
 }
 
 .u-grid--alignBottom {
-    align-items: flex-end; // 8
+  align-items: flex-end; // 8
 }
 
 
@@ -78,19 +78,19 @@ $grid-gutter: spacing('half');
 // -----------------------------------------------------------------------------
 
 .u-grid-col {
-    flex: 1;
-    padding-left: $grid-gutter;
-    padding-right: $grid-gutter;
+  flex: 1;
+  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
 }
 
 .u-grid-col--alignTop {
-    align-self: flex-start; // 1
+  align-self: flex-start; // 1
 }
 
 .u-grid-col--alignMiddle {
-    align-self: center; // 2
+  align-self: center; // 2
 }
 
 .u-grid-col--alignBottom {
-    align-self: flex-end; // 3
+  align-self: flex-end; // 3
 }

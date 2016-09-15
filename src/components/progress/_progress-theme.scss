@@ -11,36 +11,38 @@
 // -----------------------------------------------------------------------------
 
 .progress {
-    height: spacing('half');
+  height: spacing('half');
 }
 
 .progress + .progress {
-    margin-top: spacing('single');
+  margin-top: spacing('single');
 }
 
 .progress[value] {
-    background-color: color('background'); // 3
-    border-radius: 2px;
-    color: color('primary'); // 1, 2
-    overflow: hidden;
+  background-color: color('background'); // 3
+  border-radius: 2px;
+  color: color('primary'); // 1, 2
+  overflow: hidden;
 }
 
-.progress[value]::-webkit-progress-bar {
+.progress[value] {
+  &::-webkit-progress-bar {
     background-color: color('background');
     border-radius: 2px;
     overflow: hidden;
-}
+  }
 
-.progress[value]::-webkit-progress-value {
+  &::-webkit-progress-value {
     background-color: color('primary'); // 1
-}
 
-.progress[value]::-webkit-progress-value::before {
-    content: attr(value);
-}
+    &::before {
+      content: attr(value);
+    }
+  }
 
-.progress[value]::-moz-progress-bar {
+  &::-moz-progress-bar {
     background-color: color('primary');
+  }
 }
 
 
@@ -48,9 +50,9 @@
 // -----------------------------------------------------------------------------
 
 .progress--small {
-    height: spacing('quarter');
+  height: spacing('quarter');
 }
 
 .progress--large {
-    height: spacing('single');
+  height: spacing('single');
 }

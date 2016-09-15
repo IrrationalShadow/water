@@ -13,8 +13,8 @@
 // -----------------------------------------------------------------------------
 
 @mixin fontSize($fontSize, $lineHeight: $fontSize) {
-    font-size: fontSize($fontSize);
-    line-height: lineHeight($lineHeight);
+  font-size: fontSize($fontSize);
+  line-height: lineHeight($lineHeight);
 }
 
 
@@ -25,11 +25,11 @@
 // -----------------------------------------------------------------------------
 
 @mixin textTruncate() {
-    max-width: 100%; // 1
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    word-wrap: normal; // 2
+  max-width: 100%; // 1
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal; // 2
 }
 
 
@@ -41,9 +41,9 @@
 // -----------------------------------------------------------------------------
 
 @mixin textKerning() {
-    font-feature-settings: 'kern' 1; // 1
-    font-kerning: normal; // 2
-    text-rendering: optimizeLegibility; // 3
+  font-feature-settings: 'kern' 1; // 1
+  font-kerning: normal; // 2
+  text-rendering: optimizeLegibility; // 3
 }
 
 
@@ -51,15 +51,15 @@
 // -----------------------------------------------------------------------------
 
 @mixin inputPlaceholder($color) {
-    &:-ms-input-placeholder {
-        color: $color;
-    }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
 
-    &::-moz-placeholder {
-        color: $color;
-    }
+  &::-moz-placeholder {
+    color: $color;
+  }
 
-    &::-webkit-input-placeholder {
-        color: $color;
-    }
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
 }

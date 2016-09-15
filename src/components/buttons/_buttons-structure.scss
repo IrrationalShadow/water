@@ -2,77 +2,79 @@
 // BUTTONS (Structure)
 // =============================================================================
 // 1. Fix inconsistent 'text-transform' inheritance for 'button' and 'select'.
-//    All other form control elements do not inherit 'text-transform' values.
-//    Correct 'button' style inheritance in Firefox, IE 8/9/10/11, and Opera.
-//    Correct 'select' style inheritance in Firefox.
+//  All other form control elements do not inherit 'text-transform' values.
+//  Correct 'button' style inheritance in Firefox, IE 8/9/10/11, and Opera.
+//  Correct 'select' style inheritance in Firefox.
 // 2. Address 'overflow' set to 'hidden' in IE 8/9/10/11.
 // 3. Correct color not being inherited.
-//    Known issue: affects color of disabled elements.
+//  Known issue: affects color of disabled elements.
 // 4. Correct font properties not being inherited.
 // 5. Address margins set differently in Firefox 4+, Safari, and Chrome.
 // 6. Avoid the WebKit bug in Android 4.0.* where (2) destroys native 'audio'
-//    and 'video' controls.
+//  and 'video' controls.
 // 7. Correct inability to style clickable 'input' types in iOS.
 // 8. Improve usability and consistency of cursor style between image-type
-//    'input' and others.
+//  'input' and others.
 // 9. Re-set default cursor for disabled elements.
 // 10. Remove inner padding and border in Firefox 4+.
 // -----------------------------------------------------------------------------
 
 button {
-    line-height: 1; // 1
-    outline: none; // 2
-    overflow: visible; // 2
-    text-transform: none; // 1
+  line-height: 1; // 1
+  outline: none; // 2
+  overflow: visible; // 2
+  text-transform: none; // 1
 }
 
 button,
 input {
-    appearance: none;
-    background: none;
-    border-radius: 0;
-    color: inherit; // 3
-    font: inherit; // 4
-    margin: 0; // 5
-    outline: none;
-    padding: 0;
+  appearance: none;
+  background: none;
+  border-radius: 0;
+  color: inherit; // 3
+  font: inherit; // 4
+  margin: 0; // 5
+  outline: none;
+  padding: 0;
 }
 
 button,
 html input[type='button'], // 6
 input[type='reset'],
 input[type='submit'] {
-    appearance: button; // 7
-    cursor: pointer; // 8
+  appearance: button; // 7
+  cursor: pointer; // 8
 }
 
 button[disabled],
 html input[disabled] {
-    cursor: default; // 9
+  cursor: default; // 9
 }
 
-button::-moz-focus-inner,
-input::-moz-focus-inner { // 10
+button,
+input {
+  &::-moz-focus-inner { // 10
     border: 0;
     padding: 0;
+  }
 }
 
 
 // Button
 // -----------------------------------------------------------------------------
 // 1. Hides checkboxes and radio buttons, yet keeps the mark up semantic and
-//    accessible. Inpired by Bootstrap 3's implementation.
+//  accessible. Inpired by Bootstrap 3's implementation.
 // -----------------------------------------------------------------------------
 
 .button {
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
 
-    > input { // 1
-        clip: rect(0, 0, 0, 0);
-        pointer-events: none;
-        position: absolute;
-    }
+  > input { // 1
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+    position: absolute;
+  }
 }

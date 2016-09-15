@@ -9,13 +9,13 @@
 // -----------------------------------------------------------------------------
 
 table { // 1
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 th,
 td { // 1
-    padding: 0;
+  padding: 0;
 }
 
 
@@ -23,5 +23,5 @@ td { // 1
 // -----------------------------------------------------------------------------
 
 .table-subtitle {
-    caption-side: bottom;
+  caption-side: bottom;
 }

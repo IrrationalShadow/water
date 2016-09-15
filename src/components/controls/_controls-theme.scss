@@ -4,105 +4,105 @@
 //
 
 // .select {
-//     background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: black'></polygon></svg>") no-repeat right 0 center;
-//     background-size: 8px;
+//   background: #fff url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: black'></polygon></svg>") no-repeat right 0 center;
+//   background-size: 8px;
 // }
 
 // // Radio Button
 // // -----------------------------------------------------------------------------
 //
 // .form-radio {
-//     @include hidden('visually');
+//   @include hidden('visually');
 //
-//     &:checked {
-//
-//         + .form-label {
-//
-//             &:before {
-//                 // Appearance
-//                 border-color: $form-radio-checked_borderColor;
-//             }
-//
-//             &:after {
-//                 // Appearance
-//                 opacity: $form-radio-checked_opacity;
-//                 transform: $form-radio-checked_transform;
-//                 background-color: $form-radio-checked_backgroundColor;
-//             }
-//         }
-//
-//         + .form-labelBox {
-//             // Appearance
-//             color: $form-radio-checked-labelBox_color;
-//             background-color: $form-radio-checked-labelBox_background;
-//             border-color: $form-radio-checked-labelBox_borderColor;
-//         }
-//     }
+//   &:checked {
 //
 //     + .form-label {
-//         // Layout
-//         position: relative;
-//         padding-left: $form-radio_paddingLeft;
+//
+//       &:before {
 //         // Appearance
-//         cursor: $form-radio_cursor;
+//         border-color: $form-radio-checked_borderColor;
+//       }
 //
-//         &:before {
-//             // Layout
-//             @include generateContent;
-//             position: absolute;
-//             top: 0;
-//             left: 0;
-//             width: $form-radio_width;
-//             height: $form-radio_height;
-//             // Appearance
-//             background-color: $form-radio_backgroundColor;
-//             border: $form-radio_borderStyle $form-radio_borderColor;
-//             border-width: $form-radio_borderWidth;
-//             border-radius: $form-radio_borderRadius;
-//             // Interaction
-//             transition: $form-radio_transition;
-//         }
-//
-//         &:after {
-//             // Layout
-//             @include generateContent;
-//             position: absolute;
-//             top: 0;
-//             left: 0;
-//             width: $form-radio-pip_width;
-//             height: $form-radio-pip_height;
-//             margin-top: $form-radio-pip_marginTop;
-//             margin-left: $form-radio-pip_marginLeft;
-//             border-radius: $form-radio-pip_borderRadius;
-//             opacity: $form-radio-pip_opacity;
-//             transform: $form-radio-pip_transform;
-//             transition: $form-radio-pip_transition;
-//             // Appearance
-//             cursor: $form-radio_cursor;
-//         }
-//
-//         &:last-child {
-//             margin-right: 0;
-//         }
+//       &:after {
+//         // Appearance
+//         opacity: $form-radio-checked_opacity;
+//         transform: $form-radio-checked_transform;
+//         background-color: $form-radio-checked_backgroundColor;
+//       }
 //     }
 //
 //     + .form-labelBox {
-//         // Layout
-//         margin: $form-radio-labelBox_margin;
-//         padding: $form-radio-labelBox_padding;
-//         // Appearance
-//         cursor: $form-radio-labelBox_cursor;
-//         text-align: $form-radio-labelBox_textAlign;
-//         color: $form-radio-labelBox_color;
-//         background-color: $form-radio-labelBox_background;
-//         border: $form-radio-labelBox_border;
-//         // Animation
-//         transition: $form-radio-labelBox_transition;
-//
-//         &:last-child {
-//             margin: 0;
-//         }
+//       // Appearance
+//       color: $form-radio-checked-labelBox_color;
+//       background-color: $form-radio-checked-labelBox_background;
+//       border-color: $form-radio-checked-labelBox_borderColor;
 //     }
+//   }
+//
+//   + .form-label {
+//     // Layout
+//     position: relative;
+//     padding-left: $form-radio_paddingLeft;
+//     // Appearance
+//     cursor: $form-radio_cursor;
+//
+//     &:before {
+//       // Layout
+//       @include generateContent;
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       width: $form-radio_width;
+//       height: $form-radio_height;
+//       // Appearance
+//       background-color: $form-radio_backgroundColor;
+//       border: $form-radio_borderStyle $form-radio_borderColor;
+//       border-width: $form-radio_borderWidth;
+//       border-radius: $form-radio_borderRadius;
+//       // Interaction
+//       transition: $form-radio_transition;
+//     }
+//
+//     &:after {
+//       // Layout
+//       @include generateContent;
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       width: $form-radio-pip_width;
+//       height: $form-radio-pip_height;
+//       margin-top: $form-radio-pip_marginTop;
+//       margin-left: $form-radio-pip_marginLeft;
+//       border-radius: $form-radio-pip_borderRadius;
+//       opacity: $form-radio-pip_opacity;
+//       transform: $form-radio-pip_transform;
+//       transition: $form-radio-pip_transition;
+//       // Appearance
+//       cursor: $form-radio_cursor;
+//     }
+//
+//     &:last-child {
+//       margin-right: 0;
+//     }
+//   }
+//
+//   + .form-labelBox {
+//     // Layout
+//     margin: $form-radio-labelBox_margin;
+//     padding: $form-radio-labelBox_padding;
+//     // Appearance
+//     cursor: $form-radio-labelBox_cursor;
+//     text-align: $form-radio-labelBox_textAlign;
+//     color: $form-radio-labelBox_color;
+//     background-color: $form-radio-labelBox_background;
+//     border: $form-radio-labelBox_border;
+//     // Animation
+//     transition: $form-radio-labelBox_transition;
+//
+//     &:last-child {
+//       margin: 0;
+//     }
+//   }
 // }
 //
 //
@@ -110,45 +110,45 @@
 // // -----------------------------------------------------------------------------
 //
 // // .form-checkbox {
-// //     // Layout
-// //     @include hidden('visually');
+// //   // Layout
+// //   @include hidden('visually');
 //
-// //     &:checked {
-//
-// //         + .form-label {
-//
-// //             &:before {
-// //                 // Appearance
-// //                 background: $form-checkbox-checked_background;
-// //                 border-color: $form-checkbox-checked_borderColor;
-// //             }
-// //         }
-// //     }
+// //   &:checked {
 //
 // //     + .form-label {
-// //         // Layout
-// //         position: relative;
-// //         padding-left: $form-checkbox_paddingLeft;
-// //         // Appearance
-// //         cursor: $form-checkbox_cursor;
 //
-// //         &:before {
-// //             // Layout
-// //             @include generateContent;
-// //             position: absolute;
-// //             top: 0;
-// //             left: 0;
-// //             width: $form-checkbox_width;
-// //             height: $form-checkbox_height;
-// //             // Appearance
-// //             background-color: $form-checkbox_backgroundColor;
-// //             border: $form-checkbox_borderStyle $form-radio_borderColor;
-// //             border-width: $form-checkbox_borderWidth;
-// //             border-radius: $form-checkbox_borderRadius;
-// //             // Interaction
-// //             transition: $form-checkbox_transition;
-// //         }
+// //       &:before {
+// //         // Appearance
+// //         background: $form-checkbox-checked_background;
+// //         border-color: $form-checkbox-checked_borderColor;
+// //       }
 // //     }
+// //   }
+//
+// //   + .form-label {
+// //     // Layout
+// //     position: relative;
+// //     padding-left: $form-checkbox_paddingLeft;
+// //     // Appearance
+// //     cursor: $form-checkbox_cursor;
+//
+// //     &:before {
+// //       // Layout
+// //       @include generateContent;
+// //       position: absolute;
+// //       top: 0;
+// //       left: 0;
+// //       width: $form-checkbox_width;
+// //       height: $form-checkbox_height;
+// //       // Appearance
+// //       background-color: $form-checkbox_backgroundColor;
+// //       border: $form-checkbox_borderStyle $form-radio_borderColor;
+// //       border-width: $form-checkbox_borderWidth;
+// //       border-radius: $form-checkbox_borderRadius;
+// //       // Interaction
+// //       transition: $form-checkbox_transition;
+// //     }
+// //   }
 // // }
 //
 //

@@ -2,17 +2,17 @@
 // FLOAT (Tools)
 // =============================================================================
 // 1. The use of `table` rather than `block` is only necessary if using
-//    ':before' to contain the top-margins of child elements.
+//  ':before' to contain the top-margins of child elements.
 // -----------------------------------------------------------------------------
 
 @mixin clearFloats() {
-    &:before,
-    &:after {
-        content: '';
-        display: table; // 1
-    }
+  &::before,
+  &::after {
+    content: '';
+    display: table; // 1
+  }
 
-    &:after {
-        clear: both;
-    }
+  &::after {
+    clear: both;
+  }
 }

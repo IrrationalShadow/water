@@ -6,20 +6,20 @@
 // Font-size map
 // -----------------------------------------------------------------------------
 // NOTE: The root font size sets the scale for your stack. Please use pixels or
-//       a percentage unit for the value. Body is typically set to 1rem.
+//     a percentage unit for the value. Body is typically set to 1rem.
 // -----------------------------------------------------------------------------
 
 $fontSizeMap: (
-    'root': 16px,
-    'body': 1rem,
+  'root': 16px,
+  'body': 1rem,
 
-    'display': 2.489rem,
-    'h1': 2.0625rem,
-    'h2': 1.75rem,
-    'h3': 1.4375rem,
-    'h4': 1.1875rem,
-    'note': 0.8125rem,
-    'small': 0.75rem
+  'display': 2.489rem,
+  'h1': 2.0625rem,
+  'h2': 1.75rem,
+  'h3': 1.4375rem,
+  'h4': 1.1875rem,
+  'note': 0.8125rem,
+  'small': 0.75rem
 );
 
 
@@ -28,22 +28,22 @@ $fontSizeMap: (
 // Similarly, you'll find the matching line height scale below.
 //
 // NOTE: Body line-height should be unitless. All following font-size specific
-//       line-heights can be measured in rem units for simplicity, or unitless.
+//     line-heights can be measured in rem units for simplicity, or unitless.
 //
 // NOTE: Lline heights are set to a consistent vertical rhythm, which should be
-//       maintained throughout the project.
+//     maintained throughout the project.
 // -----------------------------------------------------------------------------
 
 $lineHeightMap: (
-    'body': 1.5,
+  'body': 1.5,
 
-    'display': 2.8125rem,
-    'h1': 2.5rem,
-    'h2': 2.25rem,
-    'h3': 2rem,
-    'h4': 1.75rem,
-    'note': 1.25rem,
-    'small': 1.25rem
+  'display': 2.8125rem,
+  'h1': 2.5rem,
+  'h2': 2.25rem,
+  'h3': 2rem,
+  'h4': 1.75rem,
+  'note': 1.25rem,
+  'small': 1.25rem
 );
 
 
@@ -54,8 +54,8 @@ $lineHeightMap: (
 // -----------------------------------------------------------------------------
 
 $fontFamilyMap: (
-    'text': (Roboto, 'Helvetica Neue', sans-serif),
-    'heading': (Roboto, 'Times New Roman', serif)
+  'text': (Roboto, 'Helvetica Neue', sans-serif),
+  'heading': (Roboto, 'Times New Roman', serif)
 );
 
 
@@ -66,9 +66,9 @@ $fontFamilyMap: (
 // -----------------------------------------------------------------------------
 
 $fontWeightMap: (
-    'thin': 300,
-    'normal': 400,
-    'bold': 500
+  'thin': 300,
+  'normal': 400,
+  'bold': 500
 );
 
 
@@ -78,33 +78,33 @@ $fontWeightMap: (
 // -----------------------------------------------------------------------------
 
 @function fontSize($fontSize) {
-    @if map-has-key($fontSizeMap, $fontSize) {
-        @return map-get($fontSizeMap, $fontSize);
-    }
-    @warn 'Unknown font-size `#{$fontSize}` used in fontSize function.';
-    @return null;
+  @if map-has-key($fontSizeMap, $fontSize) {
+    @return map-get($fontSizeMap, $fontSize);
+  }
+  @warn 'Unknown font-size `#{$fontSize}` used in fontSize function.';
+  @return null;
 }
 
 @function lineHeight($lineHeight) {
-    @if map-has-key($lineHeightMap, $lineHeight) {
-        @return map-get($lineHeightMap, $lineHeight);
-    }
-    @warn 'Unknown line-height `#{$lineHeight}` used in lineHeight function.';
-    @return null;
+  @if map-has-key($lineHeightMap, $lineHeight) {
+    @return map-get($lineHeightMap, $lineHeight);
+  }
+  @warn 'Unknown line-height `#{$lineHeight}` used in lineHeight function.';
+  @return null;
 }
 
 @function fontFamily($fontFamily) {
-    @if map-has-key($fontFamilyMap, $fontFamily) {
-        @return map-get($fontFamilyMap, $fontFamily);
-    }
-    @warn 'Unknown font-family `#{$fontFamily}` used in fontFamily function.';
-    @return null;
+  @if map-has-key($fontFamilyMap, $fontFamily) {
+    @return map-get($fontFamilyMap, $fontFamily);
+  }
+  @warn 'Unknown font-family `#{$fontFamily}` used in fontFamily function.';
+  @return null;
 }
 
 @function fontWeight($fontWeight) {
-    @if map-has-key($fontWeightMap, $fontWeight) {
-        @return map-get($fontWeightMap, $fontWeight);
-    }
-    @warn 'Unknown font-weight `#{$fontWeight}` used in fontWeight function.';
-    @return null;
+  @if map-has-key($fontWeightMap, $fontWeight) {
+    @return map-get($fontWeightMap, $fontWeight);
+  }
+  @warn 'Unknown font-weight `#{$fontWeight}` used in fontWeight function.';
+  @return null;
 }

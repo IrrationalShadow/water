@@ -2,8 +2,8 @@
 // TYPOGRAPHY (Theme)
 // =============================================================================
 // NOTE: Vertical rhythm is set to 4px by default.
-//       You'll note that the margins/paddings of elements here may seem odd,
-//       however this is to ensure consistent vertical rhythm throughout.
+//     You'll note that the margins/paddings of elements here may seem odd,
+//     however this is to ensure consistent vertical rhythm throughout.
 // -----------------------------------------------------------------------------
 
 $text-spacing: spacing('single');
@@ -13,13 +13,13 @@ $text-spacing: spacing('single');
 // -----------------------------------------------------------------------------
 
 html {
-    @include textKerning();
-    font-size: fontSize('root');
+  @include textKerning();
+  font-size: fontSize('root');
 }
 
 body {
-    color: color('text');
-    font: 1rem / #{lineHeight('body')} fontFamily('text');
+  color: color('text');
+  font: 1rem / #{lineHeight('body')} fontFamily('text');
 }
 
 
@@ -27,9 +27,9 @@ body {
 // -----------------------------------------------------------------------------
 
 ::selection {
-    background: color('primary');
-    color: #fff;
-    text-shadow: none;
+  background: color('primary');
+  color: #fff;
+  text-shadow: none;
 }
 
 
@@ -37,17 +37,17 @@ body {
 // -----------------------------------------------------------------------------
 
 a {
-    color: color('link');
-    text-decoration: underline;
-    transition: color duration('fastest') ease;
+  color: color('link');
+  text-decoration: underline;
+  transition: color duration('fastest') ease;
 
-    &:hover {
-        color: color('link', 'hover');
-    }
+  &:hover {
+    color: color('link', 'hover');
+  }
 
-    &:active {
-        color: color('link', 'active');
-    }
+  &:active {
+    color: color('link', 'active');
+  }
 }
 
 
@@ -57,58 +57,60 @@ a {
 // -----------------------------------------------------------------------------
 
 %heading {
-    color: color('text', 'dark');
-    font-family: fontFamily('heading');
-    font-weight: fontWeight('bold');
-    position: relative; // 1
-    top: -(spacing('eighth')); // 1
+  color: color('text', 'dark');
+  font-family: fontFamily('heading');
+  font-weight: fontWeight('bold');
+  position: relative; // 1
+  top: -(spacing('eighth')); // 1
 }
 
 h1,
 %h1 {
-    @extend %heading;
-    @include fontSize('h1');
-    margin: 0 0 (spacing('single') - spacing('quarter'));
+  @extend %heading;
+  @include fontSize('h1');
+  margin: 0 0 (spacing('single') - spacing('quarter'));
 }
 
 h2,
 %h2 {
-    @extend %heading;
-    @include fontSize('h2');
-    margin: (spacing('double') + spacing('quarter')) 0 (spacing('half') + spacing('quarter'));
+  @extend %heading;
+  @include fontSize('h2');
+  margin: (spacing('double') + spacing('quarter')) 0 (spacing('half') + spacing('quarter'));
 }
 
 h3,
 %h3 {
-    @extend %heading;
-    @include fontSize('h3');
-    margin: (spacing('double') + spacing('quarter')) 0 (spacing('half') + spacing('quarter'));
+  @extend %heading;
+  @include fontSize('h3');
+  margin: (spacing('double') + spacing('quarter')) 0 (spacing('half') + spacing('quarter'));
 }
 
 h4,
 %h4 {
-    @extend %heading;
-    @include fontSize('h4');
-    margin: remCalc(35px) 0 remCalc(13px); // 1
+  @extend %heading;
+  @include fontSize('h4');
+  margin: remCalc(35px) 0 remCalc(13px); // 1
 }
 
-h1:not(:first-child) {
+h1 {
+  &:not(:first-child) {
     margin-top: spacing('double'); // 1
+  }
 }
 
 h1 + h2,
 %h1 + %h2 {
-    margin-top: spacing('single'); // 1
+  margin-top: spacing('single'); // 1
 }
 
 h2 + h3,
 %h2 + %h3 {
-    margin-top: spacing('single');
+  margin-top: spacing('single');
 }
 
 h3 + h4,
 %h3 + %h4 {
-    margin-top: remCalc(-1px); // 1
+  margin-top: remCalc(-1px); // 1
 }
 
 
@@ -119,19 +121,19 @@ h3 + h4,
 // -----------------------------------------------------------------------------
 
 .text-display {
-    @extend %h1;
+  @extend %h1;
 }
 
 .text-headline {
-    @extend %h2;
+  @extend %h2;
 }
 
 .text-heading {
-    @extend %h3;
+  @extend %h3;
 }
 
 .text-subheading {
-    @extend %h4;
+  @extend %h4;
 }
 
 
@@ -139,7 +141,7 @@ h3 + h4,
 // -----------------------------------------------------------------------------
 
 p {
-    margin: 0 0 $text-spacing;
+  margin: 0 0 $text-spacing;
 }
 
 
@@ -149,26 +151,26 @@ p {
 ul,
 ol,
 dl {
-    margin: 0 0 $text-spacing;
+  margin: 0 0 $text-spacing;
 }
 
 ul,
 ol {
-    margin-left: $text-spacing;
+  margin-left: $text-spacing;
 
-    ul,
-    ol {
-        margin-bottom: 0;
-    }
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
 }
 
 dt {
-    font-weight: fontWeight('bold');
+  font-weight: fontWeight('bold');
 }
 
 dt,
 dd {
-    margin-bottom: spacing('half');
+  margin-bottom: spacing('half');
 }
 
 
@@ -177,38 +179,38 @@ dd {
 
 abbr,
 acronym {
-    border-bottom: 1px dotted color('divider');
-    color: color('text', 'light');
-    cursor: help;
+  border-bottom: 1px dotted color('divider');
+  color: color('text', 'light');
+  cursor: help;
 }
 
 acronym {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 em {
-    font-style: italic;
+  font-style: italic;
 }
 
 small {
-    @include fontSize('small');
+  @include fontSize('small');
 }
 
 strong {
-    font-weight: fontWeight('bold');
+  font-weight: fontWeight('bold');
 }
 
 sub,
 sup {
-    @include fontSize('small');
+  @include fontSize('small');
 }
 
 sup {
-    top: -0.5em;
+  top: -0.5em;
 }
 
 sub {
-    bottom: -0.25em;
+  bottom: -0.25em;
 }
 
 
@@ -218,38 +220,38 @@ sub {
 // -----------------------------------------------------------------------------
 
 blockquote {
-    @include fontSize($fontSize: 'h4');
-    border-left: 4px solid color('divider');
-    margin: remCalc(26px) 0 remCalc(22px); // 1
-    padding: remCalc(7px) spacing('single') remCalc(9px); // 1
+  @include fontSize($fontSize: 'h4');
+  border-left: 4px solid color('divider');
+  margin: remCalc(26px) 0 remCalc(22px); // 1
+  padding: remCalc(7px) spacing('single') remCalc(9px); // 1
 
-    cite {
-        color: color('text', 'light');
-        display: block;
-        font-size: 1rem;
-        line-height: lineHeight('body');
-        margin-top: remCalc(3px); // 1
-    }
+  cite {
+    color: color('text', 'light');
+    display: block;
+    font-size: 1rem;
+    line-height: lineHeight('body');
+    margin-top: remCalc(3px); // 1
+  }
 
-    h4 + &,
-    %h4 + & {
-        margin-top: remCalc(27px); // 1
-    }
+  h4 + &,
+  %h4 + & {
+    margin-top: remCalc(27px); // 1
+  }
 
-    + h2,
-    + %h2 {
-        margin-top: remCalc(39px); // 1
-    }
+  + h2,
+  + %h2 {
+    margin-top: remCalc(39px); // 1
+  }
 
-    + h3,
-    + %h3 {
-        margin-top: remCalc(43px); // 1
-    }
+  + h3,
+  + %h3 {
+    margin-top: remCalc(43px); // 1
+  }
 
-    + h4,
-    + %h4 {
-        margin-top: remCalc(42px); // 1
-    }
+  + h4,
+  + %h4 {
+    margin-top: remCalc(42px); // 1
+  }
 }
 
 
@@ -259,28 +261,28 @@ blockquote {
 // -----------------------------------------------------------------------------
 
 hr {
-    background-color: color('divider');
-    border: 0;
-    clear: both;
-    height: 1px;
-    margin: (spacing('single') + spacing('half')) 0 remCalc(23px); // 1
+  background-color: color('divider');
+  border: 0;
+  clear: both;
+  height: 1px;
+  margin: (spacing('single') + spacing('half')) 0 remCalc(23px); // 1
 
-    h4 + &,
-    %h4 + & {
-        margin-top: remCalc(26px); // 1
-    }
+  h4 + &,
+  %h4 + & {
+    margin-top: remCalc(26px); // 1
+  }
 
-    + h2,
-    + %h2,
-    + h3,
-    + %h3 {
-        margin-top: (spacing('single') + spacing('quarter')); // 1
-    }
+  + h2,
+  + %h2,
+  + h3,
+  + %h3 {
+    margin-top: (spacing('single') + spacing('quarter')); // 1
+  }
 
-    + h4,
-    + %h4 {
-        margin-top: remCalc(26px); // 1
-    }
+  + h4,
+  + %h4 {
+    margin-top: remCalc(26px); // 1
+  }
 }
 
 
@@ -288,7 +290,7 @@ hr {
 // -----------------------------------------------------------------------------
 
 legend {
-    @extend %h2;
+  @extend %h2;
 }
 
 
@@ -296,7 +298,7 @@ legend {
 // -----------------------------------------------------------------------------
 
 label {
-    color: color('text');
-    display: inline-block;
-    font-weight: fontWeight('bold');
+  color: color('text');
+  display: inline-block;
+  font-weight: fontWeight('bold');
 }

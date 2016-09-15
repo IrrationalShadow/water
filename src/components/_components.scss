@@ -9,10 +9,10 @@
 // 3. Import the images component third.
 //
 // NOTE: Why are the first 3 components imported before everything else?
-//       Easy. CSS does that whole 'cascading' thing, and we want to take
-//       advantage of that. These 3 components are special compared to all of
-//       the others. They can, and will show up inside other component structure
-//       or theme files. They bend the rules a little. They're rebels.
+//     Easy. CSS does that whole 'cascading' thing, and we want to take
+//     advantage of that. These 3 components are special compared to all of
+//     the others. They can, and will show up inside other component structure
+//     or theme files. They bend the rules a little. They're rebels.
 // -----------------------------------------------------------------------------
 
 @import 'typography/typography-structure'; // 1

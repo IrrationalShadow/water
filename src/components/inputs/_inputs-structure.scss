@@ -2,60 +2,62 @@
 // INPUTS (Structure)
 // =============================================================================
 // 1. Address Firefox 4+ setting `line-height` on `input` using `!important` in
-//    the UA stylesheet.
+//  the UA stylesheet.
 // 2. Address `appearance` set to `searchfield` in Safari and Chrome.
 // 3. Address `box-sizing` set to `border-box` in Safari and Chrome
-//    (include `-moz` to future-proof).
+//  (include `-moz` to future-proof).
 // 4. Remove inner padding and search cancel button in Safari and Chrome on
-//    OS X. Safari (but not Chrome) clips the cancel button when the search
-//    input has padding (and `textfield` appearance).
+//  OS X. Safari (but not Chrome) clips the cancel button when the search
+//  input has padding (and `textfield` appearance).
 // 5. Fix the cursor style for Chrome's increment/decrement buttons. For certain
-//    font-size values of the input, it causes the cursor style of the decrement
-//    button to change from `default` to `text`.
+//  font-size values of the input, it causes the cursor style of the decrement
+//  button to change from `default` to `text`.
 // 6. Correct color not being inherited.
-//    Known issue: affects color of disabled elements.
+//  Known issue: affects color of disabled elements.
 // 7. Correct font properties not being inherited.
 // 8. Address margins set differently in Firefox 4+, Safari, and Chrome.
 // 9. Don't inherit the `font-weight` (applied by a rule above).
-//    Note: the default cannot safely be changed in Chrome and Safari on OS X.
+//  Note: the default cannot safely be changed in Chrome and Safari on OS X.
 // 10. Remove default vertical scrollbar in IE 8-11.
 // -----------------------------------------------------------------------------
 
 input {
-    line-height: normal; // 1
+  line-height: normal; // 1
 }
 
 input[type='search'] {
-    appearance: textfield; // 2
-    box-sizing: content-box; // 3
-}
+  appearance: textfield; // 2
+  box-sizing: content-box; // 3
 
-input[type='search']::-webkit-search-cancel-button,
-input[type='search']::-webkit-search-decoration {
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration {
     appearance: none; // 4
+  }
 }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+input[type='number'] {
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
     height: auto; // 5
+  }
 }
 
 optgroup,
 textarea {
-    appearance: none;
-    background: none;
-    border-radius: 0;
-    color: inherit; // 6
-    font: inherit; // 7
-    margin: 0; // 8
-    outline: none;
-    padding: 0;
+  appearance: none;
+  background: none;
+  border-radius: 0;
+  color: inherit; // 6
+  font: inherit; // 7
+  margin: 0; // 8
+  outline: none;
+  padding: 0;
 }
 
 optgroup {
-    font-weight: bold; // 9
+  font-weight: bold; // 9
 }
 
 textarea {
-    overflow: auto; // 10
+  overflow: auto; // 10
 }
