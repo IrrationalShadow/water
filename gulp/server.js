@@ -13,12 +13,12 @@ var gulp = require('gulp'),
 // -----------------------------------------------------------------------------
 
 gulp.task('server', function () {
-    browserSync({
-        server: {
-            baseDir: './build' // 1
-        },
-        notify: {
-            styles: ['opacity: 0', 'position: absolute'] // 2
-        }
-    });
+  browserSync({
+    server: {
+      baseDir: './build' // 1
+    },
+    notify: {
+      styles: ['opacity: 0', 'position: absolute'] // 2
+    }
+  });
 });

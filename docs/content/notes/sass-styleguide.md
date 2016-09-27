@@ -217,8 +217,8 @@ comfortable line length for reading and commenting.
 
 ### Pseudo elements and classes
 
-- Declare *pseudo classes* with a single colon.
-- Declare *pseudo elements* with a double colon.
+- Declare *pseudo classes* with a single colon (eg. `:hover`).
+- Declare *pseudo elements* with a double colon (eg. `::before`).
 
 ### Vendor prefixes
 

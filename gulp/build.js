@@ -3,7 +3,6 @@
 // =============================================================================
 
 var gulp = require('gulp'),
-    browserSync = require('browser-sync'),
     runSequence  = require('run-sequence'),
     del = require('del');
 
@@ -12,11 +11,11 @@ var gulp = require('gulp'),
 // -----------------------------------------------------------------------------
 
 gulp.task('build', function (callback) {
-    runSequence(
-        'build:clean',
-        ['html', 'scss', 'js', 'images'],
-        callback
-    );
+  runSequence(
+    'build:clean',
+    ['html', 'scss', 'js', 'images'],
+    callback
+  );
 });
 
 
@@ -24,7 +23,7 @@ gulp.task('build', function (callback) {
 // -----------------------------------------------------------------------------
 
 gulp.task('build:clean', function () {
-    return del([
-        './build'
-    ]);
+  return del([
+    './build'
+  ]);
 });

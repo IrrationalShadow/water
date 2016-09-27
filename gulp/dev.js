@@ -10,9 +10,9 @@ var gulp = require('gulp'),
 // -----------------------------------------------------------------------------
 
 gulp.task('dev', function (callback) {
-    runSequence(
-        'build',
-        ['watch', 'server'],
-        callback
-    );
+  runSequence(
+    'build',
+    ['watch', 'server'],
+    callback
+  );
 });

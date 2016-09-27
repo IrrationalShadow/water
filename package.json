@@ -22,6 +22,7 @@
     "browser-sync": "^2.9.11",
     "del": "^2.0.2",
     "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.1",
     "gulp-cached": "^1.1.0",
     "gulp-csso": "^2.0.0",
     "gulp-filesize": "0.0.6",
@@ -38,7 +39,9 @@
     "metalsmith-layouts": "^1.6.5",
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-permalinks": "^0.5.0",
+    "node-sass": "^3.10.0",
     "require-dir": "^0.3.0",
-    "run-sequence": "^1.1.4"
+    "run-sequence": "^1.1.4",
+    "sass-lint": "^1.9.1"
   }
 }

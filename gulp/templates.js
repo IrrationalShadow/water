@@ -27,33 +27,33 @@ var gulpsmith = require('gulpsmith'),
 // -----------------------------------------------------------------------------
 
 gulp.task('html', function () {
-    return gulp.src('./docs/content/**/*')
-        .pipe(gulpFrontMatter()).on("data", function(file) {
-            assign(file, file.frontMatter);
-            delete file.frontMatter;
-        })
-        .pipe(
-            gulpsmith()
-                .use(collections({
-                    components: {
-                        pattern: 'components/**/*'
-                    },
-                    constructs: {
-                        pattern: 'constructs/**/*'
-                    }
-                }))
-                .use(markdown({
-                    "gfm": true
-                }))
-                .use(permalinks())
-                .use(layouts({
-                    engine: 'handlebars',
-                    default: 'layout.html',
-                    directory: './docs/layouts',
-                    partials: './docs/layouts/partials'
-                }))
-        )
-        .pipe(cache('templates'))
-        .pipe(gulp.dest('./build/docs/')) // 1
-        .pipe(browserSync.reload({stream:true})) // 2
+  return gulp.src('./docs/content/**/*')
+    .pipe(gulpFrontMatter()).on("data", function(file) {
+      assign(file, file.frontMatter);
+      delete file.frontMatter;
+    })
+    .pipe(
+      gulpsmith()
+        .use(collections({
+          components: {
+            pattern: 'components/**/*'
+          },
+          constructs: {
+            pattern: 'constructs/**/*'
+          }
+        }))
+        .use(markdown({
+          "gfm": true
+        }))
+        .use(permalinks())
+        .use(layouts({
+          engine: 'handlebars',
+          default: 'layout.html',
+          directory: './docs/layouts',
+          partials: './docs/layouts/partials'
+        }))
+    )
+    .pipe(cache('templates'))
+    .pipe(gulp.dest('./build/docs/')) // 1
+    .pipe(browserSync.reload({stream:true})) // 2
 });

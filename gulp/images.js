@@ -14,8 +14,8 @@ var gulp = require('gulp'),
 // -----------------------------------------------------------------------------
 
 gulp.task('images', function () {
-    return gulp.src(['./docs/public/images/*.png', './docs/public/images/*.jpg', './icons/*.svg'])
-        .pipe(cache('images'))
-        .pipe(gulp.dest('./build/static/img')) // 1
-        .pipe(browserSync.reload({stream:true})) // 2
+  return gulp.src(['./docs/public/images/*.png', './docs/public/images/*.jpg', './icons/*.svg'])
+    .pipe(cache('images'))
+    .pipe(gulp.dest('./build/static/img')) // 1
+    .pipe(browserSync.reload({stream:true})) // 2
 });

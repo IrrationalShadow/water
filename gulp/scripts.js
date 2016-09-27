@@ -14,8 +14,8 @@ var gulp = require('gulp'),
 // -----------------------------------------------------------------------------
 
 gulp.task('js', function () {
-    return gulp.src('./docs/assets/js/**/*.js')
-        .pipe(cache('scripts'))
-        .pipe(gulp.dest('./build/static/js')) // 1
-        .pipe(browserSync.reload({stream:true})) // 2
+  return gulp.src('./docs/assets/js/**/*.js')
+    .pipe(cache('scripts'))
+    .pipe(gulp.dest('./build/static/js')) // 1
+    .pipe(browserSync.reload({stream:true})) // 2
 });
