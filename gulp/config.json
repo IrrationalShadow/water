@@ -1,0 +1,10 @@
+{
+  "styles": {
+    "src": "./src/**/*.scss",
+    "build": "./build/static/css",
+    "dest"  : "./dist"
+  },
+  "docs": {
+    "styles": "./docs/assets/styles/**/*.scss"
+  }
+}

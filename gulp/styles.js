@@ -3,6 +3,7 @@
 // =============================================================================
 
 var gulp = require('gulp'),
+    config = require('./config.json'),
     browserSync = require('browser-sync'),
     cache = require('gulp-cached'),
     scss = require('gulp-sass'),
@@ -16,12 +17,12 @@ var gulp = require('gulp'),
 // -----------------------------------------------------------------------------
 
 gulp.task('scss', ['scss:lint'], function () {
-  return gulp.src(['./src/**/*.scss', './docs/assets/css/**/*.scss'])
+  return gulp.src([config.styles.src, config.docs.styles])
     .pipe(scss({
       includePaths: ['scss'],
       outputStyle: 'expanded',
     }).on('error', scss.logError))
-    .pipe(gulp.dest('build/static/css')) // 1
+    .pipe(gulp.dest(config.styles.build)) // 1
     .pipe(browserSync.reload({stream:true})) // 2
 });
 
@@ -32,7 +33,7 @@ gulp.task('scss', ['scss:lint'], function () {
 // -----------------------------------------------------------------------------
 
 gulp.task('scss:lint', function () {
-  return gulp.src(['./src/**/*.scss', './docs/assets/css/**/*.scss'])
+  return gulp.src([config.styles.src, config.docs.styles])
     .pipe(cache('linting'))
     .pipe(lint({
       options: {

@@ -38,7 +38,7 @@ gulp.task('dist:clean', function () {
 // -----------------------------------------------------------------------------
 // 1. Run CSSO and improve the CSS for production.
 // 2. Rename the file to include '.min' as CSSO will minify the file.
-// 3. Print the minified CSS filesize in terminal.
+// 3. Print the CSS' minified filesize in terminal.
 // -----------------------------------------------------------------------------
 
 gulp.task('dist:css', function () {
