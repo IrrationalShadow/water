@@ -1,0 +1,8 @@
+h1 {
+  --size: font('h1', 'size');
+  font-size: var(--size);
+}
+
+.card h1 {
+  --size: font('h2', 'size');
+}

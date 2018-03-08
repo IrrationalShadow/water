@@ -1,0 +1,236 @@
+// =============================================================================
+// STYLES CONFIG
+// =============================================================================
+
+
+// Viewports config
+// -----------------------------------------------------------------------------
+
+$viewportMap: (
+  'xlarge': 1281px,
+  'large': 961px,
+  'medium': 721px,
+  'small': 481px
+);
+
+
+@function viewport($viewport) {
+  @if map-has-key($viewportMap, $viewport) {
+    @return map-get($viewportMap, $viewport);
+  }
+  @warn 'Unknown viewport `#{$viewport}` specified in the viewport function.';
+  @return null;
+}
+
+
+@mixin viewport($size, $maxWidth: null) {
+  @if $maxWidth == 'max-width' {
+    @media (max-width: (viewport($size) - 1px)) { // 1
+      @content;
+    }
+  } @else {
+    @media (min-width: viewport($size)) {
+      @content;
+    }
+  }
+}
+
+
+// Grid config
+// -----------------------------------------------------------------------------
+
+$columnsMap: (
+  '12/12': 100%,
+  '11/12': 91.66667%,
+  '10/12': 83.33334%,
+  '9/12':  75%,
+  '8/12':  66.66667%,
+  '7/12':  58.33334%,
+  '6/12':  50%,
+  '5/12':  41.66667%,
+  '4/12':  33.33334%,
+  '3/12':  25%,
+  '2/12':  16.66667%,
+  '1/12':  8.33334%,
+
+  '4/5':   80%,
+  '3/5':   60%,
+  '2/5':   40%,
+  '1/5':   20%
+);
+
+
+@function columns($columns) {
+  @if map-has-key($columnsMap, $columns) {
+    @return map-get($columnsMap, $columns);
+  }
+  @warn 'Unknown column size `#{$columns}` used in columns function.';
+  @return null;
+}
+
+
+// Spacing config
+// -----------------------------------------------------------------------------
+// Keep consistent spacing throughout your interfaces.
+// The spacing rhythm is your interfaces vertical rhythm value.
+//
+// Every call of the space function is evaluated against the spacing rhythm.
+// If the remainder is not 0, the value entered does not follow the defined
+// vertical rhythm and will create a warning.
+// -----------------------------------------------------------------------------
+
+$spacing-unit: 1rem;
+$spacing-rhythm: 0.125;
+
+@function space($value, $custom: null) {
+  @if $value % $spacing-rhythm == 0 {
+    @return $spacing-unit * $value;
+  } @else if $custom == 'custom' {
+    @return $spacing-unit * $value;
+  }
+  @warn 'Spacing value does not follow the design guidelines spacing rhythm.';
+  @return null;
+}
+
+
+// Color config
+// -----------------------------------------------------------------------------
+
+$colorMap: (
+  'primary': (
+    900: #15191f,
+    700: #1b1d26,
+    500: #22262f,
+    300: #20242d
+  ),
+
+  'accent': (
+    500: #ff4d4b
+  ),
+
+  'text': (
+    900: rgba(#a2b1d0, 0.45),
+    800: rgba(#a2b1d0, 0.55),
+    700: rgba(lighten(#1e232f, 80%), 0.7),
+    500: rgba(lighten(#1e232f, 80%), 0.85)
+  )
+);
+
+
+@function color($color, $variant: 500) {
+  @return map-get(map-get($colorMap, $color), $variant);
+  @warn 'Unknown color `#{$color}` used in color function.';
+  @return null;
+}
+
+
+// Typography config
+// -----------------------------------------------------------------------------
+
+$fontMap: (
+  'family': (
+    'heading': (-apple-system, Roboto, 'Segoe UI', sans-serif),
+    'body': ('Noto Sans', -apple-system, Roboto, 'Segoe UI', sans-serif)
+  ),
+
+  'weight': (
+    'thin': 300,
+    'normal': 400,
+    'bold': 700
+  )
+
+  'h1': (
+    'weight': 700,
+    'size': 1.625rem,
+    'lineHeight': 2.25rem
+  ),
+
+  'h2': (
+    'weight': 700,
+    'size': 1.4375rem,
+    'lineHeight': 2rem
+  ),
+
+  'h3': (
+    'weight': 700,
+    'size': 1.25rem,
+    'lineHeight': 1.875rem
+  ),
+
+  'h4': (
+    'weight': 700,
+    'size': 1.125rem,
+    'lineHeight': 1.75rem
+  ),
+
+  'b1': (
+    'weight': 400,
+    'size': 1rem,
+    'lineHeight': 1.5rem
+  ),
+
+  'b2': (
+    'weight': 400,
+    'size': 0.875rem,
+    'lineHeight': 1.375rem
+  ),
+
+  'b3': (
+    'weight': 400,
+    'size': 0.75rem,
+    'lineHeight': 1.25rem
+  ),
+);
+
+
+@function font($font, $value) {
+  @return map-get(map-get($fontMap, $font), $value);
+  @warn 'Unknown font value `#{$font}` used in font function.';
+  @return null;
+}
+
+
+// Z-index config
+// -----------------------------------------------------------------------------
+// Keep track of all your z-index values in one central location.
+//
+// This variable scale is strictly for use in the below zIndexMap. They are
+// never referenced in any partial file.
+//
+// Example use in partial: .class { z-index: zIndex('popoverArrow'); }
+// -----------------------------------------------------------------------------
+
+$zIndex-1:  10;
+$zIndex-2:  20;
+$zIndex-3:  30;
+$zIndex-4:  40;
+$zIndex-5:  50;
+$zIndex-6:  60;
+$zIndex-7:  70;
+$zIndex-8:  80;
+$zIndex-9:  90;
+$zIndex-10: 100;
+
+
+$zIndexMap: (
+  'negative': -1,
+  'low': $zIndex-1,
+  'medium': $zIndex-3,
+  'high': $zIndex-5,
+
+  'dropdown': $zIndex-5,
+  'popover': $zIndex-5,
+  'sticky': $zIndex-6,
+  'drawer': $zIndex-7,
+  'modal': $zIndex-8,
+  'tooltip': $zIndex-9
+);
+
+
+@function zIndex($zIndex) {
+  @if map-has-key($zIndexMap, $zIndex) {
+    @return map-get($zIndexMap, $zIndex);
+  }
+  @warn 'Unknown z-index `#{$zIndex}` used in zIndex function.';
+  @return null;
+}

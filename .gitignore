@@ -1,6 +1,5 @@
 .sass-cache
 .DS_Store
-npm-debug.log
-bower_components
-node_modules
 build
+npm-debug.log
+node_modules
