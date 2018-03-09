@@ -97,27 +97,15 @@ $spacing-rhythm: 0.125;
 // -----------------------------------------------------------------------------
 
 $colorMap: (
-  'primary': (
-    900: #15191f,
-    700: #1b1d26,
-    500: #22262f,
-    300: #20242d
-  ),
-
-  'accent': (
-    500: #ff4d4b
-  ),
-
-  'text': (
-    900: rgba(#a2b1d0, 0.45),
-    800: rgba(#a2b1d0, 0.55),
-    700: rgba(lighten(#1e232f, 80%), 0.7),
-    500: rgba(lighten(#1e232f, 80%), 0.85)
-  )
+  'p500': #111,
+  'p400': #222,
+  'p300': #333,
+  'p200': #444,
+  'p100': #555
 );
 
 
-@function color($color, $variant: 500) {
+@function color($color) {
   @return map-get(map-get($colorMap, $color), $variant);
   @warn 'Unknown color `#{$color}` used in color function.';
   @return null;
@@ -126,9 +114,12 @@ $colorMap: (
 
 // Typography config
 // -----------------------------------------------------------------------------
+// Keep control of your typography with type mappings.
+// -----------------------------------------------------------------------------
 
 $fontMap: (
   'family': (
+    'display': (-apple-system, Roboto, 'Segoe UI', sans-serif),
     'heading': (-apple-system, Roboto, 'Segoe UI', sans-serif),
     'body': ('Noto Sans', -apple-system, Roboto, 'Segoe UI', sans-serif)
   ),
@@ -137,7 +128,25 @@ $fontMap: (
     'thin': 300,
     'normal': 400,
     'bold': 700
-  )
+  ),
+
+  'd1': (
+    'weight': 300,
+    'size': 2.5625rem,
+    'lineHeight': 3.25rem
+  ),
+
+  'd2': (
+    'weight': 300,
+    'size': 2.25rem,
+    'lineHeight': 3rem
+  ),
+
+  'd3': (
+    'weight': 300,
+    'size': 2rem,
+    'lineHeight': 2.75rem
+  ),
 
   'h1': (
     'weight': 700,
