@@ -93,6 +93,52 @@ $spacing-rhythm: 0.125;
 }
 
 
+// Layers config
+// -----------------------------------------------------------------------------
+// Keep track of all your z-index layers from one central location.
+//
+// The variables are strictly for use in the below zIndexMap. They must never
+// be referenced in any partial file.
+//
+// Example use in partial: .class { z-index: layer('dropdown'); }
+// -----------------------------------------------------------------------------
+
+$layer-1:  10;
+$layer-2:  20;
+$layer-3:  30;
+$layer-4:  40;
+$layer-5:  50;
+$layer-6:  60;
+$layer-7:  70;
+$layer-8:  80;
+$layer-9:  90;
+$layer-10: 100;
+
+
+$layerMap: (
+  'negative': -1,
+  'low': $layer-1,
+  'medium': $layer-3,
+  'high': $layer-5,
+
+  'dropdown': $layer-5,
+  'popover': $layer-5,
+  'sticky': $layer-6,
+  'drawer': $layer-7,
+  'modal': $layer-8,
+  'tooltip': $layer-9
+);
+
+
+@function layer($layer) {
+  @if map-has-key($layerMap, $layer) {
+    @return map-get($layerMap, $layer);
+  }
+  @warn 'Unknown z-index `#{$layer}` used in layer function.';
+  @return null;
+}
+
+
 // Color config
 // -----------------------------------------------------------------------------
 
@@ -115,6 +161,10 @@ $colorMap: (
 // Typography config
 // -----------------------------------------------------------------------------
 // Keep control of your typography with type mappings.
+// Each font combination should maintain its size and line-height where applied.
+//
+// You may change the font weight or family of any text you deem appropriate
+// within your partials using the family or weight values.
 // -----------------------------------------------------------------------------
 
 $fontMap: (
@@ -195,51 +245,5 @@ $fontMap: (
 @function font($font, $value) {
   @return map-get(map-get($fontMap, $font), $value);
   @warn 'Unknown font value `#{$font}` used in font function.';
-  @return null;
-}
-
-
-// Z-index config
-// -----------------------------------------------------------------------------
-// Keep track of all your z-index values in one central location.
-//
-// This variable scale is strictly for use in the below zIndexMap. They are
-// never referenced in any partial file.
-//
-// Example use in partial: .class { z-index: zIndex('popoverArrow'); }
-// -----------------------------------------------------------------------------
-
-$zIndex-1:  10;
-$zIndex-2:  20;
-$zIndex-3:  30;
-$zIndex-4:  40;
-$zIndex-5:  50;
-$zIndex-6:  60;
-$zIndex-7:  70;
-$zIndex-8:  80;
-$zIndex-9:  90;
-$zIndex-10: 100;
-
-
-$zIndexMap: (
-  'negative': -1,
-  'low': $zIndex-1,
-  'medium': $zIndex-3,
-  'high': $zIndex-5,
-
-  'dropdown': $zIndex-5,
-  'popover': $zIndex-5,
-  'sticky': $zIndex-6,
-  'drawer': $zIndex-7,
-  'modal': $zIndex-8,
-  'tooltip': $zIndex-9
-);
-
-
-@function zIndex($zIndex) {
-  @if map-has-key($zIndexMap, $zIndex) {
-    @return map-get($zIndexMap, $zIndex);
-  }
-  @warn 'Unknown z-index `#{$zIndex}` used in zIndex function.';
   @return null;
 }
