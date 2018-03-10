@@ -7,10 +7,10 @@
 // -----------------------------------------------------------------------------
 
 $viewportMap: (
-  'xlarge': 1281px,
-  'large': 961px,
+  'small': 481px,
   'medium': 721px,
-  'small': 481px
+  'large': 961px,
+  'xlarge': 1281px
 );
 
 
@@ -24,7 +24,7 @@ $viewportMap: (
 
 
 @mixin viewport($size, $maxWidth: null) {
-  @if $maxWidth == 'max-width' {
+  @if $maxWidth == 'max' {
     @media (max-width: (viewport($size) - 1px)) { // 1
       @content;
     }
@@ -51,12 +51,14 @@ $columnsMap: (
   '4/12':  33.33334%,
   '3/12':  25%,
   '2/12':  16.66667%,
-  '1/12':  8.33334%,
+  '1/12':  8.33334%
+);
 
-  '4/5':   80%,
-  '3/5':   60%,
-  '2/5':   40%,
-  '1/5':   20%
+$gutterMap: (
+  'small': 0.5rem,
+  'medium': 1rem,
+  'large': 1.5rem,
+  'xlarge': 3rem
 );
 
 
@@ -65,6 +67,15 @@ $columnsMap: (
     @return map-get($columnsMap, $columns);
   }
   @warn 'Unknown column size `#{$columns}` used in columns function.';
+  @return null;
+}
+
+
+@function gutter($size) {
+  @if map-has-key($gutterMap, $size) {
+    @return map-get($gutterMap, $size);
+  }
+  @warn 'Unknown gutter size `#{$size}` used in gutter function.';
   @return null;
 }
 
@@ -79,7 +90,7 @@ $columnsMap: (
 // vertical rhythm and will create a warning.
 // -----------------------------------------------------------------------------
 
-$spacing-unit: 1rem;
+$spacing-unit: 1.5rem;
 $spacing-rhythm: 0.125;
 
 @function space($value, $custom: null) {
@@ -152,7 +163,9 @@ $colorMap: (
 
 
 @function color($color) {
-  @return map-get(map-get($colorMap, $color), $variant);
+  @if map-has-key($colorMap, $color) {
+    @return map-get($colorMap, $color);
+  }
   @warn 'Unknown color `#{$color}` used in color function.';
   @return null;
 }
@@ -245,5 +258,24 @@ $fontMap: (
 @function font($font, $value) {
   @return map-get(map-get($fontMap, $font), $value);
   @warn 'Unknown font value `#{$font}` used in font function.';
+  @return null;
+}
+
+
+// Icons config
+// -----------------------------------------------------------------------------
+
+$iconSizeMap: (
+  'small': 1rem,
+  'medium': 1.5rem,
+  'large': 3rem
+);
+
+
+@function icon($size) {
+  @if map-has-key($iconSizeMap, $size) {
+    @return map-get($iconSizeMap, $size);
+  }
+  @warn 'Unknown icon size `#{$size}` used in icon function.';
   @return null;
 }
