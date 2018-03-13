@@ -4,12 +4,12 @@
   "description": "A CSS framework made of reusable tools and components",
   "author": "Chris Roper",
   "license": "MIT",
-  "dependencies": {
-    "node-sass": "^4.7.2",
-    "stylelint": "^9.1.1"
-  },
   "scripts": {
     "sass": "node-sass -o css/ css/styles.scss --output-style expanded",
     "stylelint": "stylelint 'css/**/*.scss'; exit 0"
+  },
+  "dependencies": {
+    "node-sass": "^4.7.2",
+    "stylelint": "^9.1.1"
   }
 }
