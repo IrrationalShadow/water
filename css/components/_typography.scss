@@ -1,12 +1,65 @@
 h1 {
   --size: font('h1', 'size');
+  --thingName: #f00;
+  --thingNameNameName: #00f;
   font-size: var(--size);
 }
 
-.card h1 {
-  --size: font('h2', 'size');
-  // color: black;
+a {
+  border: 1px solid #f00;
+  transform: translate(1, 1);
 }
+
+.component {
+  font-size: 15px;
+  flex-grow: 1;
+  flex-shrink: 2;
+  flex-basis: auto;
+  flex-direction: column;
+}
+
+.component__thingName {
+  color: #f00;
+}
+
+.component--modifier {
+  color: #00f;
+}
+
+.component__descendant--modifier {
+  font-size: 16px;
+}
+
+.component__descendant--modifier\@s {
+  font-size: 16px;
+}
+
+.foo .bar .baz {
+  font-size: 1rem;
+}
+
+#foo {
+  font-size: 1rem;
+}
+
+.foo .bar > .baz {
+  font-size: 1rem;
+}
+
+div div div div {
+  font-size: 1rem;
+}
+
+* + * {
+  font-weight: bold;
+}
+
+@-webkit-keyframes {
+  0% {
+    top: 0;
+  }
+}
+
 
 // Avatar sizes
 // -----------------------------------------------------------------------------
@@ -16,5 +69,5 @@ h1 {
 // -----------------------------------------------------------------------------
 
 h2 {
-
+  font-size: 2em;
 }
