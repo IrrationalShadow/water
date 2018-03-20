@@ -1,5 +1,24 @@
 {
+  "plugins": [
+    "stylelint-scss"
+  ],
   "rules": {
+    "scss/at-else-closing-brace-newline-after": "always-last-in-chain",
+    "scss/at-else-closing-brace-space-after": "always-intermediate",
+    "scss/at-else-empty-line-before": "never",
+    "scss/at-else-if-parentheses-space-before": "always",
+    "scss/at-extend-no-missing-placeholder": true,
+    "scss/at-function-parentheses-space-before": "never",
+    "scss/at-function-pattern": "^[a-z]+(?:[A-Z][a-z]+)*[A-Z]?$",
+    "scss/at-if-closing-brace-newline-after": "always-last-in-chain",
+    "scss/at-if-closing-brace-space-after": "always-intermediate",
+    "at-rule-empty-line-before": ["always", {
+      "except": [
+        "blockless-after-same-name-blockless",
+        "first-nested"
+      ],
+      "ignore": ["after-comment"]
+    }],
     "at-rule-name-case": "lower",
     "at-rule-name-space-after": "always",
     "at-rule-no-vendor-prefix": true,
@@ -8,7 +27,6 @@
     "block-closing-brace-newline-after": "always",
     "block-closing-brace-newline-before": "always",
     "block-opening-brace-newline-after": "always",
-
     "block-opening-brace-space-before": "always",
     "block-no-empty": true,
     "color-hex-case": "lower",
@@ -16,9 +34,21 @@
     "color-named": "never",
     "color-no-invalid-hex": true,
     "comment-empty-line-before": ["always", {
-      "ignore": ["stylelint-commands", "after-comment"]
+      "except": ["first-nested"],
+      "ignore": ["stylelint-commands"]
     }],
     "comment-no-empty": true,
+    "comment-whitespace-inside": "always",
+    "custom-property-empty-line-before": ["always", {
+      "except": [
+        "after-custom-property",
+        "first-nested"
+      ],
+      "ignore": [
+        "after-comment",
+        "inside-single-line-block"
+      ]
+    }],
     "custom-property-pattern": "^[a-z]+(?:[A-Z][a-z]+)*[A-Z]?$",
     "declaration-bang-space-after": "never",
     "declaration-bang-space-before": "always",
@@ -30,6 +60,16 @@
     "declaration-block-trailing-semicolon": "always",
     "declaration-colon-space-after": "always-single-line",
     "declaration-colon-space-before": "never",
+    "declaration-empty-line-before": ["always", {
+      "except": [
+        "after-declaration",
+        "first-nested"
+      ],
+      "ignore": [
+        "after-comment",
+        "inside-single-line-block"
+      ]
+    }],
     "declaration-no-important": true,
     "declaration-property-unit-whitelist": [{
       "/^border/": ["px"],
@@ -51,18 +91,19 @@
     "function-parentheses-space-inside": "never-single-line",
     "function-url-quotes": "always",
     "function-whitespace-after": "always",
-    "indentation": [2, {
-      "except": ["value"]
-    }],
+    "indentation": 2,
     "length-zero-no-unit": true,
     "max-empty-lines": 2,
+    "max-line-length": 80,
     "max-nesting-depth": 2,
     "no-descending-specificity": true,
     "no-duplicate-at-import-rules": true,
     "no-duplicate-selectors": true,
     "no-empty-source": true,
+    "no-eol-whitespace": true,
     "no-extra-semicolons": true,
     "no-invalid-double-slash-comments": true,
+    "no-missing-end-of-source-newline": true,
     "media-feature-colon-space-after": "always",
     "media-feature-colon-space-before": "never",
     "media-feature-name-case": "lower",

@@ -2,15 +2,22 @@ h1 {
   --size: font('h1', 'size');
   --thingName: #f00;
   --thingNameNameName: #00f;
+
   font-size: var(--size);
 }
 
 a {
   border: 1px solid #f00;
   transform: translate(1, 1);
+  font-size: rem(28px);
+}
+
+.class {
+  color: #00f;
 }
 
 .component {
+  @extend .class;
   font-size: 15px;
   flex-grow: 1;
   flex-shrink: 2;
