@@ -1,0 +1,107 @@
+################################################################################
+# Luna SCSS linting
+################################################################################
+
+options:
+  cache-config: true
+  formatter: stylish
+  merge-default-rules: false
+
+files:
+  include: 'src/**/*.scss'
+  ignore:
+    - 'src/utilities/_columns.scss'
+    - 'src/utilities/_hidden.scss'
+
+rules:
+  attribute-quotes: 1
+  brace-style:
+    - 1
+    -
+      style: 1tbs
+  clean-import-paths:
+    - 1
+    -
+      leading-underscore: false
+      filename-extension: false
+  class-name-format:
+    - 2
+    -
+      allow-leading-underscore: false
+      convention: ^([a-zA-Z]*)-(([a-zA-Z]*)+)(__(([a-zA-Z0-9]+)+))?(--(([a-zA-Z0-9])+)+)?(.@[a-zA-Z]*)?$
+      convention-explanation: 'Class name does not follow conventions: .luna-[className][__descendantName][--modifierName], .u-utilityName, or .is-stateName'
+  empty-args:
+    - 1
+    -
+      include: true
+  empty-line-between-blocks:
+    - 1
+    -
+      allow-single-line-rulesets: false
+  extends-before-declarations: 1
+  extends-before-mixins: 1
+  final-newline: 1
+  force-pseudo-nesting: 1
+  function-name-format:
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: camelcase
+  hex-length:
+    - 1
+    -
+      style: short
+  hex-notation:
+    - 1
+    -
+      style: lowercase
+  indentation:
+    - 1
+    -
+      size: 2
+  leading-zero:
+    - 1
+    -
+      include: true
+  nesting-depth:
+    - 1
+    -
+      max-depth: 3
+  no-attribute-selectors: 0
+  no-color-keywords: 1
+  no-css-comments: 1
+  no-duplicate-properties: 2
+  no-empty-rulesets: 2
+  no-ids: 2
+  no-important: 2
+  no-invalid-hex: 2
+  no-mergeable-selectors:
+    - 1
+    -
+      whitelist:
+        - '%checkRadio'
+  no-misspelled-properties: 2
+  no-qualifying-elements:
+    - 2
+    -
+      allow-element-with-attribute: true
+  no-trailing-whitespace: 1
+  no-trailing-zero: 1
+  no-transition-all: 1
+  no-vendor-prefixes: 2
+  one-declaration-per-line: 2
+  placeholder-in-extend: 2
+  property-sort-order: 2
+  quotes: 1
+  single-line-per-selector: 1
+  space-after-bang: 1
+  space-after-colon: 1
+  space-after-comma: 1
+  space-around-operator: 1
+  space-before-bang: 1
+  space-before-brace: 1
+  space-before-colon: 1
+  space-between-parens: 1
+  trailing-semicolon: 1
+  url-quotes: 1
+  zero-unit: 1

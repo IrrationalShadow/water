@@ -15,3 +15,9 @@
 // -----------------------------------------------------------------------------
 
 @import 'components/typography';
+
+
+.class2 {
+  $var: "my-anim";
+  animation-name: $var;
+}
