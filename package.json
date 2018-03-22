@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "sass": "node-sass -o css/ css/styles.scss --output-style expanded",
-    "stylelint": "stylelint 'css/**/*.scss'; exit 0"
+    "stylelint": "stylelint 'css/**/*.scss'; exit 0",
+    "sasslint": "sass-lint -v -q"
   },
   "dependencies": {
     "node-sass": "^4.7.2",

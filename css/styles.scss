@@ -19,5 +19,5 @@
 
 .class2 {
   $var: "my-anim";
-  animation-name: $var;
+  animation-name: #{$var};
 }
