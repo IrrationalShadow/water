@@ -1,6 +1,7 @@
 {
   "plugins": [
-    "stylelint-scss"
+    "stylelint-scss",
+    "stylelint-order"
   ],
   "rules": {
     "at-rule-empty-line-before": ["always", {
@@ -107,6 +108,11 @@
     "number-leading-zero": "always",
     "number-max-precision": 5,
     "number-no-trailing-zeros": true,
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "order/properties-alphabetical-order": true,
     "property-case": "lower",
     "property-no-vendor-prefix": true,
     "rule-empty-line-before": ["always", {

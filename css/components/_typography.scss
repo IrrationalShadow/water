@@ -2,12 +2,16 @@ h1 {
   --size: font('h1', 'size');
   --thingName: #f00;
   --thingNameNameName: #00f;
+
   font-size: var(--size);
 }
 
 a {
-  border: 1px solid #f00;
+  $variable: 2rem;
+
   font-size: rem(28px);
+  fpnt-weight: bold;
+  border: 1px solid #f00;
   transform: translate(1, 1);
 }
 
