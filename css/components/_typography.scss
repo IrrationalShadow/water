@@ -1,4 +1,13 @@
+.classOne {
+  color: #f00;
+}
+
+.classOne {
+  font-size: 1rem;
+}
+
 h1 {
+  @extend .placeholder;
   --size: font('h1', 'size');
   --thingName: #f00;
   --thingNameNameName: #00f;
