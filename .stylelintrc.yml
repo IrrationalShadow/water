@@ -34,17 +34,27 @@ rules:
   # All other rules are listed in alphabetical order:
   at-rule-empty-line-before:
   - always
-  - except:
-    - blockless-after-same-name-blockless
-    - first-nested
+  -
+    except:
+      - blockless-after-same-name-blockless
+      - first-nested
     ignore:
-    - after-comment
+      - after-comment
+    ignoreAtRules:
+      - "else"
+      - "return"
+      - "warn"
   at-rule-name-case: lower
   at-rule-name-space-after: always
   at-rule-no-vendor-prefix: true
   at-rule-semicolon-newline-after: always
   block-closing-brace-empty-line-before: never
-  block-closing-brace-newline-after: always
+  block-closing-brace-newline-after:
+    - always
+    -
+      ignoreAtRules:
+        - "else"
+        - "if"
   block-closing-brace-newline-before: always
   block-opening-brace-newline-after: always
   block-opening-brace-space-before: always

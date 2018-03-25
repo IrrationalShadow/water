@@ -21,7 +21,6 @@
   color: #f00;
   font-family: 'Times New Roman', sans-serif;
   padding: calc(1rem + 1px);
-
   @include testMixin();
 }
 

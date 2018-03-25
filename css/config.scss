@@ -16,21 +16,16 @@ $viewportMap: (
   @if map-has-key($viewportMap, $viewport) {
     @return map-get($viewportMap, $viewport);
   }
-
   @warn 'Unknown viewport `#{$viewport}` specified in the viewport function.';
-
   @return null;
 }
 
 @mixin viewport($size, $maxWidth: null) {
   @if $maxWidth == 'max' {
     @media (max-width: (viewport($size) - 1px)) {
-      // 1
       @content;
     }
-  }
-
-  @else {
+  } @else {
     @media (min-width: viewport($size)) {
       @content;
     }
@@ -66,9 +61,7 @@ $gutterMap: (
   @if map-has-key($columnsMap, $columns) {
     @return map-get($columnsMap, $columns);
   }
-
   @warn 'Unknown column size `#{$columns}` used in columns function.';
-
   @return null;
 }
 
@@ -76,9 +69,7 @@ $gutterMap: (
   @if map-has-key($gutterMap, $size) {
     @return map-get($gutterMap, $size);
   }
-
   @warn 'Unknown gutter size `#{$size}` used in gutter function.';
-
   @return null;
 }
 
@@ -98,14 +89,10 @@ $spacing-rhythm: 0.125;
 @function space($value, $custom: null) {
   @if $value % $spacing-rhythm == 0 {
     @return $spacing-unit * $value;
-  }
-
-  @else if $custom == 'custom' {
+  } @else if $custom == 'custom' {
     @return $spacing-unit * $value;
   }
-
   @warn 'Spacing value does not follow the design guidelines spacing rhythm.';
-
   @return null;
 }
 
@@ -147,9 +134,7 @@ $layerMap: (
   @if map-has-key($layerMap, $layer) {
     @return map-get($layerMap, $layer);
   }
-
   @warn 'Unknown z-index `#{$layer}` used in layer function.';
-
   @return null;
 }
 
@@ -168,9 +153,7 @@ $colorMap: (
   @if map-has-key($colorMap, $color) {
     @return map-get($colorMap, $color);
   }
-
   @warn 'Unknown color `#{$color}` used in color function.';
-
   @return null;
 }
 
@@ -205,9 +188,7 @@ $fontMap: (
 
 @function font($font, $value) {
   @return map-get(map-get($fontMap, $font), $value);
-
   @warn 'Unknown font value `#{$font}` used in font function.';
-
   @return null;
 }
 
@@ -224,8 +205,6 @@ $iconSizeMap: (
   @if map-has-key($iconSizeMap, $size) {
     @return map-get($iconSizeMap, $size);
   }
-
   @warn 'Unknown icon size `#{$size}` used in icon function.';
-
   @return null;
 }
