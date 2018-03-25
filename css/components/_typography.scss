@@ -1,5 +1,28 @@
+/* Comment with multi lines */
+
+.classZero:hover {
+  font-size: 1rem;
+
+  .classNested {
+    font-weight: 800; // 1
+  }
+}
+
+@mixin testMixin() {
+  margin: 1rem;
+}
+
 .classOne {
+  @extend .classZero;
+
+  --var: #0f0;
+  $var: #00f;
+
   color: #f00;
+  font-family: 'Times New Roman', sans-serif;
+  padding: calc(1rem + 1px);
+
+  @include testMixin();
 }
 
 .classOne {
@@ -7,7 +30,6 @@
 }
 
 h1 {
-  @extend .placeholder;
   --size: font('h1', 'size');
   --thingName: #f00;
   --thingNameNameName: #00f;
@@ -18,9 +40,8 @@ h1 {
 a {
   $variable: 2rem;
 
-  font-size: rem(28px);
-  fpnt-weight: bold;
   border: 1px solid #f00;
+  font-size: rem(28px);
   transform: translate(1, 1);
 }
 
@@ -71,7 +92,6 @@ div div div div {
 * + * {
   font-weight: bold;
 }
-
 
 // Avatar sizes
 // -----------------------------------------------------------------------------

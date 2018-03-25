@@ -2,7 +2,6 @@
 // STYLES CONFIG
 // =============================================================================
 
-
 // Viewports config
 // -----------------------------------------------------------------------------
 
@@ -13,28 +12,30 @@ $viewportMap: (
   'xlarge': 1281px
 );
 
-
 @function viewport($viewport) {
   @if map-has-key($viewportMap, $viewport) {
     @return map-get($viewportMap, $viewport);
   }
+
   @warn 'Unknown viewport `#{$viewport}` specified in the viewport function.';
+
   @return null;
 }
 
-
 @mixin viewport($size, $maxWidth: null) {
   @if $maxWidth == 'max' {
-    @media (max-width: (viewport($size) - 1px)) { // 1
+    @media (max-width: (viewport($size) - 1px)) {
+      // 1
       @content;
     }
-  } @else {
+  }
+
+  @else {
     @media (min-width: viewport($size)) {
       @content;
     }
   }
 }
-
 
 // Grid config
 // -----------------------------------------------------------------------------
@@ -43,15 +44,15 @@ $columnsMap: (
   '12/12': 100%,
   '11/12': 91.66667%,
   '10/12': 83.33334%,
-  '9/12':  75%,
-  '8/12':  66.66667%,
-  '7/12':  58.33334%,
-  '6/12':  50%,
-  '5/12':  41.66667%,
-  '4/12':  33.33334%,
-  '3/12':  25%,
-  '2/12':  16.66667%,
-  '1/12':  8.33334%
+  '9/12': 75%,
+  '8/12': 66.66667%,
+  '7/12': 58.33334%,
+  '6/12': 50%,
+  '5/12': 41.66667%,
+  '4/12': 33.33334%,
+  '3/12': 25%,
+  '2/12': 16.66667%,
+  '1/12': 8.33334%
 );
 
 $gutterMap: (
@@ -61,24 +62,25 @@ $gutterMap: (
   'xlarge': 3rem
 );
 
-
 @function columns($columns) {
   @if map-has-key($columnsMap, $columns) {
     @return map-get($columnsMap, $columns);
   }
+
   @warn 'Unknown column size `#{$columns}` used in columns function.';
+
   @return null;
 }
-
 
 @function gutter($size) {
   @if map-has-key($gutterMap, $size) {
     @return map-get($gutterMap, $size);
   }
+
   @warn 'Unknown gutter size `#{$size}` used in gutter function.';
+
   @return null;
 }
-
 
 // Spacing config
 // -----------------------------------------------------------------------------
@@ -96,13 +98,16 @@ $spacing-rhythm: 0.125;
 @function space($value, $custom: null) {
   @if $value % $spacing-rhythm == 0 {
     @return $spacing-unit * $value;
-  } @else if $custom == 'custom' {
+  }
+
+  @else if $custom == 'custom' {
     @return $spacing-unit * $value;
   }
+
   @warn 'Spacing value does not follow the design guidelines spacing rhythm.';
+
   @return null;
 }
-
 
 // Layers config
 // -----------------------------------------------------------------------------
@@ -114,24 +119,22 @@ $spacing-rhythm: 0.125;
 // Example use in partial: .class { z-index: layer('dropdown'); }
 // -----------------------------------------------------------------------------
 
-$layer-1:  10;
-$layer-2:  20;
-$layer-3:  30;
-$layer-4:  40;
-$layer-5:  50;
-$layer-6:  60;
-$layer-7:  70;
-$layer-8:  80;
-$layer-9:  90;
+$layer-1: 10;
+$layer-2: 20;
+$layer-3: 30;
+$layer-4: 40;
+$layer-5: 50;
+$layer-6: 60;
+$layer-7: 70;
+$layer-8: 80;
+$layer-9: 90;
 $layer-10: 100;
-
 
 $layerMap: (
   'negative': -1,
   'low': $layer-1,
   'medium': $layer-3,
   'high': $layer-5,
-
   'dropdown': $layer-5,
   'popover': $layer-5,
   'sticky': $layer-6,
@@ -140,15 +143,15 @@ $layerMap: (
   'tooltip': $layer-9
 );
 
-
 @function layer($layer) {
   @if map-has-key($layerMap, $layer) {
     @return map-get($layerMap, $layer);
   }
+
   @warn 'Unknown z-index `#{$layer}` used in layer function.';
+
   @return null;
 }
-
 
 // Color config
 // -----------------------------------------------------------------------------
@@ -161,15 +164,15 @@ $colorMap: (
   'p100': #555
 );
 
-
 @function color($color) {
   @if map-has-key($colorMap, $color) {
     @return map-get($colorMap, $color);
   }
+
   @warn 'Unknown color `#{$color}` used in color function.';
+
   @return null;
 }
-
 
 // Typography config
 // -----------------------------------------------------------------------------
@@ -181,86 +184,32 @@ $colorMap: (
 // -----------------------------------------------------------------------------
 
 $fontMap: (
-  'family': (
+  'family':
+  (
     'display': (-apple-system, Roboto, 'Segoe UI', sans-serif),
     'heading': (-apple-system, Roboto, 'Segoe UI', sans-serif),
     'body': ('Noto Sans', -apple-system, Roboto, 'Segoe UI', sans-serif)
   ),
-
-  'weight': (
-    'thin': 300,
-    'normal': 400,
-    'bold': 700
-  ),
-
-  'd1': (
-    'weight': 300,
-    'size': 2.5625rem,
-    'lineHeight': 3.25rem
-  ),
-
-  'd2': (
-    'weight': 300,
-    'size': 2.25rem,
-    'lineHeight': 3rem
-  ),
-
-  'd3': (
-    'weight': 300,
-    'size': 2rem,
-    'lineHeight': 2.75rem
-  ),
-
-  'h1': (
-    'weight': 700,
-    'size': 1.625rem,
-    'lineHeight': 2.25rem
-  ),
-
-  'h2': (
-    'weight': 700,
-    'size': 1.4375rem,
-    'lineHeight': 2rem
-  ),
-
-  'h3': (
-    'weight': 700,
-    'size': 1.25rem,
-    'lineHeight': 1.875rem
-  ),
-
-  'h4': (
-    'weight': 700,
-    'size': 1.125rem,
-    'lineHeight': 1.75rem
-  ),
-
-  'b1': (
-    'weight': 400,
-    'size': 1rem,
-    'lineHeight': 1.5rem
-  ),
-
-  'b2': (
-    'weight': 400,
-    'size': 0.875rem,
-    'lineHeight': 1.375rem
-  ),
-
-  'b3': (
-    'weight': 400,
-    'size': 0.75rem,
-    'lineHeight': 1.25rem
-  ),
+  'weight': ('thin': 300, 'normal': 400, 'bold': 700),
+  'd1': ('weight': 300, 'size': 2.5625rem, 'lineHeight': 3.25rem),
+  'd2': ('weight': 300, 'size': 2.25rem, 'lineHeight': 3rem),
+  'd3': ('weight': 300, 'size': 2rem, 'lineHeight': 2.75rem),
+  'h1': ('weight': 700, 'size': 1.625rem, 'lineHeight': 2.25rem),
+  'h2': ('weight': 700, 'size': 1.4375rem, 'lineHeight': 2rem),
+  'h3': ('weight': 700, 'size': 1.25rem, 'lineHeight': 1.875rem),
+  'h4': ('weight': 700, 'size': 1.125rem, 'lineHeight': 1.75rem),
+  'b1': ('weight': 400, 'size': 1rem, 'lineHeight': 1.5rem),
+  'b2': ('weight': 400, 'size': 0.875rem, 'lineHeight': 1.375rem),
+  'b3': ('weight': 400, 'size': 0.75rem, 'lineHeight': 1.25rem)
 );
-
 
 @function font($font, $value) {
   @return map-get(map-get($fontMap, $font), $value);
+
   @warn 'Unknown font value `#{$font}` used in font function.';
+
   @return null;
 }
-
 
 // Icons config
 // -----------------------------------------------------------------------------
@@ -271,11 +220,12 @@ $iconSizeMap: (
   'large': 3rem
 );
 
-
 @function icon($size) {
   @if map-has-key($iconSizeMap, $size) {
     @return map-get($iconSizeMap, $size);
   }
+
   @warn 'Unknown icon size `#{$size}` used in icon function.';
+
   @return null;
 }

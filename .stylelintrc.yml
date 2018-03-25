@@ -1,0 +1,214 @@
+extends:
+  - './node_modules/prettier-stylelint/config.js'
+
+plugins:
+  - stylelint-scss
+  - stylelint-order
+
+rules:
+  # Naming conventions: [componentName][__descendantName][--modifierName][@size]
+  # Utility conventions [u-][utilityName][@size] should ignore the class pattern
+  custom-property-pattern: ^[a-z]+(?:[A-Z][a-z]+)*[A-Z]?$
+  selector-class-pattern: ^([a-z]+(?:[A-Z][a-z]+)*[A-Z]?)(__([a-z]+(?:[A-Z][a-z]+)*[A-Z]?))?(--([a-z]+(?:[A-Z][a-z]+)*[A-Z]?))?(.@[a-z]*)?$
+  scss/at-function-pattern: ^[a-z]+(?:[A-Z][a-z]+)*[A-Z]?$
+  scss/at-mixin-pattern: ^[a-z]+(?:[A-Z][a-z]+)*[A-Z]?$
+  scss/dollar-variable-pattern: ^([a-z]+(?:[A-Z][a-z]+)*[A-Z]?)(__([a-z]+(?:[A-Z][a-z]+)*[A-Z]?))?(--([a-z]+(?:[A-Z][a-z]+)*[A-Z]?))?$
+  scss/percent-placeholder-pattern: ^([a-z]+(?:[A-Z][a-z]+)*[A-Z]?)(__([a-z]+(?:[A-Z][a-z]+)*[A-Z]?))?(--([a-z]+(?:[A-Z][a-z]+)*[A-Z]?))?$
+  # Sort order:
+  order/order:
+    -
+      -
+        type: at-rule
+        name: 'extend'
+      - custom-properties
+      - dollar-variables
+      - declarations
+      - rules
+      - at-rules
+    -
+      disableFix: true
+  order/properties-alphabetical-order: true
+  # Nested selectors only allows the following:
+  # Pseudo elements and selectors, and state classes
+  selector-nested-pattern: ^(&)+(?:(:|::|.is-)[a-zA-Z]+)?$
+  # All other rules are listed in alphabetical order:
+  at-rule-empty-line-before:
+  - always
+  - except:
+    - blockless-after-same-name-blockless
+    - first-nested
+    ignore:
+    - after-comment
+  at-rule-name-case: lower
+  at-rule-name-space-after: always
+  at-rule-no-vendor-prefix: true
+  at-rule-semicolon-newline-after: always
+  block-closing-brace-empty-line-before: never
+  block-closing-brace-newline-after: always
+  block-closing-brace-newline-before: always
+  block-opening-brace-newline-after: always
+  block-opening-brace-space-before: always
+  block-no-empty: true
+  color-hex-case: lower
+  color-hex-length: short
+  color-named: never
+  color-no-invalid-hex: true
+  comment-empty-line-before:
+    - always
+    -
+      except:
+        - first-nested
+      ignore:
+        - stylelint-commands
+  comment-no-empty: true
+  comment-whitespace-inside: always
+  custom-property-empty-line-before:
+    - always
+    -
+      except:
+        - after-custom-property
+        - first-nested
+      ignore:
+        - after-comment
+        - inside-single-line-block
+  declaration-bang-space-after: never
+  declaration-bang-space-before: always
+  declaration-block-no-duplicate-properties: true
+  declaration-block-no-shorthand-property-overrides: true
+  declaration-block-semicolon-newline-after: always
+  declaration-block-semicolon-space-before: never
+  declaration-block-single-line-max-declarations: 0
+  declaration-block-trailing-semicolon: always
+  declaration-colon-space-after: always-single-line
+  declaration-colon-space-before: never
+  declaration-empty-line-before:
+    - always
+    -
+      except:
+        - after-declaration
+        - first-nested
+      ignore:
+        - after-comment
+        - inside-single-line-block
+  declaration-no-important: true
+  declaration-property-unit-whitelist:
+    - "/^border/":
+      - px
+    - box-shadow:
+      - px
+    - clip:
+      - px
+  font-family-name-quotes: always-where-recommended
+  font-family-no-duplicate-names: true
+  font-family-no-missing-generic-family-keyword: true
+  font-weight-notation: numeric
+  function-comma-newline-after: always-multi-line
+  function-comma-space-after: always-single-line
+  function-comma-space-before: never
+  function-linear-gradient-no-nonstandard-direction: true
+  function-max-empty-lines: 0
+  function-name-case: lower
+  function-parentheses-newline-inside: always-multi-line
+  function-parentheses-space-inside: never-single-line
+  function-url-quotes: always
+  function-whitespace-after: always
+  indentation: 2
+  length-zero-no-unit: true
+  max-empty-lines: 2
+  max-line-length: 80
+  max-nesting-depth: 2
+  no-descending-specificity: true
+  no-duplicate-at-import-rules: true
+  no-duplicate-selectors: true
+  no-empty-source: true
+  no-eol-whitespace: true
+  no-extra-semicolons: true
+  no-invalid-double-slash-comments: true
+  no-missing-end-of-source-newline: true
+  media-feature-colon-space-after: always
+  media-feature-colon-space-before: never
+  media-feature-name-case: lower
+  media-feature-parentheses-space-inside: never
+  media-feature-range-operator-space-after: always
+  media-feature-range-operator-space-before: always
+  media-query-list-comma-newline-after: always-multi-line
+  media-query-list-comma-space-after: always
+  media-query-list-comma-space-before: never
+  number-leading-zero: always
+  number-max-precision: 5
+  number-no-trailing-zeros: true
+  property-case: lower
+  property-no-vendor-prefix: true
+  rule-empty-line-before:
+    - always
+    -
+      except:
+        - first-nested
+      ignore:
+        - after-comment
+  scss/at-else-closing-brace-newline-after: always-last-in-chain
+  scss/at-else-closing-brace-space-after: always-intermediate
+  scss/at-else-empty-line-before: never
+  scss/at-else-if-parentheses-space-before: always
+  scss/at-extend-no-missing-placeholder: true
+  scss/at-function-parentheses-space-before: never
+  scss/at-if-closing-brace-newline-after: always-last-in-chain
+  scss/at-if-closing-brace-space-after: always-intermediate
+  scss/at-import-no-partial-leading-underscore: true
+  scss/at-import-partial-extension-blacklist:
+    - scss
+  scss/at-mixin-argumentless-call-parentheses: always
+  scss/at-mixin-named-arguments:
+    - always
+    -
+      ignore:
+        - single-argument
+  scss/dollar-variable-colon-space-after: always
+  scss/dollar-variable-colon-space-before: never
+  scss/dollar-variable-no-missing-interpolation: true
+  scss/double-slash-comment-whitespace-inside: always
+  scss/operator-no-unspaced: true
+  scss/partial-no-import: true
+  scss/selector-no-redundant-nesting-selector: true
+  selector-attribute-brackets-space-inside: never
+  selector-attribute-operator-space-after: never
+  selector-attribute-operator-space-before: never
+  selector-attribute-quotes: always
+  selector-combinator-space-after: always
+  selector-combinator-space-before: always
+  selector-descendant-combinator-no-non-space: true
+  selector-pseudo-class-case: lower
+  selector-pseudo-class-parentheses-space-inside: never
+  selector-pseudo-element-case: lower
+  selector-pseudo-element-colon-notation: double
+  selector-combinator-whitelist:
+    - " "
+    - ">"
+    - "+"
+  selector-list-comma-newline-after: always
+  selector-list-comma-space-before: never
+  selector-max-attribute: 1
+  selector-max-class: 3
+  selector-max-compound-selectors: 3
+  selector-max-empty-lines: 0
+  selector-max-id: 0
+  selector-max-specificity: '0,3,0'
+  selector-max-universal: 1
+  selector-no-qualifying-type: true
+  selector-no-vendor-prefix: true
+  selector-type-case: lower
+  shorthand-property-no-redundant-values: true
+  string-no-newline: true
+  string-quotes: single
+  time-min-milliseconds: 100
+  unit-case: lower
+  unit-whitelist:
+    - rem
+    - "%"
+    - ms
+  value-keyword-case: lower
+  value-list-comma-newline-after: always-multi-line
+  value-list-comma-space-after: always-single-line
+  value-list-comma-space-before: never
+  value-list-max-empty-lines: 0
+  value-no-vendor-prefix: true
