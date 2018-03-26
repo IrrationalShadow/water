@@ -1,158 +1,32 @@
-:root {
-  --varGlobal: 1rem;
-}
+// =============================================================================
+// FILE TITLE EXAMPLE
+// =============================================================================
 
-/* Comment with multi lines */
+.selector {
+  background-image: url('img/image.png');
+  border: 1px solid #000;
+  border-width: 2rem;
+  color: #abcdef;
+  font-family: 'Times New Roman', serif;
+  margin: 2rem 0;
+  padding-top: 1rem;
+  text-transform: uppercase;
+  width: calc(100% - 8rem);
 
-.classZero:hover {
-  font-size: 1rem;
+  &:hover {
+    border-color: #daa520;
+  }
 
-  .classNested {
-    font-weight: 800; // 1
+  &::before {
+    content: 'Hello';
   }
 }
 
-@mixin testMixin() {
-  margin: 1rem;
-}
-
-.nameOne {
-  @extend .classZero;
-
-  --var: #0f0;
-  $var: #00f;
-
-  color: #f00;
-  font-family: 'Times New Roman', sans-serif;
-  margin: 0.5rem;
-  padding: 10px + 5px;
-
-  @include testMixin();
-}
-
-* + * {
-  font-weight: bold;
-}
-
-.nameOne {
-  font-size: 1rem;
-}
-
-h1 {
-  --size: font('h1', 'size');
-  --thingName: #f00;
-  --thingNameNameName: #00f;
-
-  font-size: var(--size);
-}
-
-a {
-  $variable: 2rem;
-
-  border: 1px solid #f00;
-  font-size: rem(28px);
-  transform: translate(1, 1);
-}
-
-.nam {
-  color: #000;
-}
-
-.name {
-  color: #00f;
-}
-
-.nameOneLong {
-  color: #020;
-}
-
-.name-two {
-  color: #00f;
-}
-
-.component {
-  flex-basis: auto;
-  flex-direction: column;
-  flex-grow: 1;
-  flex-shrink: 2;
-  font-size: 15px;
-}
-
-.component__thingName {
-  color: #f00;
-}
-
-.component--modifier {
-  color: #00f;
-}
-
-.component__descendant--modifier {
-  font-size: 16px;
-}
-
-.component__descendant--modifier\@s {
-  font-size: 16px;
-}
-
-.foo .bar .baz {
-  font-size: 1rem;
-}
-
-#foo {
-  font-size: 1rem;
-}
-
-.foo .bar > .baz {
-  font-size: 1rem;
-}
-
-div div div div {
-  font-size: 1rem;
-}
-
-// Avatar sizes
-// -----------------------------------------------------------------------------
-// 1. Blah sdafhj
-//
-// More stuff
+// Section example
 // -----------------------------------------------------------------------------
 
-h2 {
-  font-size: 2em;
-}
-
-.classTwo {
-  border: 1px solid #f00;
-}
-
-.nameOne--anotherName {
-  padding: 1rem;
-}
-
-.component {
-  flex-basis: auto;
-  flex-direction: column;
-  flex-grow: 1;
-  flex-shrink: 2;
-  font-size: 15px;
-}
-
-.component__thingName {
+.selectorA,
+.selectorB,
+.selectorC[type='text'] {
   color: #f00;
-}
-
-.component--modifier {
-  color: #00f;
-}
-
-.component__descendant--modifier {
-  font-size: 16px;
-}
-
-.component__descendant--modifier\@s {
-  font-size: 16px;
-}
-
-.foo .bar .baz {
-  font-size: 1rem;
 }

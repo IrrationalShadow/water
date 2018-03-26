@@ -101,13 +101,6 @@ rules:
         - after-comment
         - inside-single-line-block
   declaration-no-important: true
-  declaration-property-unit-whitelist:
-    - "/^border/":
-      - px
-    - box-shadow:
-      - px
-    - clip:
-      - px
   font-family-name-quotes: always-where-recommended
   font-family-no-duplicate-names: true
   font-family-no-missing-generic-family-keyword: true
@@ -212,10 +205,16 @@ rules:
   string-quotes: single
   time-min-milliseconds: 100
   unit-case: lower
-  unit-whitelist:
-    - rem
-    - "%"
-    - ms
+  unit-blacklist:
+    - px
+    - s
+    - ignoreProperties:
+        px:
+        - "/^border/"
+        - box-shadow
+        - clip
+        - max-width
+        - min-width
   value-keyword-case: lower
   value-list-comma-newline-after: always-multi-line
   value-list-comma-space-after: always-single-line
