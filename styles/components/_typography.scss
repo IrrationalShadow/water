@@ -1,3 +1,7 @@
+:root {
+  --varGlobal: 1rem;
+}
+
 /* Comment with multi lines */
 
 .classZero:hover {
@@ -12,7 +16,7 @@
   margin: 1rem;
 }
 
-.classOne {
+.nameOne {
   @extend .classZero;
 
   --var: #0f0;
@@ -20,11 +24,17 @@
 
   color: #f00;
   font-family: 'Times New Roman', sans-serif;
-  padding: calc(1rem + 1px);
+  margin: 0.5rem;
+  padding: 10px + 5px;
+
   @include testMixin();
 }
 
-.classOne {
+* + * {
+  font-weight: bold;
+}
+
+.nameOne {
   font-size: 1rem;
 }
 
@@ -44,7 +54,19 @@ a {
   transform: translate(1, 1);
 }
 
-.class {
+.nam {
+  color: #000;
+}
+
+.name {
+  color: #00f;
+}
+
+.nameOneLong {
+  color: #020;
+}
+
+.name-two {
   color: #00f;
 }
 
@@ -88,10 +110,6 @@ div div div div {
   font-size: 1rem;
 }
 
-* + * {
-  font-weight: bold;
-}
-
 // Avatar sizes
 // -----------------------------------------------------------------------------
 // 1. Blah sdafhj
@@ -101,4 +119,40 @@ div div div div {
 
 h2 {
   font-size: 2em;
+}
+
+.classTwo {
+  border: 1px solid #f00;
+}
+
+.nameOne--anotherName {
+  padding: 1rem;
+}
+
+.component {
+  flex-basis: auto;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 2;
+  font-size: 15px;
+}
+
+.component__thingName {
+  color: #f00;
+}
+
+.component--modifier {
+  color: #00f;
+}
+
+.component__descendant--modifier {
+  font-size: 16px;
+}
+
+.component__descendant--modifier\@s {
+  font-size: 16px;
+}
+
+.foo .bar .baz {
+  font-size: 1rem;
 }

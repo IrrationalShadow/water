@@ -1,25 +1,31 @@
 {
   "name": "Water",
   "version": "1.0.0",
-  "description": "A CSS framework made of reusable tools and components",
+  "description": "Just another CSS methodology and library for UI components",
   "author": "Chris Roper",
   "license": "MIT",
   "scripts": {
-    "build": "yarn lint && yarn build:sass",
-    "build:sass": "node-sass -o css/ css/styles.scss --output-style expanded",
     "lint": "yarn lint:stylelint",
-    "lint:stylelint": "stylelint 'css/**/*.scss'; exit 0"
+    "lint:stylelint":
+      "stylelint 'styles/**/*.scss' --cache --syntax scss; exit 0",
+    "build": "yarn lint && yarn build:sass",
+    "build:sass":
+      "node-sass --output-style expanded styles/imports.scss build/css/styles.css",
+    "dist": "yarn build && yarn dist:purge",
+    "dist:purge":
+      "purgecss --css build/css/styles.css --content templates/**/*.html --out build/css/"
   },
   "dependencies": {
-    "node-sass": "^4.7.2",
     "prettier": "^1.11.1",
     "prettier-stylelint": "^0.4.2",
+    "purgecss": "^0.21.0",
     "stylelint": "^9.1.3",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-order": "^0.8.1",
     "stylelint-scss": "^2.5.0"
   },
   "devDependencies": {
+    "node-sass": "^4.7.2",
     "npm-run-all": "^4.1.2"
   }
 }

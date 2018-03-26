@@ -1,5 +1,7 @@
 .sass-cache
+.stylelintcache
 .DS_Store
 npm-debug.log
 yarn-error.log
 node_modules
+/build
