@@ -3,11 +3,12 @@
 // =============================================================================
 
 .selector {
-  background-image: url('img/image.png');
+  // Comment
+  background-image: url('img/image.png'); // Comment
   border: 1px solid #000;
-  border-width: 2rem;
   color: #abcdef;
   font-family: 'Times New Roman', serif;
+  height: 20px;
   margin: 2rem 0;
   padding-top: 1rem;
   text-transform: uppercase;
@@ -29,4 +30,28 @@
 .selectorB,
 .selectorC[type='text'] {
   color: #f00;
+}
+
+%foo {
+  border: 1px solid #f00;
+}
+
+.classSelector {
+  @extend %foo;
+  --name: #fff;
+  $var: #fff;
+  background-color: #999;
+  @include hidden();
+
+  @include viewport('small') {
+    color: #777;
+  }
+
+  &:hover {
+    color: #222;
+  }
+
+  .classNested {
+    font-weight: 700;
+  }
 }

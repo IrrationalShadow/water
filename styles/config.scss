@@ -1,6 +1,8 @@
 // =============================================================================
 // STYLES CONFIG
 // =============================================================================
+// stylelint-disable unit-blacklist
+// -----------------------------------------------------------------------------
 
 // Viewports config
 // -----------------------------------------------------------------------------
@@ -83,14 +85,14 @@ $gutterMap: (
 // vertical rhythm and will create a warning.
 // -----------------------------------------------------------------------------
 
-$spacing-unit: 1.5rem;
-$spacing-rhythm: 0.125;
+$spacingUnit: 1.5rem;
+$spacingRhythm: 0.125;
 
 @function space($value, $custom: null) {
-  @if $value % $spacing-rhythm == 0 {
-    @return $spacing-unit * $value;
+  @if $value % $spacingRhythm == 0 {
+    @return $spacingUnit * $value;
   } @else if $custom == 'custom' {
-    @return $spacing-unit * $value;
+    @return $spacingUnit * $value;
   }
   @warn 'Spacing value does not follow the design guidelines spacing rhythm.';
   @return null;
@@ -106,28 +108,28 @@ $spacing-rhythm: 0.125;
 // Example use in partial: .class { z-index: layer('dropdown'); }
 // -----------------------------------------------------------------------------
 
-$layer-1: 10;
-$layer-2: 20;
-$layer-3: 30;
-$layer-4: 40;
-$layer-5: 50;
-$layer-6: 60;
-$layer-7: 70;
-$layer-8: 80;
-$layer-9: 90;
-$layer-10: 100;
+$layer1: 10;
+$layer2: 20;
+$layer3: 30;
+$layer4: 40;
+$layer5: 50;
+$layer6: 60;
+$layer7: 70;
+$layer8: 80;
+$layer9: 90;
+$layer10: 100;
 
 $layerMap: (
   'negative': -1,
-  'low': $layer-1,
-  'medium': $layer-3,
-  'high': $layer-5,
-  'dropdown': $layer-5,
-  'popover': $layer-5,
-  'sticky': $layer-6,
-  'drawer': $layer-7,
-  'modal': $layer-8,
-  'tooltip': $layer-9
+  'low': $layer1,
+  'medium': $layer3,
+  'high': $layer5,
+  'dropdown': $layer5,
+  'popover': $layer5,
+  'sticky': $layer6,
+  'drawer': $layer7,
+  'modal': $layer8,
+  'tooltip': $layer9
 );
 
 @function layer($layer) {
@@ -167,23 +169,66 @@ $colorMap: (
 // -----------------------------------------------------------------------------
 
 $fontMap: (
-  'family':
-  (
-    'display': (-apple-system, Roboto, 'Segoe UI', sans-serif),
-    'heading': (-apple-system, Roboto, 'Segoe UI', sans-serif),
-    'body': ('Noto Sans', -apple-system, Roboto, 'Segoe UI', sans-serif)
+  'family': (
+    'display': (-apple-system, roboto, 'Segoe UI', sans-serif),
+    'heading': (-apple-system, roboto, 'Segoe UI', sans-serif),
+    'body': ('Noto Sans', -apple-system, roboto, 'Segoe UI', sans-serif)
   ),
-  'weight': ('thin': 300, 'normal': 400, 'bold': 700),
-  'd1': ('weight': 300, 'size': 2.5625rem, 'lineHeight': 3.25rem),
-  'd2': ('weight': 300, 'size': 2.25rem, 'lineHeight': 3rem),
-  'd3': ('weight': 300, 'size': 2rem, 'lineHeight': 2.75rem),
-  'h1': ('weight': 700, 'size': 1.625rem, 'lineHeight': 2.25rem),
-  'h2': ('weight': 700, 'size': 1.4375rem, 'lineHeight': 2rem),
-  'h3': ('weight': 700, 'size': 1.25rem, 'lineHeight': 1.875rem),
-  'h4': ('weight': 700, 'size': 1.125rem, 'lineHeight': 1.75rem),
-  'b1': ('weight': 400, 'size': 1rem, 'lineHeight': 1.5rem),
-  'b2': ('weight': 400, 'size': 0.875rem, 'lineHeight': 1.375rem),
-  'b3': ('weight': 400, 'size': 0.75rem, 'lineHeight': 1.25rem)
+  'weight': (
+    'thin': 300,
+    'normal': 400,
+    'bold': 700
+  ),
+  'd1': (
+    'weight': 300,
+    'size': 2.5625rem,
+    'lineHeight': 3.25rem
+  ),
+  'd2': (
+    'weight': 300,
+    'size': 2.25rem,
+    'lineHeight': 3rem
+  ),
+  'd3': (
+    'weight': 300,
+    'size': 2rem,
+    'lineHeight': 2.75rem
+  ),
+  'h1': (
+    'weight': 700,
+    'size': 1.625rem,
+    'lineHeight': 2.25rem
+  ),
+  'h2': (
+    'weight': 700,
+    'size': 1.4375rem,
+    'lineHeight': 2rem
+  ),
+  'h3': (
+    'weight': 700,
+    'size': 1.25rem,
+    'lineHeight': 1.875rem
+  ),
+  'h4': (
+    'weight': 700,
+    'size': 1.125rem,
+    'lineHeight': 1.75rem
+  ),
+  'b1': (
+    'weight': 400,
+    'size': 1rem,
+    'lineHeight': 1.5rem
+  ),
+  'b2': (
+    'weight': 400,
+    'size': 0.875rem,
+    'lineHeight': 1.375rem
+  ),
+  'b3': (
+    'weight': 400,
+    'size': 0.75rem,
+    'lineHeight': 1.25rem
+  )
 );
 
 @function font($font, $value) {
