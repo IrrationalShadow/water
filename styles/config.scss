@@ -1,37 +1,37 @@
 // =============================================================================
 // STYLES CONFIG
 // =============================================================================
+// Tokens:
+// - Colours
+// - Grid
+// - Iconography
+// - Layers
+// - Motion
+// - Spacing
+// - Typography
+// - Viewports
+//
+// Linting rule changes:
 // stylelint-disable unit-blacklist
 // -----------------------------------------------------------------------------
 
-// Viewports config
+// Color config
 // -----------------------------------------------------------------------------
 
-$viewportMap: (
-  'small': 481px,
-  'medium': 721px,
-  'large': 961px,
-  'xlarge': 1281px
+$colorMap: (
+  'p500': #111,
+  'p400': #222,
+  'p300': #333,
+  'p200': #444,
+  'p100': #555
 );
 
-@function viewport($viewport) {
-  @if map-has-key($viewportMap, $viewport) {
-    @return map-get($viewportMap, $viewport);
+@function color($color) {
+  @if map-has-key($colorMap, $color) {
+    @return map-get($colorMap, $color);
   }
-  @warn 'Unknown viewport `#{$viewport}` specified in the viewport function.';
+  @warn 'Unknown color `#{$color}` used in function.';
   @return null;
-}
-
-@mixin viewport($size, $maxWidth: null) {
-  @if $maxWidth == 'max' {
-    @media (max-width: (viewport($size) - 1px)) {
-      @content;
-    }
-  } @else {
-    @media (min-width: viewport($size)) {
-      @content;
-    }
-  }
 }
 
 // Grid config
@@ -63,7 +63,7 @@ $gutterMap: (
   @if map-has-key($columnsMap, $columns) {
     @return map-get($columnsMap, $columns);
   }
-  @warn 'Unknown column size `#{$columns}` used in columns function.';
+  @warn 'Unknown column size `#{$columns}` used in function.';
   @return null;
 }
 
@@ -71,9 +71,74 @@ $gutterMap: (
   @if map-has-key($gutterMap, $size) {
     @return map-get($gutterMap, $size);
   }
-  @warn 'Unknown gutter size `#{$size}` used in gutter function.';
+  @warn 'Unknown gutter size `#{$size}` used in function.';
   @return null;
 }
+
+// Icons config
+// -----------------------------------------------------------------------------
+
+$iconSizeMap: (
+  'small': 1rem,
+  'medium': 1.5rem,
+  'large': 3rem
+);
+
+@function icon($size) {
+  @if map-has-key($iconSizeMap, $size) {
+    @return map-get($iconSizeMap, $size);
+  }
+  @warn 'Unknown icon size `#{$size}` used in function.';
+  @return null;
+}
+
+// Layers config
+// -----------------------------------------------------------------------------
+// Keep track of all your z-index layers from one central location.
+//
+// The variables are strictly for use in the below zIndexMap. They must never
+// be referenced in any partial file.
+//
+// Example use in partial: .class { z-index: layer('dropdown'); }
+// -----------------------------------------------------------------------------
+
+$elevationMap: (
+  'negative': -1,
+  'flat': 0,
+  'raised': 1,
+  'dropdown': 2,
+  'sticky': 3,
+  'drawer': 4,
+  'modal': 5,
+  'tooltip': 6
+);
+
+$elevationMap: (
+  1: (0 1px 4px rgba(0, 0, 0, 0.25)),
+  2: (0 1px 5px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1)),
+  3: (0 1px 5px rgba(0, 0, 0, 0.1), 0 6px 10px rgba(0, 0, 0, 0.1)),
+);
+
+@function elevation($layer) {
+  @if map-has-key($elevationMap, $layer) {
+    @return map-get($elevationMap, $layer);
+  }
+  @warn 'Unknown elevation name `#{$layer}` used in function.';
+  @return null;
+}
+
+@function shadow($shadow) {
+  @if map-has-key($shadowMap, $shadow) {
+    @return map-get($shadowMap, $shadow);
+  }
+  @warn 'Unknown shadow name `#{$shadow}` used in function.';
+  @return null;
+}
+
+// Motion config
+// -----------------------------------------------------------------------------
+
+
 
 // Spacing config
 // -----------------------------------------------------------------------------
@@ -95,67 +160,6 @@ $spacingRhythm: 0.125;
     @return $spacingUnit * $value;
   }
   @warn 'Spacing value does not follow the design guidelines spacing rhythm.';
-  @return null;
-}
-
-// Layers config
-// -----------------------------------------------------------------------------
-// Keep track of all your z-index layers from one central location.
-//
-// The variables are strictly for use in the below zIndexMap. They must never
-// be referenced in any partial file.
-//
-// Example use in partial: .class { z-index: layer('dropdown'); }
-// -----------------------------------------------------------------------------
-
-$layer1: 10;
-$layer2: 20;
-$layer3: 30;
-$layer4: 40;
-$layer5: 50;
-$layer6: 60;
-$layer7: 70;
-$layer8: 80;
-$layer9: 90;
-$layer10: 100;
-
-$layerMap: (
-  'negative': -1,
-  'low': $layer1,
-  'medium': $layer3,
-  'high': $layer5,
-  'dropdown': $layer5,
-  'popover': $layer5,
-  'sticky': $layer6,
-  'drawer': $layer7,
-  'modal': $layer8,
-  'tooltip': $layer9
-);
-
-@function layer($layer) {
-  @if map-has-key($layerMap, $layer) {
-    @return map-get($layerMap, $layer);
-  }
-  @warn 'Unknown z-index `#{$layer}` used in layer function.';
-  @return null;
-}
-
-// Color config
-// -----------------------------------------------------------------------------
-
-$colorMap: (
-  'p500': #111,
-  'p400': #222,
-  'p300': #333,
-  'p200': #444,
-  'p100': #555
-);
-
-@function color($color) {
-  @if map-has-key($colorMap, $color) {
-    @return map-get($colorMap, $color);
-  }
-  @warn 'Unknown color `#{$color}` used in color function.';
   @return null;
 }
 
@@ -231,25 +235,38 @@ $fontMap: (
   )
 );
 
-@function font($font, $value) {
-  @return map-get(map-get($fontMap, $font), $value);
-  @warn 'Unknown font value `#{$font}` used in font function.';
+@function font($name, $key) {
+  @return map-get(map-get($fontMap, $name), $key);
+  @warn 'Unknown font value `#{$name}` used in font function.';
   @return null;
 }
 
-// Icons config
+// Viewports config
 // -----------------------------------------------------------------------------
 
-$iconSizeMap: (
-  'small': 1rem,
-  'medium': 1.5rem,
-  'large': 3rem
+$viewportMap: (
+  'small': 481px,
+  'medium': 721px,
+  'large': 961px,
+  'xlarge': 1281px
 );
 
-@function icon($size) {
-  @if map-has-key($iconSizeMap, $size) {
-    @return map-get($iconSizeMap, $size);
+@function viewport($viewport) {
+  @if map-has-key($viewportMap, $viewport) {
+    @return map-get($viewportMap, $viewport);
   }
-  @warn 'Unknown icon size `#{$size}` used in icon function.';
+  @warn 'Unknown viewport `#{$viewport}` specified in the viewport function.';
   @return null;
+}
+
+@mixin viewport($size, $maxWidth: null) {
+  @if $maxWidth == 'max' {
+    @media (max-width: (viewport($size) - 1px)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: viewport($size)) {
+      @content;
+    }
+  }
 }
