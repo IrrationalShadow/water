@@ -1,7 +1,6 @@
 // =============================================================================
 // CONFIG
 // =============================================================================
-// Tokens:
 // - Colours
 // - Elevation
 // - Grid
@@ -17,13 +16,33 @@
 
 // Color config
 // -----------------------------------------------------------------------------
+// p = primary colours
+// n = neutral colours
+// t = text colours
+// -----------------------------------------------------------------------------
 
 $colorMap: (
-  'p500': #111,
-  'p400': #222,
-  'p300': #333,
-  'p200': #444,
-  'p100': #555
+  'p5': #111,
+  'p4': #222,
+  'p3': #333,
+  'p2': #444,
+  'p1': #555,
+
+  'n9': #000,
+  'n8': #111,
+  'n7': #333,
+  'n6': #555,
+  'n5': #777,
+  'n4': #999,
+  'n3': #bbb,
+  'n2': #ddd,
+  'n1': #fff,
+
+  't5': #fff,
+  't4': #eee,
+  't3': #ccc,
+  't2': #888,
+  't1': #000
 );
 
 @function color($color) {
@@ -33,8 +52,6 @@ $colorMap: (
 }
 
 // Elevation config
-// -----------------------------------------------------------------------------
-// Keep track of all the UI z-index layers and box shadows.
 // -----------------------------------------------------------------------------
 
 $elevationMap: (
@@ -113,10 +130,6 @@ $iconMap: (
 
 // Motion config
 // -----------------------------------------------------------------------------
-// Subtle animations and transitions are incredibly beneficial to your UI.
-// Consistent patterns in your motion is equally important.
-// Define your motion values here.
-// -----------------------------------------------------------------------------
 
 $motionMap: (
   'duration': (
@@ -163,11 +176,13 @@ $spacingRhythm: 0.125;
 
 // Typography config
 // -----------------------------------------------------------------------------
-// Keep control of your typography with type mappings.
-// Each font combination should maintain its size and line-height where applied.
-//
 // You may change the font weight or family of any text you deem appropriate
 // within your partials using the family or weight values.
+// Each font combination should maintain its size and line-height where applied.
+//
+// d = display text
+// h = heading text
+// b = body text
 // -----------------------------------------------------------------------------
 
 $typographyMap: (
@@ -176,11 +191,13 @@ $typographyMap: (
     'heading': (-apple-system, roboto, 'Segoe UI', sans-serif),
     'body': ('Noto Sans', -apple-system, roboto, 'Segoe UI', sans-serif)
   ),
+
   'weight': (
     'thin': 300,
     'normal': 400,
     'bold': 700
   ),
+
   'd1': (
     'weight': 300,
     'size': 2.5625rem,
@@ -196,6 +213,7 @@ $typographyMap: (
     'size': 2rem,
     'lineHeight': 2.75rem
   ),
+
   'h1': (
     'weight': 700,
     'size': 1.625rem,
@@ -216,6 +234,7 @@ $typographyMap: (
     'size': 1.125rem,
     'lineHeight': 1.75rem
   ),
+
   'b1': (
     'weight': 400,
     'size': 1rem,
