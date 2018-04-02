@@ -1,0 +1,33 @@
+// =============================================================================
+// GRID (Utility)
+// =============================================================================
+
+.u-grid {
+  display: grid;
+  grid-gap: grid('gutter', 'medium');
+  grid-template-columns: repeat(12, minmax(0, 1fr))
+}
+
+.u-grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.u-grid--3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.u-grid--4col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.u-grid--6col {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+
+
+
+.testItem {
+  background-color: rgba(#7840a1, 0.33);
+  padding: space(1);
+}

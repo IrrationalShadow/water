@@ -2,6 +2,10 @@
 // FILE TITLE EXAMPLE
 // =============================================================================
 
+body {
+  margin: 0;
+}
+
 .selector {
   // Comment
   background-image: url('img/image.png'); // Comment
@@ -41,7 +45,7 @@
   --name: #fff;
   $var: #fff;
   background-color: #999;
-  @include hidden();
+  // @include hidden();
 
   @include viewport('small') {
     color: #777;
