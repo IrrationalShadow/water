@@ -7,9 +7,9 @@ plugins:
 
 rules:
   # Naming conventions: [componentName][__descendantName][--modifierName][@size]
-  # Utility conventions [u-][utilityName][@size] should ignore the class pattern
+  # Utility conventions [u-][0/9][utilityName][@size] should ignore the class pattern
   custom-property-pattern: ^[a-z]+(?:[A-Z][a-z]+)*[A-Z]?$
-  selector-class-pattern: ^([a-z]+(?:[A-Z][a-z]+)*[A-Z]?)(__([a-z]+(?:[A-Z][a-z]+)*[A-Z]?))?(--([a-z]+(?:[A-Z][a-z]+)*[A-Z]?))?(.@[a-z]*)?$
+  selector-class-pattern: ^(u-)?([(0-9)\/a-z]+(?:[A-Z][a-z]+)*[A-Z]?)(__([a-z]+(?:[A-Z][a-z]+)*[A-Z]?))?(--([0-9a-z]+(?:[A-Z][a-z]+)*[A-Z]?))?(.@[a-z]*)?$
   scss/at-function-pattern: ^[a-z]+(?:[A-Z][a-z]+)*[A-Z]?$
   scss/at-mixin-pattern: ^[a-z]+(?:[A-Z][a-z]+)*[A-Z]?$
   scss/dollar-variable-pattern: ^([a-z]+(?:[A-Z0-9][a-z0-9]+)*[A-Z0-9]?)(__([a-z]+(?:[A-Z][a-z]+)*[A-Z]?))?(--([a-z]+(?:[A-Z][a-z]+)*[A-Z]?))?$
@@ -47,8 +47,8 @@ rules:
     ignoreAtRules:
       - "else"
       - "if"
-  block-closing-brace-newline-before: always
-  block-opening-brace-newline-after: always
+  block-closing-brace-newline-before: always-multi-line
+  block-opening-brace-newline-after: always-multi-line
   block-opening-brace-space-before: always
   block-no-empty: true
   color-hex-case: lower
@@ -71,8 +71,7 @@ rules:
   font-family-name-quotes: always-where-recommended
   font-family-no-duplicate-names: true
   font-family-no-missing-generic-family-keyword: true
-  font-weight-notation: numeric
-  function-comma-newline-after: always
+  function-comma-newline-after: never-multi-line
   function-comma-space-after: always-single-line
   function-comma-space-before: never
   function-linear-gradient-no-nonstandard-direction: true
@@ -146,15 +145,11 @@ rules:
   selector-attribute-quotes: always
   selector-combinator-space-after: always
   selector-combinator-space-before: always
-  selector-descendant-combinator-no-non-space: true
-  selector-pseudo-class-case: lower
-  selector-pseudo-class-parentheses-space-inside: never
-  selector-pseudo-element-case: lower
-  selector-pseudo-element-colon-notation: double
   selector-combinator-whitelist:
     - " "
     - ">"
     - "+"
+  selector-descendant-combinator-no-non-space: true
   selector-list-comma-newline-after: always
   selector-list-comma-space-before: never
   selector-max-attribute: 1
@@ -166,6 +161,10 @@ rules:
   selector-max-universal: 1
   selector-no-qualifying-type: true
   selector-no-vendor-prefix: true
+  selector-pseudo-class-case: lower
+  selector-pseudo-class-parentheses-space-inside: never
+  selector-pseudo-element-case: lower
+  selector-pseudo-element-colon-notation: double
   selector-type-case: lower
   shorthand-property-no-redundant-values: true
   string-no-newline: true
@@ -180,11 +179,12 @@ rules:
           - /^border/
           - box-shadow
           - clip
-          - max-width
-          - min-width
+      ignoreMediaFeatureNames:
+        px:
+          - /height$/
+          - /width$/
   value-keyword-case: lower
   value-list-comma-newline-after: always-multi-line
   value-list-comma-space-after: always-single-line
   value-list-comma-space-before: never
-  value-list-max-empty-lines: 0
   value-no-vendor-prefix: true

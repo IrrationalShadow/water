@@ -4,30 +4,87 @@
 
 .u-grid {
   display: grid;
-  grid-gap: grid('gutter', 'medium');
-  grid-template-columns: repeat(12, minmax(0, 1fr))
+  grid-gap: grid('gutter', 'large');
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+
+  &:not(:first-child) {
+    margin-top: space(1.5);
+  }
+}
+
+// Grid column presets
+// -----------------------------------------------------------------------------
+// Use these classes when you want to create a repeated number of items that are
+// equal in size. For example, a grid of cards or tiles.
+//
+// This mixin will create the responsive classes for each column set.
+// -----------------------------------------------------------------------------
+
+@mixin columnResponsiveClasses($columnNumber) {
+  grid-template-columns: repeat($columnNumber, 1fr);
+
+  @include viewport('small') {
+    &\@s {
+      grid-template-columns: repeat($columnNumber, 1fr);
+    }
+  }
+
+  @include viewport('medium') {
+    &\@m {
+      grid-template-columns: repeat($columnNumber, 1fr);
+    }
+  }
+
+  @include viewport('large') {
+    &\@l {
+      grid-template-columns: repeat($columnNumber, 1fr);
+    }
+  }
 }
 
 .u-grid--2col {
-  grid-template-columns: repeat(2, 1fr);
+  @include columnResponsiveClasses(2);
 }
 
 .u-grid--3col {
-  grid-template-columns: repeat(3, 1fr);
+  @include columnResponsiveClasses(3);
 }
 
 .u-grid--4col {
-  grid-template-columns: repeat(4, 1fr);
+  @include columnResponsiveClasses(4);
 }
 
 .u-grid--6col {
-  grid-template-columns: repeat(6, 1fr);
+  @include columnResponsiveClasses(6);
 }
 
+// Grid column utilities
+// -----------------------------------------------------------------------------
 
+.u-2\/12 {
+  grid-column: span 2;
+}
 
+.u-3\/12 {
+  grid-column: span 3;
+}
 
-.testItem {
-  background-color: rgba(#7840a1, 0.33);
-  padding: space(1);
+.u-4\/12 {
+  grid-column: span 4;
+}
+
+.u-6\/12 {
+  grid-column: span 6;
+}
+
+.u-8\/12 {
+  grid-column: span 8;
+}
+
+.u-9\/12 {
+  grid-column: span 9;
+}
+
+.u-10\/12 {
+  grid-column: span 10;
 }
