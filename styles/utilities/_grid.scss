@@ -17,10 +17,10 @@
 // Use these classes when you want to create a repeated number of items that are
 // equal in size. For example, a grid of cards or tiles.
 //
-// This mixin will create the responsive classes for each column set.
+// 1. The mixin creates the responsive classes for each column set.
 // -----------------------------------------------------------------------------
 
-@mixin columnResponsiveClasses($columnNumber) {
+@mixin columnResponsiveClasses($columnNumber) { // 1
   grid-template-columns: repeat($columnNumber, 1fr);
 
   @include viewport('small') {
@@ -58,33 +58,55 @@
   @include columnResponsiveClasses(6);
 }
 
-// Grid column utilities
+// Grid column spans
 // -----------------------------------------------------------------------------
 
+@mixin columnSpanResponsiveClasses($columns) {
+  grid-column: span $columns;
+
+  @include viewport('small') {
+    &\@s {
+      grid-column: span $columns;
+    }
+  }
+
+  @include viewport('medium') {
+    &\@m {
+      grid-column: span $columns;
+    }
+  }
+
+  @include viewport('large') {
+    &\@l {
+      grid-column: span $columns;
+    }
+  }
+}
+
 .u-2\/12 {
-  grid-column: span 2;
+  @include columnSpanResponsiveClasses(2);
 }
 
 .u-3\/12 {
-  grid-column: span 3;
+  @include columnSpanResponsiveClasses(3);
 }
 
 .u-4\/12 {
-  grid-column: span 4;
+  @include columnSpanResponsiveClasses(4);
 }
 
 .u-6\/12 {
-  grid-column: span 6;
+  @include columnSpanResponsiveClasses(6);
 }
 
 .u-8\/12 {
-  grid-column: span 8;
+  @include columnSpanResponsiveClasses(8);
 }
 
 .u-9\/12 {
-  grid-column: span 9;
+  @include columnSpanResponsiveClasses(9);
 }
 
 .u-10\/12 {
-  grid-column: span 10;
+  @include columnSpanResponsiveClasses(10);
 }
