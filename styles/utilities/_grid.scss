@@ -5,11 +5,60 @@
 .u-grid {
   display: grid;
   grid-gap: grid('gutter', 'large');
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-columns: repeat(12, 1fr);
 
   &:not(:first-child) {
     margin-top: space(1.5);
   }
+}
+
+// Grid gutters
+// -----------------------------------------------------------------------------
+// Define the grid gap/gutters in your layout. The default is set to large.
+// Responsive classes are available so you can adjust gutter widths based on
+// viewports.
+// -----------------------------------------------------------------------------
+
+@mixin gutterResponsiveClasses($size) {
+  grid-gap: $size;
+
+  &\@s {
+    @include viewport('small') {
+      grid-gap: $size;
+    }
+  }
+
+  &\@m {
+    @include viewport('medium') {
+      grid-gap: $size;
+    }
+  }
+
+  &\@l {
+    @include viewport('large') {
+      grid-gap: $size;
+    }
+  }
+}
+
+.u-grid--gutterCollapse {
+  @include gutterResponsiveClasses(0);
+}
+
+.u-grid--gutterSmall {
+  @include gutterResponsiveClasses(#{grid('gutter', 'small')});
+}
+
+.u-grid--gutterMedium {
+  @include gutterResponsiveClasses(#{grid('gutter', 'medium')});
+}
+
+.u-grid--gutterLarge {
+  @include gutterResponsiveClasses(#{grid('gutter', 'large')});
+}
+
+.u-grid--gutterXlarge {
+  @include gutterResponsiveClasses(#{grid('gutter', 'xlarge')});
 }
 
 // Grid column presets
@@ -17,26 +66,26 @@
 // Use these classes when you want to create a repeated number of items that are
 // equal in size. For example, a grid of cards or tiles.
 //
-// 1. The mixin creates the responsive classes for each column set.
+// The mixin creates the responsive classes for each column set.
 // -----------------------------------------------------------------------------
 
-@mixin columnResponsiveClasses($columnNumber) { // 1
+@mixin columnResponsiveClasses($columnNumber) {
   grid-template-columns: repeat($columnNumber, 1fr);
 
-  @include viewport('small') {
-    &\@s {
+  &\@s {
+    @include viewport('small') {
       grid-template-columns: repeat($columnNumber, 1fr);
     }
   }
 
-  @include viewport('medium') {
-    &\@m {
+  &\@m {
+    @include viewport('medium') {
       grid-template-columns: repeat($columnNumber, 1fr);
     }
   }
 
-  @include viewport('large') {
-    &\@l {
+  &\@l {
+    @include viewport('large') {
       grid-template-columns: repeat($columnNumber, 1fr);
     }
   }
@@ -64,20 +113,20 @@
 @mixin columnSpanResponsiveClasses($columns) {
   grid-column: span $columns;
 
-  @include viewport('small') {
-    &\@s {
+  &\@s {
+    @include viewport('small') {
       grid-column: span $columns;
     }
   }
 
-  @include viewport('medium') {
-    &\@m {
+  &\@m {
+    @include viewport('medium') {
       grid-column: span $columns;
     }
   }
 
-  @include viewport('large') {
-    &\@l {
+  &\@l {
+    @include viewport('large') {
       grid-column: span $columns;
     }
   }
