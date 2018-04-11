@@ -6,16 +6,15 @@
   "license": "MIT",
   "scripts": {
     "lint": "yarn lint:stylelint",
-    "lint:stylelint":
-      "stylelint 'styles/**/*.scss' --cache --syntax scss; exit 0",
-    "build": "yarn lint && yarn build:sass",
-    "build:sass":
-      "node-sass --output-style expanded styles/imports.scss build/css/styles.css",
+    "lint:stylelint": "stylelint 'styles/**/*.scss' --cache --syntax scss; exit 0",
+    "build": "yarn lint && yarn build:sass && yarn build:mediaqueries",
+    "build:sass": "node-sass --output-style expanded styles/imports.scss build/css/styles.css",
+    "build:mediaqueries": "mqpacker -s build/css/styles.css > build/css/styles-mq.css",
     "dist": "yarn build && yarn dist:purge",
-    "dist:purge":
-      "purgecss --css build/css/styles.css --content templates/**/*.html --out build/css/"
+    "dist:purge": "purgecss --css build/css/styles-mq.css --content templates/**/*.html --out build/css/"
   },
   "dependencies": {
+    "css-mqpacker": "^6.0.2",
     "prettier": "^1.11.1",
     "prettier-stylelint": "^0.4.2",
     "purgecss": "^0.21.0",

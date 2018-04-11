@@ -83,30 +83,30 @@
   }
 }
 
-.u-2\/12 {
+.u-grid__2\/12 {
   @include columnSpanResponsiveClasses(2);
 }
 
-.u-3\/12 {
+.u-grid__3\/12 {
   @include columnSpanResponsiveClasses(3);
 }
 
-.u-4\/12 {
+.u-grid__4\/12 {
   @include columnSpanResponsiveClasses(4);
 }
 
-.u-6\/12 {
+.u-grid__6\/12 {
   @include columnSpanResponsiveClasses(6);
 }
 
-.u-8\/12 {
+.u-grid__8\/12 {
   @include columnSpanResponsiveClasses(8);
 }
 
-.u-9\/12 {
+.u-grid__9\/12 {
   @include columnSpanResponsiveClasses(9);
 }
 
-.u-10\/12 {
+.u-grid__10\/12 {
   @include columnSpanResponsiveClasses(10);
 }
