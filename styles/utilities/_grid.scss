@@ -43,6 +43,12 @@
       grid-gap: $size !important;
     }
   }
+
+  &\@xl {
+    @include viewport('xlarge') {
+      grid-gap: $size !important;
+    }
+  }
 }
 
 .u-grid--gutterCollapse {
@@ -93,6 +99,12 @@
       grid-template-columns: repeat($columnNumber, 1fr) !important;
     }
   }
+
+  &\@xl {
+    @include viewport('xlarge') {
+      grid-template-columns: repeat($columnNumber, 1fr) !important;
+    }
+  }
 }
 
 .u-grid--2col {
@@ -131,6 +143,12 @@
 
   &\@l {
     @include viewport('large') {
+      grid-column: span $columns !important;
+    }
+  }
+
+  &\@xl {
+    @include viewport('xlarge') {
       grid-column: span $columns !important;
     }
   }

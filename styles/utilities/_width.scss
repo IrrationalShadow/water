@@ -26,44 +26,50 @@
       width: layout('width', $width) !important;
     }
   }
+
+  &\@xl {
+    @include viewport('xlarge') {
+      width: layout('width', $width) !important;
+    }
+  }
 }
 
-.u-width--100 {
+.u-width100 {
   @include widthResponsiveClasses(100%);
 }
 
-.u-width--80 {
+.u-width80 {
   @include widthResponsiveClasses(80%);
 }
 
-.u-width--75 {
+.u-width75 {
   @include widthResponsiveClasses(75%);
 }
 
-.u-width--66 {
+.u-width66 {
   @include widthResponsiveClasses(66%);
 }
 
-.u-width--60 {
+.u-width60 {
   @include widthResponsiveClasses(60%);
 }
 
-.u-width--50 {
+.u-width50 {
   @include widthResponsiveClasses(50%);
 }
 
-.u-width--40 {
+.u-width40 {
   @include widthResponsiveClasses(40%);
 }
 
-.u-width--33 {
+.u-width33 {
   @include widthResponsiveClasses(33%);
 }
 
-.u-width--25 {
+.u-width25 {
   @include widthResponsiveClasses(25%);
 }
 
-.u-width--20 {
+.u-width20 {
   @include widthResponsiveClasses(20%);
 }

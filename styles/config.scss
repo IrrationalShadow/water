@@ -3,8 +3,8 @@
 // =============================================================================
 // - Colours
 // - Elevation
-// - Layout
 // - Iconography
+// - Layout
 // - Motion
 // - Spacing
 // - Typography
@@ -81,7 +81,22 @@ $elevationMap: (
   @return null;
 }
 
-// Grid config
+// Icons config
+// -----------------------------------------------------------------------------
+
+$iconMap: (
+  'small': 1rem,
+  'medium': 1.5rem,
+  'large': 3rem
+);
+
+@function icon($size) {
+  @return map-get($iconMap, $size);
+  @warn 'Unknown icon size `#{$size}` used in function.';
+  @return null;
+}
+
+// Layout config
 // -----------------------------------------------------------------------------
 
 $layoutMap: (
@@ -91,7 +106,6 @@ $layoutMap: (
     'large': 1.5rem,
     'xlarge': 3rem
   ),
-
   'width': (
     100%: 100%,
     80%: 80%,
@@ -109,21 +123,6 @@ $layoutMap: (
 @function layout($name, $key) {
   @return map-get(map-get($layoutMap, $name), $key);
   @warn 'Unknown layout value `#{$name}` used in function.';
-  @return null;
-}
-
-// Icons config
-// -----------------------------------------------------------------------------
-
-$iconMap: (
-  'small': 1rem,
-  'medium': 1.5rem,
-  'large': 3rem
-);
-
-@function icon($size) {
-  @return map-get($iconMap, $size);
-  @warn 'Unknown icon size `#{$size}` used in function.';
   @return null;
 }
 
