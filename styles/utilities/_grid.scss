@@ -1,14 +1,18 @@
 // =============================================================================
 // GRID (Utility)
 // =============================================================================
+// Grid utility classes should be used for creating responsive page layouts by
+// wrapping components. Components must never have grid classes used within them
+// to create internal component layouts.
+// -----------------------------------------------------------------------------
 
 .u-grid {
-  display: grid;
-  grid-gap: grid('gutter', 'large');
-  grid-template-columns: repeat(12, 1fr);
+  display: grid !important;
+  grid-gap: layout('gutter', 'large') !important;
+  grid-template-columns: repeat(12, 1fr) !important;
 
   &:not(:first-child) {
-    margin-top: space(1.5);
+    margin-top: space(1.5) !important;
   }
 }
 
@@ -20,23 +24,23 @@
 // -----------------------------------------------------------------------------
 
 @mixin gutterResponsiveClasses($size) {
-  grid-gap: $size;
+  grid-gap: $size !important;
 
   &\@s {
     @include viewport('small') {
-      grid-gap: $size;
+      grid-gap: $size !important;
     }
   }
 
   &\@m {
     @include viewport('medium') {
-      grid-gap: $size;
+      grid-gap: $size !important;
     }
   }
 
   &\@l {
     @include viewport('large') {
-      grid-gap: $size;
+      grid-gap: $size !important;
     }
   }
 }
@@ -46,19 +50,19 @@
 }
 
 .u-grid--gutterSmall {
-  @include gutterResponsiveClasses(#{grid('gutter', 'small')});
+  @include gutterResponsiveClasses(#{layout('gutter', 'small')});
 }
 
 .u-grid--gutterMedium {
-  @include gutterResponsiveClasses(#{grid('gutter', 'medium')});
+  @include gutterResponsiveClasses(#{layout('gutter', 'medium')});
 }
 
 .u-grid--gutterLarge {
-  @include gutterResponsiveClasses(#{grid('gutter', 'large')});
+  @include gutterResponsiveClasses(#{layout('gutter', 'large')});
 }
 
 .u-grid--gutterXlarge {
-  @include gutterResponsiveClasses(#{grid('gutter', 'xlarge')});
+  @include gutterResponsiveClasses(#{layout('gutter', 'xlarge')});
 }
 
 // Grid column presets
@@ -70,23 +74,23 @@
 // -----------------------------------------------------------------------------
 
 @mixin columnResponsiveClasses($columnNumber) {
-  grid-template-columns: repeat($columnNumber, 1fr);
+  grid-template-columns: repeat($columnNumber, 1fr) !important;
 
   &\@s {
     @include viewport('small') {
-      grid-template-columns: repeat($columnNumber, 1fr);
+      grid-template-columns: repeat($columnNumber, 1fr) !important;
     }
   }
 
   &\@m {
     @include viewport('medium') {
-      grid-template-columns: repeat($columnNumber, 1fr);
+      grid-template-columns: repeat($columnNumber, 1fr) !important;
     }
   }
 
   &\@l {
     @include viewport('large') {
-      grid-template-columns: repeat($columnNumber, 1fr);
+      grid-template-columns: repeat($columnNumber, 1fr) !important;
     }
   }
 }
@@ -111,25 +115,29 @@
 // -----------------------------------------------------------------------------
 
 @mixin columnSpanResponsiveClasses($columns) {
-  grid-column: span $columns;
+  grid-column: span $columns !important;
 
   &\@s {
     @include viewport('small') {
-      grid-column: span $columns;
+      grid-column: span $columns !important;
     }
   }
 
   &\@m {
     @include viewport('medium') {
-      grid-column: span $columns;
+      grid-column: span $columns !important;
     }
   }
 
   &\@l {
     @include viewport('large') {
-      grid-column: span $columns;
+      grid-column: span $columns !important;
     }
   }
+}
+
+.u-grid__1\/12 {
+  @include columnSpanResponsiveClasses(1);
 }
 
 .u-grid__2\/12 {
@@ -144,8 +152,16 @@
   @include columnSpanResponsiveClasses(4);
 }
 
+.u-grid__5\/12 {
+  @include columnSpanResponsiveClasses(5);
+}
+
 .u-grid__6\/12 {
   @include columnSpanResponsiveClasses(6);
+}
+
+.u-grid__7\/12 {
+  @include columnSpanResponsiveClasses(7);
 }
 
 .u-grid__8\/12 {
@@ -158,4 +174,12 @@
 
 .u-grid__10\/12 {
   @include columnSpanResponsiveClasses(10);
+}
+
+.u-grid__11\/12 {
+  @include columnSpanResponsiveClasses(11);
+}
+
+.u-grid__12\/12 {
+  @include columnSpanResponsiveClasses(12);
 }

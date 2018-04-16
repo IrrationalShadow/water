@@ -1,0 +1,69 @@
+// =============================================================================
+// WIDTH (Utility)
+// =============================================================================
+// Width utility classes should be used with a component class or element to set
+// a specific width. Width classes should not be used to create responsive page
+// layouts.
+// -----------------------------------------------------------------------------
+
+@mixin widthResponsiveClasses($width) {
+  width: layout('width', $width) !important;
+
+  &\@s {
+    @include viewport('small') {
+      width: layout('width', $width) !important;
+    }
+  }
+
+  &\@m {
+    @include viewport('medium') {
+      width: layout('width', $width) !important;
+    }
+  }
+
+  &\@l {
+    @include viewport('large') {
+      width: layout('width', $width) !important;
+    }
+  }
+}
+
+.u-width--100 {
+  @include widthResponsiveClasses(100%);
+}
+
+.u-width--80 {
+  @include widthResponsiveClasses(80%);
+}
+
+.u-width--75 {
+  @include widthResponsiveClasses(75%);
+}
+
+.u-width--66 {
+  @include widthResponsiveClasses(66%);
+}
+
+.u-width--60 {
+  @include widthResponsiveClasses(60%);
+}
+
+.u-width--50 {
+  @include widthResponsiveClasses(50%);
+}
+
+.u-width--40 {
+  @include widthResponsiveClasses(40%);
+}
+
+.u-width--33 {
+  @include widthResponsiveClasses(33%);
+}
+
+.u-width--25 {
+  @include widthResponsiveClasses(25%);
+}
+
+.u-width--20 {
+  @include widthResponsiveClasses(20%);
+}

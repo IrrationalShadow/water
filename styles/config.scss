@@ -3,7 +3,7 @@
 // =============================================================================
 // - Colours
 // - Elevation
-// - Grid
+// - Layout
 // - Iconography
 // - Motion
 // - Spacing
@@ -77,39 +77,38 @@ $elevationMap: (
 
 @function elevation($name, $key) {
   @return map-get(map-get($elevationMap, $name), $key);
-  @warn 'Unknown elevation name `#{$name}` used in function.';
+  @warn 'Unknown elevation value `#{$name}` used in function.';
   @return null;
 }
 
 // Grid config
 // -----------------------------------------------------------------------------
 
-$gridMap: (
-  'columns': (
-    12: 100%,
-    11: 91.66667%,
-    10: 83.33334%,
-    9: 75%,
-    8: 66.66667%,
-    7: 58.33334%,
-    6: 50%,
-    5: 41.66667%,
-    4: 33.33334%,
-    3: 25%,
-    2: 16.66667%,
-    1: 8.33334%
-  ),
+$layoutMap: (
   'gutter': (
     'small': 0.5rem,
     'medium': 1rem,
     'large': 1.5rem,
     'xlarge': 3rem
+  ),
+
+  'width': (
+    100%: 100%,
+    80%: 80%,
+    75%: 75%,
+    66%: 66.66667%,
+    60%: 60%,
+    50%: 50%,
+    40%: 40%,
+    33%: 33.33334%,
+    25%: 25%,
+    20%: 20%
   )
 );
 
-@function grid($name, $key) {
-  @return map-get(map-get($gridMap, $name), $key);
-  @warn 'Unknown grid name `#{$name}` used in function.';
+@function layout($name, $key) {
+  @return map-get(map-get($layoutMap, $name), $key);
+  @warn 'Unknown layout value `#{$name}` used in function.';
   @return null;
 }
 
