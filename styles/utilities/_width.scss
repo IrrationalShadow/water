@@ -1,28 +1,6 @@
 // =============================================================================
 // WIDTH (Utility)
 // =============================================================================
-
-// Container widths
-// -----------------------------------------------------------------------------
-
-.u-container {
-  margin: auto;
-}
-
-.u-container--small {
-  max-width: layout('container', 'small');
-}
-
-.u-container--medium {
-  max-width: layout('container', 'medium');
-}
-
-.u-container--large {
-  max-width: layout('container', 'large');
-}
-
-// Percentage widths
-// -----------------------------------------------------------------------------
 // Width utility classes should be used with a component class or element to set
 // a specific width. Width classes should not be used to create responsive page
 // layouts.

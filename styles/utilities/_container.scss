@@ -1,0 +1,19 @@
+// =============================================================================
+// CONTAINER (Utility)
+// =============================================================================
+
+.u-container {
+  margin: auto !important;
+}
+
+.u-container--small {
+  max-width: layout('container', 'small') !important;
+}
+
+.u-container--medium {
+  max-width: layout('container', 'medium') !important;
+}
+
+.u-container--large {
+  max-width: layout('container', 'large') !important;
+}
