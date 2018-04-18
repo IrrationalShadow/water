@@ -2,6 +2,41 @@
 // VISIBILITY (Utility)
 // =============================================================================
 
+// Semantic hiding
+// -----------------------------------------------------------------------------
+// If you're toggling between a hidden and visible state simply, you can rely
+// on the HTML attributes below. Ensure you use the correct attribute.
+// -----------------------------------------------------------------------------
+
+[hidden],
+[aria-hidden='true'] {
+  display: none !important;
+}
+
+// Visual hiding
+// -----------------------------------------------------------------------------
+// When you want to hide something visually, but remain accessible to screen
+// readers, then use the assistive text class.
+// -----------------------------------------------------------------------------
+
+.u-assistiveText {
+  border: 0 !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+  word-wrap: normal !important;
+}
+
+// Responsive visibility classes
+// -----------------------------------------------------------------------------
+// For times where you need to hide/show HTML at different viewports, use the
+// below classes to change the display property value.
+// -----------------------------------------------------------------------------
+
 .u-hidden {
   display: none !important;
 }
@@ -52,22 +87,4 @@
   @include viewport('xlarge') {
     display: block !important;
   }
-}
-
-// Screen reader text
-// -----------------------------------------------------------------------------
-// Hide pieces of UI that appear in the DOM. If an element appears in the DOM
-// but you wish to hide it from view, add this class. Remove the class when you
-// want to make it visible.
-// -----------------------------------------------------------------------------
-
-.u-screenReader {
-  border: 0 !important;
-  clip: rect(1px 1px 1px 1px) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
 }
