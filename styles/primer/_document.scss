@@ -1,0 +1,32 @@
+// =============================================================================
+// DOCUMENT (Primer)
+// =============================================================================
+// 1. Prevent adjustments of font size after orientation changes in iOS.
+// 2. Set a fixed pixel value on the html element for rem to use.
+// 3. Improve the font-smoothing of text in browsers. This will smooth and thin
+//    the weight of the font in modern browsers.
+// 4. Need to explicity declare each font property. IE10 does not support rem
+//    units in the shorthand font property.
+// -----------------------------------------------------------------------------
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%; // 1
+  font-size: 16px; // 2
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale; // 3
+  -webkit-font-smoothing: antialiased; // 3
+  background-color: #fff;
+  color: color('text');
+  font-family: fontFamily('text'); // 4
+  font-size: 1rem; // 4
+  line-height: lineHeight('base'); // 4
+  margin: 0;
+}

@@ -1,0 +1,34 @@
+// =============================================================================
+// HEADINGS (Primer)
+// =============================================================================
+// 1. Remove the margin if the heading element is the first child in a block.
+// -----------------------------------------------------------------------------
+
+%heading {
+  color: color('n8');
+  font-family: font('family', 'heading');
+  font-weight: font('weight', 'bold');
+  margin: 0 0 space(1.5);
+}
+
+h1 {
+  @extend %heading;
+  @include font('h1');
+}
+
+h2 {
+  @extend %heading;
+  @include font('h2');
+}
+
+h3 {
+  @extend %heading;
+  @include font('h3');
+}
+
+h4,
+h5,
+h6 {
+  @extend %heading;
+  @include font('b1');
+}

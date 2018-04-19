@@ -1,0 +1,31 @@
+// =============================================================================
+// LISTS (Primer)
+// =============================================================================
+
+ul,
+ol,
+dl {
+  margin: 0 0 space(1.5);
+}
+
+ul,
+ol {
+  margin-left: space(1.5);
+  padding-left: 0;
+}
+
+ul ul,
+ul ol
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+
+dt {
+  color: color('n2');
+  font-weight: font('weight', 'bold');
+}
+
+dd {
+  margin: 0 0 space(1);
+}

@@ -1,0 +1,48 @@
+// =============================================================================
+// TEXT (Primer)
+// =============================================================================
+// 1. Remove the bottom border in Chrome 57
+// 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+// 3. Prevent sub/sup elements from affecting the line height in all browsers.
+// -----------------------------------------------------------------------------
+
+p {
+  margin: 0 0 space(1.5);
+}
+
+b,
+strong {
+  font-weight: fontWeight('bold');
+}
+
+abbr {
+  cursor: help;
+  text-decoration: underline;
+}
+
+abbr[title] {
+  border-bottom: none; // 1
+  text-decoration: underline; // 2
+  text-decoration: underline dotted; // 2
+}
+
+small {
+  font-size: font('b2', 'size');
+}
+
+sub,
+sup {
+  // 3
+  font-size: font('b3', 'size');
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em; // 3
+}
+
+sup {
+  top: -0.5em; // 3
+}
