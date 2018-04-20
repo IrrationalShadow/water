@@ -6,8 +6,8 @@
 // -----------------------------------------------------------------------------
 
 hr {
-  border-bottom-width: 1px;
-  border: 0 solid color('divider');
+  border: 0;
+  border-bottom: 1px solid color('divider');
   box-sizing: content-box; // 1
   clear: both;
   height: 0; // 1
