@@ -1,0 +1,105 @@
+// =============================================================================
+// FORMS (Primer)
+// =============================================================================
+// 1. Change the font styles in all browsers.
+// 2. Remove the margin in Firefox and Safari.
+// 3. Show the overflow in Edge.
+// 4. Remove the inheritance of text transform in Edge, Firefox, and IE.
+// 5. Correct the inability to style clickable types in iOS and Safari.
+// 6. Remove the inner border and padding in Firefox.
+// 7. Correct the color inheritance from `fieldset` elements in IE.
+// 8. Correct the text wrapping in Edge and IE.
+// 9. Remove the padding so developers are not caught out when they zero out
+//    fieldset elements in all browsers.
+// 10. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+// 11. Remove the default vertical scrollbar in IE 10+.
+// 12. Remove the padding in IE 10.
+// 13. Correct the cursor style of increment and decrement buttons in Chrome.
+// 14. Correct the odd appearance in Chrome and Safari.
+// 15. Correct the outline style in Safari.
+// 16. Remove the inner padding in Chrome and Safari on macOS.
+// 17. Correct the inability to style clickable types in iOS and Safari.
+// 18. Change font properties to `inherit` in Safari.
+// -----------------------------------------------------------------------------
+
+form,
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; // 1
+  font-size: font('b1', 'size'); // 1
+  line-height: font('b1', 'line-height'); // 1
+  margin: 0; // 2
+}
+
+button,
+input {
+  overflow: visible; // 3
+}
+
+button,
+select {
+  text-transform: none; // 4
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button; // 5
+
+  &::-moz-focus-inner {
+    border-style: none; // 6
+    padding: 0; // 6
+  }
+}
+
+legend {
+  color: inherit; // 7
+  display: table; // 8
+  max-width: 100%; // 8
+  padding: 0; // 9
+  white-space: normal; // 8
+}
+
+progress {
+  vertical-align: baseline; // 10
+}
+
+textarea {
+  overflow: auto; // 11
+}
+
+[type='checkbox'],
+[type='radio'] {
+  padding: 0; // 12
+}
+
+[type='number'] {
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    height: auto; // 13
+  }
+}
+
+[type='search'] {
+  -webkit-appearance: textfield; // 14
+  outline-offset: -2px; // 15
+
+  &::-webkit-search-decoration {
+    -webkit-appearance: none; // 16
+  }
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; // 17
+  font: inherit; // 18
+}
