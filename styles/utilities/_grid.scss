@@ -10,10 +10,6 @@
   display: grid !important;
   grid-gap: layout('gutter', 'large') !important;
   grid-template-columns: repeat(12, 1fr) !important;
-
-  &:not(:first-child) {
-    margin-top: space(1.5) !important;
-  }
 }
 
 // Grid gutters
