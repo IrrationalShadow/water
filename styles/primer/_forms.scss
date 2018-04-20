@@ -20,6 +20,7 @@
 // 16. Remove the inner padding in Chrome and Safari on macOS.
 // 17. Correct the inability to style clickable types in iOS and Safari.
 // 18. Change font properties to `inherit` in Safari.
+// 19. Set default background color for Webkit autofill inputs.
 // -----------------------------------------------------------------------------
 
 form,
@@ -78,6 +79,21 @@ textarea {
   overflow: auto; // 11
 }
 
+input,
+textarea {
+  &::-webkit-input-placeholder {
+    color: color('n5');
+  }
+
+  &::-moz-placeholder {
+    color: color('n5');
+  }
+
+  &:-ms-input-placeholder {
+    color: color('n5');
+  }
+}
+
 [type='checkbox'],
 [type='radio'] {
   padding: 0; // 12
@@ -102,4 +118,11 @@ textarea {
 ::-webkit-file-upload-button {
   -webkit-appearance: button; // 17
   font: inherit; // 18
+}
+
+:-webkit-autofill,
+:-webkit-autofill:hover,
+:-webkit-autofill:focus {
+  -webkit-box-shadow: inset 0 0 0 1000px #fff; // 18
+  -webkit-text-fill-color: color('n3'); // 18
 }
