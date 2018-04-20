@@ -7,10 +7,11 @@
 a {
   background-color: transparent; // 1
   color: color('p500');
-  text-decoration: underline;
+  text-decoration: none;
 
   &:hover,
   &:focus {
     color: color('primary');
+    text-decoration: none;
   }
 }
