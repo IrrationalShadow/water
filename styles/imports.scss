@@ -10,10 +10,28 @@
 
 @import 'config';
 
+// Primer
+// -----------------------------------------------------------------------------
+
+@import 'primer/document';
+@import 'primer/forms';
+@import 'primer/headings';
+@import 'primer/hr';
+@import 'primer/images';
+@import 'primer/links';
+@import 'primer/lists';
+@import 'primer/selection';
+@import 'primer/tables';
+@import 'primer/text';
+
 // Utilities
 // -----------------------------------------------------------------------------
 
+@import 'utilities/container';
 @import 'utilities/grid';
+@import 'utilities/text';
+@import 'utilities/visibility';
+@import 'utilities/width';
 
 // Components
 // -----------------------------------------------------------------------------
