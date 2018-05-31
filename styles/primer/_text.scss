@@ -6,6 +6,33 @@
 // 3. Prevent sub/sup elements from affecting the line height in all browsers.
 // -----------------------------------------------------------------------------
 
+%heading {
+  color: color('n8');
+  margin: 0;
+}
+
+h1 {
+  @extend %heading;
+  @include font('h1');
+}
+
+h2 {
+  @extend %heading;
+  @include font('h2');
+}
+
+h3 {
+  @extend %heading;
+  @include font('h3');
+}
+
+h4,
+h5,
+h6 {
+  @extend %heading;
+  @include font('b1');
+}
+
 p {
   margin: 0 0 space(1.5);
 }
