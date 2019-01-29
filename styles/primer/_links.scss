@@ -6,12 +6,12 @@
 
 a {
   background-color: transparent; // 1
-  color: color('p500');
+  color: var(--color-p5);
   text-decoration: none;
 
   &:hover,
   &:focus {
-    color: color('primary');
+    color: var(--color-p3);
     text-decoration: none;
   }
 }

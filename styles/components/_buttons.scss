@@ -1,0 +1,21 @@
+// =============================================================================
+// BUTTONS
+// =============================================================================
+
+.button {
+  --background: var(--color-n7);
+  --color: var(--color-n1);
+
+  background-color: var(--background);
+  border: 0;
+  color: var(--color);
+  padding: space(0.5) space(1);
+}
+
+// Colour modifiers
+// -----------------------------------------------------------------------------
+
+.button--primary {
+  --background: var(--color-p3);
+  --color: var(--color-n1);
+}

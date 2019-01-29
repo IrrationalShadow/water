@@ -1,0 +1,126 @@
+// =============================================================================
+// LAYOUT
+// =============================================================================
+// A layout is a pattern that defines a page or component structure.
+// Use these maps, functions, and mixins to set your UI's structure.
+//
+// Contents:
+// - Layout
+// - Media
+// - Size
+// - Spacing
+//
+// Linting rules:
+// - stylelint-disable unit-blacklist
+// -----------------------------------------------------------------------------
+
+// Variables
+// -----------------------------------------------------------------------------
+
+$layout-spacingUnit: 'rem';
+$layout-spacingRhythm: 0.125;
+
+// Layout
+// -----------------------------------------------------------------------------
+
+$layoutMap: (
+  'container': (
+    'fixed': 1280px
+  ),
+  'gutter': (
+    'small': 0.5rem,
+    'medium': 1rem,
+    'large': 1.5rem,
+    'xlarge': 3rem
+  ),
+  'width': (
+    100%: 100%,
+    80%: 80%,
+    75%: 75%,
+    66%: 66.66667%,
+    60%: 60%,
+    50%: 50%,
+    40%: 40%,
+    33%: 33.33334%,
+    25%: 25%,
+    20%: 20%
+  )
+);
+
+@function layout($name, $key) {
+  @return map-get(map-get($layoutMap, $name), $key);
+  @warn 'Unknown layout key/value `#{$name}` used in layout() scss function.';
+  @return null;
+}
+
+// Media
+// -----------------------------------------------------------------------------
+// Apply consistent media queries and viewports for responsive UI.
+// Use the function where necessary, but primarily rely on the media mixin for
+// components and layouts.
+// -----------------------------------------------------------------------------
+
+$viewportMap: (
+  'small': 481px,
+  'medium': 721px,
+  'large': 961px,
+  'xlarge': 1281px
+);
+
+@function viewport($viewport) {
+  @return map-get($viewportMap, $viewport);
+  @warn 'Unknown viewport `#{$viewport}` specified in viewport() scss function.';
+  @return null;
+}
+
+@mixin media($size, $maxWidth: null) {
+  @if $maxWidth == 'max' {
+    @media (max-width: (viewport($size) - 1px)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: viewport($size)) {
+      @content;
+    }
+  }
+}
+
+// Size
+// -----------------------------------------------------------------------------
+// Keep consistent sizing throughout your UI.
+// Define pixel values, have them converted to rem units.
+//
+// Every call of the size function is evaluated against the spacing rhythm.
+// If the remainder is not 0, the value entered does not follow the defined
+// vertical rhythm. This will trigger a warning.
+// -----------------------------------------------------------------------------
+
+@function size($value) {
+  $convertedValue: $value / $global-font-size; // 1
+
+  @if $convertedValue % $layout-spacingRhythm == 0 {
+    @return $convertedValue + unquote($layout-spacingUnit);
+  }
+  @warn 'Value in size() function does not follow the design guidelines spacing rhythm.';
+  @return null;
+}
+
+// Spacing
+// -----------------------------------------------------------------------------
+// Keep consistent spacing throughout your UI.
+// The spacing rhythm is your UI vertical rhythm value.
+//
+// Every call of the space function is evaluated against the spacing rhythm.
+// If the remainder is not 0, the value entered does not follow the defined
+// vertical rhythm. This will trigger a warning.
+// -----------------------------------------------------------------------------
+
+@function space($value, $custom: null) {
+  @if $value % $layout-spacingRhythm == 0 {
+    @return $value + unquote($layout-spacingUnit);
+  } @else if $custom == 'custom' {
+    @return $value + unquote($layout-spacingUnit);
+  }
+  @warn 'Value in space() function does not follow the design guidelines spacing rhythm.';
+  @return null;
+}

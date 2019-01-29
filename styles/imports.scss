@@ -1,14 +1,16 @@
 // =============================================================================
 // WATER
 // =============================================================================
+// Be water, my friend.
 // The main imports file for the SCSS.
 // This file is responsible for importing all files required in your build.
 // -----------------------------------------------------------------------------
 
-// Config
+// Globals
 // -----------------------------------------------------------------------------
 
-@import 'config';
+@import 'constants';
+@import 'layout';
 
 // Primer
 // -----------------------------------------------------------------------------
@@ -35,4 +37,6 @@
 // Components
 // -----------------------------------------------------------------------------
 
+@import 'components/buttons';
+@import 'components/icons';
 @import 'components/typography';
