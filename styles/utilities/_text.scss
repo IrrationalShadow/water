@@ -1,57 +1,80 @@
 // =============================================================================
 // TEXT (Utility)
 // =============================================================================
+// Apply a specific style of text from the design system.
+//
+// Linting rule exceptions:
+// stylelint-disable declaration-no-important
+// -----------------------------------------------------------------------------
 
 .u-textD1 {
-  font-size: font('d1', 'size') !important;
-  font-weight: font('d1', 'weight') !important;
-  line-height: font('d1', 'lineHeight') !important;
+  @include responsive() {
+    font-size: var(--font-d1-size) !important;
+    font-weight: var(--font-d1-weight) !important;
+    line-height: var(--font-d1-height) !important;
+  }
 }
 
 .u-textD2 {
-  font-size: font('d2', 'size') !important;
-  font-weight: font('d2', 'weight') !important;
-  line-height: font('d2', 'lineHeight') !important;
+  @include responsive() {
+    font-size: var(--font-d2-size) !important;
+    font-weight: var(--font-d2-weight) !important;
+    line-height: var(--font-d2-height) !important;
+  }
 }
 
 .u-textD3 {
-  font-size: font('d3', 'size') !important;
-  font-weight: font('d3', 'weight') !important;
-  line-height: font('d3', 'lineHeight') !important;
+  @include responsive() {
+    font-size: var(--font-d3-size) !important;
+    font-weight: var(--font-d3-weight) !important;
+    line-height: var(--font-d3-height) !important;
+  }
 }
 
 .u-textH1 {
-  font-size: font('h1', 'size') !important;
-  font-weight: font('h1', 'weight') !important;
-  line-height: font('h1', 'lineHeight') !important;
+  @include responsive() {
+    font-size: var(--font-h1-size) !important;
+    font-weight: var(--font-h1-weight) !important;
+    line-height: var(--font-h1-height) !important;
+  }
 }
 
 .u-textH2 {
-  font-size: font('h2', 'size') !important;
-  font-weight: font('h2', 'weight') !important;
-  line-height: font('h2', 'lineHeight') !important;
+  @include responsive() {
+    font-size: var(--font-h2-size) !important;
+    font-weight: var(--font-h2-weight) !important;
+    line-height: var(--font-h2-height) !important;
+  }
 }
 
 .u-textH3 {
-  font-size: font('h3', 'size') !important;
-  font-weight: font('h3', 'weight') !important;
-  line-height: font('h3', 'lineHeight') !important;
+  @include responsive() {
+    font-size: var(--font-h3-size) !important;
+    font-weight: var(--font-h3-weight) !important;
+    line-height: var(--font-h3-height) !important;
+  }
 }
 
 .u-textB1 {
-  font-size: font('b1', 'size') !important;
-  font-weight: font('b1', 'weight') !important;
-  line-height: font('b1', 'lineHeight') !important;
+  @include responsive() {
+    font-size: var(--font-b1-size) !important;
+    font-weight: var(--font-b1-weight) !important;
+    line-height: var(--font-b1-height) !important;
+  }
 }
 
 .u-textB2 {
-  font-size: font('b2', 'size') !important;
-  font-weight: font('b2', 'weight') !important;
-  line-height: font('b2', 'lineHeight') !important;
+  @include responsive() {
+    font-size: var(--font-b2-size) !important;
+    font-weight: var(--font-b2-weight) !important;
+    line-height: var(--font-b2-height) !important;
+  }
 }
 
 .u-textB3 {
-  font-size: font('b3', 'size') !important;
-  font-weight: font('b3', 'weight') !important;
-  line-height: font('b3', 'lineHeight') !important;
+  @include responsive() {
+    font-size: var(--font-b3-size) !important;
+    font-weight: var(--font-b3-weight) !important;
+    line-height: var(--font-b3-height) !important;
+  }
 }

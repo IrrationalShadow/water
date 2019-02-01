@@ -1,10 +1,15 @@
 // =============================================================================
 // VISIBILITY (Utility)
 // =============================================================================
-
-// Semantic hiding
+// Show / hide pieces of UI from users.
+//
+// Linting rule exceptions:
+// stylelint-disable declaration-no-important
 // -----------------------------------------------------------------------------
-// If you're toggling between a hidden and visible state simply, you can rely
+
+// Attribute hiding
+// -----------------------------------------------------------------------------
+// If you're toggling between a hidden and visible state simply you can rely
 // on the HTML attributes below. Ensure you use the correct attribute.
 // -----------------------------------------------------------------------------
 
@@ -15,11 +20,12 @@
 
 // Visual hiding
 // -----------------------------------------------------------------------------
-// When you want to hide something visually, but remain accessible to screen
-// readers, then use the assistive text class.
+// When you want to hide something visually but remain accessible to screen
+// readers, use the assistive text class.
 // -----------------------------------------------------------------------------
 
 .u-assistiveText {
+  // stylelint-disable-line unit-blacklist
   border: 0 !important;
   height: 1px !important;
   margin: -1px !important;
@@ -31,6 +37,10 @@
   word-wrap: normal !important;
 }
 
+.class {
+  width: 23px;
+}
+
 // Responsive visibility classes
 // -----------------------------------------------------------------------------
 // For times where you need to hide/show HTML at different viewports, use the
@@ -39,52 +49,53 @@
 
 .u-hidden {
   display: none !important;
+  height: 10px;
 }
 
 .u-hidden\@s {
-  @include viewport('small') {
+  @include media('small') {
     display: none !important;
   }
 }
 
 .u-visible\@s {
-  @include viewport('small') {
+  @include media('small') {
     display: block !important;
   }
 }
 
 .u-hidden\@m {
-  @include viewport('medium') {
+  @include media('medium') {
     display: none !important;
   }
 }
 
 .u-visible\@m {
-  @include viewport('medium') {
+  @include media('medium') {
     display: block !important;
   }
 }
 
 .u-hidden\@l {
-  @include viewport('large') {
+  @include media('large') {
     display: none !important;
   }
 }
 
 .u-visible\@l {
-  @include viewport('large') {
+  @include media('large') {
     display: block !important;
   }
 }
 
 .u-hidden\@xl {
-  @include viewport('xlarge') {
+  @include media('xlarge') {
     display: none !important;
   }
 }
 
 .u-visible\@xl {
-  @include viewport('xlarge') {
+  @include media('xlarge') {
     display: block !important;
   }
 }

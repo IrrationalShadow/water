@@ -5,11 +5,12 @@
 .button {
   --background: var(--color-n7);
   --color: var(--color-n1);
+  --padding: space(0.5) space(1);
 
   background-color: var(--background);
   border: 0;
   color: var(--color);
-  padding: space(0.5) space(1);
+  padding: var(--padding);
 }
 
 // Colour modifiers
@@ -18,4 +19,11 @@
 .button--primary {
   --background: var(--color-p3);
   --color: var(--color-n1);
+}
+
+// Size modifiers
+// -----------------------------------------------------------------------------
+
+.button--large {
+  --padding: space(0.75) space(1.5);
 }

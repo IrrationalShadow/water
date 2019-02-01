@@ -1,75 +1,69 @@
 // =============================================================================
 // WIDTH (Utility)
 // =============================================================================
-// Width utility classes should be used with a component class or element to set
-// a specific width. Width classes should not be used to create responsive page
-// layouts.
+// Width utility classes should be used in combination with a component class
+// or element. They should not be used to create page layouts.
+//
+// Linting rule exceptions:
+// stylelint-disable declaration-no-important
 // -----------------------------------------------------------------------------
 
-@mixin widthResponsiveClasses($width) {
-  width: layout('width', $width) !important;
-
-  &\@s {
-    @include viewport('small') {
-      width: layout('width', $width) !important;
-    }
-  }
-
-  &\@m {
-    @include viewport('medium') {
-      width: layout('width', $width) !important;
-    }
-  }
-
-  &\@l {
-    @include viewport('large') {
-      width: layout('width', $width) !important;
-    }
-  }
-
-  &\@xl {
-    @include viewport('xlarge') {
-      width: layout('width', $width) !important;
-    }
-  }
-}
-
 .u-width100 {
-  @include widthResponsiveClasses(100%);
+  @include responsive() {
+    width: layout('width', 100%) !important;
+  }
 }
 
 .u-width80 {
-  @include widthResponsiveClasses(80%);
+  @include responsive() {
+    width: layout('width', 80%) !important;
+  }
 }
 
 .u-width75 {
-  @include widthResponsiveClasses(75%);
+  @include responsive() {
+    width: layout('width', 75%) !important;
+  }
 }
 
 .u-width66 {
-  @include widthResponsiveClasses(66%);
+  @include responsive() {
+    width: layout('width', 66%) !important;
+  }
 }
 
 .u-width60 {
-  @include widthResponsiveClasses(60%);
+  @include responsive() {
+    width: layout('width', 60%) !important;
+  }
 }
 
 .u-width50 {
-  @include widthResponsiveClasses(50%);
+  @include responsive() {
+    width: layout('width', 50%) !important;
+  }
 }
 
 .u-width40 {
-  @include widthResponsiveClasses(40%);
+  @include responsive() {
+    width: layout('width', 40%) !important;
+  }
 }
 
 .u-width33 {
-  @include widthResponsiveClasses(33%);
+  @include responsive() {
+    width: layout('width', 33%) !important;
+  }
 }
 
 .u-width25 {
-  @include widthResponsiveClasses(25%);
+  @include responsive() {
+    width: layout('width', 25%) !important;
+  }
 }
 
 .u-width20 {
-  @include widthResponsiveClasses(20%);
+  @include responsive() {
+    width: layout('width', 20%) !important;
+  }
 }

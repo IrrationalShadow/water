@@ -7,11 +7,12 @@
 // Contents:
 // - Layout
 // - Media
+// - Responsive
 // - Size
 // - Spacing
 //
-// Linting rules:
-// - stylelint-disable unit-blacklist
+// Linting rule exceptions:
+// stylelint-disable unit-blacklist
 // -----------------------------------------------------------------------------
 
 // Variables
@@ -25,7 +26,8 @@ $layout-spacingRhythm: 0.125;
 
 $layoutMap: (
   'container': (
-    'fixed': 1280px
+    'small': 768px,
+    'large': 1280px
   ),
   'gutter': (
     'small': 0.5rem,
@@ -80,6 +82,40 @@ $viewportMap: (
     }
   } @else {
     @media (min-width: viewport($size)) {
+      @content;
+    }
+  }
+}
+
+// Responsive
+// -----------------------------------------------------------------------------
+// A tool for applying styles to all supported media viewports, coupled with
+// responsive class naming conventions.
+// -----------------------------------------------------------------------------
+
+@mixin responsive() {
+  @content;
+
+  &\@s {
+    @include media('small') {
+      @content;
+    }
+  }
+
+  &\@m {
+    @include media('medium') {
+      @content;
+    }
+  }
+
+  &\@l {
+    @include media('large') {
+      @content;
+    }
+  }
+
+  &\@xl {
+    @include media('xlarge') {
       @content;
     }
   }

@@ -8,24 +8,30 @@
 
 // Globals
 // -----------------------------------------------------------------------------
+// Variables and functions that are global in scope and usable below.
+// -----------------------------------------------------------------------------
 
 @import 'globals/constants';
 @import 'globals/layout';
 
 // Primer
 // -----------------------------------------------------------------------------
+// Base element styles and cross-browser foundational UI.
+// -----------------------------------------------------------------------------
 
-@import 'primer/document';
-@import 'primer/forms';
-@import 'primer/hr';
-@import 'primer/images';
-@import 'primer/links';
-@import 'primer/lists';
-@import 'primer/selection';
-@import 'primer/tables';
-@import 'primer/text';
+// @import 'primer/document';
+// @import 'primer/forms';
+// @import 'primer/hr';
+// @import 'primer/images';
+// @import 'primer/links';
+// @import 'primer/lists';
+// @import 'primer/selection';
+// @import 'primer/tables';
+// @import 'primer/text';
 
 // Utilities
+// -----------------------------------------------------------------------------
+// Immutable classes to compose and adapt UI as needed.
 // -----------------------------------------------------------------------------
 
 @import 'utilities/container';
@@ -36,7 +42,9 @@
 
 // Components
 // -----------------------------------------------------------------------------
+//
+// -----------------------------------------------------------------------------
 
-@import 'components/buttons';
-@import 'components/icons';
-@import 'components/typography';
+// @import 'components/buttons';
+// @import 'components/icons';
+// @import 'components/typography';

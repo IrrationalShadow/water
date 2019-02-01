@@ -3,6 +3,14 @@
 // =============================================================================
 
 .u-container {
+  --width: layout('container', 'large');
   margin: auto !important;
-  max-width: layout('container', 'fixed') !important;
+  max-width: var(--width) !important;
+}
+
+// Width modifiers
+// -----------------------------------------------------------------------------
+
+.u-container--small {
+  --width: layout('container', 'small');
 }

@@ -2,198 +2,156 @@
 // GRID (Utility)
 // =============================================================================
 // Grid utility classes should be used for creating responsive page layouts by
-// wrapping components. Components must never have grid classes used within them
-// to create internal component layouts.
+// wrapping components. Components must never have grid classes as descendants.
 // -----------------------------------------------------------------------------
 
 .u-grid {
+  --columns: repeat(12, 1fr);
+  --gutter: layout('gutter', 'large');
+
   display: grid !important;
-  grid-gap: layout('gutter', 'large') !important;
-  grid-template-columns: repeat(12, 1fr) !important;
+  grid-gap: var(--gutter) !important;
+  grid-template-columns: var(--columns) !important;
 }
 
 // Grid gutters
 // -----------------------------------------------------------------------------
-// Define the grid gap/gutters in your layout. The default is set to large.
-// Responsive classes are available so you can adjust gutter widths based on
-// viewports.
+// Set the grid gap/gutters in your layouts at every viewport.
 // -----------------------------------------------------------------------------
 
-@mixin gutterResponsiveClasses($size) {
-  grid-gap: $size !important;
-
-  &\@s {
-    @include viewport('small') {
-      grid-gap: $size !important;
-    }
-  }
-
-  &\@m {
-    @include viewport('medium') {
-      grid-gap: $size !important;
-    }
-  }
-
-  &\@l {
-    @include viewport('large') {
-      grid-gap: $size !important;
-    }
-  }
-
-  &\@xl {
-    @include viewport('xlarge') {
-      grid-gap: $size !important;
-    }
-  }
-}
-
 .u-grid--gutterCollapse {
-  @include gutterResponsiveClasses(0);
+  @include responsive() {
+    --gutter: 0;
+  }
 }
 
 .u-grid--gutterSmall {
-  @include gutterResponsiveClasses(#{layout('gutter', 'small')});
+  @include responsive() {
+    --gutter: layout('gutter', 'small');
+  }
 }
 
 .u-grid--gutterMedium {
-  @include gutterResponsiveClasses(#{layout('gutter', 'medium')});
+  @include responsive() {
+    --gutter: layout('gutter', 'medium');
+  }
 }
 
 .u-grid--gutterLarge {
-  @include gutterResponsiveClasses(#{layout('gutter', 'large')});
+  @include responsive() {
+    --gutter: layout('gutter', 'large');
+  }
 }
 
 .u-grid--gutterXlarge {
-  @include gutterResponsiveClasses(#{layout('gutter', 'xlarge')});
+  @include responsive() {
+    --gutter: layout('gutter', 'xlarge');
+  }
 }
 
 // Grid column presets
 // -----------------------------------------------------------------------------
-// Use these classes when you want to create a repeated number of items that are
-// equal in size. For example, a grid of cards or tiles.
-//
-// The mixin creates the responsive classes for each column set.
+// Adjust the number of columns within your grid.
+// For example, create a grid that houses four cards or tiles per line.
 // -----------------------------------------------------------------------------
 
-@mixin columnResponsiveClasses($columnNumber) {
-  grid-template-columns: repeat($columnNumber, 1fr) !important;
-
-  &\@s {
-    @include viewport('small') {
-      grid-template-columns: repeat($columnNumber, 1fr) !important;
-    }
-  }
-
-  &\@m {
-    @include viewport('medium') {
-      grid-template-columns: repeat($columnNumber, 1fr) !important;
-    }
-  }
-
-  &\@l {
-    @include viewport('large') {
-      grid-template-columns: repeat($columnNumber, 1fr) !important;
-    }
-  }
-
-  &\@xl {
-    @include viewport('xlarge') {
-      grid-template-columns: repeat($columnNumber, 1fr) !important;
-    }
-  }
-}
-
 .u-grid--2col {
-  @include columnResponsiveClasses(2);
+  @include responsive() {
+    --columns: repeat(2, 1fr);
+  }
 }
 
 .u-grid--3col {
-  @include columnResponsiveClasses(3);
+  @include responsive() {
+    --columns: repeat(3, 1fr);
+  }
 }
 
 .u-grid--4col {
-  @include columnResponsiveClasses(4);
+  @include responsive() {
+    --columns: repeat(4, 1fr);
+  }
 }
 
 .u-grid--6col {
-  @include columnResponsiveClasses(6);
+  @include responsive() {
+    --columns: repeat(6, 1fr);
+  }
 }
 
-// Grid column spans
+// Grid columns
+// -----------------------------------------------------------------------------
+// Set individual responsive grid column widths.
 // -----------------------------------------------------------------------------
 
-@mixin columnSpanResponsiveClasses($columns) {
-  grid-column: span $columns !important;
-
-  &\@s {
-    @include viewport('small') {
-      grid-column: span $columns !important;
-    }
-  }
-
-  &\@m {
-    @include viewport('medium') {
-      grid-column: span $columns !important;
-    }
-  }
-
-  &\@l {
-    @include viewport('large') {
-      grid-column: span $columns !important;
-    }
-  }
-
-  &\@xl {
-    @include viewport('xlarge') {
-      grid-column: span $columns !important;
-    }
+.u-grid__1col {
+  @include responsive() {
+    grid-column: span 1 !important;
   }
 }
 
-.u-grid__1\/12 {
-  @include columnSpanResponsiveClasses(1);
+.u-grid__2col {
+  @include responsive() {
+    grid-column: span 2 !important;
+  }
 }
 
-.u-grid__2\/12 {
-  @include columnSpanResponsiveClasses(2);
+.u-grid__3col {
+  @include responsive() {
+    grid-column: span 3 !important;
+  }
 }
 
-.u-grid__3\/12 {
-  @include columnSpanResponsiveClasses(3);
+.u-grid__4col {
+  @include responsive() {
+    grid-column: span 4 !important;
+  }
 }
 
-.u-grid__4\/12 {
-  @include columnSpanResponsiveClasses(4);
+.u-grid__5col {
+  @include responsive() {
+    grid-column: span 5 !important;
+  }
 }
 
-.u-grid__5\/12 {
-  @include columnSpanResponsiveClasses(5);
+.u-grid__6col {
+  @include responsive() {
+    grid-column: span 6 !important;
+  }
 }
 
-.u-grid__6\/12 {
-  @include columnSpanResponsiveClasses(6);
+.u-grid__7col {
+  @include responsive() {
+    grid-column: span 7 !important;
+  }
 }
 
-.u-grid__7\/12 {
-  @include columnSpanResponsiveClasses(7);
+.u-grid__8col {
+  @include responsive() {
+    grid-column: span 8 !important;
+  }
 }
 
-.u-grid__8\/12 {
-  @include columnSpanResponsiveClasses(8);
+.u-grid__9col {
+  @include responsive() {
+    grid-column: span 9 !important;
+  }
 }
 
-.u-grid__9\/12 {
-  @include columnSpanResponsiveClasses(9);
+.u-grid__10col {
+  @include responsive() {
+    grid-column: span 10 !important;
+  }
 }
 
-.u-grid__10\/12 {
-  @include columnSpanResponsiveClasses(10);
+.u-grid__11col {
+  @include responsive() {
+    grid-column: span 11 !important;
+  }
 }
 
-.u-grid__11\/12 {
-  @include columnSpanResponsiveClasses(11);
-}
-
-.u-grid__12\/12 {
-  @include columnSpanResponsiveClasses(12);
+.u-grid__12col {
+  @include responsive() {
+    grid-column: span 12 !important;
+  }
 }
