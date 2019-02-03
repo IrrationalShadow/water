@@ -1,0 +1,111 @@
+// =============================================================================
+// CONSTANTS
+// =============================================================================
+// 'Constant' design tokens from your design system / UI.
+//
+// Contents:
+// - Colours
+// - Motion
+// - Shadows
+// - Typography
+//
+// Linting rule exceptions:
+// stylelint-disable unit-blacklist
+// -----------------------------------------------------------------------------
+
+// Global constants
+// -----------------------------------------------------------------------------
+// Global CSS custom properties. Even though you could, do not override these.
+// -----------------------------------------------------------------------------
+
+:root {
+  // Colours (p = primary, n = neutral, t = text)
+
+  --COLOR__P5: #111;
+  --COLOR__P4: #222;
+  --COLOR__P3: #333;
+  --COLOR__P2: #444;
+  --COLOR__P1: #555;
+
+  --COLOR__N9: #000;
+  --COLOR__N8: #111;
+  --COLOR__N7: #333;
+  --COLOR__N6: #555;
+  --COLOR__N5: #777;
+  --COLOR__N4: #999;
+  --COLOR__N3: #bbb;
+  --COLOR__N2: #ddd;
+  --COLOR__N1: #fff;
+
+  --COLOR__T5: #000;
+  --COLOR__T4: #888;
+  --COLOR__T3: #ccc;
+  --COLOR__T2: #eee;
+  --COLOR__T1: #fff;
+
+  // Motion (animations and transitions)
+
+  --MOTION__FASTEST: 0.15s;
+  --MOTION__FAST: 0.25s;
+  --MOTION__SLOW: 0.5s;
+  --MOTION__SLOWEST: 0.75s;
+
+  --MOTION__EASE: cubic-bezier(0.5; 0; 0.1; 1);
+  --MOTION__EASEIN: cubic-bezier(0.25; 0; 1; 1);
+  --MOTION__EASEOUT: cubic-bezier(0; 0; 0.25; 1);
+
+  // Shadows
+
+  --SHADOW__1: (0 1px 2px rgba(#000; 0.1));
+  --SHADOW__2: (0 2px 4px rgba(#000; 0.1));
+  --SHADOW__3: (0 2px 8px rgba(#000; 0.1));
+  --SHADOW__4: (0 4px 12px rgba(#000; 0.1));
+  --SHADOW__5: (0 4px 16px rgba(#000; 0.1));
+  --SHADOW__6: (0 8px 20px rgba(#000; 0.1));
+
+  // Typography
+
+  --FONT_FAMILY__DISPLAY: (-apple-system; roboto; 'Segoe UI'; sans-serif);
+  --FONT_FAMILY__HEADING: (-apple-system; roboto; 'Segoe UI'; sans-serif);
+  --FONT_FAMILY__BODY: ('Noto Sans'; -apple-system; roboto; 'Segoe UI'; sans-serif); // stylelint-disable max-line-length
+
+  --FONT_WEIGHT__THIN: 300;
+  --FONT_WEIGHT__NORMAL: 400;
+  --FONT_WEIGHT__BOLD: 700;
+
+  --FONT_HEIGHT__D1: 3.25rem;
+  --FONT_SIZE__D1: 2.5625rem;
+  --FONT_WEIGHT__D1: 300;
+
+  --FONT_HEIGHT__D2: 3rem;
+  --FONT_SIZE__D2: 2.25rem;
+  --FONT_WEIGHT__D2: 300;
+
+  --FONT_HEIGHT__D3: 2.75rem;
+  --FONT_SIZE__D3: 2rem;
+  --FONT_WEIGHT__D3: 300;
+
+  --FONT_HEIGHT__H1: 2.25rem;
+  --FONT_SIZE__H1: 1.625rem;
+  --FONT_WEIGHT__H1: 700;
+
+  --FONT_HEIGHT__H2: 2rem;
+  --FONT_SIZE__H2: 1.4375rem;
+  --FONT_WEIGHT__H2: 700;
+
+  --FONT_HEIGHT__H3: 1.875rem;
+  --FONT_SIZE__H3: 1.25rem;
+  --FONT_WEIGHT__H3: 700;
+
+  --FONT_HEIGHT__B1: 1.5rem;
+  --FONT_SIZE__B1: 1rem;
+  --FONT_WEIGHT__B1: 400;
+
+  --FONT_HEIGHT__B2: 1.375rem;
+  --FONT_SIZE__B2: 0.875rem;
+  --FONT_WEIGHT__B2: 400;
+
+  --FONT_HEIGHT__B3: 1.25rem;
+  --FONT_SIZE__B3: 0.75rem;
+  --FONT_WEIGHT__B3: 400;
+}

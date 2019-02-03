@@ -2,29 +2,9 @@
 // ICONS
 // =============================================================================
 
-// Config
-// -----------------------------------------------------------------------------
-
-$iconMap: (
-  'size': (
-    'small': 1rem,
-    'medium': 1.5rem,
-    'large': 3rem
-  )
-);
-
-@function icon($size) {
-  @return map-get($iconMap, $size);
-  @warn 'Unknown icon size `#{$size}` used in function.';
-  @return null;
-}
-
-// Component
-// -----------------------------------------------------------------------------
-
 .icon {
-  --size: icon('size', 'medium');
-  --color: var(--color-n3);
+  --size: 1.5rem;
+  --color: var(--COLOR__N3);
 
   color: var(--color);
   height: var(--size);
@@ -35,16 +15,16 @@ $iconMap: (
 // -----------------------------------------------------------------------------
 
 .icon--primary {
-  --color: var(--color-p3);
+  --color: var(--COLOR__P3);
 }
 
 // Size modifiers
 // -----------------------------------------------------------------------------
 
 .icon--small {
-  --size: icon('size', 'small');
+  --size: 1rem;
 }
 
 .icon--large {
-  --size: icon('size', 'large');
+  --size: 3rem;
 }

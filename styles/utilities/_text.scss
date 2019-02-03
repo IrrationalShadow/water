@@ -1,80 +1,68 @@
 // =============================================================================
-// TEXT (Utility)
+// TEXT (Utilities)
 // =============================================================================
-// Apply a specific style of text from the design system.
+// Apply a specific style to text from the design system.
 //
 // Linting rule exceptions:
 // stylelint-disable declaration-no-important
 // -----------------------------------------------------------------------------
 
+@mixin text($value) {
+  font-size: var(--FONT_SIZE__#{$value}) !important;
+  font-weight: var(--FONT_WEIGHT__#{$value}) !important;
+  line-height: var(--FONT_HEIGHT__#{$value}) !important;
+}
+
 .u-textD1 {
   @include responsive() {
-    font-size: var(--font-d1-size) !important;
-    font-weight: var(--font-d1-weight) !important;
-    line-height: var(--font-d1-height) !important;
+    @include text('D1');
   }
 }
 
 .u-textD2 {
   @include responsive() {
-    font-size: var(--font-d2-size) !important;
-    font-weight: var(--font-d2-weight) !important;
-    line-height: var(--font-d2-height) !important;
+    @include text('D2');
   }
 }
 
 .u-textD3 {
   @include responsive() {
-    font-size: var(--font-d3-size) !important;
-    font-weight: var(--font-d3-weight) !important;
-    line-height: var(--font-d3-height) !important;
+    @include text('D3');
   }
 }
 
 .u-textH1 {
   @include responsive() {
-    font-size: var(--font-h1-size) !important;
-    font-weight: var(--font-h1-weight) !important;
-    line-height: var(--font-h1-height) !important;
+    @include text('H1');
   }
 }
 
 .u-textH2 {
   @include responsive() {
-    font-size: var(--font-h2-size) !important;
-    font-weight: var(--font-h2-weight) !important;
-    line-height: var(--font-h2-height) !important;
+    @include text('H2');
   }
 }
 
 .u-textH3 {
   @include responsive() {
-    font-size: var(--font-h3-size) !important;
-    font-weight: var(--font-h3-weight) !important;
-    line-height: var(--font-h3-height) !important;
+    @include text('H3');
   }
 }
 
 .u-textB1 {
   @include responsive() {
-    font-size: var(--font-b1-size) !important;
-    font-weight: var(--font-b1-weight) !important;
-    line-height: var(--font-b1-height) !important;
+    @include text('B1');
   }
 }
 
 .u-textB2 {
   @include responsive() {
-    font-size: var(--font-b2-size) !important;
-    font-weight: var(--font-b2-weight) !important;
-    line-height: var(--font-b2-height) !important;
+    @include text('B2');
   }
 }
 
 .u-textB3 {
   @include responsive() {
-    font-size: var(--font-b3-size) !important;
-    font-weight: var(--font-b3-weight) !important;
-    line-height: var(--font-b3-height) !important;
+    @include text('B3');
   }
 }

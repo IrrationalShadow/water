@@ -1,5 +1,5 @@
 // =============================================================================
-// GRID (Utility)
+// GRID (Utilities)
 // =============================================================================
 // Grid utility classes should be used for creating responsive page layouts by
 // wrapping components. Components must never have grid classes as descendants.
@@ -10,7 +10,7 @@
 
 .u-grid {
   --columns: repeat(12, 1fr);
-  --gutter: layout('gutter', 'large');
+  --gutter: #{layout('gutter', 'large')};
 
   display: grid !important;
   grid-gap: var(--gutter) !important;
@@ -30,31 +30,31 @@
 
 .u-grid--gutterSmall {
   @include responsive() {
-    --gutter: layout('gutter', 'small');
+    --gutter: #{layout('gutter', 'small')};
   }
 }
 
 .u-grid--gutterMedium {
   @include responsive() {
-    --gutter: layout('gutter', 'medium');
+    --gutter: #{layout('gutter', 'medium')};
   }
 }
 
 .u-grid--gutterLarge {
   @include responsive() {
-    --gutter: layout('gutter', 'large');
+    --gutter: #{layout('gutter', 'large')};
   }
 }
 
 .u-grid--gutterXlarge {
   @include responsive() {
-    --gutter: layout('gutter', 'xlarge');
+    --gutter: #{layout('gutter', 'xlarge')};
   }
 }
 
 // Grid column presets
 // -----------------------------------------------------------------------------
-// Adjust the number of columns within your grid.
+// Adjust the number of defined columns within a grid.
 // For example, create a grid that houses four cards or tiles per line.
 // -----------------------------------------------------------------------------
 
@@ -79,6 +79,12 @@
 .u-grid--6col {
   @include responsive() {
     --columns: repeat(6, 1fr);
+  }
+}
+
+.u-grid--8col {
+  @include responsive() {
+    --columns: repeat(8, 1fr);
   }
 }
 

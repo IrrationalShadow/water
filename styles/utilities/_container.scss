@@ -1,5 +1,5 @@
 // =============================================================================
-// CONTAINER (Utility)
+// CONTAINER (Utilities)
 // =============================================================================
 // Set the width of your page layouts.
 //
@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 
 .u-container {
-  --width: layout('container', 'large');
+  --width: #{layout('container', 'large')};
   margin: auto !important;
   max-width: var(--width) !important;
 }
@@ -17,5 +17,5 @@
 // -----------------------------------------------------------------------------
 
 .u-container--small {
-  --width: layout('container', 'small');
+  --width: #{layout('container', 'small')};
 }

@@ -3,9 +3,9 @@
 // =============================================================================
 
 .button {
-  --background: var(--color-n7);
-  --color: var(--color-n1);
-  --padding: space(0.5) space(1);
+  --background: var(--COLOR__N3);
+  --color: var(--COLOR__N1);
+  --padding: #{space(0.5) space(1)};
 
   background-color: var(--background);
   border: 0;
@@ -17,13 +17,13 @@
 // -----------------------------------------------------------------------------
 
 .button--primary {
-  --background: var(--color-p3);
-  --color: var(--color-n1);
+  --background: var(--COLOR__P3);
+  --color: var(--COLOR__N1);
 }
 
 // Size modifiers
 // -----------------------------------------------------------------------------
 
 .button--large {
-  --padding: space(0.75) space(1.5);
+  --padding: #{space(0.75) space(1.5)};
 }

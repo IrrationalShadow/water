@@ -1,10 +1,11 @@
 // =============================================================================
-// LAYOUT
+// LAYOUTS
 // =============================================================================
 // A layout is a pattern that defines a page or component structure.
-// Use these maps, functions, and mixins to set your UI's structure.
+// Use these custom functions and mixins to define your layouts.
 //
 // Contents:
+// - Layer
 // - Layout
 // - Media
 // - Responsive
@@ -15,11 +16,32 @@
 // stylelint-disable unit-blacklist
 // -----------------------------------------------------------------------------
 
-// Variables
+// Global variables
 // -----------------------------------------------------------------------------
 
-$layout__spacingUnit: 'rem';
-$layout__spacingRhythm: 0.125;
+$LAYOUT__FONT_SIZE: 16px;
+$LAYOUT__SPACING_UNIT: 'rem';
+$LAYOUT__SPACING_RHYTHM: 0.125;
+
+// Layer
+// -----------------------------------------------------------------------------
+
+$layerMap: (
+  'negative': -1,
+  'flat': 0,
+  'raised': 1,
+  'menu': 2,
+  'sticky': 3,
+  'drawer': 4,
+  'overlay': 5,
+  'tooltip': 6
+);
+
+@function layer($layer) {
+  @return map-get($layerMap, $layer);
+  @warn 'Unknown layer `#{$layer}` used in layer() function.';
+  @return null;
+}
 
 // Layout
 // -----------------------------------------------------------------------------
@@ -132,10 +154,10 @@ $viewportMap: (
 // -----------------------------------------------------------------------------
 
 @function size($value) {
-  $convertedValue: $value / $global__fontSize; // 1
+  $convertedValue: $value / $LAYOUT__FONT_SIZE; // 1
 
-  @if $convertedValue % $layout__spacingRhythm == 0 {
-    @return $convertedValue + unquote($layout__spacingUnit);
+  @if $convertedValue % $LAYOUT__SPACING_RHYTHM == 0 {
+    @return $convertedValue + unquote($LAYOUT__SPACING_UNIT);
   }
   @warn 'Value `#{$value}` does not follow the guidelines spacing rhythm.';
   @return null;
@@ -152,10 +174,10 @@ $viewportMap: (
 // -----------------------------------------------------------------------------
 
 @function space($value, $custom: null) {
-  @if $value % $layout__spacingRhythm == 0 {
-    @return $value + unquote($layout__spacingUnit);
+  @if $value % $LAYOUT__SPACING_RHYTHM == 0 {
+    @return $value + unquote($LAYOUT__SPACING_UNIT);
   } @else if $custom == 'custom' {
-    @return $value + unquote($layout__spacingUnit);
+    @return $value + unquote($LAYOUT__SPACING_UNIT);
   }
   @warn 'Value `#{$value}` does not follow the guidelines spacing rhythm.';
   @return null;

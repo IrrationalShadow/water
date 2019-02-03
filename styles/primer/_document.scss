@@ -1,7 +1,7 @@
 // =============================================================================
 // DOCUMENT (Primer)
 // =============================================================================
-// 1. Set a fixed pixel value on the html element for rem to use.
+// 1. Set the global layout font size, declared in _layouts.scss
 // 2. Prevent adjustments of font size after orientation changes in iOS.
 // 3. Need to explicity declare each font property. IE10 does not support rem
 //    units in the shorthand font property.
@@ -20,17 +20,17 @@
 }
 
 html {
-  font-size: $global__fontSize; // 1
+  font-size: $LAYOUT__FONT_SIZE; // 1
   -webkit-text-size-adjust: 100%; // 2
 }
 
 body {
   background-color: #fff;
-  color: color('text');
-  font-family: var(--fontB1__size); // 3
+  color: var(--COLOR__N5);
+  font-family: var(--FONT_FAMILY__BODY); // 3
   font-size: 1rem; // 3
   -moz-osx-font-smoothing: grayscale; // 4
   -webkit-font-smoothing: antialiased; // 4
-  line-height: var(--fontB1__height); // 3
+  line-height: var(--FONT_HEIGHT__B1); // 3
   margin: 0;
 }

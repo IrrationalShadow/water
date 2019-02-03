@@ -7,38 +7,38 @@
 // -----------------------------------------------------------------------------
 
 %heading {
-  color: var(--color__n7);
+  color: var(--COLOR__N7);
   margin: 0;
 }
 
 h1 {
   @extend %heading;
-  font-size: var(--fontH1__height);
-  font-weight: var(--fontH1__weight);
-  line-height: var(--fontH1__height);
+  font-size: var(--FONT_SIZE__H1);
+  font-weight: var(--FONT_WEIGHT__H1);
+  line-height: var(--FONT_HEIGHT__H1);
 }
 
 h2 {
   @extend %heading;
-  font-size: var(--fontH2__size);
-  font-weight: var(--fontH2__weight);
-  line-height: var(--fontH2__height);
+  font-size: var(--FONT_SIZE__H2);
+  font-weight: var(--FONT_WEIGHT__H2);
+  line-height: var(--FONT_HEIGHT__H2);
 }
 
 h3 {
   @extend %heading;
-  font-size: var(--fontH3__size);
-  font-weight: var(--fontH3__weight);
-  line-height: var(--fontH3__height);
+  font-size: var(--FONT_SIZE__H3);
+  font-weight: var(--FONT_WEIGHT__H3);
+  line-height: var(--FONT_HEIGHT__H3);
 }
 
 h4,
 h5,
 h6 {
   @extend %heading;
-  font-size: var(--fontB1__size);
-  font-weight: var(--fontB1__weight);
-  line-height: var(--fontB1__height);
+  font-size: var(--FONT_SIZE__B1);
+  font-weight: var(--FONT_WEIGHT__B1);
+  line-height: var(--FONT_HEIGHT__B1);
 }
 
 p {
@@ -47,7 +47,7 @@ p {
 
 b,
 strong {
-  font-weight: var(--fontWeight__bold);
+  font-weight: var(--FONT_WEIGHT__BOLD);
 }
 
 abbr {
@@ -61,12 +61,12 @@ abbr[title] { // stylelint-disable-line
 }
 
 small {
-  font-size: var(--fontB2__size);
+  font-size: var(--FONT_SIZE__B2);
 }
 
 sub,
 sup {
-  font-size: var(--fontB3__size); // 3
+  font-size: var(--FONT_SIZE__B3); // 3
   line-height: 0; // 3
   position: relative; // 3
   vertical-align: baseline; // 3
