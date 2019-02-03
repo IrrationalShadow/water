@@ -10,15 +10,18 @@
 // - Motion
 // - Shadows
 // - Typography
+//
+// Linting rule exceptions:
+// stylelint-disable unit-blacklist
 // -----------------------------------------------------------------------------
 
 // Global variables
 // -----------------------------------------------------------------------------
-// 1. Define your document base font size in pixels.
-//    It will be used for all rem unit calculations throughout your code.
+// Define your document base font size in pixels. It's used for all rem unit
+// calculations throughout your code.
 // -----------------------------------------------------------------------------
 
-$global-font-size: 16px; // 1
+$global__fontSize: 16px;
 
 // Global constants
 // -----------------------------------------------------------------------------
@@ -29,102 +32,102 @@ $global-font-size: 16px; // 1
 :root {
   // Colours (p = primary, n = neutral, t = text)
 
-  --color-p5: #111;
-  --color-p4: #222;
-  --color-p3: #333;
-  --color-p2: #444;
-  --color-p1: #555;
+  --color__p5: #111;
+  --color__p4: #222;
+  --color__p3: #333;
+  --color__p2: #444;
+  --color__p1: #555;
 
-  --color-n9: #000;
-  --color-n8: #111;
-  --color-n7: #333;
-  --color-n6: #555;
-  --color-n5: #777;
-  --color-n4: #999;
-  --color-n3: #bbb;
-  --color-n2: #ddd;
-  --color-n1: #fff;
+  --color__n9: #000;
+  --color__n8: #111;
+  --color__n7: #333;
+  --color__n6: #555;
+  --color__n5: #777;
+  --color__n4: #999;
+  --color__n3: #bbb;
+  --color__n2: #ddd;
+  --color__n1: #fff;
 
-  --color-t5: #000;
-  --color-t4: #888;
-  --color-t3: #ccc;
-  --color-t2: #eee;
-  --color-t1: #fff;
+  --color__t5: #000;
+  --color__t4: #888;
+  --color__t3: #ccc;
+  --color__t2: #eee;
+  --color__t1: #fff;
 
   // Layers (z-index layers)
 
-  --layer-negative: -1;
-  --layer-flat: 0;
-  --layer-raised: 1;
-  --layer-menu: 2;
-  --layer-sticky: 3;
-  --layer-drawer: 4;
-  --layer-overlay: 5;
-  --layer-tooltip: 6;
+  --layer__negative: -1;
+  --layer__flat: 0;
+  --layer__raised: 1;
+  --layer__menu: 2;
+  --layer__sticky: 3;
+  --layer__drawer: 4;
+  --layer__overlay: 5;
+  --layer__tooltip: 6;
 
   // Motion (animations and transitions)
 
-  --motion-fastest: 0.15s;
-  --motion-fast:  0.25s;
-  --motion-slow:  0.5s;
-  --motion-slowest: 0.75s;
+  --motion__fastest: 0.15s;
+  --motion__fast: 0.25s;
+  --motion__slow: 0.5s;
+  --motion__slowest: 0.75s;
 
-  --motion-ease: cubic-bezier(0.5; 0; 0.1; 1);
-  --motion-easeIn: cubic-bezier(0.25; 0; 1; 1);
-  --motion-easeOut: cubic-bezier(0; 0; 0.25; 1);
+  --motion__ease: cubic-bezier(0.5; 0; 0.1; 1);
+  --motion__easeIn: cubic-bezier(0.25; 0; 1; 1);
+  --motion__easeOut: cubic-bezier(0; 0; 0.25; 1);
 
   // Shadows
 
-  --shadow-1: (0 1px 2px rgba(#000; 0.1));
-  --shadow-2: (0 2px 4px rgba(#000; 0.1));
-  --shadow-3: (0 2px 8px rgba(#000; 0.1));
-  --shadow-4: (0 4px 12px rgba(#000; 0.1));
-  --shadow-5: (0 4px 16px rgba(#000; 0.1));
-  --shadow-6: (0 8px 20px rgba(#000; 0.1));
+  --shadow__1: (0 1px 2px rgba(#000; 0.1));
+  --shadow__2: (0 2px 4px rgba(#000; 0.1));
+  --shadow__3: (0 2px 8px rgba(#000; 0.1));
+  --shadow__4: (0 4px 12px rgba(#000; 0.1));
+  --shadow__5: (0 4px 16px rgba(#000; 0.1));
+  --shadow__6: (0 8px 20px rgba(#000; 0.1));
 
   // Typography
 
-  --font-family-display: (-apple-system; roboto; 'Segoe UI'; sans-serif);
-  --font-family-heading: (-apple-system; roboto; 'Segoe UI'; sans-serif);
-  --font-family-body: ('Noto Sans'; -apple-system; roboto; 'Segoe UI'; sans-serif);
+  --fontFamily__display: (-apple-system; roboto; 'Segoe UI'; sans-serif);
+  --fontFamily__heading: (-apple-system; roboto; 'Segoe UI'; sans-serif);
+  --fontFamily__body: ('Noto Sans'; -apple-system; roboto; 'Segoe UI'; sans-serif); // stylelint-disable max-line-length
 
-  --font-weight-thin: 300;
-  --font-weight-normal: 400;
-  --font-weight-bold: 700;
+  --fontWeight__thin: 300;
+  --fontWeight__normal: 400;
+  --fontWeight__bold: 700;
 
-  --font-d1-height: 3.25rem;
-  --font-d1-size: 2.5625rem;
-  --font-d1-weight: 300;
+  --fontD1__height: 3.25rem;
+  --fontD1__size: 2.5625rem;
+  --fontD1__weight: 300;
 
-  --font-d2-height: 3rem;
-  --font-d2-size: 2.25rem;
-  --font-d2-weight: 300;
+  --fontD2__height: 3rem;
+  --fontD2__size: 2.25rem;
+  --fontD2__weight: 300;
 
-  --font-d3-height: 2.75rem;
-  --font-d3-size: 2rem;
-  --font-d3-weight: 300;
+  --fontD3__height: 2.75rem;
+  --fontD3__size: 2rem;
+  --fontD3__weight: 300;
 
-  --font-h1-height: 2.25rem;
-  --font-h1-size: 1.625rem;
-  --font-h1-weight: 700;
+  --fontH1__height: 2.25rem;
+  --fontH1__size: 1.625rem;
+  --fontH1__weight: 700;
 
-  --font-h2-height: 2rem;
-  --font-h2-size: 1.4375rem;
-  --font-h2-weight: 700;
+  --fontH2__height: 2rem;
+  --fontH2__size: 1.4375rem;
+  --fontH2__weight: 700;
 
-  --font-h3-height: 1.875rem;
-  --font-h3-size: 1.25rem;
-  --font-h3-weight: 700;
+  --fontH3__height: 1.875rem;
+  --fontH3__size: 1.25rem;
+  --fontH3__weight: 700;
 
-  --font-b1-height: 1.5rem;
-  --font-b1-size: 1rem;
-  --font-b1-weight: 400;
+  --fontB1__height: 1.5rem;
+  --fontB1__size: 1rem;
+  --fontB1__weight: 400;
 
-  --font-b2-height: 1.375rem;
-  --font-b2-size: 0.875rem;
-  --font-b2-weight: 400;
+  --fontB2__height: 1.375rem;
+  --fontB2__size: 0.875rem;
+  --fontB2__weight: 400;
 
-  --font-b3-height: 1.25rem;
-  --font-b3-size: 0.75rem;
-  --font-b3-weight: 400;
+  --fontB3__height: 1.25rem;
+  --fontB3__size: 0.75rem;
+  --fontB3__weight: 400;
 }

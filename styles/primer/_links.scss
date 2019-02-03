@@ -6,12 +6,12 @@
 
 a {
   background-color: transparent; // 1
-  color: var(--color-p5);
+  color: var(--color__p5);
   text-decoration: none;
 
   &:hover,
   &:focus {
-    color: var(--color-p3);
+    color: var(--color__p3);
     text-decoration: none;
   }
 }

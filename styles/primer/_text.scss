@@ -7,30 +7,38 @@
 // -----------------------------------------------------------------------------
 
 %heading {
-  color: color('n8');
+  color: var(--color__n7);
   margin: 0;
 }
 
 h1 {
   @extend %heading;
-  @include font('h1');
+  font-size: var(--fontH1__height);
+  font-weight: var(--fontH1__weight);
+  line-height: var(--fontH1__height);
 }
 
 h2 {
   @extend %heading;
-  @include font('h2');
+  font-size: var(--fontH2__size);
+  font-weight: var(--fontH2__weight);
+  line-height: var(--fontH2__height);
 }
 
 h3 {
   @extend %heading;
-  @include font('h3');
+  font-size: var(--fontH3__size);
+  font-weight: var(--fontH3__weight);
+  line-height: var(--fontH3__height);
 }
 
 h4,
 h5,
 h6 {
   @extend %heading;
-  @include font('b1');
+  font-size: var(--fontB1__size);
+  font-weight: var(--fontB1__weight);
+  line-height: var(--fontB1__height);
 }
 
 p {
@@ -39,7 +47,7 @@ p {
 
 b,
 strong {
-  font-weight: fontWeight('bold');
+  font-weight: var(--fontWeight__bold);
 }
 
 abbr {
@@ -47,23 +55,21 @@ abbr {
   text-decoration: underline;
 }
 
-abbr[title] {
+abbr[title] { // stylelint-disable-line
   border-bottom: none; // 1
-  text-decoration: underline; // 2
   text-decoration: underline dotted; // 2
 }
 
 small {
-  font-size: font('b2', 'size');
+  font-size: var(--fontB2__size);
 }
 
 sub,
 sup {
-  // 3
-  font-size: font('b3', 'size');
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
+  font-size: var(--fontB3__size); // 3
+  line-height: 0; // 3
+  position: relative; // 3
+  vertical-align: baseline; // 3
 }
 
 sub {

@@ -6,9 +6,11 @@
 // -----------------------------------------------------------------------------
 
 $iconMap: (
-  'small': 1rem,
-  'medium': 1.5rem,
-  'large': 3rem
+  'size': (
+    'small': 1rem,
+    'medium': 1.5rem,
+    'large': 3rem
+  )
 );
 
 @function icon($size) {
@@ -21,7 +23,7 @@ $iconMap: (
 // -----------------------------------------------------------------------------
 
 .icon {
-  --size: icon('medium');
+  --size: icon('size', 'medium');
   --color: var(--color-n3);
 
   color: var(--color);
@@ -40,9 +42,9 @@ $iconMap: (
 // -----------------------------------------------------------------------------
 
 .icon--small {
-  --size: icon('small');
+  --size: icon('size', 'small');
 }
 
 .icon--large {
-  --size: icon('large');
+  --size: icon('size', 'large');
 }

@@ -18,8 +18,8 @@
 // Variables
 // -----------------------------------------------------------------------------
 
-$layout-spacingUnit: 'rem';
-$layout-spacingRhythm: 0.125;
+$layout__spacingUnit: 'rem';
+$layout__spacingRhythm: 0.125;
 
 // Layout
 // -----------------------------------------------------------------------------
@@ -51,7 +51,7 @@ $layoutMap: (
 
 @function layout($name, $key) {
   @return map-get(map-get($layoutMap, $name), $key);
-  @warn 'Unknown layout key/value `#{$name}` used in layout() scss function.';
+  @warn 'Unknown layout key/value `#{$name}` used in layout() function.';
   @return null;
 }
 
@@ -71,7 +71,7 @@ $viewportMap: (
 
 @function viewport($viewport) {
   @return map-get($viewportMap, $viewport);
-  @warn 'Unknown viewport `#{$viewport}` specified in viewport() scss function.';
+  @warn 'Unknown viewport `#{$viewport}` specified in viewport() function.';
   @return null;
 }
 
@@ -132,12 +132,12 @@ $viewportMap: (
 // -----------------------------------------------------------------------------
 
 @function size($value) {
-  $convertedValue: $value / $global-font-size; // 1
+  $convertedValue: $value / $global__fontSize; // 1
 
-  @if $convertedValue % $layout-spacingRhythm == 0 {
-    @return $convertedValue + unquote($layout-spacingUnit);
+  @if $convertedValue % $layout__spacingRhythm == 0 {
+    @return $convertedValue + unquote($layout__spacingUnit);
   }
-  @warn 'Value in size() function does not follow the design guidelines spacing rhythm.';
+  @warn 'Value `#{$value}` does not follow the guidelines spacing rhythm.';
   @return null;
 }
 
@@ -152,11 +152,11 @@ $viewportMap: (
 // -----------------------------------------------------------------------------
 
 @function space($value, $custom: null) {
-  @if $value % $layout-spacingRhythm == 0 {
-    @return $value + unquote($layout-spacingUnit);
+  @if $value % $layout__spacingRhythm == 0 {
+    @return $value + unquote($layout__spacingUnit);
   } @else if $custom == 'custom' {
-    @return $value + unquote($layout-spacingUnit);
+    @return $value + unquote($layout__spacingUnit);
   }
-  @warn 'Value in space() function does not follow the design guidelines spacing rhythm.';
+  @warn 'Value `#{$value}` does not follow the guidelines spacing rhythm.';
   @return null;
 }

@@ -1,12 +1,16 @@
 // =============================================================================
 // DOCUMENT (Primer)
 // =============================================================================
-// 1. Prevent adjustments of font size after orientation changes in iOS.
-// 2. Set a fixed pixel value on the html element for rem to use.
-// 3. Improve the font-smoothing of text in browsers. This will smooth and thin
-//    the weight of the font in modern browsers.
-// 4. Need to explicity declare each font property. IE10 does not support rem
+// 1. Set a fixed pixel value on the html element for rem to use.
+// 2. Prevent adjustments of font size after orientation changes in iOS.
+// 3. Need to explicity declare each font property. IE10 does not support rem
 //    units in the shorthand font property.
+// 4. Improve the font-smoothing of text in browsers. This will smooth and thin
+//    the weight of the font in modern browsers.
+//
+// Linting rule exceptions:
+// stylelint-disable unit-blacklist
+// stylelint-disable property-no-vendor-prefix
 // -----------------------------------------------------------------------------
 
 *,
@@ -16,17 +20,17 @@
 }
 
 html {
-  -webkit-text-size-adjust: 100%; // 1
-  font-size: 16px; // 2
+  font-size: $global__fontSize; // 1
+  -webkit-text-size-adjust: 100%; // 2
 }
 
 body {
-  -moz-osx-font-smoothing: grayscale; // 3
-  -webkit-font-smoothing: antialiased; // 3
   background-color: #fff;
   color: color('text');
-  font-family: fontFamily('text'); // 4
-  font-size: 1rem; // 4
-  line-height: lineHeight('base'); // 4
+  font-family: var(--fontB1__size); // 3
+  font-size: 1rem; // 3
+  -moz-osx-font-smoothing: grayscale; // 4
+  -webkit-font-smoothing: antialiased; // 4
+  line-height: var(--fontB1__height); // 3
   margin: 0;
 }

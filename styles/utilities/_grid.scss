@@ -3,6 +3,9 @@
 // =============================================================================
 // Grid utility classes should be used for creating responsive page layouts by
 // wrapping components. Components must never have grid classes as descendants.
+//
+// Linting rule exceptions:
+// stylelint-disable declaration-no-important
 // -----------------------------------------------------------------------------
 
 .u-grid {

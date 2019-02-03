@@ -15,15 +15,15 @@ ol {
 }
 
 ul ul,
-ul ol
+ul ol,
 ol ol,
 ol ul {
   margin-bottom: 0;
 }
 
 dt {
-  color: color('n2');
-  font-weight: font('weight', 'bold');
+  color: var(--color__n7);
+  font-weight: var(--fontWeight__bold);
 }
 
 dd {

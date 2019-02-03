@@ -1,6 +1,11 @@
 // =============================================================================
 // CONTAINER (Utility)
 // =============================================================================
+// Set the width of your page layouts.
+//
+// Linting rule exceptions:
+// stylelint-disable declaration-no-important
+// -----------------------------------------------------------------------------
 
 .u-container {
   --width: layout('container', 'large');

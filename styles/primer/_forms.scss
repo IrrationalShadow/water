@@ -21,6 +21,11 @@
 // 17. Correct the inability to style clickable types in iOS and Safari.
 // 18. Change font properties to `inherit` in Safari.
 // 19. Set default background color for Webkit autofill inputs.
+//
+// Linting rule exceptions:
+// stylelint-disable property-no-vendor-prefix
+// stylelint-disable selector-no-vendor-prefix
+// stylelint-disable unit-blacklist
 // -----------------------------------------------------------------------------
 
 form,
@@ -36,8 +41,8 @@ optgroup,
 select,
 textarea {
   font-family: inherit; // 1
-  font-size: font('b1', 'size'); // 1
-  line-height: font('b1', 'line-height'); // 1
+  font-size: var(--fontB1__size); // 1
+  line-height: var(--fontB1__height); // 1
   margin: 0; // 2
 }
 
@@ -82,15 +87,15 @@ textarea {
 input,
 textarea {
   &::-webkit-input-placeholder {
-    color: color('n5');
+    color: var(--color__n5);
   }
 
   &::-moz-placeholder {
-    color: color('n5');
+    color: var(--color__n5);
   }
 
   &:-ms-input-placeholder {
-    color: color('n5');
+    color: var(--color__n5);
   }
 }
 
@@ -124,5 +129,5 @@ textarea {
 :-webkit-autofill:hover,
 :-webkit-autofill:focus {
   -webkit-box-shadow: inset 0 0 0 999px #fff; // 19
-  -webkit-text-fill-color: color('n3'); // 19
+  -webkit-text-fill-color: var(--color__n3); // 19
 }
